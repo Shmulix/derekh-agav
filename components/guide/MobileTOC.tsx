@@ -65,7 +65,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
     <div className="lg:hidden" ref={panelRef}>
       {/* Panel — slides up above the button */}
       {open && (
-        <div className="fixed bottom-[5.5rem] right-4 z-50 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150">
+        <div className="fixed bottom-[9rem] right-4 z-50 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150">
           <div className="bg-navy px-4 py-3 flex items-center justify-between">
             <p className="text-xs font-bold text-gold uppercase tracking-widest">תוכן עניינים</p>
             <button
@@ -103,7 +103,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`fixed bottom-6 right-6 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
+        className={`fixed bottom-[3.5rem] right-4 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"
             : "bg-white border border-gray-200 text-navy hover:bg-navy hover:text-white hover:border-navy pr-5"

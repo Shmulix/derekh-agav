@@ -664,51 +664,33 @@ export default function GuidePage() {
             {/* ─── WINTER EQUIPMENT ────────────────────────────── */}
             <SectionTitle id="winter" icon="❄️">ציוד חורף</SectionTitle>
             <SectionIntro>
-              נוסעים בחורף? יש מדינות שבהן זה לא רק המלצה — זו חובה חוקית. צמיגי חורף, שרשראות שלג, ולפעמים שניהם. מי שלא מגיע מצויד, מסתכן בקנס, ובמקרה גרוע יותר — בתאונה בדרך לאתר הסקי.
+              במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה — חוק.
             </SectionIntro>
 
             <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
               <p>
-                חברות ההשכרה מספקות את הרכב — לא בהכרח את הציוד. ברוב המקרים, <strong className="text-navy">צמיגי חורף כלולים אוטומטית בחורף</strong> כשמשכירים במדינות שבהן יש חובה (אוסטריה, שוויץ, גרמניה, סקנדינביה ועוד). אבל <strong className="text-navy">שרשראות שלג הן לרוב תוספת בתשלום</strong> שצריך להזמין מראש.
+                שני סוגי ציוד מוכרים חוקית: <strong className="text-navy">צמיגי חורף ייעודיים</strong> או <strong className="text-navy">צמיגי All-Season עם סימון 3PMSF</strong> (הסמל של הפתית). שניהם עומדים בדרישות רוב המדינות. שרשראות שלג נדרשות בנוסף בחלק מהאזורים ההרריים, בין אם יש צמיגי חורף ובין אם לאו.
               </p>
-              <p>
-                הבעיה האמיתית? <strong className="text-navy">חוצים גבול.</strong> שכרת רכב בפריז — אין חובת ציוד חורף. נכנסת לאיטליה בדרך לאתר סקי — יש. ועכשיו אתה נוסע עם רכב חסר ציוד בדרך שבה השוטר מחכה בכניסה לעיר ההרים.
-              </p>
-            </div>
 
-            <AccordionItem title="מתי צמיגי חורף חובה ומתי שרשראות?" icon="🔗">
-              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
-                <div className="flex gap-3">
-                  <span className="text-lg flex-shrink-0">🚗</span>
-                  <div>
-                    <p className="font-semibold text-gray-800 mb-1">צמיגי חורף (Winter Tyres)</p>
-                    <p>חובה בחורף במדינות כמו אוסטריה, גרמניה, צ׳כיה, סלובקיה, רומניה, סקנדינביה. לרוב מוגדרים לפי תאריך (נובמבר–אפריל בערך) ולא לפי מזג אוויר. חברות ההשכרה מצייתות לחוק ומספקות אותם אוטומטית בעונה — אבל כדאי לאשר בהזמנה.</p>
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">הציוד בדרך כלל כלול — הספק מחויב לעמוד בחוק. אוסטריה, גרמניה, צ׳כיה, סלובקיה, פולין, מדינות סקנדינביה ועוד 20+ מדינות אירופאיות.</p>
                 </div>
-                <div className="flex gap-3">
-                  <span className="text-lg flex-shrink-0">⛓️</span>
-                  <div>
-                    <p className="font-semibold text-gray-800 mb-1">שרשראות שלג (Snow Chains)</p>
-                    <p>נדרשות בנסיעה לאזורי הרים, אתרי סקי, ומעברי הרים. גם כשיש צמיגי חורף, חלק מהדרכים מחייבות שרשראות. מוזמנות בנפרד — לרוב ב-10–25 יורו לכל ההשכרה. אל תחכו לדלפק, הזמינו מראש.</p>
-                  </div>
-                </div>
-                <div className="flex gap-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                  <span className="text-lg flex-shrink-0">🗻</span>
-                  <div>
-                    <p className="font-semibold text-yellow-800 mb-1">יעדי הרים ואתרי סקי</p>
-                    <p className="text-yellow-900">כלל אצבע: אם יעד ההגעה הוא אתר סקי, עמק הרים, או מעבר הרים — הניחו שצרשראות שלג יידרשו. בדקו את דרישות הספציפיות של המקום לפני.</p>
-                  </div>
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                  <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">נוסעים לאזור הרים, אתר סקי, או מדינה שבה יש חובה? <strong>האחריות עליך.</strong> הספק לא יצייד אותך — אתה צריך להזמין מראש.</p>
                 </div>
               </div>
-            </AccordionItem>
+            </div>
 
             <Callout type="warning">
-              חוצים גבול בחורף? בדקו את דרישות ציוד החורף של <strong>כל מדינה שאתם עוברים בה</strong> — לא רק של יעד הסיום. רכב שכשיר באיטליה עשוי להיות בלתי חוקי בשוויץ עשר דקות אחרי שעברתם את הגבול.
+              זה חל גם בתוך אותה מדינה: שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף או שרשראות באזורי ההרים מכוח חוק Montagne. אותו רכב, אותה השכרה — ציוד שונה נדרש.
             </Callout>
 
             <Callout type="tip">
               <Link href="/posts/winter-equipment" className="font-semibold underline underline-offset-2 hover:opacity-75">
-                מדריך מלא לציוד חורף: מה להזמין, מתי, ומה קורה אם לא ←
+                טבלת חובות ציוד חורף לפי מדינה — המדריך המלא ←
               </Link>
             </Callout>
 

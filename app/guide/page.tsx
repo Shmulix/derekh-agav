@@ -452,11 +452,66 @@ export default function GuidePage() {
               <strong>טיפ שעשוי לחסוך לך הרבה כסף:</strong> לפני שיוצאים עם הרכב מהחניון, תבדוק את דוח הנזק שהנציג מילא. הוא צריך לשקף את מצב הרכב בפועל. אם יש שריטה שלא מסומנת, תדרוש שיוסיפו אותה. ואחרי שסיימת עם הדוח, תצלם את הרכב מארבעת הצדדים ותצלם סרטון קצר סביבו. אותו דבר בהחזרה. הצילומים עם חותמת שעה הם הראיה שלך אם ינסו לחייב אותך על נזק שלא עשית.
             </Callout>
 
-            <AccordionItem title="מה לא מכוסה בשום תרחיש, עם שום ביטוח" icon="🚫">
-              <p className="text-sm text-gray-600 leading-relaxed">
-                נהיגה בהשפעת אלכוהול, סמים, שטח אסור לנסיעה, ריפודים, גג הרכב, אסונות טבע חריגים ורשלנות מוכחת.
-                פה אין קסמים ואין ביטוח שעוזר.
-              </p>
+            <AccordionItem title="מה לא מכוסה — חשוב לדעת לפני שיוצאים" icon="🚫">
+              <div className="space-y-6">
+
+                {/* ── Category 1: Not covered by default, but may be with add-on ── */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-base">⚠️</span>
+                    <p className="font-bold text-orange-700 text-sm">לא מכוסה בדרך כלל — תלוי בחבילה</p>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">
+                    הפריטים הבאים <strong>אינם כלולים בביטוח הסטנדרטי</strong> של הספק. חלקם ניתנים לכיסוי דרך חבילת ביטוח מורחבת של הספק (Premium Protection, Full Cover), אבל לא תמיד, ולא בכל ספק. בדוק את התנאים לפני ההשכרה.
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      { icon: "🪟", title: "שמשות ומראות", sub: "שבירה, סדקים, נזק ממכה" },
+                      { icon: "🔧", title: "צמיגים", sub: "פנצ׳ר, קרע, נזק מדרך" },
+                      { icon: "🚗", title: "מרכב תחתון", sub: "נזק לתחתית הרכב, סף תחתון" },
+                      { icon: "⚙️", title: "מצמד ומצבר", sub: "כשל מכני, בלאי, שימוש לא נכון" },
+                      { icon: "🔑", title: "אובדן מפתחות", sub: "אובדן או גניבת מפתח הרכב" },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2.5">
+                        <span className="text-base flex-shrink-0">{item.icon}</span>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800">{item.title}</p>
+                          <p className="text-xs text-gray-500">{item.sub}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ── Category 2: Never covered, ever ── */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-base">🚫</span>
+                    <p className="font-bold text-red-700 text-sm">לא מכוסה בשום מקרה — עם שום ביטוח</p>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-3 leading-relaxed">
+                    הפריטים הבאים <strong>לא מכוסים על ידי אף ביטוח</strong>, לא של הספק ולא של כרטיס האשראי. לא קיימת חבילה שמכסה אותם. אם קרה, אתה משלם.
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      { icon: "🍺", title: "אלכוהול או סמים", sub: "נהיגה תחת השפעה — ביטול מלא של כל הכיסויים" },
+                      { icon: "🏜️", title: "שטח לא סלול", sub: "כביש עפר, שביל, חוף ים, שטח פתוח" },
+                      { icon: "🪑", title: "ריפודים פנימיים וגג", sub: "נזק פנימי לרכב, כתמים, קרעים, תקרה" },
+                      { icon: "⚖️", title: "רשלנות מוכחת", sub: "נזק שנגרם בכוונה או באי זהירות חמורה" },
+                      { icon: "🌊", title: "אסון טבע", sub: "שיטפון, ברד, רעידת אדמה" },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-lg px-3 py-2.5">
+                        <span className="text-base flex-shrink-0">{item.icon}</span>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800">{item.title}</p>
+                          <p className="text-xs text-gray-500">{item.sub}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
             </AccordionItem>
 
             <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">

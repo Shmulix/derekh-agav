@@ -4,7 +4,6 @@ import {
   FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
   AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake,
 } from "lucide-react";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AccordionItem } from "@/components/guide/Accordion";

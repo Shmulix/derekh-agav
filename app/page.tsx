@@ -20,7 +20,7 @@ const posts = [
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW — מה באמת שווה לקחת?",
-    excerpt: "ההבדל בין ביטוח בסיסי למשלים יכול להסתכם באלפי יורו. הנה איך להחליט נכון — לפי המצב שלך, לא לפי מה שמציעים בדלפק.",
+    excerpt: "ההבדל בין ביטוח בסיסי למשלים יכול להסתכם באלפי יורו. הנה איך להחליט נכון, לפי המצב שלך ולא לפי מה שמציעים בדלפק.",
     readTime: "5 דק׳ קריאה",
     href: "/posts/cdw-vs-scdw",
   },
@@ -36,7 +36,7 @@ const posts = [
     tag: "חיסכון",
     tagColor: "bg-green-700 text-white",
     title: "7 טעויות שכולם עושים כשמשכירים רכב בחו״ל",
-    excerpt: "מרישיון בינלאומי שנשכח ועד מיכל דלק שלא מלא — הטעויות שחוזרות על עצמן שוב ושוב, ואיך להימנע מהן.",
+    excerpt: "מרישיון בינלאומי שנשכח ועד מיכל דלק שלא מלא. הטעויות שחוזרות על עצמן שוב ושוב ואיך להימנע מהן.",
     readTime: "6 דק׳ קריאה",
     href: "/posts/7-mistakes",
   },
@@ -67,7 +67,7 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              המדריך המקיף ביותר להשכרת רכב בחו״ל — כתוב על ידי מי שעבד בתחום יותר מעשר שנים
+              המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.
             </p>
 
             {/* Search */}
@@ -101,13 +101,13 @@ export default function HomePage() {
                 },
                 {
                   icon: Globe,
-                  title: "השכרת רכב בחו״ל — כל הנושאים",
-                  text: "ממסמכים לביטוח, מדלק לקנסות — כל מה שצריך לדעת לפני, במהלך ואחרי ההשכרה.",
+                  title: "השכרת רכב בחו״ל: כל הנושאים",
+                  text: "ממסמכים לביטוח, מדלק לקנסות. כל מה שצריך לדעת לפני, במהלך ואחרי ההשכרה.",
                 },
                 {
                   icon: Link2,
                   title: "המלצות בלי ניגוד עניינים",
-                  text: "הקישורים באתר הם שותפויות עמלה — אבל ההמלצות נשארות עצמאיות ומקצועיות. תמיד.",
+                  text: "הקישורים באתר הם שותפויות עמלה, אבל ההמלצות נשארות עצמאיות ומקצועיות. תמיד.",
                 },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
@@ -147,12 +147,12 @@ export default function HomePage() {
               {/* Left: text */}
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-navy mb-5 leading-snug">
-                  עשר שנים מאחורי הדלפק —<br className="hidden md:block" /> ועכשיו אני בצד שלך
+                  עשר שנים מאחורי הדלפק.<br className="hidden md:block" /> עכשיו אני בצד שלך.
                 </h2>
                 <div className="space-y-3 text-gray-700 leading-relaxed">
                   <p>
                     עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי.
-                    התחלתי כסוכן הזמנות, עברתי לניהול תפעול, ניהול מוקד, ובסוף — Affiliate Manager.
+                    התחלתי כסוכן הזמנות, עברתי לניהול תפעול, ניהול מוקד, ובסוף הגעתי לשיווק שותפים.
                   </p>
                   <p>
                     כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.
@@ -170,7 +170,7 @@ export default function HomePage() {
         <section className="bg-navy py-20">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-white text-center mb-3">
-              המידע הזה לא בא מגוגל — הוא בא מהשטח
+              המידע הזה לא בא מגוגל. הוא בא מהשטח.
             </h2>
             <p className="text-slate-400 text-center mb-12 text-base">ארבעה דברים שהופכים את המדריך הזה לשונה</p>
 
@@ -184,7 +184,7 @@ export default function HomePage() {
                 {
                   icon: AlertTriangle,
                   title: "מתמקד במה שאנשים מפספסים",
-                  text: "כל נקודה במדריך היא דבר שראיתי אנשים נופלים עליו — לפחות פעם אחת.",
+                  text: "כל נקודה במדריך היא דבר שראיתי אנשים נופלים עליו. לפחות פעם אחת.",
                 },
                 {
                   icon: Map,
@@ -220,7 +220,7 @@ export default function HomePage() {
                   המדריך המלא להשכרת רכב בחו״ל
                 </h2>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  כל הנושאים, בסדר הנכון, עם כל מה שצריך לדעת — לפני שמגיעים לדלפק.
+                  כל הנושאים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
                 </p>
 
                 <div className="grid grid-cols-2 gap-3 mb-8">
@@ -306,7 +306,7 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
             <p className="text-slate-300 mb-8 leading-relaxed">
-              עכשיו שאתה מוכן — השווה מחירים בין חברות וחסוך.
+              עכשיו שאתה מוכן, השווה מחירים בין חברות וחסוך.
             </p>
             <a href="#" className="btn-gold text-base px-10 py-3">
               השווה מחירים עכשיו ←

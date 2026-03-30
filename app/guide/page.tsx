@@ -170,7 +170,7 @@ export default function GuidePage() {
               </p>
 
               <p className="text-gray-800 text-lg font-semibold leading-relaxed mb-5">
-                רגע, קודם הרגע הטוב.
+                לפני הכל, הרגע הטוב.
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -285,18 +285,18 @@ export default function GuidePage() {
             <div className="lg:hidden bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
               <p className="text-xs font-bold text-yellow-800 mb-1.5">⚠️ שים לב</p>
               <p className="text-xs text-yellow-900 leading-relaxed">
-                המדריך מבוסס על ניסיון אישי. כל ספק קובע את תנאיו בעצמו — סכומי פיקדון, ביטוח, גיל מינימום ודרישות נוספות יכולים להיות שונים. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
+                המדריך מבוסס על ניסיון אישי. כל ספק קובע את תנאיו בעצמו: סכומי פיקדון, ביטוח, גיל מינימום ודרישות נוספות יכולים להיות שונים. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
               </p>
             </div>
 
             {/* ─── IMPORTANT NOTICE ─────────────────────────────── */}
             <div className="bg-navy rounded-xl p-6 mb-10">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-3">לפני שמתחילים — הכי חשוב</p>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-3">לפני שמתחילים: הכי חשוב</p>
               <p className="text-white font-bold text-base mb-3 leading-snug">
                 תנאי ההשכרה של הספק שלך. קרא אותם. כולם.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                המדריך הזה נותן לך את הבסיס, את הלוגיקה, את מה שרוב האנשים לא יודעים. אבל כל חברת השכרה כותבת את החוזה שלה בעצמה. הסכום של הפיקדון, איזה ביטוח כלול, מה קורה עם נזק לשמשה, האם יש הגבלת קילומטרז׳, מינימום גיל נהג — כל אלה משתנים מספק לספק, ולפעמים גם בין מדינות של אותו ספק.
+                המדריך הזה נותן לך את הבסיס, את הלוגיקה, את מה שרוב האנשים לא יודעים. אבל כל חברת השכרה כותבת את החוזה שלה בעצמה. הסכום של הפיקדון, איזה ביטוח כלול, מה קורה עם נזק לשמשה, האם יש הגבלת קילומטרז׳, מינימום גיל נהג. כל אלה משתנים מספק לספק, ולפעמים גם בין מדינות של אותו ספק.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
                 הטעות הכי נפוצה שראיתי? אנשים שמניחים שאם ידעו אחד כך, כולם כאלה. לא. תפתח את תנאי ההזמנה שלך, תקרא אותם מהתחלה עד הסוף, ותשתמש במדריך הזה כדי להבין מה שקראת. זו הצורה הנכונה להשתמש בו.
@@ -312,7 +312,7 @@ export default function GuidePage() {
             <DocTiles />
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 text-sm text-gray-600 leading-relaxed">
-              <span className="font-bold text-gray-700">✈️ כרטיס עלייה למטוס</span> — לא תמיד נדרש, אבל יש ספקים שמבקשים אותו בנקודת האיסוף. בעיקר בארה״ב ובמדינות מסוימות באירופה. שמור אותו נגיש, גם כרטיס הטיסה חזור. אם לא תצטרך, מעולה. אם יבקשו ולא יהיה לך, תצא להדפיס.
+              <span className="font-bold text-gray-700">✈️ כרטיס עלייה למטוס:</span> לא תמיד נדרש, אבל יש ספקים שמבקשים אותו בנקודת האיסוף. בעיקר בארה״ב ובמדינות מסוימות באירופה. שמור אותו נגיש, גם כרטיס הטיסה חזור. אם לא תצטרך, מעולה. אם יבקשו ולא יהיה לך, תצא להדפיס.
             </div>
 
             <Callout type="tip">
@@ -346,11 +346,11 @@ export default function GuidePage() {
               <ul className="space-y-3 mb-4 text-sm text-gray-600">
                 <li className="flex gap-2 items-start">
                   <span className="font-bold text-navy flex-shrink-0">1.</span>
-                  <span><strong className="text-gray-800">נהג נוסף</strong> — אפשר להוסיף נהג נוסף בדלפק בזמן האיסוף. הוא חייב להיות נוכח פיזית, עם רישיון ישראלי ורישיון בינלאומי בתוקף. זה כרוך בתוספת תשלום יומית.</span>
+                  <span><strong className="text-gray-800">נהג נוסף:</strong> אפשר להוסיף נהג נוסף בדלפק בזמן האיסוף. הוא חייב להיות נוכח פיזית, עם רישיון ישראלי ורישיון בינלאומי בתוקף. זה כרוך בתוספת תשלום יומית.</span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="font-bold text-navy flex-shrink-0">2.</span>
-                  <span><strong className="text-gray-800">נהג ראשי אחר</strong> — אם מישהו אחר הוא הנהג הראשי, שמו צריך להיות בהזמנה, הכרטיס אשראי על שמו, וכל המסמכים שלו. שינוי שם לאחר ההזמנה יכול לאפס אותה לחלוטין.</span>
+                  <span><strong className="text-gray-800">נהג ראשי אחר:</strong> אם מישהו אחר הוא הנהג הראשי, שמו צריך להיות בהזמנה, הכרטיס אשראי על שמו, וכל המסמכים שלו. שינוי שם לאחר ההזמנה יכול לאפס אותה לחלוטין.</span>
                 </li>
               </ul>
               <div className="bg-red-50 border border-red-200 rounded p-3 text-xs text-red-700">
@@ -361,7 +361,7 @@ export default function GuidePage() {
             {/* ─── 2. DEPOSIT ───────────────────────────────────── */}
             <SectionTitle id="deposit" icon="💳">פיקדון</SectionTitle>
             <SectionIntro>
-              דיברנו כבר על כרטיס האשראי בחלק המסמכים. כאן נדבר על מה שעושים איתו בדלפק. הפיקדון הוא חובה. הוא לא מחיר נוסף, הוא לא קנס — הוא בטחון שהספק חוסם על הכרטיס שלך עד שתחזיר את הרכב. בלי כרטיס אשראי פעיל על שם הנהג הראשי, הפיקדון לא עובר, והרכב לא יוצא.
+              דיברנו כבר על כרטיס האשראי בחלק המסמכים. כאן נדבר על מה שעושים איתו בדלפק. הפיקדון הוא חובה. הוא לא מחיר נוסף, הוא לא קנס. הוא בטחון שהספק חוסם על הכרטיס שלך עד שתחזיר את הרכב. בלי כרטיס אשראי פעיל על שם הנהג הראשי, הפיקדון לא עובר, והרכב לא יוצא.
             </SectionIntro>
 
             {/* Deposit visual */}
@@ -405,7 +405,7 @@ export default function GuidePage() {
 
             <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
               <p>
-                כל רכב בתחום ההשכרה משויך לקטגוריה שמוגדרת לפי קוד <strong className="text-navy">ACRISS</strong> — מערכת תקן בינלאומית שמתארת את סוג הרכב, גודלו, סוג ההילוכים והמיזוג. הרכב שמוצג בהזמנה או בהצעת המחיר הוא <strong className="text-navy">רכב כדגם מייצג בלבד</strong>. לא הבטחה.
+                כל רכב בתחום ההשכרה משויך לקטגוריה שמוגדרת לפי קוד <strong className="text-navy">ACRISS</strong>, מערכת תקן בינלאומית שמתארת את סוג הרכב, גודלו, סוג ההילוכים והמיזוג. הרכב שמוצג בהזמנה או בהצעת המחיר הוא <strong className="text-navy">רכב כדגם מייצג בלבד</strong>. לא הבטחה.
               </p>
               <p>
                 בפועל, הספק יכול לתת לך כל רכב אחר שנכנס לאותה קטגוריה. אם הזמנת קטגוריה C וקיבלת רכב שונה ממה שראית בתמונה, אבל הוא באותה קטגוריה, זה חוקי לחלוטין.
@@ -443,7 +443,7 @@ export default function GuidePage() {
             {/* ─── 4. INSURANCE ─────────────────────────────────── */}
             <SectionTitle id="insurance" icon="🛡️">ביטוח</SectionTitle>
             <SectionIntro>
-              ביטוח זה הנושא שאנשים הכי "מבינים" לפני שמגיעים, והכי מתבלבלים ממנו אחרי. בוא נעשה סדר. CDW זה Collision Damage Waiver, ביטוח נזקי תאונה. TP זה Theft Protection, ביטוח גניבה. בארה״ב תראה LDW בלבד — Loss Damage Waiver — שמאחד את שניהם לכיסוי אחד.
+              ביטוח זה הנושא שאנשים הכי "מבינים" לפני שמגיעים, והכי מתבלבלים ממנו אחרי. בוא נעשה סדר. CDW זה Collision Damage Waiver, ביטוח נזקי תאונה. TP זה Theft Protection, ביטוח גניבה. בארה״ב תראה LDW בלבד (Loss Damage Waiver), שמאחד את שניהם לכיסוי אחד.
             </SectionIntro>
 
             <InsuranceTabs />
@@ -461,7 +461,7 @@ export default function GuidePage() {
 
             <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">
               <div>
-                <p className="text-sm font-bold text-navy mb-0.5">עכשיו שאתה מבין את הביטוח —</p>
+                <p className="text-sm font-bold text-navy mb-0.5">עכשיו שאתה מבין את הביטוח:</p>
                 <p className="text-xs text-gray-500">תבדוק מה כלול בהצעות ותשווה מחירים</p>
               </div>
               <a href="#" className="btn-gold text-xs py-2 px-5 flex-shrink-0">השווה מחירים ←</a>
@@ -585,8 +585,8 @@ export default function GuidePage() {
                 <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
                   <span className="text-lg flex-shrink-0">⚠️</span>
                   <div>
-                    <p className="text-red-700 font-bold mb-1">שינוי שעה לאחר שעות הפעילות — ללא פתרון.</p>
-                    <p className="mb-2">שינית שעת איסוף או החזרה לשעה שמחוץ לשעות הפעילות של הסניף? אם לספק אין תיבת מפתחות ואין שירות After Hours, השינוי הזה פשוט לא יתאפשר — ולא תוכל לאסוף את הרכב או להחזיר אותו בשעה החדשה.</p>
+                    <p className="text-red-700 font-bold mb-1">שינוי שעה לאחר שעות הפעילות: אין פתרון.</p>
+                    <p className="mb-2">שינית שעת איסוף או החזרה לשעה שמחוץ לשעות הפעילות של הסניף? אם לספק אין תיבת מפתחות ואין שירות After Hours, השינוי הזה פשוט לא יתאפשר. לא תוכל לאסוף את הרכב או להחזיר אותו בשעה החדשה.</p>
                     <p>במצב כזה חייבים להישאר בתוך שעות הפעילות של הסניף. אין פתרון אחר. אם לא עשית זאת מראש, תצטרך לחזור ולבדוק מחדש.</p>
                   </div>
                 </div>
@@ -603,18 +603,18 @@ export default function GuidePage() {
                   רוצה לאסוף את הרכב בפריז ולהחזיר ברומא? זה אפשרי. זה נקרא <strong className="text-navy">השכרה חד-כיוונית (One-Way)</strong>, ויש לו מחיר.
                 </p>
                 <p>
-                  <strong className="text-gray-800">מה זה דמי החזרה?</strong> תוספת תשלום שמחויבת כי הספק צריך להחזיר את הרכב למקום האיסוף המקורי. זה לוגיסטיקה, ואתה משלם עליה. הסכום יכול לנוע בין כמה עשרות יורו לכמה מאות — תלוי במרחק, במדינה ובספק.
+                  <strong className="text-gray-800">מה זה דמי החזרה?</strong> תוספת תשלום שמחויבת כי הספק צריך להחזיר את הרכב למקום האיסוף המקורי. זה לוגיסטיקה, ואתה משלם עליה. הסכום יכול לנוע בין כמה עשרות יורו לכמה מאות, תלוי במרחק, במדינה ובספק.
                 </p>
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 space-y-2">
                   <p className="text-xs font-bold text-yellow-800">מה חשוב לדעת לפני שמזמינים:</p>
                   <ul className="space-y-1.5 text-xs text-gray-700">
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
-                      דמי ההחזרה לא תמיד מוצגים בבירור בהשוואת המחירים — תחפש אותם בתנאים לפני אישור.
+                      דמי ההחזרה לא תמיד מוצגים בבירור בהשוואת המחירים. תחפש אותם בתנאים לפני אישור.
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
-                      גם בין ערים באותה מדינה יכולים להיות דמי החזרה — תלוי בספק ובמרחק. בין מדינות כמעט תמיד יש תוספת.
+                      גם בין ערים באותה מדינה יכולים להיות דמי החזרה, תלוי בספק ובמרחק. בין מדינות כמעט תמיד יש תוספת.
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
@@ -628,28 +628,28 @@ export default function GuidePage() {
             {/* ─── 7. CROSS-BORDER ──────────────────────────────── */}
             <SectionTitle id="crossborder" icon="🌍">חציית גבול עם רכב שכור</SectionTitle>
             <SectionIntro>
-              נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. זה משהו שצריך להצהיר עליו בהזמנה — ולא לקחת כמובן מאליו.
+              נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. זה משהו שצריך להצהיר עליו בהזמנה. לא לקחת כמובן מאליו.
             </SectionIntro>
 
             <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
               <p>
-                ברוב החוזים, <strong className="text-navy">נסיעה מחוץ למדינת ההשכרה אסורה ללא אישור מראש בכתב</strong>. זה לא שורה בעדינה. זה סעיף שחברות ההשכרה מחילות. מי שנוסע בלי אישור ונגרם נזק — עלול למצוא את עצמו ללא כיסוי ביטוחי כלל.
+                ברוב החוזים, <strong className="text-navy">נסיעה מחוץ למדינת ההשכרה אסורה ללא אישור מראש בכתב</strong>. זה לא שורה בעדינה. זה סעיף שחברות ההשכרה מחילות. מי שנוסע בלי אישור ונגרם נזק? עלול למצוא את עצמו ללא כיסוי ביטוחי כלל.
               </p>
               <p>
-                הדבר הנכון לעשות: <strong className="text-navy">להצהיר על הנסיעה כבר בשלב ההזמנה</strong>. ברוב אתרי ההשוואה ואצל רוב הספקים יש שדה ייעודי לכך. אם אין — פנה ישירות לספק ותאשר בכתב.
+                הדבר הנכון לעשות: <strong className="text-navy">להצהיר על הנסיעה כבר בשלב ההזמנה</strong>. ברוב אתרי ההשוואה ואצל רוב הספקים יש שדה ייעודי לכך. אם אין, פנה ישירות לספק ותאשר בכתב.
               </p>
             </div>
 
             <AccordionItem title="תוספת ביטוח לחציית גבול" icon="🛡️">
               <p className="text-sm text-gray-600 leading-relaxed">
-                הביטוח שכלול בהשכרה — CDW, TP, SCDW — תקף בדרך כלל רק במדינת ההשכרה. כשיוצאים למדינה אחרת, חלק מהספקים דורשים תוספת ביטוח. תבדוק בתנאי ההזמנה אם יש חיוב נוסף עבור המדינות שאתה מתכנן לבקר בהן, ואשר את הכיסוי מראש בכתב.
+                הביטוח שכלול בהשכרה (CDW, TP, SCDW) תקף בדרך כלל רק במדינת ההשכרה. כשיוצאים למדינה אחרת, חלק מהספקים דורשים תוספת ביטוח. תבדוק בתנאי ההזמנה אם יש חיוב נוסף עבור המדינות שאתה מתכנן לבקר בהן, ואשר את הכיסוי מראש בכתב.
               </p>
             </AccordionItem>
 
-            <AccordionItem title="ויניט (Vignette) — תו כביש מהיר" icon="🪟">
+            <AccordionItem title="ויניט (Vignette): תו כביש מהיר" icon="🪟">
               <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <p>
-                  במדינות מסוימות באירופה נדרש <strong className="text-gray-800">ויניט</strong> — תו דיגיטלי או מדבקה לשימוש בכבישים המהירים. כשמשכירים רכב באחת המדינות האלה הויניט לרוב כלול. כשנוסעים אליה ממדינה אחרת — <strong className="text-gray-800">האחריות על הנהג</strong>. לא בדקת, לא שילמת — קנס.
+                  במדינות מסוימות באירופה נדרש <strong className="text-gray-800">ויניט</strong>, תו דיגיטלי או מדבקה לשימוש בכבישים המהירים. כשמשכירים רכב באחת המדינות האלה הויניט לרוב כלול. כשנוסעים אליה ממדינה אחרת? <strong className="text-gray-800">האחריות על הנהג</strong>. לא בדקת, לא שילמת. קנס.
                 </p>
                 <Callout type="info">
                   מדינות נפוצות שדורשות ויניט: אוסטריה, שוויץ, צ׳כיה, סלובניה, הונגריה, רומניה, בולגריה וסלובקיה. ניתן לרכוש דיגיטלית דרך האתר הרשמי של כל מדינה לפני הנסיעה.
@@ -664,7 +664,7 @@ export default function GuidePage() {
             {/* ─── WINTER EQUIPMENT ────────────────────────────── */}
             <SectionTitle id="winter" icon="❄️">ציוד חורף</SectionTitle>
             <SectionIntro>
-              במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה — חוק.
+              במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה. חוק.
             </SectionIntro>
 
             <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-4">
@@ -673,17 +673,17 @@ export default function GuidePage() {
               <div className="space-y-3">
                 <div className="border-r-2 border-navy pr-3">
                   <p className="font-semibold text-navy text-sm mb-0.5">❄️ צמיגי חורף ייעודיים</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">מיועדים לטמפרטורות נמוכות, כבישים רטובים, שלג קל וקרח דק. אינם מיועדים לנסיעה בשלג עמוק או קרח כבד — לכך נועדות השרשראות.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">מיועדים לטמפרטורות נמוכות, כבישים רטובים, שלג קל וקרח דק. אינם מיועדים לנסיעה בשלג עמוק או קרח כבד. לכך נועדות השרשראות.</p>
                 </div>
 
                 <div className="border-r-2 border-blue-400 pr-3">
                   <p className="font-semibold text-navy text-sm mb-0.5">🔵 צמיגי רב-עונתיים עם סימון 3PMSF</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">צמיגים המיועדים לכל השנה, שעומדים בתקן החורפי האירופי (סמל הפתית על הצמיג). מתאימים לקור, גשם, ושלג קל. כשהשלג מתעמק או הקרח מתגבש — גם הם מגיעים לגבול שלהם, וצריך שרשראות.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">צמיגים המיועדים לכל השנה, שעומדים בתקן החורפי האירופי (סמל הפתית על הצמיג). מתאימים לקור, גשם, ושלג קל. כשהשלג מתעמק או הקרח מתגבש, גם הם מגיעים לגבול שלהם. צריך שרשראות.</p>
                 </div>
 
                 <div className="border-r-2 border-gray-400 pr-3">
                   <p className="font-semibold text-navy text-sm mb-0.5">⛓️ שרשראות שלג / גרביוני שלג</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">מתקינים על הגלגלים כשהכביש מכוסה שלג עמוק או קרח. שרשראות ממתכת וגרביוני שלג מטקסטיל — שתי הגרסאות מיועדות לאותה מטרה. חלק מהמדינות מחייבות לשאת אותן ברכב בחורף גם אם לא נדרשת ההתקנה בפועל.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">מתקינים על הגלגלים כשהכביש מכוסה שלג עמוק או קרח. שרשראות ממתכת וגרביוני שלג מטקסטיל, שתי הגרסאות מיועדות לאותה מטרה. חלק מהמדינות מחייבות לשאת אותן ברכב בחורף גם אם לא נדרשת ההתקנה בפועל.</p>
                 </div>
               </div>
 
@@ -692,11 +692,11 @@ export default function GuidePage() {
                 <div className="flex flex-col gap-3">
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                     <p className="text-xs font-bold text-blue-700 mb-1.5">מה החוק מחייב</p>
-                    <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף / רב-עונתיים (3PMSF)</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong> — אלפים, פירנאים, אזורי הרים.</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף / רב-עונתיים (3PMSF)</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong>: אלפים, פירנאים, אזורי הרים.</p>
                   </div>
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
                     <p className="text-xs font-bold text-amber-700 mb-1.5">מה הבטיחות דורשת</p>
-                    <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף / רב-עונתיים — על כביש מושלג או מקפיא, <strong>בלי שרשראות לא תוכלו לנסוע</strong>. הרכב יחליק, יתקע, ולא ינוע. זה לא עניין של המלצה — זו מציאות פיזית. לאזור סקי או כביש הררי בחורף? שרשראות הן ציוד חובה בטיחותי, גם אם החוק לא מחייב.</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף / רב-עונתיים: על כביש מושלג או מקפיא, <strong>בלי שרשראות לא תוכלו לנסוע</strong>. הרכב יחליק, יתקע, ולא ינוע. זה לא עניין של המלצה. זו מציאות פיזית. לאזור סקי או כביש הררי בחורף? שרשראות הן ציוד חובה בטיחותי, גם אם החוק לא מחייב.</p>
                   </div>
                 </div>
               </div>
@@ -704,18 +704,18 @@ export default function GuidePage() {
               <div className="flex flex-col gap-3 pt-1 border-t border-gray-200">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
-                  <p className="text-xs text-gray-600 leading-relaxed mb-2">הספק מחויב לעמוד בחוק — אך <strong>רק הציוד שהחוק מחייב</strong> יהיה כלול: בדרך כלל צמיגי חורף / רב-עונתיים <em>או</em> שרשראות — לא בהכרח שניהם.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed mb-2">הספק מחויב לעמוד בחוק, אבל <strong>רק הציוד שהחוק מחייב</strong> יהיה כלול: בדרך כלל צמיגי חורף / רב-עונתיים <em>או</em> שרשראות. לא בהכרח שניהם.</p>
                   <ul className="text-xs text-gray-600 leading-relaxed space-y-1">
-                    <li>• ציוד נוסף (למשל שרשראות כשיש רק חובת צמיגים) — <strong>יש להזמין בנפרד ומראש</strong>.</li>
-                    <li>• גם ציוד שהחוק מחייב לא תמיד כלול במחיר ההשכרה — <strong>בחלק מהמקרים מדובר בתוספת תשלום</strong>. כדאי לבדוק בעת ההזמנה.</li>
+                    <li>• ציוד נוסף (למשל שרשראות כשיש רק חובת צמיגים): <strong>יש להזמין בנפרד ומראש</strong>.</li>
+                    <li>• גם ציוד שהחוק מחייב לא תמיד כלול במחיר ההשכרה. <strong>בחלק מהמקרים זה תוספת תשלום</strong>. כדאי לבדוק בעת ההזמנה.</li>
                   </ul>
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-2">נוסעים לאזור הרים, אתר סקי, או מדינה עם חובת ציוד חורף? <strong>האחריות עליך לחלוטין.</strong> שתי אפשרויות:</p>
                   <ul className="text-xs text-gray-600 leading-relaxed space-y-1.5">
-                    <li><strong>• דרך הספק</strong> — חלק מהספקים מציעים קטגוריות עם צמיגי חורף / רב-עונתיים, ואפשרות להזמין שרשראות כתוסף. אבל זה לא זמין בכל תחנה — בדרך כלל רק בתחנות שמשרתות יעדי חורף מוכרים (ליון, ז׳נבה, אינסברוק ועוד). <strong>חייבים להזמין מראש</strong> — בדלפק לא תמצאו.</li>
-                    <li><strong>• ברכישה עצמאית</strong> — שרשראות ניתן לרכוש בחנויות ציוד רכב לאורך הדרך. פתרון טוב אם לא הזמנתם מראש, אך לא מחכים לרגע האחרון.</li>
+                    <li><strong>• דרך הספק:</strong> חלק מהספקים מציעים קטגוריות עם צמיגי חורף / רב-עונתיים, ואפשרות להזמין שרשראות כתוסף. אבל זה לא זמין בכל תחנה, בדרך כלל רק בתחנות שמשרתות יעדי חורף מוכרים (ליון, ז׳נבה, אינסברוק ועוד). <strong>חייבים להזמין מראש.</strong> בדלפק לא תמצאו.</li>
+                    <li><strong>• ברכישה עצמאית:</strong> שרשראות ניתן לרכוש בחנויות ציוד רכב לאורך הדרך. פתרון טוב אם לא הזמנתם מראש, אך לא מחכים לרגע האחרון.</li>
                   </ul>
                 </div>
               </div>
@@ -723,7 +723,7 @@ export default function GuidePage() {
 
             <Callout type="tip">
               <Link href="/posts/winter-equipment" className="font-semibold underline underline-offset-2 hover:opacity-75">
-                טבלת חובות ציוד חורף לפי מדינה — המדריך המלא ←
+                טבלת חובות ציוד חורף לפי מדינה: המדריך המלא ←
               </Link>
             </Callout>
 
@@ -852,7 +852,7 @@ export default function GuidePage() {
             {/* ─── LEXICON ──────────────────────────────────────── */}
             <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
             <SectionIntro>
-              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
+              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק. עם תרגום והסבר קצר.
             </SectionIntro>
 
             <AccordionItem title="פתח את המילון המלא" icon="📖">
@@ -871,7 +871,7 @@ export default function GuidePage() {
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
               <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>
               <p className="text-xs text-yellow-900 leading-relaxed">
-                המדריך הזה מבוסס על ניסיון אישי ומקרים מהשטח. הוא מדריך, לא חוזה. כל ספק קובע את תנאיו בעצמו. סכומי פיקדון, דרישות ביטוח, גיל מינימום, רשימת מסמכים — כל אלה יכולים להיות שונים ממה שכתוב כאן. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
+                המדריך הזה מבוסס על ניסיון אישי ומקרים מהשטח. הוא מדריך, לא חוזה. כל ספק קובע את תנאיו בעצמו. סכומי פיקדון, דרישות ביטוח, גיל מינימום, רשימת מסמכים. כל אלה יכולים להיות שונים ממה שכתוב כאן. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
               </p>
             </div>
             <div className="p-4 bg-surface rounded-lg border border-gray-100">

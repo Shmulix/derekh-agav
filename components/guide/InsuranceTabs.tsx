@@ -121,18 +121,9 @@ export default function InsuranceTabs() {
                 </div>
               </div>
             </div>
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-              <p className="text-xs font-bold text-orange-700 mb-2">גם עם SCDW, אלה לא תמיד מכוסים:</p>
-              <ul className="space-y-1">
-                {notCovered.map(({ item }) => (
-                  <li key={item} className="text-xs text-gray-600 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-gray-400 mt-2">תבדוק את תנאי הכיסוי הספציפי של הספק.</p>
-            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              כמו ב-CDW/TP, שמשות, מראות, צמיגים, מרכב תחתון, מצמד, מצבר ואובדן מפתחות אינם מכוסים בביטוח הבסיסי של הספק.
+            </p>
           </div>
         )}
 

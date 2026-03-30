@@ -171,19 +171,20 @@ GitHub repo: **https://github.com/Shmulix/derekh-agav**
 Vercel is connected to GitHub — every push to `main` triggers an automatic redeploy.
 
 ### MANDATORY: After every modification — NO EXCEPTIONS
-Every single code change, no matter how small, must be applied to BOTH:
-- **Local project** (`C:\Users\sampe\Desktop\car rental project`) — edit the files directly
-- **GitHub + Vercel** — commit and push immediately after
 
-The two versions must ALWAYS be identical. Never finish a task without pushing.
+Use the **`/deploy-site` skill** after every single code change, no matter how small.
 
-```bash
-git add .
-git commit -m "description of change"
-git push
+```
+/deploy-site description of what was changed
 ```
 
-Do NOT wait until "the end of the session" to push. Push after every change.
+The skill will automatically:
+1. `git add . && git commit`
+2. `git push origin master` (best effort — continues even if it times out)
+3. `npx vercel --prod` — **this is the reliable deploy method**
+4. Confirm: `✓ Site deployed: https://derekh-agav.vercel.app`
+
+**Never** finish a task without running `/deploy-site`. Local, GitHub and Vercel must always be in sync.
 
 ---
 

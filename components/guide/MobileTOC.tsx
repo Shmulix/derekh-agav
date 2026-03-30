@@ -115,9 +115,14 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
         ) : (
           <>
             <List size={16} className="flex-shrink-0" />
-            <span className="text-xs font-bold whitespace-nowrap">
-              {activeId ? (items.find((i) => i.id === activeId)?.label ?? "תוכן עניינים") : "תוכן עניינים"}
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-xs font-bold whitespace-nowrap">תוכן עניינים</span>
+              {activeId && (
+                <span className="text-[10px] text-navy/50 whitespace-nowrap font-normal">
+                  {items.find((i) => i.id === activeId)?.label}
+                </span>
+              )}
+            </div>
           </>
         )}
       </button>

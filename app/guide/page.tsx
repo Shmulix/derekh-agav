@@ -701,7 +701,7 @@ export default function GuidePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 border-t border-gray-200">
+              <div className="flex flex-col gap-3 pt-1 border-t border-gray-200">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-2">הספק מחויב לעמוד בחוק — אך <strong>רק הציוד שהחוק מחייב</strong> יהיה כלול: בדרך כלל צמיגי חורף / רב-עונתיים <em>או</em> שרשראות — לא בהכרח שניהם.</p>

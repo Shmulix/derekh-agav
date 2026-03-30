@@ -668,9 +668,12 @@ export default function GuidePage() {
             </SectionIntro>
 
             <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
-              <p>
-                שני סוגי ציוד מוכרים חוקית: <strong className="text-navy">צמיגי חורף ייעודיים</strong> או <strong className="text-navy">צמיגי All-Season עם סימון 3PMSF</strong> (הסמל של הפתית). שניהם עומדים בדרישות רוב המדינות. שרשראות שלג נדרשות בנוסף בחלק מהאזורים ההרריים, בין אם יש צמיגי חורף ובין אם לאו.
-              </p>
+              <p className="font-semibold text-navy text-xs uppercase tracking-wide mb-1">סוגי ציוד חורף מוכרים:</p>
+              <ul className="space-y-2">
+                <li className="flex gap-2"><span className="mt-0.5">❄️</span><span><strong className="text-navy">צמיגי חורף ייעודיים</strong> — מיועדים במיוחד לקור, שלג וקרח.</span></li>
+                <li className="flex gap-2"><span className="mt-0.5">🔵</span><span><strong className="text-navy">צמיגי ארבע עונות עם סימון 3PMSF</strong> (הסמל של הפתית) — מוכרים חוקית ברוב המדינות כשווי ערך לצמיגי חורף.</span></li>
+                <li className="flex gap-2"><span className="mt-0.5">⛓️</span><span><strong className="text-navy">שרשראות שלג או גרביוני שלג</strong> — שתי האפשרויות מיועדות לאותה מטרה: אחיזה בשלג עמוק וקרח. חלק מהאזורים ההרריים מחייבים אותן <em>בנוסף</em> לצמיגי חורף.</span></li>
+              </ul>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">

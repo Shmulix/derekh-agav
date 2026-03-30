@@ -33,8 +33,8 @@ const tocItems = [
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
-  { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
   { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
+  { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
 ];
 
 function SectionTitle({ id, icon, children }: { id: string; icon: string; children: React.ReactNode }) {
@@ -767,16 +767,6 @@ export default function GuidePage() {
               קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר. תמיד.
             </Callout>
 
-            {/* ─── LEXICON ──────────────────────────────────────── */}
-            <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
-            <SectionIntro>
-              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
-            </SectionIntro>
-
-            <AccordionItem title="פתח את המילון המלא" icon="📖">
-              <LexiconSection />
-            </AccordionItem>
-
             {/* ─── SUMMARY ──────────────────────────────────────── */}
             <SectionTitle id="summary" icon="✅">השורה התחתונה</SectionTitle>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -805,7 +795,17 @@ export default function GuidePage() {
               ))}
             </div>
 
-            <div className="p-6 bg-navy rounded-xl text-center">
+            {/* ─── LEXICON ──────────────────────────────────────── */}
+            <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
+            <SectionIntro>
+              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
+            </SectionIntro>
+
+            <AccordionItem title="פתח את המילון המלא" icon="📖">
+              <LexiconSection />
+            </AccordionItem>
+
+            <div className="p-6 bg-navy rounded-xl text-center mt-10">
               <p className="text-white font-bold text-lg mb-2">מוכן להשכיר?</p>
               <p className="text-slate-300 text-sm mb-5">עכשיו שאתה יודע מה אתה עושה, תוציא ממנו את המחיר הכי טוב.</p>
               <a href="#" className="btn-gold text-sm px-8 py-2.5">השווה מחירים ←</a>

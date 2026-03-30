@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
   description:
     "המדריך המקיף להשכרת רכב בחו״ל — מסמכים, ביטוח, פיקדון, דלק וקנסות. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
+  },
   openGraph: {
     title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
     description:

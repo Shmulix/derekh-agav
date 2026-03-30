@@ -38,8 +38,8 @@ export default function Header() {
 
         {/* CTA — left side in RTL */}
         <div className="hidden md:block">
-          <a href="#" className="btn-gold text-sm py-2 px-5">
-            השווה מחירים ←
+          <a href="/posts/rental-platforms" className="btn-gold text-sm py-2 px-5">
+            איפה להזמין? ←
           </a>
         </div>
 
@@ -66,8 +66,8 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <a href="#" className="btn-gold text-sm text-center mt-2">
-            השווה מחירים ←
+          <a href="/posts/rental-platforms" className="btn-gold text-sm text-center mt-2">
+            איפה להזמין? ←
           </a>
         </div>
       )}

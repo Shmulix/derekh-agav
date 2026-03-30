@@ -19,16 +19,16 @@ export default function MobileFloatingCTA() {
             >
               <X size={14} />
             </button>
-            <p className="text-xs font-bold text-navy/60 uppercase tracking-widest mb-1">השוואת מחירים</p>
+            <p className="text-xs font-bold text-navy/60 uppercase tracking-widest mb-1">בחירת פלטפורמה</p>
             <p className="text-sm font-bold text-navy leading-snug mb-3">
-              מצא את המחיר הטוב ביותר לפני שמגיעים לדלפק
+              גלה איפה הכי כדאי להזמין לפני שמגיעים לדלפק
             </p>
             <a
-              href="#"
+              href="/posts/rental-platforms"
               className="flex items-center justify-between w-full bg-navy text-white text-sm font-bold px-4 py-3 rounded-xl hover:bg-navy/90 transition-colors active:scale-95"
               onClick={() => setOpen(false)}
             >
-              <span>השווה מחירים</span>
+              <span>איפה הכי כדאי להזמין?</span>
               <ArrowLeft size={16} />
             </a>
           </div>
@@ -43,13 +43,13 @@ export default function MobileFloatingCTA() {
             ? "bg-navy text-white h-10 w-10 rounded-full flex items-center justify-center"
             : "bg-gold text-navy h-10 rounded-full flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"
         }`}
-        aria-label="השווה מחירים"
+        aria-label="איפה הכי כדאי להזמין?"
       >
         {open ? (
           <X size={16} />
         ) : (
           <>
-            <span>השווה מחירים</span>
+            <span>איפה להזמין?</span>
             <ArrowLeft size={14} />
           </>
         )}

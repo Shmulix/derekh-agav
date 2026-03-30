@@ -1,0 +1,177 @@
+Design a Hebrew RTL (right-to-left) car rental information website homepage.
+
+Site name: דרך אגב (double meaning: "by the way" in Hebrew + "דרך" = road)
+Tagline: "כי מי שיודע — לא מחכה לדלפק"
+
+Brand personality: The expert friend. Someone who worked in car rental for 10+ years and is now telling you everything the rental companies don't want you to know. Direct, confident, slightly blunt — but professional and trustworthy. Think: premium editorial publication written by someone with real personality. NOT a government portal, NOT a corporate FAQ site.
+
+The design must feel: authoritative but human. Structured but not stiff. High-trust with character.
+
+---
+
+## BRAND & COLORS
+
+- Primary: #1a2f5e (deep navy blue)
+- Accent: #c9a227 (warm gold)
+- Background: #ffffff (main) / #f8f9fc (alternate sections)
+- Text: #1a1a2e (near black)
+- Font: Heebo (Hebrew-optimized Google Font) — clean, modern, highly readable
+- Direction: RTL. All text right-aligned. Layout flows right to left.
+
+---
+
+## OVERALL STYLE
+
+Ultra-professional. Think: government advisory site meets premium travel publication.
+- Clean whitespace
+- Strong typographic hierarchy (large bold H1, clear H2, readable body)
+- Trust-first: credibility signals, author bio, expert badges
+- Minimal use of color — navy and gold as accents only
+- No rounded pill buttons (prefer solid rectangular or slightly rounded)
+- Subtle hover states only
+
+---
+
+## PAGE SECTIONS (top to bottom)
+
+### 1. STICKY HEADER
+- Background: white, bottom shadow
+- Left side (in RTL = visual left): CTA button "השווה מחירים ←" in gold (#c9a227), solid fill
+- Center: navigation links — דף הבית | המדריך המלא | מאמרים | אודות
+- Right side (in RTL = visual right): text logo "דרך אגב" in navy with a gold dot
+
+---
+
+### 2. HERO SECTION
+- Full-width, dark overlay image (open highway, aerial road, or professional car rental counter)
+- Overlay: semi-transparent dark navy (#1a2f5e at 70% opacity)
+- Content centered, white text:
+  - Small badge above H1: pill/chip shape, gold border, text "המדריך העצמאי הישראלי מספר 1"
+  - H1 (large, bold, white): "תדע הכל לפני שתגיע לדלפק"
+  - Subtitle (medium, light grey): "המדריך המקיף ביותר להשכרת רכב בחו״ל — כתוב על ידי מי שעבד בתחום יותר מעשר שנים"
+  - Search bar (wide, white background, rounded): placeholder text "חפש מדריך, מדינה, נושא..." with search icon on left side
+  ⚠️ THIS IS A CONTENT SEARCH BAR — NOT A BOOKING FORM. No date pickers. No pickup/return date fields. No location dropdowns. No "search for cars" functionality. Just a single text input that searches through guides and articles.
+  - Two buttons below search bar:
+    - Primary: "המדריך המלא ←" — solid navy fill, white text
+    - Secondary: "השווה מחירים ←" — gold outline, gold text, transparent background
+
+---
+
+### 3. "ABOUT THIS SITE" SECTION
+- Background: #f8f9fc (light grey)
+- Section title (centered, navy): "על מה האתר הזה"
+- 3 equal columns, each with:
+  - Large emoji or simple line icon at top
+  - Bold subtitle
+  - Short paragraph in regular weight
+
+  Column 1: 📋 icon — "מידע אמין, לא מכירות"
+  Column 2: 🌍 icon — "כל נושאי ההשכרה בחו״ל"
+  Column 3: 🔗 icon — "המלצות ללא ניגוד עניינים"
+
+- Thin gold bottom border on each card or simple card with white bg + subtle shadow
+
+---
+
+### 4. AUTHOR / CREDIBILITY SECTION
+- Background: white
+- Two-column layout:
+  - Right column: circular avatar placeholder (navy bg, gold initials "א.מ"), name in bold, title "מומחה השכרת רכב | 10+ שנות ניסיון"
+  - Left column: paragraph text + 3 trust metric badges (horizontal row):
+    Badge 1: "10+ שנות ניסיון"
+    Badge 2: "אלפי הזמנות מטופלות"
+    Badge 3: "ידע מהשטח, לא מהאינטרנט"
+
+- Badges style: navy background, white text, small, pill shape
+
+---
+
+### 5. "WHY THIS CONTENT IS BETTER" SECTION
+- Full-width, dark navy background (#1a2f5e), white text
+- Centered title: "המידע הזה לא בא מגוגל — הוא בא מהשטח"
+- 4-column icon grid, each item:
+  - Icon (white/gold)
+  - Bold title
+  - Short description
+
+  Items: 🎯 ניסיון אמיתי | ⚠️ מה שאנשים מפספסים | 🌐 כל הספקים והמדינות | 💬 עברית בגובה העיניים
+
+---
+
+### 6. "THE FULL GUIDE" SECTION
+- Background: #f8f9fc
+- Split layout (2 columns):
+  - Right: text content — small badge "הנכס המרכזי של האתר", H2 title, subtitle, 2-column grid of 8 topic chips (icon + label each), CTA button "קרא את המדריך המלא ←"
+  - Left: decorative visual — stylized document/checklist illustration or abstract road graphic in navy/gold
+
+- Topic chips style: white card, subtle border, icon + Hebrew label
+
+---
+
+### 7. LATEST POSTS SECTION
+- Background: white
+- Title: "מאמרים ומדריכים נוספים"
+- 3-column card grid. Each card:
+  - Top: colored tag badge (e.g., gold for ביטוח, blue for יעדים, green for חיסכון)
+  - H3 title (bold, navy)
+  - Short excerpt (2 lines, grey text)
+  - Bottom row: read time on one side + "קרא ←" link in gold on other side
+  - Card: white bg, subtle shadow, slight hover lift effect
+- "כל המאמרים ←" text link centered below grid
+
+---
+
+### 8. FINAL CTA BANNER
+- Background: #1a2f5e (navy)
+- Gold horizontal line accent at top
+- Centered:
+  - H2 (white, large): "מוכן להשכיר רכב?"
+  - Subtitle (light grey): "עכשיו שאתה מוכן — השווה מחירים בין חברות וחסוך."
+  - Button: "השווה מחירים עכשיו ←" — gold fill, navy text, bold
+
+---
+
+### 9. FOOTER
+- Background: #1a1a2e (near black)
+- White text
+- Layout:
+  - Top row: logo "דרך אגב" right + tagline "כי מי שיודע — לא מחכה לדלפק" (small, grey) + navigation links
+  - Middle: affiliate disclaimer text (small, grey): "האתר מכיל קישורי שותפות. בעת הזמנה דרך הקישורים, האתר עשוי לקבל עמלה — ללא עלות נוספת עבורך."
+  - Bottom: copyright "© 2025 דרך אגב" centered, small
+
+---
+
+## RESPONSIVE NOTES
+
+- Mobile: all multi-column sections collapse to single column
+- Header: hamburger menu on mobile
+- Hero search bar: full width on mobile
+- Cards: full width stacked on mobile
+
+---
+
+## ⚠️ IMPORTANT — THIS IS AN INFORMATION SITE, NOT A BOOKING SITE
+
+This website does NOT allow users to search for cars, compare prices, or make reservations.
+It is a Hebrew-language editorial guide written by an industry expert.
+
+**Never include:**
+- Date pickers (pickup date / return date)
+- Location or airport search fields
+- "Find a car" or "Search vehicles" forms
+- Booking widgets or reservation engines
+- Any multi-field search form in the hero or anywhere else
+
+The ONLY link to car rental prices is a simple CTA button ("השווה מחירים →") that redirects to an affiliate partner. That's it.
+
+---
+
+## WHAT TO AVOID
+
+- No gradients (except subtle overlay on hero)
+- No rounded pill buttons (prefer 4-8px border-radius max)
+- No stock photo clipart style images
+- No neon colors
+- No heavy drop shadows
+- No centered RTL text (right-align is correct for Hebrew)
+- No left-to-right layout (everything flows RTL)

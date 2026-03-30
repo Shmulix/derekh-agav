@@ -1,0 +1,836 @@
+import Link from "next/link";
+import Image from "next/image";
+import {
+  FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
+  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe,
+} from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { AccordionItem } from "@/components/guide/Accordion";
+import InsuranceTabs from "@/components/guide/InsuranceTabs";
+import DocTiles from "@/components/guide/DocTiles";
+import AcrissTable from "@/components/guide/AcrissTable";
+import LexiconSection from "@/components/guide/LexiconSection";
+import TableOfContents from "@/components/guide/TableOfContents";
+import BackToTop from "@/components/guide/BackToTop";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "המדריך המלא להשכרת רכב בחו״ל | דרך אגב",
+  description:
+    "מסמכים, ביטוח, פיקדון, נהג צעיר, דלק, קילומטרז׳ וקנסות. כל מה שצריך לדעת לפני שמגיעים לדלפק. מניסיון אמיתי.",
+};
+
+const tocItems = [
+  { id: "intro", label: "מבוא", icon: BookOpen },
+  { id: "documents", label: "מסמכים נדרשים", icon: FileText },
+  { id: "deposit", label: "פיקדון", icon: CreditCard },
+  { id: "category", label: "קטגוריית רכב", icon: Car },
+  { id: "insurance", label: "ביטוח", icon: Shield },
+  { id: "young-driver", label: "גיל הנהג", icon: User },
+  { id: "pickup", label: "איסוף והחזרה", icon: MapPin },
+  { id: "crossborder", label: "חציית גבול", icon: Globe },
+  { id: "fuel", label: "דלק", icon: Fuel },
+  { id: "mileage", label: "קילומטרז׳", icon: Route },
+  { id: "fines", label: "קנסות ודוחות", icon: Mail },
+  { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
+  { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
+];
+
+function SectionTitle({ id, icon, children }: { id: string; icon: string; children: React.ReactNode }) {
+  return (
+    <h2 id={id} className="text-2xl font-bold text-navy mt-16 mb-2 scroll-mt-24 flex items-center gap-3">
+      <span className="text-2xl">{icon}</span>
+      {children}
+    </h2>
+  );
+}
+
+function SectionIntro({ children }: { children: React.ReactNode }) {
+  return <p className="text-gray-600 text-sm leading-relaxed mb-6 pb-4 border-b border-gray-100">{children}</p>;
+}
+
+function Callout({ type, children }: { type: "warning" | "tip" | "info"; children: React.ReactNode }) {
+  const config = {
+    warning: { bg: "bg-red-50", border: "border-red-400", icon: AlertTriangle, iconColor: "text-red-500", label: "שים לב" },
+    tip: { bg: "bg-yellow-50", border: "border-gold", icon: Lightbulb, iconColor: "text-yellow-600", label: "טיפ מהשטח" },
+    info: { bg: "bg-blue-50", border: "border-navy", icon: Info, iconColor: "text-navy", label: "כדאי לדעת" },
+  }[type];
+  const Icon = config.icon;
+  return (
+    <div className={`${config.bg} border-r-4 ${config.border} p-4 rounded-sm my-5 flex gap-3`}>
+      <Icon size={16} className={`${config.iconColor} flex-shrink-0 mt-0.5`} />
+      <div className="text-sm leading-relaxed text-gray-700">{children}</div>
+    </div>
+  );
+}
+
+function StatCard({ value, label, sub }: { value: string; label: string; sub?: string }) {
+  return (
+    <div className="bg-surface border border-gray-200 rounded-lg p-4 text-center">
+      <p className="text-2xl font-extrabold text-navy mb-0.5">{value}</p>
+      <p className="text-xs font-semibold text-gray-600">{label}</p>
+      {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+    </div>
+  );
+}
+
+function DocCard({ icon, title, required, items }: { icon: string; title: string; required: "always" | "sometimes"; items: string[] }) {
+  return (
+    <div className="bg-white border border-gray-200 rounded-lg p-4 hover:border-navy hover:shadow-sm transition-all">
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl">{icon}</span>
+          <p className="font-bold text-navy text-sm">{title}</p>
+        </div>
+        <span className={`text-xs font-bold px-2 py-0.5 rounded flex-shrink-0 ${
+          required === "always" ? "bg-navy text-white" : "bg-yellow-100 text-yellow-800"
+        }`}>
+          {required === "always" ? "חובה" : "לפעמים"}
+        </span>
+      </div>
+      <ul className="space-y-1">
+        {items.map((item, i) => (
+          <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FuelPolicyCard({ title, subtitle, tag, desc, highlighted }: { title: string; subtitle: string; tag: string; desc: string; highlighted?: boolean }) {
+  return (
+    <div className={`rounded-lg p-4 border-2 transition-all ${
+      highlighted ? "border-navy bg-navy text-white" : "border-gray-200 bg-white"
+    }`}>
+      <span className={`text-xs font-bold px-2 py-0.5 rounded mb-2 inline-block ${
+        highlighted ? "bg-gold text-navy" : "bg-gray-100 text-gray-600"
+      }`}>{tag}</span>
+      <p className={`font-bold text-sm mb-0.5 ${highlighted ? "text-white" : "text-navy"}`}>{title}</p>
+      <p className={`text-xs mb-1.5 ${highlighted ? "text-slate-400" : "text-gray-400"}`}>{subtitle}</p>
+      <p className={`text-xs leading-relaxed ${highlighted ? "text-slate-300" : "text-gray-500"}`}>{desc}</p>
+    </div>
+  );
+}
+
+function FineStep({ num, text }: { num: number; text: string }) {
+  return (
+    <div className="flex items-start gap-4">
+      <div className="flex flex-col items-center">
+        <div className="w-8 h-8 rounded-full bg-navy text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+          {num}
+        </div>
+        {num < 4 && <div className="w-0.5 h-8 bg-gray-200 mt-1" />}
+      </div>
+      <p className="text-sm text-gray-700 leading-relaxed pt-1">{text}</p>
+    </div>
+  );
+}
+
+export default function GuidePage() {
+  return (
+    <>
+      <Header />
+
+      {/* Guide Hero */}
+      <div className="bg-navy py-14">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-gold text-sm font-semibold mb-2">המדריך המלא</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+            המדריך המלא להשכרת רכב בחו״ל
+          </h1>
+          <p className="text-slate-300 leading-relaxed max-w-2xl mb-3">
+            מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. כל מה שצריך לדעת, בסדר הנכון.
+          </p>
+          <p className="text-slate-500 text-xs">⏱ זמן קריאה משוער: כ-15 דקות</p>
+          {/* Mobile TOC */}
+          <div className="lg:hidden mt-6">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">תוכן עניינים</p>
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {tocItems.map((item) => (
+                <a key={item.id} href={`#${item.id}`}
+                  className="flex items-center gap-2 text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg transition-colors">
+                  <item.icon size={12} className="text-gold flex-shrink-0" />
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <a href="#" className="btn-gold text-xs py-2 px-4 w-full text-center block">השווה מחירים ←</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex gap-8 xl:gap-12 items-start">
+
+          {/* Sticky TOC desktop */}
+          <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">תוכן עניינים</p>
+            <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
+          </aside>
+
+          {/* Main content */}
+          <article className="flex-1 min-w-0">
+
+            {/* INTRO */}
+            <div id="intro" className="mb-2 scroll-mt-24">
+              <p className="text-xs font-bold text-gold uppercase tracking-widest mb-8">
+                מדבר אליך בגובה העיניים. כדי שלא תדבר אלי בלחץ מהדלפק.
+              </p>
+
+              <p className="text-gray-800 text-lg font-semibold leading-relaxed mb-5">
+                רגע, קודם הרגע הטוב.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-4">
+                רכב שכור בחו״ל זה לא סתם כלי תחבורה. זה חופש אמיתי. אתה קם בבוקר, אין לך לוח זמנים, אין תחנות, אין לחכות לאף אחד. אתה פשוט יוצא. מגיע למקומות שהאוטובוס לא מכיר. עוצר כשבא לך. זו הגמישות שאין ביישום של ממשלה, ולא בשום אפליקציית הסעות.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-4">
+                אני אוהב את זה. תמיד אהבתי. ואני יכול להגיד לך בביטחון מלא שמי שמגיע מוכן? נהנה ממנה עד הסוף.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-5">
+                הבעיה? רוב האנשים לא מגיעים מוכנים. לא כי הם לא חכמים, תאמין לי. כי המידע הנכון פשוט לא היה שם בצורה ישרה ופשוטה. עד עכשיו.
+              </p>
+
+              <div className="w-full h-px bg-gray-200 mb-6" />
+
+              <p className="text-gray-800 text-lg font-semibold leading-relaxed mb-4">
+                אז תשמע, בוא נדבר ישר.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-4">
+                עשר שנים בתוך התחום הזה. לא כתייר שנסע פעמיים ורשם פוסט. ממש בפנים. מהצד שרוב האנשים לא רואים.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-8">
+                ראיתי הכל. באמת הכל.
+              </p>
+
+              {/* Career timeline */}
+              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪">
+              <div className="bg-surface rounded-xl p-1 mb-2">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gold">
+                    <Image
+                      src="/samuel.avif"
+                      alt="מומחה השכרת רכב"
+                      fill
+                      className="object-cover object-top"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-navy text-base">סמואל פרץ</p>
+                    <p className="text-xs text-gray-500 mt-0.5">מומחה השכרת רכב בינלאומית · 10 שנות ניסיון</p>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">הדרך שעשיתי, ולמה היא רלוונטית בשבילך</p>
+                  </div>
+                </div>
+
+                <div className="space-y-0">
+                  {[
+                    {
+                      role: "סוכן הזמנות",
+                      desc: "משם התחלתי. לוקח הזמנות, עונה על שאלות. ותוך חודשים ספורים הבנתי: אותם אנשים, אותן שאלות, אותם פרטים שתמיד מפספסים. שוב ושוב. הבנתי שיש פה בעיה של מידע, לא של אנשים.",
+                    },
+                    {
+                      role: "נציג ומנהל אופרציה",
+                      desc: "האופרציה היא הלב של כל ברוקר השכרת רכב. שם מחליטים על כל הזמנה: לאשר, לדחות, להתאים. הייתי בקשר ישיר ויומיומי עם הספקים. לא כלקוח. כשותף עסקי. זה נתן לי הבנה של המוצר ושל התהליכים שלא מגיעה משום מקום אחר. הבנתי איך ספקים חושבים, מה מניע אותם, ואיפה הגמישות שלהם מסתיימת.",
+                    },
+                    {
+                      role: "סופרוויזור מוקד",
+                      desc: "ניהלתי צוות שטיפל בלקוחות כל יום. שמעתי תרחישים שלא הייתי מאמין שקורים בפועל. ופגשתי שוב ושוב את אותו פער: מה האדם חשב שהזמין, לבין מה שכתוב בחוזה. זה הפער שמעצבן אותי עד היום.",
+                    },
+                    {
+                      role: "מנהל שיווק שותפים",
+                      desc: "ואז ראיתי את התחום מבחוץ. הבנתי איך הוא נמכר, מה אנשים מחפשים, ואיפה כל המידע ברשת פשוט לא עונה על מה שבאמת צריך לדעת לפני שנוסעים.",
+                    },
+                  ].map((item, i, arr) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="flex flex-col items-center flex-shrink-0">
+                        <div className="w-3 h-3 rounded-full bg-gold border-2 border-white shadow mt-1.5" />
+                        {i < arr.length - 1 && <div className="w-px bg-gray-200 my-1" style={{ minHeight: "2.5rem" }} />}
+                      </div>
+                      <div className="pb-6">
+                        <p className="font-bold text-navy text-sm mb-1">{item.role}</p>
+                        <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              </AccordionItem>
+
+              <p className="text-gray-800 leading-relaxed mb-4">
+                אני מכיר את הספקים. אני מכיר את החוזים. אני יודע מה הנציג לא יגיד לך מיוזמתו, ולמה בדיוק הוא לא יגיד. אני יודע מה כתוב בשורות הקטנות שאיש לא קורא, ומה קורה כשמגלים אותן בדלפק.
+              </p>
+
+              <p className="text-gray-800 leading-relaxed mb-6">
+                מאות מקרים טיפלתי בהם ישירות. אלפי שיחות. ואני יכול להגיד לך בדיוק מה גורם לאנשים לעמוד בדלפק בלי רכב, לשלם פיקדון שלא ציפו אליו, לגלות שהביטוח לא מכסה מה שחשבו.
+              </p>
+
+              <div className="border-r-4 border-gold bg-yellow-50/60 pr-5 py-5 rounded-sm mb-6">
+                <p className="text-gray-700 leading-relaxed text-sm italic mb-3">
+                  תמיד יוצא אותו משפט. מאנשים חכמים, מסודרים, כאלה שהכינו הכל מראש:
+                </p>
+                <p className="text-navy font-extrabold text-lg">"אם הייתי יודע..."</p>
+              </div>
+
+              <p className="text-xl font-extrabold text-navy mb-3">אז עכשיו אתה יודע.</p>
+
+              <p className="text-gray-600 leading-relaxed mb-2">
+                המדריך הזה לא נכתב מגוגל. לא מפוסטים. הוא נכתב ממה שראיתי קורה, ממה שטיפלתי בו, ממה שלמדתי עשר שנים. כל נקודה כאן יצאה ממקרה אמיתי.
+              </p>
+
+              <p className="text-gray-700 font-medium leading-relaxed">
+                תקרא אותו לפני שנוסעים. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.
+              </p>
+
+              <div className="border-t border-gray-100 mt-10" />
+            </div>
+
+            {/* Mobile disclaimer */}
+            <div className="lg:hidden bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+              <p className="text-xs font-bold text-yellow-800 mb-1.5">⚠️ שים לב</p>
+              <p className="text-xs text-yellow-900 leading-relaxed">
+                המדריך מבוסס על ניסיון אישי. כל ספק קובע את תנאיו בעצמו — סכומי פיקדון, ביטוח, גיל מינימום ודרישות נוספות יכולים להיות שונים. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
+              </p>
+            </div>
+
+            {/* ─── IMPORTANT NOTICE ─────────────────────────────── */}
+            <div className="bg-navy rounded-xl p-6 mb-10">
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-3">לפני שמתחילים — הכי חשוב</p>
+              <p className="text-white font-bold text-base mb-3 leading-snug">
+                תנאי ההשכרה של הספק שלך. קרא אותם. כולם.
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                המדריך הזה נותן לך את הבסיס, את הלוגיקה, את מה שרוב האנשים לא יודעים. אבל כל חברת השכרה כותבת את החוזה שלה בעצמה. הסכום של הפיקדון, איזה ביטוח כלול, מה קורה עם נזק לשמשה, האם יש הגבלת קילומטרז׳, מינימום גיל נהג — כל אלה משתנים מספק לספק, ולפעמים גם בין מדינות של אותו ספק.
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                הטעות הכי נפוצה שראיתי? אנשים שמניחים שאם ידעו אחד כך, כולם כאלה. לא. תפתח את תנאי ההזמנה שלך, תקרא אותם מהתחלה עד הסוף, ותשתמש במדריך הזה כדי להבין מה שקראת. זו הצורה הנכונה להשתמש בו.
+              </p>
+            </div>
+
+            {/* ─── 1. DOCUMENTS ─────────────────────────────────── */}
+            <SectionTitle id="documents" icon="📋">מסמכים נדרשים</SectionTitle>
+            <SectionIntro>
+              כאן אין יצירתיות. יש כללים. חסר מסמך אחד? הדלפק לא ממציא פתרונות, הוא לא "יעשה חריג". הוא פשוט לא ייתן לך את הרכב.
+            </SectionIntro>
+
+            <DocTiles />
+
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 text-sm text-gray-600 leading-relaxed">
+              <span className="font-bold text-gray-700">✈️ כרטיס עלייה למטוס</span> — לא תמיד נדרש, אבל יש ספקים שמבקשים אותו בנקודת האיסוף. בעיקר בארה״ב ובמדינות מסוימות באירופה. שמור אותו נגיש, גם כרטיס הטיסה חזור. אם לא תצטרך, מעולה. אם יבקשו ולא יהיה לך, תצא להדפיס.
+            </div>
+
+            <Callout type="tip">
+              רישיון בינלאומי מוציאים בנקודות מורשות של משרד התחבורה. לא לוקח הרבה זמן, לא עולה הרבה כסף. מי שמוותר עליו מהמר. אני פחות בקטע של הימורים בחופשה.{" "}
+              <Link href="/posts/international-driving-license" className="font-semibold underline underline-offset-2 hover:opacity-75">
+                כל הפרטים על איך מוציאים רישיון בינלאומי ←
+              </Link>
+            </Callout>
+
+            {/* Accordion: name matching */}
+            <AccordionItem title="התאמת שמות: הנקודה שישראלים מפספסים" icon="⚠️">
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                בישראל אנחנו אלופי עולם בשחק עם שמות באנגלית. פעם שם נעורים, פעם קיצור, פעם איות שונה. בארץ? מסתדרים.
+                בחו״ל? המערכת לא מבינה "למה התכוונת", והנציג לא מנחש.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex gap-2"><span className="text-red-500 font-bold flex-shrink-0">✗</span> שם נעורים שונה מהדרכון</li>
+                <li className="flex gap-2"><span className="text-red-500 font-bold flex-shrink-0">✗</span> קיצור שנראה לך זניח</li>
+                <li className="flex gap-2"><span className="text-red-500 font-bold flex-shrink-0">✗</span> איות שונה בין הזמנה לדרכון</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold flex-shrink-0">✓</span> שם זהה לחלוטין בכל המסמכים ובהזמנה</li>
+              </ul>
+              <p className="text-xs text-gray-500 leading-relaxed mt-4 border-t border-gray-100 pt-3">
+                יש מקרים שבהם הפקיד מקבל איות שונה במקצת, אם ברור שמדובר באותו אדם. אבל זה לפי שיקול דעתו באותו רגע, ולא זכות. אני לא הייתי בונה על זה.
+              </p>
+            </AccordionItem>
+
+            <AccordionItem title="השם בהזמנה = הנהג. לא מי שמשלם, לא מי שבא לאסוף" icon="👤">
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                מי שמופיע בהזמנה הוא זה שחייב להציג את כל המסמכים בדלפק. אם מישהו אחר רוצה לנהוג, יש שתי אפשרויות:
+              </p>
+              <ul className="space-y-3 mb-4 text-sm text-gray-600">
+                <li className="flex gap-2 items-start">
+                  <span className="font-bold text-navy flex-shrink-0">1.</span>
+                  <span><strong className="text-gray-800">נהג נוסף</strong> — אפשר להוסיף נהג נוסף בדלפק בזמן האיסוף. הוא חייב להיות נוכח פיזית, עם רישיון ישראלי ורישיון בינלאומי בתוקף. זה כרוך בתוספת תשלום יומית.</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="font-bold text-navy flex-shrink-0">2.</span>
+                  <span><strong className="text-gray-800">נהג ראשי אחר</strong> — אם מישהו אחר הוא הנהג הראשי, שמו צריך להיות בהזמנה, הכרטיס אשראי על שמו, וכל המסמכים שלו. שינוי שם לאחר ההזמנה יכול לאפס אותה לחלוטין.</span>
+                </li>
+              </ul>
+              <div className="bg-red-50 border border-red-200 rounded p-3 text-xs text-red-700">
+                <strong>שינוי שם ברגע האחרון:</strong> בהרבה מקרים מאפס את ההזמנה במערכת. המחיר קופץ למחיר היום, הזמינות נעלמת. שם בהזמנה זה לא פרט טכני.
+              </div>
+            </AccordionItem>
+
+            {/* ─── 2. DEPOSIT ───────────────────────────────────── */}
+            <SectionTitle id="deposit" icon="💳">פיקדון</SectionTitle>
+            <SectionIntro>
+              דיברנו כבר על כרטיס האשראי בחלק המסמכים. כאן נדבר על מה שעושים איתו בדלפק. הפיקדון הוא חובה. הוא לא מחיר נוסף, הוא לא קנס — הוא בטחון שהספק חוסם על הכרטיס שלך עד שתחזיר את הרכב. בלי כרטיס אשראי פעיל על שם הנהג הראשי, הפיקדון לא עובר, והרכב לא יוצא.
+            </SectionIntro>
+
+            {/* Deposit visual */}
+            <div className="bg-navy rounded-xl p-5 mb-5 text-white">
+              <p className="text-xs text-slate-400 mb-3 font-semibold uppercase tracking-widest">מה זה פיקדון בפועל</p>
+              <div className="grid grid-cols-3 gap-3 text-center mb-4">
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="text-gold font-bold text-lg">300-3,000€</p>
+                  <p className="text-xs text-slate-300 mt-1">סכום נחסם</p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="text-gold font-bold text-lg">לא חיוב</p>
+                  <p className="text-xs text-slate-300 mt-1">חסימת מסגרת</p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="text-gold font-bold text-lg">משתחרר</p>
+                  <p className="text-xs text-slate-300 mt-1">אחרי החזרת הרכב</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                הסכום משתנה לפי ספק, מדינה, קטגוריית רכב וסוג ביטוח. ברכבי פרימיום, יותר.
+              </p>
+            </div>
+
+            <Callout type="info">
+              גם עם ביטוח ללא השתתפות עצמית, הפיקדון עדיין נדרש. הוא לא רק לנזקים. גם לדלק חסר, לדמי טיפול מנהליים על דוחות, לנזקים שהביטוח לא מכסה, ולכל חריגה אחרת מהחוזה.
+            </Callout>
+
+            <AccordionItem title="מה קורה אם אין מסגרת פנויה בכרטיס?" icon="❓">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                אין מסגרת פנויה בגובה הפיקדון? אין רכב. לא גחמה, לא אישי. המערכת לא עובדת אחרת.
+                לפני שמגיעים לדלפק, כדאי לוודא שיש מסגרת פנויה. ברכבי פרימיום, חלק מהספקים דורשים אפילו שני כרטיסים, שניהם על שם הנהג הראשי.
+              </p>
+            </AccordionItem>
+
+            {/* ─── 3. CATEGORY ──────────────────────────────────── */}
+            <SectionTitle id="category" icon="🚗">קטגוריית הרכב</SectionTitle>
+            <SectionIntro>
+              בעולם השכרת הרכב לא מזמינים רכב ספציפי. מזמינים קטגוריה. זה אחד הדברים הבסיסיים שהרבה אנשים לא יודעים, ושמפתיע אותם בדלפק.
+            </SectionIntro>
+
+            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
+              <p>
+                כל רכב בתחום ההשכרה משויך לקטגוריה שמוגדרת לפי קוד <strong className="text-navy">ACRISS</strong> — מערכת תקן בינלאומית שמתארת את סוג הרכב, גודלו, סוג ההילוכים והמיזוג. הרכב שמוצג בהזמנה או בהצעת המחיר הוא <strong className="text-navy">רכב כדגם מייצג בלבד</strong>. לא הבטחה.
+              </p>
+              <p>
+                בפועל, הספק יכול לתת לך כל רכב אחר שנכנס לאותה קטגוריה. אם הזמנת קטגוריה C וקיבלת רכב שונה ממה שראית בתמונה, אבל הוא באותה קטגוריה, זה חוקי לחלוטין.
+              </p>
+            </div>
+
+            <AccordionItem title="מה קורה כשהספק לא יכול לספק את הקטגוריה שהוזמנה" icon="⬆️">
+              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">⬆️</span>
+                  <p><strong className="text-gray-800">שדרוג ללא תשלום.</strong> אם הספק לא יכול לספק את הקטגוריה שהוזמנה, הוא מחויב להציע את הקטגוריה הזמינה הבאה מעליה, ללא תוספת תשלום. זה לא טובה שלו, זו חובתו.</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">❌</span>
+                  <p><strong className="text-gray-800">אין רכב בכלל.</strong> אם הספק לא יכול לספק רכב, ההזמנה יכולה להיות מבוטלת ללא דמי ביטול או קנס על אי-לקיחת הרכב.</p>
+                </div>
+                <div className="flex gap-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                  <span className="text-lg flex-shrink-0">🧾</span>
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">תבקש פיצוי על הנזק שנגרם.</p>
+                    <p>אם בגלל חוסר הרכב נגרמו לך הוצאות נוספות, כגון הסדר חלופי, נסיעות, אכסניה, שמור את כל הקבלות. אפשר לתבוע פיצוי על ההוצאות האלה, לעיתים גם דרך הברוקר שדרכו הזמנת.</p>
+                  </div>
+                </div>
+              </div>
+            </AccordionItem>
+
+            <Callout type="info">
+              קוד ACRISS מורכב מ-4 אותיות: קטגוריה, סוג מרכב, הילוכים, ודלק/מיזוג. לא חייב לשנן אותו, אבל כדאי לדעת שהוא קיים ולבדוק שהקטגוריה שמופיעה בהזמנה שלך תואמת את מה שציפית לקבל.
+            </Callout>
+
+            <AccordionItem title="טבלת קודי ACRISS המלאה" icon="📊">
+              <AcrissTable />
+            </AccordionItem>
+
+            {/* ─── 4. INSURANCE ─────────────────────────────────── */}
+            <SectionTitle id="insurance" icon="🛡️">ביטוח</SectionTitle>
+            <SectionIntro>
+              ביטוח זה הנושא שאנשים הכי "מבינים" לפני שמגיעים, והכי מתבלבלים ממנו אחרי. בוא נעשה סדר. CDW זה Collision Damage Waiver, ביטוח נזקי תאונה. TP זה Theft Protection, ביטוח גניבה. בארה״ב תראה LDW בלבד — Loss Damage Waiver — שמאחד את שניהם לכיסוי אחד.
+            </SectionIntro>
+
+            <InsuranceTabs />
+
+            <Callout type="tip">
+              <strong>טיפ שעשוי לחסוך לך הרבה כסף:</strong> לפני שיוצאים עם הרכב מהחניון, תבדוק את דוח הנזק שהנציג מילא. הוא צריך לשקף את מצב הרכב בפועל. אם יש שריטה שלא מסומנת, תדרוש שיוסיפו אותה. ואחרי שסיימת עם הדוח, תצלם את הרכב מארבעת הצדדים ותצלם סרטון קצר סביבו. אותו דבר בהחזרה. הצילומים עם חותמת שעה הם הראיה שלך אם ינסו לחייב אותך על נזק שלא עשית.
+            </Callout>
+
+            <AccordionItem title="מה לא מכוסה בשום תרחיש, עם שום ביטוח" icon="🚫">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                נהיגה בהשפעת אלכוהול, סמים, שטח אסור לנסיעה, ריפודים, גג הרכב, אסונות טבע חריגים ורשלנות מוכחת.
+                פה אין קסמים ואין ביטוח שעוזר.
+              </p>
+            </AccordionItem>
+
+            <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">
+              <div>
+                <p className="text-sm font-bold text-navy mb-0.5">עכשיו שאתה מבין את הביטוח —</p>
+                <p className="text-xs text-gray-500">תבדוק מה כלול בהצעות ותשווה מחירים</p>
+              </div>
+              <a href="#" className="btn-gold text-xs py-2 px-5 flex-shrink-0">השווה מחירים ←</a>
+            </div>
+
+            {/* ─── 5. DRIVER AGE ────────────────────────────────── */}
+            <SectionTitle id="young-driver" icon="🧑">גיל הנהג</SectionTitle>
+            <SectionIntro>
+              גיל הנהג משפיע על זמינות הרכב, על המחיר, ולפעמים על האפשרות לשכור בכלל. זה נכון לשני הכיוונים.
+            </SectionIntro>
+
+            {/* Age range visual */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              <StatCard value="21" label="גיל מינימום" sub="ברוב הספקים" />
+              <StatCard value="23-25" label="נהג צעיר" sub="תוספת יומית" />
+              <StatCard value="70+" label="נהג בכיר" sub="בחלק מהמדינות" />
+              <StatCard value="80-85" label="גיל מקסימום" sub="ברוב הספקים" />
+            </div>
+
+            <AccordionItem title="נהג צעיר: מה זה אומר בפועל" icon="🟡" defaultOpen={false}>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                ברוב החברות אפשר לשכור מגיל 21. אבל עד גיל מסוים, הספק מגדיר אותך כ"נהג צעיר" ומוסיף תוספת יומית. הגבול הזה משתנה: חלק עוצרים ב-23, חלק ב-25, יש שמגיעים ל-26. ברכבי פרימיום, לעיתים גיל המינימום עצמו עולה.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-3">
+                <div className="bg-green-50 rounded-lg p-3">
+                  <p className="text-xs font-bold text-green-700 mb-1.5">בדרך כלל זמין</p>
+                  <ul className="text-xs text-gray-600 space-y-1">
+                    <li>מיני / סיטי קאר</li>
+                    <li>קטנה / קומפקט</li>
+                    <li>אסטייט קטן</li>
+                    <li>מנוע עד 1.6</li>
+                  </ul>
+                </div>
+                <div className="bg-red-50 rounded-lg p-3">
+                  <p className="text-xs font-bold text-red-700 mb-1.5">בדרך כלל לא זמין</p>
+                  <ul className="text-xs text-gray-600 space-y-1">
+                    <li>SUV בינוני וגדול</li>
+                    <li>מיניוואן / 7 מקומות</li>
+                    <li>רכב פרימיום / ספורט</li>
+                    <li>קבריולה</li>
+                    <li>מנוע 2.0 ומעלה</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                בנוסף לגיל, צריך <strong>ותק רישיון</strong>: שנה עד שנתיים לרכב רגיל, שלוש ומעלה לרכבים גדולים או יוקרתיים. גיל מתאים בלי ותק מספיק? אין רכב.
+              </p>
+            </AccordionItem>
+
+            <AccordionItem title="נהג בכיר: מה שרוב האנשים לא בודקים" icon="🔵" defaultOpen={false}>
+              <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                זה לא נפוץ, ופחות ופחות ספקים מיישמים את זה בפועל. אבל זה עדיין קיים אצל חלק מהם, בעיקר ביעדים מסוימים. הגבול המקובל הוא גיל <strong className="text-navy">70</strong>, אבל יש ספקים שמגדירים אותו גבוה יותר. אם אתה בטווח הזה, כדאי לבדוק את מדיניות הספק לפני שמזמינים.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 mb-3">
+                <li className="flex gap-2 items-start"><span className="text-gold font-bold flex-shrink-0">·</span> תוספת יומית, בדומה לנהג צעיר</li>
+                <li className="flex gap-2 items-start"><span className="text-gold font-bold flex-shrink-0">·</span> הגבלה על קטגוריות רכב מסוימות</li>
+              </ul>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs text-gray-600 leading-relaxed">
+                גיל מקסימום ברוב הספקים הוא בין <strong className="text-navy">80 ל-85</strong>. מעבר לכך, ברוב המקרים ההשכרה לא אפשרית. לפני שמזמינים, תבדוק את המדיניות של הספק הספציפי.
+              </div>
+            </AccordionItem>
+
+            {/* ─── 6. PICKUP ────────────────────────────────────── */}
+            <SectionTitle id="pickup" icon="📍">איסוף והחזרה</SectionTitle>
+            <SectionIntro>
+              לדעת איפה לאסוף, מתי לאסוף ואיך להחזיר זה חלק מהתכנון. לגלות את זה בדקה האחרונה זה חלק מהבעיות.
+            </SectionIntro>
+
+            {/* Location types */}
+            <div className="grid grid-cols-3 gap-3 mb-5">
+              {[
+                { icon: "🏢", title: "בתוך הטרמינל", desc: "הספק בתוך הטרמינל. יוצאים מהמטוס ומגיעים ישר לדלפק." },
+                { icon: "🚌", title: "מחוץ לשדה", desc: "תחנה בסמוך לשדה. שאטל חינמי מהטרמינל לתחנה." },
+                { icon: "🙋", title: "נציג ממתין", desc: "נציג ממתין באולם הנוסעים בנקודה מוסכמת מראש." },
+              ].map((t) => (
+                <div key={t.title} className="bg-surface border border-gray-200 rounded-lg p-3 text-center">
+                  <span className="text-2xl block mb-1">{t.icon}</span>
+                  <p className="text-xs font-bold text-navy mb-1">{t.title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <Callout type="info">
+              תבדוק מראש איזה סוג תחנה יש לספק שלך. בזמן האיסוף, תשאל את הנציג היכן ואיך להחזיר. בשדה תעופה, עקוב בכניסה אחרי שלטי Car Rental Return ואחר כך חפש את הספק הספציפי שלך.
+            </Callout>
+
+            {/* Time accordion */}
+            <AccordionItem title="שעת האיסוף: מה מותר, מה מסוכן" icon="🕐">
+              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">⏱️</span>
+                  <p><strong className="text-gray-800">גמישות של שעה לכל כיוון.</strong> לרוב הספקים יש מרווח עד שעה לפני ועד שעה אחרי שעת האיסוף הרשומה, בכפוף לזמינות. מחוץ לטווח הזה, אין ערובה שהרכב יחכה.</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">✈️</span>
+                  <p><strong className="text-gray-800">איסוף בשדה עם מספר טיסה.</strong> הספק עוקב אחרי הלוחות של חברת התעופה ומתאים את עצמו. איחור? הם רואים את זה ומחכים. תמיד תציין מספר טיסה. זה לא פרט אופציונלי.</p>
+                </div>
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                  <span className="text-lg flex-shrink-0">⚠️</span>
+                  <p><strong className="text-red-700">בלי מספר טיסה.</strong> הספק לא יודע אם אתה מאחר או לא מגיע. אחרי שעת האיסוף, הוא רשאי לבטל. אין לו חובה לחכות.</p>
+                </div>
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                  <span className="text-lg flex-shrink-0">🕐</span>
+                  <p><strong className="text-red-700">איחור של יותר משעה.</strong> צור קשר עם הספק או הברוקר מיידית. אם האיחור מעביר אותך אחרי שעות הפעילות: יש שירות מחוץ לשעות? יחייבו. אין? תחזור למחרת ותקווה שההזמנה לא בוטלה.</p>
+                </div>
+              </div>
+            </AccordionItem>
+
+            {/* Return accordion */}
+            <AccordionItem title="איסוף והחזרה מחוץ לשעות הפעילות" icon="🔑">
+              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">🔑</span>
+                  <p><strong className="text-gray-800">תיבת מפתחות להחזרה בלבד.</strong> חלק מהספקים מציעים תיבת מפתחות שמאפשרת להחזיר את הרכב בכל שעה, גם כשהסניף סגור. משאירים את המפתח בתיבה, הרכב בחניון, וזהו. שים לב: זה פתרון להחזרה בלבד, לא לאיסוף.</p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-lg flex-shrink-0">🕙</span>
+                  <p><strong className="text-gray-800">שירות מחוץ לשעות הפעילות.</strong> יש ספקים שמציעים שירות איסוף או החזרה מחוץ לשעות הרגילות, עם נציג שמגיע במיוחד. זה קיים, אבל בתשלום נוסף ולא אצל כולם.</p>
+                </div>
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                  <span className="text-lg flex-shrink-0">⚠️</span>
+                  <div>
+                    <p className="text-red-700 font-bold mb-1">שינוי שעה לאחר שעות הפעילות — ללא פתרון.</p>
+                    <p className="mb-2">שינית שעת איסוף או החזרה לשעה שמחוץ לשעות הפעילות של הסניף? אם לספק אין תיבת מפתחות ואין שירות After Hours, השינוי הזה פשוט לא יתאפשר — ולא תוכל לאסוף את הרכב או להחזיר אותו בשעה החדשה.</p>
+                    <p>במצב כזה חייבים להישאר בתוך שעות הפעילות של הסניף. אין פתרון אחר. אם לא עשית זאת מראש, תצטרך לחזור ולבדוק מחדש.</p>
+                  </div>
+                </div>
+              </div>
+            </AccordionItem>
+
+            <Callout type="warning">
+              לפני שמסיימים הזמנה, תבדוק את שעות הפעילות של הסניף ואם יש שירות מחוץ לשעות הרגילות או תיבת מפתחות. אם האיסוף או ההחזרה מתוכננים מחוץ לשעות האלה ואין פתרון, ההשכרה לא תתאפשר.
+            </Callout>
+
+            <AccordionItem title="החזרה במקום אחר: דמי החזרה (One-Way Fee)" icon="↩️">
+              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <p>
+                  רוצה לאסוף את הרכב בפריז ולהחזיר ברומא? זה אפשרי. זה נקרא <strong className="text-navy">השכרה חד-כיוונית (One-Way)</strong>, ויש לו מחיר.
+                </p>
+                <p>
+                  <strong className="text-gray-800">מה זה דמי החזרה?</strong> תוספת תשלום שמחויבת כי הספק צריך להחזיר את הרכב למקום האיסוף המקורי. זה לוגיסטיקה, ואתה משלם עליה. הסכום יכול לנוע בין כמה עשרות יורו לכמה מאות — תלוי במרחק, במדינה ובספק.
+                </p>
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 space-y-2">
+                  <p className="text-xs font-bold text-yellow-800">מה חשוב לדעת לפני שמזמינים:</p>
+                  <ul className="space-y-1.5 text-xs text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
+                      דמי ההחזרה לא תמיד מוצגים בבירור בהשוואת המחירים — תחפש אותם בתנאים לפני אישור.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
+                      גם בין ערים באותה מדינה יכולים להיות דמי החזרה — תלוי בספק ובמרחק. בין מדינות כמעט תמיד יש תוספת.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0 mt-1.5" />
+                      יש ספקים שלא מאפשרים One-Way בכלל לחלק מהמדינות. תבדוק זמינות לפני שבונים על זה.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AccordionItem>
+
+            {/* ─── 7. CROSS-BORDER ──────────────────────────────── */}
+            <SectionTitle id="crossborder" icon="🌍">חציית גבול עם רכב שכור</SectionTitle>
+            <SectionIntro>
+              נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. זה משהו שצריך להצהיר עליו בהזמנה — ולא לקחת כמובן מאליו.
+            </SectionIntro>
+
+            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
+              <p>
+                ברוב החוזים, <strong className="text-navy">נסיעה מחוץ למדינת ההשכרה אסורה ללא אישור מראש בכתב</strong>. זה לא שורה בעדינה. זה סעיף שחברות ההשכרה מחילות. מי שנוסע בלי אישור ונגרם נזק — עלול למצוא את עצמו ללא כיסוי ביטוחי כלל.
+              </p>
+              <p>
+                הדבר הנכון לעשות: <strong className="text-navy">להצהיר על הנסיעה כבר בשלב ההזמנה</strong>. ברוב אתרי ההשוואה ואצל רוב הספקים יש שדה ייעודי לכך. אם אין — פנה ישירות לספק ותאשר בכתב.
+              </p>
+            </div>
+
+            <AccordionItem title="תוספת ביטוח לחציית גבול" icon="🛡️">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                הביטוח שכלול בהשכרה — CDW, TP, SCDW — תקף בדרך כלל רק במדינת ההשכרה. כשיוצאים למדינה אחרת, חלק מהספקים דורשים תוספת ביטוח. תבדוק בתנאי ההזמנה אם יש חיוב נוסף עבור המדינות שאתה מתכנן לבקר בהן, ואשר את הכיסוי מראש בכתב.
+              </p>
+            </AccordionItem>
+
+            <AccordionItem title="ויניט (Vignette) — תו כביש מהיר" icon="🪟">
+              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <p>
+                  במדינות מסוימות באירופה נדרש <strong className="text-gray-800">ויניט</strong> — תו דיגיטלי או מדבקה לשימוש בכבישים המהירים. כשמשכירים רכב באחת המדינות האלה הויניט לרוב כלול. כשנוסעים אליה ממדינה אחרת — <strong className="text-gray-800">האחריות על הנהג</strong>. לא בדקת, לא שילמת — קנס.
+                </p>
+                <Callout type="info">
+                  מדינות נפוצות שדורשות ויניט: אוסטריה, שוויץ, צ׳כיה, סלובניה, הונגריה, רומניה, בולגריה וסלובקיה. ניתן לרכוש דיגיטלית דרך האתר הרשמי של כל מדינה לפני הנסיעה.
+                </Callout>
+              </div>
+            </AccordionItem>
+
+            <Callout type="tip">
+              נוסעים למדינה אחרת? שלושה דברים לסדר מראש: להצהיר בהזמנה, לאשר כיסוי ביטוחי, ולבדוק אם נדרש ויניט.
+            </Callout>
+
+            {/* ─── 8. FUEL ──────────────────────────────────────── */}
+            <SectionTitle id="fuel" icon="⛽">דלק</SectionTitle>
+            <SectionIntro>
+              כולם חושבים שהם מבינים דלק. "ממלאים, מחזירים, יאללה". ואז מגיע החיוב. ואז מגיעים העצבים. אז בוא נעשה סדר.
+            </SectionIntro>
+
+            {/* Fuel policy tiles */}
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              <FuelPolicyCard
+                tag="הכי נפוץ"
+                title="מלא למלא"
+                subtitle="Full to Full"
+                desc="מקבל מלא, מחזיר מלא. הכי פשוט, הכי צודק."
+                highlighted
+              />
+              <FuelPolicyCard
+                tag="פחות נפוץ"
+                title="דלק משולם מראש"
+                subtitle="Prepaid Fuel"
+                desc="משלמים מראש, מחזירים ריק. פחות משתלם לרוב."
+              />
+              <FuelPolicyCard
+                tag="נדיר"
+                title="אחד לאחד"
+                subtitle="Same to Same"
+                desc="מקבל עם X, מחזיר עם X. פשוט על הנייר."
+              />
+            </div>
+
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 flex gap-3">
+              <span className="text-2xl flex-shrink-0">⚠️</span>
+              <p className="text-sm text-gray-700">
+                <strong className="text-red-700">"כמעט מלא" זה לא מלא.</strong> קו אחד חסר? מבחינת הספק זה לא עומד בתנאים. אין בדלק מושג שנקרא "בערך".
+              </p>
+            </div>
+
+            <Callout type="tip">
+              <strong>בקבלת הרכב:</strong> תוודא שהנציג רשם בחוזה את מפלס הדלק כפי שהוא בפועל. ואז תצלם את לוח המחוונים בחניון התחנה לפני שזזים. <strong>בהחזרה:</strong> מלא קרוב לנקודת ההחזרה, שמור קבלה, וצלם שוב את הדשבורד. חותמת השעה על התמונות היא הראיה שלך אם ינסו לחייב על דלק חסר שלא חסר.
+            </Callout>
+
+            {/* ─── 6. MILEAGE ───────────────────────────────────── */}
+            <SectionTitle id="mileage" icon="🗺️">קילומטרז׳</SectionTitle>
+            <SectionIntro>
+              הנחת המוצא של רוב האנשים: "ברור שהק״מ חופשי". ברוב המקרים? נכון. אבל ברוב זה לא בכולם.
+            </SectionIntro>
+
+            <div className="grid grid-cols-2 gap-3 mb-5">
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <p className="text-xs font-bold text-green-700 mb-1 uppercase tracking-wide">Unlimited Mileage</p>
+                <p className="text-sm font-bold text-navy mb-2">ק״מ חופשי</p>
+                <p className="text-xs text-gray-600 leading-relaxed">כמה שרוצים, בלי ספירה. חייב להיות כתוב <strong>במפורש</strong> בתנאי ההשכרה. לא כתוב? לא קיים.</p>
+              </div>
+              <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-4">
+                <p className="text-xs font-bold text-orange-700 mb-1 uppercase tracking-wide">Limited Mileage</p>
+                <p className="text-sm font-bold text-navy mb-2">ק״מ מוגבל</p>
+                <p className="text-xs text-gray-600 leading-relaxed">מכסה יומית או לכל התקופה. כל ק״מ מעבר מחויב בנפרד. מה שנראה זול בהתחלה, יכול להיות יקר בסוף.</p>
+              </div>
+            </div>
+
+            <Callout type="tip">
+              לפני שמאשרים הזמנה, בדוק מה מדיניות הק״מ. שורה אחת בתנאים. שווה את הדקה.
+            </Callout>
+
+            {/* ─── 7. FINES ─────────────────────────────────────── */}
+            <SectionTitle id="fines" icon="📨">קנסות ודוחות</SectionTitle>
+            <SectionIntro>
+              אף אחד לא יוצא לחו״ל כדי לקבל דוח. אבל דוחות לא שואלים אותך מה התוכניות שלך. והם לא מגיעים תמיד מיד.
+            </SectionIntro>
+
+            {/* Fine timeline */}
+            <div className="bg-surface rounded-xl p-5 mb-5 border border-gray-200">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">איך דוח מוצא אותך</p>
+              <div className="space-y-1">
+                <FineStep num={1} text="המצלמה / הנציג מנפיק את הדוח על שם הרכב. לא על שמך." />
+                <FineStep num={2} text="חברת ההשכרה מקבלת את הדוח, מזהה מי ניהג, ומעבירה את הפרטים שלך לרשות." />
+                <FineStep num={3} text="הספק גובה דמי טיפול אדמיניסטרטיביים: 20 עד 50 יורו לדוח. גם אם אתה מתכנן לערער." />
+                <FineStep num={4} text="הקנס עצמו מגיע ישירות ממך לרשות המקומית. חברת ההשכרה לא מעורבת בזה יותר." />
+              </div>
+            </div>
+
+            <AccordionItem title="לא צריך שוטר כדי לקבל דוח באירופה" icon="📷">
+              <p className="text-sm text-gray-600 leading-relaxed mb-2">
+                מצלמות מהירות, אזורי ZTL, נתיבי תחבורה ציבורית, חניה אסורה. הכל מצולם אוטומטית.
+                לא עצרו אותך? לא אמרו לך כלום? לא משנה. הדוח מגיע בדואר, לפעמים חודשים אחרי שחזרת הביתה.
+              </p>
+              <div className="bg-blue-50 rounded p-3 text-xs text-navy">
+                <strong>ZTL באיטליה:</strong> אזורי כניסה מוגבלת במרכזי ערים. ישראלים נופלים על זה הרבה. יש שלט, אבל הוא לא תמיד בולט.
+              </div>
+            </AccordionItem>
+
+            <Callout type="tip">
+              קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר. תמיד.
+            </Callout>
+
+            {/* ─── 8. SUMMARY ───────────────────────────────────── */}
+            <SectionTitle id="summary" icon="✅">השורה התחתונה</SectionTitle>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              השכרת רכב היא לא מוקש. היא רק לא סולחת. מי שמגיע מוכן נוסע רגוע. מי שמניח שיסתדר, לומד בדרך הקשה.
+              הנה הרשימה שתציל אותך מרוב הסיפורים:
+            </p>
+
+            <div className="bg-surface rounded-xl border border-gray-200 overflow-hidden mb-8">
+              {[
+                { icon: "🚗", text: "לא מזמינים רכב ספציפי, מזמינים קטגוריה. הרכב בתמונה הוא דגם מייצג בלבד. לא יכלו לתת את הקטגוריה? מגיע לך שדרוג ללא תשלום." },
+                { icon: "🪪", text: "רישיון ישראלי ובינלאומי פיזיים ובתוקף. דרכון אצלך. כרטיס אשראי על שם הנהג הראשי. כולם עם אותו שם." },
+                { icon: "💳", text: "פיקדון נחסם על הכרטיס. תוודא שיש מסגרת פנויה. דביט ופרה-פייד לא מתקבלים." },
+                { icon: "📍", text: "בדוק מראש היכן התחנה, שעות הפעילות, ואם יש תיבת מפתחות או שירות מחוץ לשעות לפי הצורך." },
+                { icon: "🕐", text: "איסוף בשדה תעופה? תציין מספר טיסה. בלי מספר טיסה, הספק לא חייב לחכות." },
+                { icon: "🛡️", text: "קרא את תנאי הביטוח לפני. CDW עם השתתפות עצמית זה לא אותו דבר כמו SCDW. תדע מה כלול." },
+                { icon: "📋", text: "בדוק את דוח הנזק בקבלת הרכב. צלם את הרכב מארבעת הצדדים ואת הדשבורד לפני ובהחזרה." },
+                { icon: "🧑", text: "נהג צעיר או בכיר? תבדוק גיל, ותק וקטגוריית רכב מראש. לא בדלפק." },
+                { icon: "⛽", text: "Full to Full: מקבל מלא, מחזיר מלא. צלם דשבורד בקבלה ובהחזרה. שמור קבלת דלק." },
+                { icon: "🗺️", text: "בדוק מדיניות קילומטרז׳ לפני שמאשרים. ק״מ חופשי חייב להיות כתוב במפורש." },
+                { icon: "📨", text: "קיבלת דוח? טפל בו מהר. לרוב יש הנחה לתשלום מוקדם. הוא לא נעלם מעצמו." },
+              ].map((item, i, arr) => (
+                <div key={i} className={`flex items-start gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
+                  <span className="text-xl flex-shrink-0">{item.icon}</span>
+                  <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-6 bg-navy rounded-xl text-center">
+              <p className="text-white font-bold text-lg mb-2">מוכן להשכיר?</p>
+              <p className="text-slate-300 text-sm mb-5">עכשיו שאתה יודע מה אתה עושה, תוציא ממנו את המחיר הכי טוב.</p>
+              <a href="#" className="btn-gold text-sm px-8 py-2.5">השווה מחירים ←</a>
+            </div>
+
+            {/* ─── LEXICON ──────────────────────────────────────── */}
+            <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
+            <SectionIntro>
+              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
+            </SectionIntro>
+
+            <AccordionItem title="פתח את המילון המלא" icon="📖">
+              <LexiconSection />
+            </AccordionItem>
+          </article>
+
+          {/* Left gutter disclaimer + CTA */}
+          <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24 space-y-4">
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>
+              <p className="text-xs text-yellow-900 leading-relaxed">
+                המדריך הזה מבוסס על ניסיון אישי ומקרים מהשטח. הוא מדריך, לא חוזה. כל ספק קובע את תנאיו בעצמו. סכומי פיקדון, דרישות ביטוח, גיל מינימום, רשימת מסמכים — כל אלה יכולים להיות שונים ממה שכתוב כאן. תמיד תבדוק את תנאי הספק שלך לפני שנוסעים.
+              </p>
+            </div>
+            <div className="p-4 bg-surface rounded-lg border border-gray-100">
+              <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן לבדוק מחירים?</p>
+              <a href="#" className="btn-gold text-xs py-2 px-4 w-full text-center block">השווה מחירים ←</a>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+
+      <BackToTop />
+      <Footer />
+    </>
+  );
+}

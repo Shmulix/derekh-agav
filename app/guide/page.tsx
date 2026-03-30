@@ -14,6 +14,7 @@ import LexiconSection from "@/components/guide/LexiconSection";
 import TableOfContents from "@/components/guide/TableOfContents";
 import BackToTop from "@/components/guide/BackToTop";
 import MobileTOC from "@/components/guide/MobileTOC";
+import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -938,6 +939,7 @@ export default function GuidePage() {
         </div>
       </div>
 
+      <MobileFloatingCTA />
       <MobileTOC items={tocItems.map(({ id, label }) => ({ id, label }))} />
       <BackToTop />
       <Footer />

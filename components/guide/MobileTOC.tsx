@@ -103,7 +103,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`fixed bottom-[5rem] right-4 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
+        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"
             : "bg-white border border-gray-200 text-navy hover:bg-navy hover:text-white hover:border-navy pr-5"

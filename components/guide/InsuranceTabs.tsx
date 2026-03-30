@@ -6,7 +6,7 @@ import { CheckCircle, XCircle, AlertCircle } from "lucide-react";
 const tabs = [
   { id: "basic", label: "CDW / TP / LDW", sublabel: "ביטוח בסיסי" },
   { id: "scdw", label: "SCDW / Super TP", sublabel: "ללא השתתפות" },
-  { id: "supplemental", label: "כיסוי משלים", sublabel: "דרך ברוקר" },
+  { id: "supplemental", label: "כיסוי משלים", sublabel: "מחוץ לספק" },
 ];
 
 const covered = ["נזקי תאונה (CDW)", "גניבת הרכב (TP)"];

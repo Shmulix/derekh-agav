@@ -90,8 +90,8 @@ export default function HomePage() {
               <Link href="/guide" className="btn-primary text-base px-8 py-3">
                 המדריך המלא ←
               </Link>
-              <a href="#" className="btn-ghost-gold text-base px-8 py-3">
-                השווה מחירים ←
+              <a href="/posts/rental-platforms" className="btn-ghost-gold text-base px-8 py-3">
+                איפה הכי כדאי להזמין? השוואה מלאה ←
               </a>
             </div>
           </div>
@@ -316,10 +316,10 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
             <p className="text-slate-300 mb-8 leading-relaxed">
-              עכשיו שאתה מוכן, השווה מחירים בין חברות וחסוך.
+              עכשיו שאתה מוכן — תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
             </p>
-            <a href="#" className="btn-gold text-base px-10 py-3">
-              השווה מחירים עכשיו ←
+            <a href="/posts/rental-platforms" className="btn-gold text-base px-10 py-3">
+              איפה הכי כדאי להזמין? השוואה מלאה ←
             </a>
           </div>
         </section>

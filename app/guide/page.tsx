@@ -527,9 +527,9 @@ export default function GuidePage() {
             <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">
               <div>
                 <p className="text-sm font-bold text-navy mb-0.5">עכשיו שאתה מבין את הביטוח:</p>
-                <p className="text-xs text-gray-500">תבדוק מה כלול בהצעות ותשווה מחירים</p>
+                <p className="text-xs text-gray-500">תקרא את ההשוואה שלנו בין הפלטפורמות</p>
               </div>
-              <a href="#" className="btn-gold text-xs py-2 px-5 flex-shrink-0">השווה מחירים ←</a>
+              <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-5 flex-shrink-0">איפה להזמין? ←</a>
             </div>
 
             {/* ─── 5. DRIVER AGE ────────────────────────────────── */}
@@ -930,8 +930,8 @@ export default function GuidePage() {
 
             <div className="p-6 bg-navy rounded-xl text-center mt-10">
               <p className="text-white font-bold text-lg mb-2">מוכן להשכיר?</p>
-              <p className="text-slate-300 text-sm mb-5">עכשיו שאתה יודע מה אתה עושה, תוציא ממנו את המחיר הכי טוב.</p>
-              <a href="#" className="btn-gold text-sm px-8 py-2.5">השווה מחירים ←</a>
+              <p className="text-slate-300 text-sm mb-5">עכשיו שאתה יודע מה אתה עושה — תקרא איפה הכי כדאי להזמין.</p>
+              <a href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">איפה הכי כדאי להזמין? השוואה מלאה ←</a>
             </div>
           </article>
 
@@ -944,8 +944,8 @@ export default function GuidePage() {
               </p>
             </div>
             <div className="p-4 bg-surface rounded-lg border border-gray-100">
-              <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן לבדוק מחירים?</p>
-              <a href="#" className="btn-gold text-xs py-2 px-4 w-full text-center block">השווה מחירים ←</a>
+              <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן להזמין? קרא קודם איפה כדאי.</p>
+              <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-4 w-full text-center block">איפה להזמין? ←</a>
             </div>
           </aside>
 

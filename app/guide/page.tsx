@@ -13,6 +13,7 @@ import AcrissTable from "@/components/guide/AcrissTable";
 import LexiconSection from "@/components/guide/LexiconSection";
 import TableOfContents from "@/components/guide/TableOfContents";
 import BackToTop from "@/components/guide/BackToTop";
+import MobileTOC from "@/components/guide/MobileTOC";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -147,20 +148,6 @@ export default function GuidePage() {
             מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. כל מה שצריך לדעת, בסדר הנכון.
           </p>
           <p className="text-slate-500 text-xs">⏱ זמן קריאה משוער: כ-15 דקות</p>
-          {/* Mobile TOC */}
-          <div className="lg:hidden mt-6">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">תוכן עניינים</p>
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              {tocItems.map((item) => (
-                <a key={item.id} href={`#${item.id}`}
-                  className="flex items-center gap-2 text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-2 rounded-lg transition-colors">
-                  <item.icon size={12} className="text-gold flex-shrink-0" />
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <a href="#" className="btn-gold text-xs py-2 px-4 w-full text-center block">השווה מחירים ←</a>
-          </div>
         </div>
       </div>
 
@@ -881,6 +868,7 @@ export default function GuidePage() {
         </div>
       </div>
 
+      <MobileTOC items={tocItems.map(({ id, label }) => ({ id, label }))} />
       <BackToTop />
       <Footer />
     </>

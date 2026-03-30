@@ -61,9 +61,6 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
     return () => document.removeEventListener("mousedown", handler);
   }, [open]);
 
-  const activeLabel = items.find((i) => i.activeId === activeId)?.label
-    ?? items.find((i) => i.id === activeId)?.label;
-
   return (
     <div className="lg:hidden" ref={panelRef}>
       {/* Panel — slides up above the button */}

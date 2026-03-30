@@ -459,10 +459,10 @@ export default function GuidePage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-base">⚠️</span>
-                    <p className="font-bold text-orange-700 text-sm">לא מכוסה בדרך כלל — תלוי בחבילה</p>
+                    <p className="font-bold text-orange-700 text-sm">לא מכוסה בדרך הביטוח הבסיסי</p>
                   </div>
                   <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                    הפריטים הבאים <strong>אינם כלולים בביטוח הסטנדרטי</strong> של הספק. חלקם ניתנים לכיסוי דרך חבילת ביטוח מורחבת של הספק (Premium Protection, Full Cover), אבל לא תמיד, ולא בכל ספק. בדוק את התנאים לפני ההשכרה.
+                    הפריטים הבאים <strong>אינם כלולים בביטוח הבסיסי</strong>. בדרך כלל מכוסים דרך כיסויים משלימים, אבל לא תמיד. בדוק את התנאים לפני ההשכרה.
                   </p>
                   <div className="space-y-2">
                     {[
@@ -487,7 +487,7 @@ export default function GuidePage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-base">🚫</span>
-                    <p className="font-bold text-red-700 text-sm">לא מכוסה בשום מקרה — עם שום ביטוח</p>
+                    <p className="font-bold text-red-700 text-sm">לא מכוסה בשום מקרה, עם שום ביטוח או כיסוי</p>
                   </div>
                   <p className="text-xs text-gray-500 mb-3 leading-relaxed">
                     הפריטים הבאים <strong>לא מכוסים על ידי אף ביטוח</strong>, לא של הספק ולא של כרטיס האשראי. לא קיימת חבילה שמכסה אותם. אם קרה, אתה משלם.

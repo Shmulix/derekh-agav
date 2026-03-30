@@ -704,7 +704,11 @@ export default function GuidePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 border-t border-gray-200">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">הציוד בדרך כלל כלול ברכב — הספק מחויב לעמוד בחוק.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed mb-2">הספק מחויב לעמוד בחוק — אך <strong>רק הציוד שהחוק מחייב</strong> יהיה כלול: בדרך כלל צמיגי חורף / רב-עונתיים <em>או</em> שרשראות — לא בהכרח שניהם.</p>
+                  <ul className="text-xs text-gray-600 leading-relaxed space-y-1">
+                    <li>• ציוד נוסף (למשל שרשראות כשיש רק חובת צמיגים) — <strong>יש להזמין בנפרד ומראש</strong>.</li>
+                    <li>• גם ציוד שהחוק מחייב לא תמיד כלול במחיר ההשכרה — <strong>בחלק מהמקרים מדובר בתוספת תשלום</strong>. כדאי לבדוק בעת ההזמנה.</li>
+                  </ul>
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>

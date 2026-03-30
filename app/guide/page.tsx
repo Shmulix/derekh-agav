@@ -708,7 +708,11 @@ export default function GuidePage() {
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">נוסעים לאזור הרים או מדינה עם חובה? <strong>האחריות עליך.</strong> הספק לא יצייד אותך — צריך להזמין מראש.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed mb-2">נוסעים לאזור הרים, אתר סקי, או מדינה עם חובת ציוד חורף? <strong>האחריות עליך לחלוטין.</strong> שתי אפשרויות:</p>
+                  <ul className="text-xs text-gray-600 leading-relaxed space-y-1.5">
+                    <li><strong>• דרך הספק</strong> — חלק מהספקים מציעים קטגוריות עם צמיגי חורף / רב-עונתיים, ואפשרות להזמין שרשראות כתוסף. אבל זה לא זמין בכל תחנה — בדרך כלל רק בתחנות שמשרתות יעדי חורף מוכרים (ליון, ז׳נבה, אינסברוק ועוד). <strong>חייבים להזמין מראש</strong> — בדלפק לא תמצאו.</li>
+                    <li><strong>• ברכישה עצמאית</strong> — שרשראות ניתן לרכוש בחנויות ציוד רכב לאורך הדרך. פתרון טוב אם לא הזמנתם מראש, אך לא מחכים לרגע האחרון.</li>
+                  </ul>
                 </div>
               </div>
             </div>

@@ -73,12 +73,13 @@ export default function InsuranceTabs() {
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-bold text-red-600 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בדרך כלל</p>
+                <p className="text-xs font-bold text-orange-600 mb-1 flex items-center gap-1"><AlertCircle size={12} /> לא מכוסה בדרך כלל</p>
+                <p className="text-xs text-gray-400 mb-2 leading-relaxed">יכול להיות מכוסה בחבילת פרימיום. תבדוק לפני.</p>
                 <ul className="space-y-2">
                   {notCovered.map(({ item, note }) => (
                     <li key={item} className="text-xs text-gray-600">
                       <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
                         <span className="font-medium">{item}</span>
                       </span>
                       <span className="text-gray-400 text-xs pr-3">{note}</span>
@@ -89,7 +90,8 @@ export default function InsuranceTabs() {
             </div>
 
             <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-              <p className="text-xs font-bold text-red-700 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בשום מקרה, עם שום ביטוח</p>
+              <p className="text-xs font-bold text-red-700 mb-1 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בשום מקרה, עם שום ביטוח</p>
+              <p className="text-xs text-red-400 mb-2 leading-relaxed">לא הספק, לא כרטיס אשראי, לא שום חבילה. אין כיסוי.</p>
               <ul className="space-y-2">
                 {neverCovered.map(({ item, note }) => (
                   <li key={item} className="text-xs text-gray-700">

@@ -689,7 +689,7 @@ export default function GuidePage() {
 
               <div className="pt-1 border-t border-gray-200 space-y-2">
                 <p className="font-semibold text-navy text-xs uppercase tracking-wide">מה החוק אומר vs. מה הבטיחות דורשת:</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-3">
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                     <p className="text-xs font-bold text-blue-700 mb-1.5">מה החוק מחייב</p>
                     <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף / רב-עונתיים (3PMSF)</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong> — אלפים, פירנאים, אזורי הרים.</p>

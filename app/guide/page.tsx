@@ -667,28 +667,54 @@ export default function GuidePage() {
               במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה — חוק.
             </SectionIntro>
 
-            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
-              <p className="font-semibold text-navy text-xs uppercase tracking-wide mb-1">סוגי ציוד חורף מוכרים:</p>
-              <ul className="space-y-2">
-                <li className="flex gap-2"><span className="mt-0.5">❄️</span><span><strong className="text-navy">צמיגי חורף ייעודיים</strong> — מיועדים במיוחד לקור, שלג וקרח.</span></li>
-                <li className="flex gap-2"><span className="mt-0.5">🔵</span><span><strong className="text-navy">צמיגי ארבע עונות עם סימון 3PMSF</strong> (הסמל של הפתית) — מוכרים חוקית ברוב המדינות כשווי ערך לצמיגי חורף.</span></li>
-                <li className="flex gap-2"><span className="mt-0.5">⛓️</span><span><strong className="text-navy">שרשראות שלג או גרביוני שלג</strong> — שתי האפשרויות מיועדות לאותה מטרה: אחיזה בשלג עמוק וקרח. חלק מהאזורים ההרריים מחייבים אותן <em>בנוסף</em> לצמיגי חורף.</span></li>
-              </ul>
+            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-4">
+              <p className="font-semibold text-navy text-xs uppercase tracking-wide">סוגי ציוד חורף:</p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="space-y-3">
+                <div className="border-r-2 border-navy pr-3">
+                  <p className="font-semibold text-navy text-sm mb-0.5">❄️ צמיגי חורף ייעודיים</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">מיועדים לטמפרטורות נמוכות, כבישים רטובים, שלג קל וקרח דק. אינם מיועדים לנסיעה בשלג עמוק או קרח כבד — לכך נועדות השרשראות.</p>
+                </div>
+
+                <div className="border-r-2 border-blue-400 pr-3">
+                  <p className="font-semibold text-navy text-sm mb-0.5">🔵 צמיגי רב-עונתיים עם סימון 3PMSF</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">צמיגים המיועדים לכל השנה, שעומדים בתקן החורפי האירופי (סמל הפתית על הצמיג). מתאימים לקור, גשם, ושלג קל. כשהשלג מתעמק או הקרח מתגבש — גם הם מגיעים לגבול שלהם, וצריך שרשראות.</p>
+                </div>
+
+                <div className="border-r-2 border-gray-400 pr-3">
+                  <p className="font-semibold text-navy text-sm mb-0.5">⛓️ שרשראות שלג / גרביוני שלג</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">מתקינים על הגלגלים כשהכביש מכוסה שלג עמוק או קרח. שרשראות ממתכת וגרביוני שלג מטקסטיל — שתי הגרסאות מיועדות לאותה מטרה. חלק מהמדינות מחייבות לשאת אותן ברכב בחורף גם אם לא נדרשת ההתקנה בפועל.</p>
+                </div>
+              </div>
+
+              <div className="pt-1 border-t border-gray-200 space-y-2">
+                <p className="font-semibold text-navy text-xs uppercase tracking-wide">מה החוק אומר vs. מה הבטיחות דורשת:</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <p className="text-xs font-bold text-blue-700 mb-1.5">מה החוק מחייב</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף או רב-עונתיים</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong> — אלפים, פירנאים, אזורי הרים.</p>
+                  </div>
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <p className="text-xs font-bold text-amber-700 mb-1.5">מה הבטיחות דורשת</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף — אם אתם נוסעים לאזור סקי, כביש הררי מושלג, או מזג אוויר קיצוני, <strong>שרשראות הן המלצה בטיחותית אמיתית</strong>. לא דרישה חוקית — אבל הן עשויות להציל את הנסיעה.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 border-t border-gray-200">
                 <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">הציוד בדרך כלל כלול — הספק מחויב לעמוד בחוק. אוסטריה, גרמניה, צ׳כיה, סלובקיה, פולין, מדינות סקנדינביה ועוד 20+ מדינות אירופאיות.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">הציוד בדרך כלל כלול ברכב — הספק מחויב לעמוד בחוק.</p>
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">נוסעים לאזור הרים, אתר סקי, או מדינה שבה יש חובה? <strong>האחריות עליך.</strong> הספק לא יצייד אותך — אתה צריך להזמין מראש.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">נוסעים לאזור הרים או מדינה עם חובה? <strong>האחריות עליך.</strong> הספק לא יצייד אותך — צריך להזמין מראש.</p>
                 </div>
               </div>
             </div>
 
             <Callout type="warning">
-              זה חל גם בתוך אותה מדינה: שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף או שרשראות באזורי ההרים מכוח חוק Montagne. אותו רכב, אותה השכרה — ציוד שונה נדרש.
+              שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף או שרשראות באזורי ההרים (חוק Montagne). אותו רכב, אותה השכרה — ציוד שונה נדרש ברגע שיוצאים מהעיר לכיוון ההרים.
             </Callout>
 
             <Callout type="tip">

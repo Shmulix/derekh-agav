@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import {
   BookOpen, Car, FileText, CreditCard, MapPin, Globe, Shield, User,
-  Fuel, Route, Mail, AlertOctagon, LayoutGrid, CheckCircle, BookMarked,
+  Fuel, Route, Mail, AlertOctagon, LayoutGrid, CheckCircle, BookMarked, Snowflake,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -13,6 +13,7 @@ const iconMap: Record<string, React.ElementType> = {
   deposit: CreditCard,
   pickup: MapPin,
   crossborder: Globe,
+  winter: Snowflake,
   insurance: Shield,
   "young-driver": User,
   fuel: Fuel,

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+@layer components {
+  .callout-warning {
+    @apply bg-red-50 border-r-4 border-red-500 p-4 rounded-sm;
+  }
+
+  .callout-tip {
+    @apply bg-yellow-50 border-r-4 border-gold p-4 rounded-sm;
+  }
+
+  .callout-info {
+    @apply bg-blue-50 border-r-4 border-navy p-4 rounded-sm;
+  }
+
+  .btn-primary {
+    @apply bg-navy text-white font-semibold px-6 py-3 rounded-md hover:bg-navy-dark transition-colors duration-200 inline-block;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-navy font-bold px-6 py-3 rounded-md hover:bg-gold-dark transition-colors duration-200 inline-block;
+  }
+
+  .btn-ghost-gold {
+    @apply border-2 border-gold text-gold font-semibold px-6 py-3 rounded-md hover:bg-gold hover:text-navy transition-colors duration-200 inline-block;
+  }
+}

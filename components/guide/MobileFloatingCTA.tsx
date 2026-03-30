@@ -10,7 +10,7 @@ export default function MobileFloatingCTA() {
     <div className="lg:hidden">
       {/* Expanded panel — slides up above the button */}
       {open && (
-        <div className="fixed bottom-[3.5rem] right-4 z-50 w-64 bg-gold rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150">
+        <div className="fixed bottom-[3.5rem] right-4 z-[60] w-64 bg-gold rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150">
           <div className="relative px-4 pt-4 pb-3">
             <button
               onClick={() => setOpen(false)}

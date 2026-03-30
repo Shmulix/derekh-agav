@@ -444,7 +444,7 @@ export default function GuidePage() {
             {/* ─── 4. INSURANCE ─────────────────────────────────── */}
             <SectionTitle id="insurance" icon="🛡️">ביטוח</SectionTitle>
             <SectionIntro>
-              ביטוח זה הנושא שאנשים הכי "מבינים" לפני שמגיעים, והכי מתבלבלים ממנו אחרי. בוא נעשה סדר. CDW זה Collision Damage Waiver, ביטוח נזקי תאונה. TP זה Theft Protection, ביטוח גניבה. בארה״ב תראה LDW בלבד (Loss Damage Waiver), שמאחד את שניהם לכיסוי אחד.
+              ביטוח הוא הנושא שהכי קל לחשוב שמבינים אותו לפני הנסיעה. ובדלפק, הוא הנושא שהכי גורם להפתעות. המינוח לבד כבר מספיק לבלבל. כאן תמצא הסבר לכל סוג, כדי שתדע בדיוק מה קנית לפני שצריך להשתמש בזה.
             </SectionIntro>
 
             <InsuranceTabs />

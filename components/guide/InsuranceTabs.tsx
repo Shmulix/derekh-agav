@@ -74,7 +74,7 @@ export default function InsuranceTabs() {
               </div>
               <div>
                 <p className="text-xs font-bold text-orange-600 mb-1 flex items-center gap-1"><AlertCircle size={12} /> לא מכוסה בדרך כלל</p>
-                <p className="text-xs text-gray-400 mb-2 leading-relaxed">יכול להיות מכוסה בחבילת פרימיום. תבדוק לפני.</p>
+                <p className="text-xs text-gray-400 mb-2 leading-relaxed">לא כלול בביטוח הבסיסי. תבדוק את תנאי החוזה לפני ההשכרה.</p>
                 <ul className="space-y-2">
                   {notCovered.map(({ item, note }) => (
                     <li key={item} className="text-xs text-gray-600">

@@ -692,11 +692,11 @@ export default function GuidePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                     <p className="text-xs font-bold text-blue-700 mb-1.5">מה החוק מחייב</p>
-                    <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף או רב-עונתיים</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong> — אלפים, פירנאים, אזורי הרים.</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף / רב-עונתיים (3PMSF)</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong> — אלפים, פירנאים, אזורי הרים.</p>
                   </div>
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
                     <p className="text-xs font-bold text-amber-700 mb-1.5">מה הבטיחות דורשת</p>
-                    <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף — אם אתם נוסעים לאזור סקי, כביש הררי מושלג, או מזג אוויר קיצוני, <strong>שרשראות הן המלצה בטיחותית אמיתית</strong>. לא דרישה חוקית — אבל הן עשויות להציל את הנסיעה.</p>
+                    <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף / רב-עונתיים — על כביש מושלג או מקפיא, <strong>בלי שרשראות לא תוכלו לנסוע</strong>. הרכב יחליק, יתקע, ולא ינוע. זה לא עניין של המלצה — זו מציאות פיזית. לאזור סקי או כביש הררי בחורף? שרשראות הן ציוד חובה בטיחותי, גם אם החוק לא מחייב.</p>
                   </div>
                 </div>
               </div>
@@ -714,7 +714,7 @@ export default function GuidePage() {
             </div>
 
             <Callout type="warning">
-              שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף או שרשראות באזורי ההרים (חוק Montagne). אותו רכב, אותה השכרה — ציוד שונה נדרש ברגע שיוצאים מהעיר לכיוון ההרים.
+              שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף / רב-עונתיים או שרשראות באזורי ההרים (חוק Montagne). אותו רכב, אותה השכרה — ציוד שונה נדרש ברגע שיוצאים מהעיר לכיוון ההרים.
             </Callout>
 
             <Callout type="tip">

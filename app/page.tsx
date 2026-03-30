@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FileText, Globe, Link2, Target, AlertTriangle, Map, MessageCircle, ChevronLeft, Clock, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -49,8 +50,17 @@ export default function HomePage() {
       <main>
         {/* ─── HERO ─────────────────────────────────────────────── */}
         <section className="relative bg-navy-dark min-h-[580px] flex items-center">
-          {/* Background overlay — replace with next/image for production */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c] via-navy to-[#0a1628] opacity-100" />
+          {/* Hero background image */}
+          <Image
+            src="/hero-bg.avif"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          {/* Navy gradient overlay — keeps readability while letting image show through */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/90 via-navy/80 to-[#0a1628]/85" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-20 text-center">
             {/* Badge */}

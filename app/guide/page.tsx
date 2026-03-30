@@ -33,8 +33,8 @@ const tocItems = [
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
-  { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
   { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
+  { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
 ];
 
 function SectionTitle({ id, icon, children }: { id: string; icon: string; children: React.ReactNode }) {
@@ -767,7 +767,17 @@ export default function GuidePage() {
               קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר. תמיד.
             </Callout>
 
-            {/* ─── 8. SUMMARY ───────────────────────────────────── */}
+            {/* ─── LEXICON ──────────────────────────────────────── */}
+            <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
+            <SectionIntro>
+              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
+            </SectionIntro>
+
+            <AccordionItem title="פתח את המילון המלא" icon="📖">
+              <LexiconSection />
+            </AccordionItem>
+
+            {/* ─── SUMMARY ──────────────────────────────────────── */}
             <SectionTitle id="summary" icon="✅">השורה התחתונה</SectionTitle>
             <p className="text-gray-700 leading-relaxed mb-6">
               השכרת רכב היא לא מוקש. היא רק לא סולחת. מי שמגיע מוכן נוסע רגוע. מי שמניח שיסתדר, לומד בדרך הקשה.
@@ -800,16 +810,6 @@ export default function GuidePage() {
               <p className="text-slate-300 text-sm mb-5">עכשיו שאתה יודע מה אתה עושה, תוציא ממנו את המחיר הכי טוב.</p>
               <a href="#" className="btn-gold text-sm px-8 py-2.5">השווה מחירים ←</a>
             </div>
-
-            {/* ─── LEXICON ──────────────────────────────────────── */}
-            <SectionTitle id="lexicon" icon="📖">מילון מונחים</SectionTitle>
-            <SectionIntro>
-              כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק — עם תרגום והסבר קצר.
-            </SectionIntro>
-
-            <AccordionItem title="פתח את המילון המלא" icon="📖">
-              <LexiconSection />
-            </AccordionItem>
           </article>
 
           {/* Left gutter disclaimer + CTA */}

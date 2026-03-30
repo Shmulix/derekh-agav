@@ -4,6 +4,7 @@ import {
   FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
   AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake,
 } from "lucide-react";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AccordionItem } from "@/components/guide/Accordion";
@@ -139,8 +140,17 @@ export default function GuidePage() {
       <Header />
 
       {/* Guide Hero */}
-      <div className="bg-navy py-14">
-        <div className="max-w-4xl mx-auto px-6">
+      <div className="relative bg-navy py-14 overflow-hidden">
+        <Image
+          src="/hero-bg-banner.avif"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/92 via-navy/85 to-[#0a1628]/90" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <p className="text-gold text-sm font-semibold mb-2">המדריך המלא</p>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
             המדריך המלא להשכרת רכב בחו״ל

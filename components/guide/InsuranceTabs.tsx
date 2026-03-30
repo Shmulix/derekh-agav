@@ -53,11 +53,11 @@ export default function InsuranceTabs() {
         {active === "basic" && (
           <div>
             <p className="text-sm text-gray-600 mb-3 leading-relaxed">
-              הביטוח שמגיע בכל השכרה. מכסה נזקי תאונה וגניבה, אבל תמיד עם <strong>השתתפות עצמית</strong>: בדרך כלל 300 עד 3,000 יורו. אתה משלם עד לתקרה הזו, גם אם הנזק מכוסה.
+              <strong>CDW</strong> (Collision Damage Waiver) מכסה נזקי תאונה. <strong>TP</strong> (Theft Protection) מכסה גניבה. ביחד הם הביטוח הבסיסי שמגיע בכל השכרה. תמיד עם <strong>השתתפות עצמית</strong>: בדרך כלל 300 עד 3,000 יורו. אתה משלם עד לתקרה הזו, גם אם הנזק מכוסה.
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 mb-4">
               <p className="text-xs text-blue-800 leading-relaxed">
-                <strong>בארה״ב:</strong> תראה LDW בלבד — Loss Damage Waiver. זה לא ביטוח אחר, זה אותו עיקרון: CDW ו-TP מאוחדים לכיסוי אחד. אותה השתתפות עצמית, אותם חריגים.
+                <strong>בארה״ב</strong> תראה <strong>LDW</strong> (Loss Damage Waiver) במקום CDW+TP. זה לא ביטוח שונה, זה אותו עיקרון עם שם אחד. אותה השתתפות עצמית, אותם חריגים.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-4">
@@ -106,7 +106,7 @@ export default function InsuranceTabs() {
         {active === "scdw" && (
           <div>
             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-              אותו כיסוי של CDW/TP, אבל <strong>בלי השתתפות עצמית</strong>. במקרה של נזק, תשלם בדרך כלל רק דמי טיפול: 40 עד 60 יורו. הפיקדון עדיין נדרש.
+              <strong>SCDW</strong> (Super CDW) ו-<strong>Super TP</strong> הם שדרוג של הביטוח הבסיסי. אותו כיסוי של CDW ו-TP, אבל <strong>בלי השתתפות עצמית</strong>. במקרה של נזק, תשלם בדרך כלל רק דמי טיפול: 40 עד 60 יורו. הפיקדון עדיין נדרש.
             </p>
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-3">
               <p className="text-sm font-bold text-green-800 mb-1">ההבדל בפועל</p>

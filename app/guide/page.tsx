@@ -717,10 +717,6 @@ export default function GuidePage() {
               </div>
             </div>
 
-            <Callout type="warning">
-              שכרת רכב בפריז ונוסע לאלפים? צרפת מחייבת צמיגי חורף / רב-עונתיים או שרשראות באזורי ההרים (חוק Montagne). אותו רכב, אותה השכרה — ציוד שונה נדרש ברגע שיוצאים מהעיר לכיוון ההרים.
-            </Callout>
-
             <Callout type="tip">
               <Link href="/posts/winter-equipment" className="font-semibold underline underline-offset-2 hover:opacity-75">
                 טבלת חובות ציוד חורף לפי מדינה — המדריך המלא ←

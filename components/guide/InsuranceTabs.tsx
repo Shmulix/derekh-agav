@@ -124,10 +124,10 @@ export default function InsuranceTabs() {
             <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
               <p className="text-xs font-bold text-orange-700 mb-2">גם עם SCDW, אלה לא תמיד מכוסים:</p>
               <ul className="space-y-1">
-                {notCovered.map(({ item, note }) => (
-                  <li key={item} className="text-xs text-gray-600">
-                    <span className="font-medium">{item}</span>
-                    <span className="text-gray-400"> — {note}</span>
+                {notCovered.map(({ item }) => (
+                  <li key={item} className="text-xs text-gray-600 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                    {item}
                   </li>
                 ))}
               </ul>

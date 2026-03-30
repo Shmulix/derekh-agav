@@ -6,7 +6,7 @@ import { CheckCircle, XCircle, AlertCircle } from "lucide-react";
 const tabs = [
   { id: "basic", label: "CDW / TP / LDW", sublabel: "ביטוח בסיסי" },
   { id: "scdw", label: "SCDW / Super TP", sublabel: "ללא השתתפות" },
-  { id: "supplemental", label: "כיסוי משלים", sublabel: "מחוץ לספק" },
+  { id: "supplemental", label: "כיסוי משלים", sublabel: "מחוץ לחברת ההשכרה" },
 ];
 
 const covered = ["נזקי תאונה (CDW)", "גניבת הרכב (TP)"];
@@ -122,7 +122,7 @@ export default function InsuranceTabs() {
               </div>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
-              כמו ב-CDW/TP, שמשות, מראות, צמיגים, מרכב תחתון, מצמד, מצבר ואובדן מפתחות אינם מכוסים בביטוח הבסיסי של הספק.
+              כמו ב-CDW/TP, שמשות, מראות, צמיגים, מרכב תחתון, מצמד, מצבר ואובדן מפתחות אינם מכוסים ב-SCDW וב-Super TP.
             </p>
           </div>
         )}

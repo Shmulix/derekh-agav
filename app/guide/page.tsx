@@ -1130,6 +1130,10 @@ export default function GuidePage() {
                 { icon: "⛽", text: "Full to Full: מקבל מלא, מחזיר מלא. צלם דשבורד בקבלה ובהחזרה. שמור קבלת דלק." },
                 { icon: "🗺️", text: "בדוק מדיניות קילומטרז׳ לפני שמאשרים. ק״מ חופשי חייב להיות כתוב במפורש." },
                 { icon: "📨", text: "קיבלת דוח? טפל בו מהר. לרוב יש הנחה לתשלום מוקדם. הוא לא נעלם מעצמו." },
+                { icon: "🛣️", text: "חוצה גבול או נוסע למדינה עם ויניט? בדוק אם הרכב מצויד. כניסה לאיטליה? למד מה זה ZTL לפני." },
+                { icon: "👶", text: "צריך כיסא ילדים? הזמן מראש עם ההשכרה. אל תניח שיהיה זמין בתחנה." },
+                { icon: "📅", text: "בדוק את מדיניות הביטול וה-No-Show לפני שמאשרים הזמנה. ביטול ב-48 שעות לפני יכול לעלות 30 עד 100 דולר." },
+                { icon: "🚨", text: "שמור את מספר שירות הדרכים בטלפון לפני שיוצאים לדרך. הוא בחוזה ההשכרה או על מדבקה בתוך הרכב." },
               ].map((item, i, arr) => (
                 <div key={i} className={`flex items-start gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
                   <span className="text-xl flex-shrink-0">{item.icon}</span>
@@ -1161,18 +1165,18 @@ export default function GuidePage() {
               <div className="flex items-center gap-3 mb-3">
                 <Image
                   src="/samuel.avif"
-                  alt="שמואל"
+                  alt="סמואל פרץ"
                   width={44}
                   height={44}
                   className="rounded-full object-cover flex-shrink-0"
                 />
                 <div>
-                  <p className="text-xs font-bold text-navy leading-tight">שמואל</p>
-                  <p className="text-xs text-gray-400 leading-tight">10+ שנות ניסיון בתחום</p>
+                  <p className="text-xs font-bold text-navy leading-tight">סמואל פרץ</p>
+                  <p className="text-xs text-gray-400 leading-tight">10+ שנות ניסיון בתעשייה</p>
                 </div>
               </div>
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
-                עמדתי מהצד השני של הדלפק. המדריך הזה נכתב על סמך מה שראיתי בשטח, לא מה שכתוב בוויקיפדיה.
+                עשר שנים בתעשיית השכרת הרכב: תפעול, ניהול ושירות לקוחות מהצד של חברת ההשכרה. המדריך הזה מבוסס על מה שראיתי בשטח.
               </p>
               <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>
             </div>

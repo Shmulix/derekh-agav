@@ -38,6 +38,7 @@ const tocItems = [
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
+  { id: "emergency", label: "תאונה ותקלה", icon: AlertTriangle },
   { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
   { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
 ];
@@ -1011,6 +1012,66 @@ export default function GuidePage() {
 
             <Callout type="tip">
               קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר. תמיד.
+            </Callout>
+
+            {/* ─── EMERGENCY: ACCIDENT & BREAKDOWN ─────────────── */}
+            <SectionTitle id="emergency" icon="🚨">תאונה ותקלה מכנית</SectionTitle>
+            <SectionIntro>
+              שני מצבים שאף אחד לא מתכנן אליהם. כדאי לדעת מה עושים לפני שיוצאים לדרך. הפרוצדורה משתנה לפי חברת ההשכרה, המדינה וסוג הבעיה.
+            </SectionIntro>
+
+            <div className="space-y-3 mb-6">
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-5">
+                <p className="text-sm font-bold text-navy mb-3">🔧 תקלה מכנית</p>
+                <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                  <p>
+                    הצעד הראשון: <strong className="text-navy">לפנות לשירות הדרכים (Roadside Assistance)</strong> של חברת ההשכרה. הם יעריכו את הבעיה ויתנו הוראות מדויקות לפי הסיטואציה.
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 text-xs mt-2">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <p className="font-bold text-blue-800 mb-1">אם הרכב מושבת לחלוטין</p>
+                      <p className="text-gray-600 leading-relaxed">שירות הדרכים ישלח גרר או יפנה אותך לתחנה הקרובה. שמור את המיקום שלך ואת פרטי הרכב נגישים.</p>
+                    </div>
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                      <p className="font-bold text-blue-800 mb-1">תקלה קלה (פנצ׳ר, שמן, נוזל)</p>
+                      <p className="text-gray-600 leading-relaxed">ניתן לטפל באופן עצמאי. שמור את כל הקבלות ובדוק אם ניתן לקבל החזר דרך הכיסוי שלך או ישירות מחברת ההשכרה.</p>
+                    </div>
+                  </div>
+                </div>
+                <Callout type="warning">
+                  אם הרכב נגרר, חברת ההשכרה <strong>לא תמיד מחויבת לספק רכב חלופי</strong>. בדרך כלל יש החלפה, אבל אם אין זמינות בתחנה הקרובה, זה לא בהתחייבות. תמיד שאל ישירות.
+                </Callout>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-5">
+                <p className="text-sm font-bold text-navy mb-3">💥 תאונה</p>
+                <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                  <p>
+                    שני דברים במקביל, מיד לאחר התאונה:
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      { step: "1", title: "משטרה", text: "פנה לרשויות לקבלת דוח תאונה רשמי (Constat / Police Report). ללא דוח, חברת ההשכרה עלולה לסרב לכיסוי הנזק." },
+                      { step: "2", title: "חברת ההשכרה / שירות הדרכים", text: "פנה לתחנה או לשירות הדרכים לקבלת הוראות מדויקות. הם יקבעו אם שולח גרר, רכב חלופי, או שניתן להמשיך בנסיעה." },
+                      { step: "3", title: "תיעוד", text: "צלם את כל הנזקים, מיקום הרכבים, שלטי רחוב, רישיון ופרטי הצד השני אם מעורב." },
+                    ].map((s) => (
+                      <div key={s.step} className="flex items-start gap-3">
+                        <span className="w-6 h-6 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{s.step}</span>
+                        <div>
+                          <p className="font-semibold text-navy text-xs mb-0.5">{s.title}</p>
+                          <p className="text-xs text-gray-600 leading-relaxed">{s.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <Callout type="info">
+              מספר שירות הדרכים נמצא בדרך כלל בחוזה ההשכרה או על מדבקה בתוך הרכב. שמור אותו בטלפון לפני שיוצאים לדרך.
             </Callout>
 
             {/* ─── SUMMARY ──────────────────────────────────────── */}

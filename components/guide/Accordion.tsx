@@ -29,7 +29,7 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
               alt={headerImage.alt}
               width={36}
               height={36}
-              className="rounded-full object-cover flex-shrink-0 ring-2 ring-gold"
+              className="rounded-full object-cover flex-shrink-0 ring-2 ring-gold lg:hidden"
             />
           )}
           {icon && <span className="text-xl">{icon}</span>}

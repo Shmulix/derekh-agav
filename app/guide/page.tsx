@@ -1018,7 +1018,7 @@ export default function GuidePage() {
             {/* ─── CANCELLATION ─────────────────────────────────── */}
             <SectionTitle id="cancellation" icon="📅">ביטול והחזר</SectionTitle>
             <SectionIntro>
-              מה שנכתב בתנאים הוא מה שתשלם. לא מה שהובטח בדלפק.
+              מדיניות הביטול משתנה לפי חברת ההשכרה, הקטגוריה והזמן שנותר עד לאיסוף. כדאי לבדוק את התנאים לפני שמאשרים הזמנה.
             </SectionIntro>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
@@ -1031,7 +1031,7 @@ export default function GuidePage() {
               <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
                 <p className="text-sm font-bold text-orange-800 mb-2">ביטול בתוך 48 שעות לפני האיסוף</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  דמי הביטול גדלים משמעותית. הסכום משתנה לפי חברת ההשכרה, הקטגוריה ומדינת ההשכרה. בדרך כלל בין <strong>30 ל-100 דולר</strong>. בחלק מהמקרים אין החזר כלל.
+                  דמי הביטול גדלים משמעותית. הסכום משתנה לפי חברת ההשכרה, הקטגוריה ומדינת ההשכרה. בדרך כלל בין <strong>30 ל-100 דולר</strong>.
                 </p>
               </div>
             </div>

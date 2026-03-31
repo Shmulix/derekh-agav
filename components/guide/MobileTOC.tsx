@@ -75,13 +75,13 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-3xl shadow-2xl animate-in slide-in-from-bottom duration-200 flex flex-col max-h-[80vh]">
+          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-3xl shadow-2xl animate-in slide-in-from-bottom duration-200 flex flex-col" style={{maxHeight: "95vh"}}>
             {/* Drag handle */}
-            <div className="flex justify-center pt-3 pb-1 flex-shrink-0">
+            <div className="flex justify-center pt-2 pb-1 flex-shrink-0">
               <div className="w-10 h-1 rounded-full bg-gray-200" />
             </div>
             {/* Header */}
-            <div className="bg-navy mx-4 mb-3 rounded-xl px-4 py-3 flex items-center justify-between flex-shrink-0">
+            <div className="bg-navy mx-4 mb-2 rounded-xl px-4 py-2.5 flex items-center justify-between flex-shrink-0">
               <div>
                 <p className="text-xs font-bold text-gold uppercase tracking-widest">תוכן עניינים</p>
                 {activeId && (
@@ -99,7 +99,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
               </button>
             </div>
             {/* Nav list */}
-            <nav className="flex flex-col px-4 pb-10 overflow-y-auto">
+            <nav className="flex flex-col px-3 pb-6">
               {items.map((item) => {
                 const Icon = iconMap[item.id] ?? FileText;
                 const isActive = activeId === item.id;
@@ -108,13 +108,13 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 py-3 px-3 rounded-xl transition-all duration-100 ${
+                    className={`flex items-center gap-3 py-1.5 px-3 rounded-xl transition-all duration-100 ${
                       isActive
                         ? "bg-navy text-white font-semibold"
                         : "text-gray-600 active:bg-surface"
                     }`}
                   >
-                    <Icon size={15} className={`flex-shrink-0 ${isActive ? "text-gold" : "text-gold/70"}`} />
+                    <Icon size={14} className={`flex-shrink-0 ${isActive ? "text-gold" : "text-gold/70"}`} />
                     <span className="text-sm">{item.label}</span>
                   </a>
                 );

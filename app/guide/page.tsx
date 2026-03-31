@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
-  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake, Receipt, Package,
+  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake, Receipt, Package, CalendarX,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -38,6 +38,7 @@ const tocItems = [
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
+  { id: "cancellation", label: "ביטול והחזר", icon: CalendarX },
   { id: "emergency", label: "תאונה ותקלה", icon: AlertTriangle },
   { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
   { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
@@ -1012,6 +1013,41 @@ export default function GuidePage() {
 
             <Callout type="tip">
               קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר. תמיד.
+            </Callout>
+
+            {/* ─── CANCELLATION ─────────────────────────────────── */}
+            <SectionTitle id="cancellation" icon="📅">ביטול והחזר</SectionTitle>
+            <SectionIntro>
+              מה שנכתב בתנאים הוא מה שתשלם. לא מה שהובטח בדלפק.
+            </SectionIntro>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-green-800 mb-2">ביטול מעל 48 שעות לפני האיסוף</p>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  ברוב המקרים ללא עלות, או עם דמי ביטול סמליים בלבד. חלק מהחברות מחזירים את מלוא הסכום ללא שאלות.
+                </p>
+              </div>
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-orange-800 mb-2">ביטול בתוך 48 שעות לפני האיסוף</p>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  דמי הביטול גדלים משמעותית. הסכום משתנה לפי חברת ההשכרה, הקטגוריה ומדינת ההשכרה. בדרך כלל בין <strong>30 ל-100 דולר</strong>. בחלק מהמקרים אין החזר כלל.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-5">
+              <p className="text-sm font-bold text-red-800 mb-2">No-Show: לא ביטלת ולא הגעת</p>
+              <p className="text-xs text-gray-600 leading-relaxed mb-3">
+                אם לא הגעת לאסוף את הרכב ולא ביטלת מראש, בין אם בגלל שינוי תוכנית, מסמך חסר שמנע את האיסוף, או כל סיבה אחרת, חברת ההשכרה תחייב דמי No-Show. הסכום עומד בדרך כלל על <strong>50 עד 200 דולר</strong> ומשתנה לפי חברה וקטגוריה.
+              </p>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                חשוב: גם אם הסיבה לאי-ההגעה היתה מחוץ לשליטתך, החיוב מבוסס על התנאים שאישרת בהזמנה ולא על הנסיבות.
+              </p>
+            </div>
+
+            <Callout type="tip">
+              לפני שמאשרים הזמנה: בדוק את מדיניות הביטול וה-No-Show בתנאים. זה שורה אחת שיכולה לחסוך עד 200 דולר.
             </Callout>
 
             {/* ─── EMERGENCY: ACCIDENT & BREAKDOWN ─────────────── */}

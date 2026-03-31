@@ -140,14 +140,14 @@ export default function InsuranceTabs() {
               <div className="border border-gray-200 rounded-lg p-3">
                 <p className="text-xs font-bold text-navy mb-1">כיסוי השתתפות עצמית בלבד</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  מחזיר את ההשתתפות העצמית של CDW/TP במקרה נזק או גניבה, עד תקרה של 2,500–3,000 יורו. לא מכסה שמשות, צמיגים, מרכב תחתון ושאר נזקים ייחודיים.
+                  מחזיר את ההשתתפות העצמית של CDW/TP במקרה נזק או גניבה. <strong>עד תקרה שנקבעה בפוליסה.</strong> לא מכסה שמשות, צמיגים, מרכב תחתון ושאר נזקים ייחודיים.
                 </p>
               </div>
 
               <div className="border border-gray-200 rounded-lg p-3">
                 <p className="text-xs font-bold text-navy mb-1">כיסוי נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed mb-1.5">
-                  מכסה את מה שה-CDW לא מכסה מלכתחילה:
+                  מכסה את מה שה-CDW לא מכסה מלכתחילה — <strong>עד תקרה שנקבעה בפוליסה:</strong>
                 </p>
                 <ul className="space-y-0.5">
                   {notCovered.map(({ item }) => (
@@ -162,7 +162,7 @@ export default function InsuranceTabs() {
               <div className="border border-green-200 bg-green-50 rounded-lg p-3">
                 <p className="text-xs font-bold text-green-800 mb-1">כיסוי משולב — השתתפות עצמית + נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים — הכל עד לתקרה שנקבעה בפוליסה.
+                  משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים — <strong>הכל עד לתקרה שנקבעה בפוליסה.</strong>
                 </p>
               </div>
             </div>

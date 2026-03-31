@@ -708,7 +708,7 @@ export default function GuidePage() {
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
                 <p className="text-sm font-bold text-navy mb-1">📡 טרנספוסנדר / אוטו-פס</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
-                  מכשיר אלקטרוני מותקן ברכב שמאפשר מעבר בנתיב מהיר ייעודי בלי לעצור. הגבייה אוטומטית. חברות ההשכרה מציעות אותו בתשלום יומי נוסף.
+                  מכשיר אלקטרוני מותקן ברכב שמאפשר מעבר בנתיב מהיר ייעודי בלי לעצור. הגבייה אוטומטית. במדינות מסוימות חברת ההשכרה מציעה אותו בעת איסוף הרכב בתשלום יומי נוסף. לא תמיד זמין, ולא תמיד חובה. תלוי במדינה ובחברת ההשכרה.
                 </p>
                 <Callout type="warning">
                   אם עברת בנתיב מהיר <strong>בלי טרנספוסנדר</strong>, האגרה תגיע לחברת ההשכרה בדיעבד. תחויב על האגרה עצמה <strong>ועוד דמי טיפול</strong> שיכולים להגיע לכמה עשרות יורו לכל מעבר. ודא שיש לך פתרון מתאים לפני שנכנסים לנתיב הלא נכון.
@@ -723,7 +723,7 @@ export default function GuidePage() {
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                     <p className="font-bold text-green-700 mb-1">כשמשכירים במדינה שדורשת ויניט</p>
-                    <p className="text-gray-600 leading-relaxed">הויניט כלול בדרך כלל בהשכרה. חברת ההשכרה מחויבת לעמוד בחוק המקומי.</p>
+                    <p className="text-gray-600 leading-relaxed">הויניט כלול בדרך כלל בהשכרה. חברת ההשכרה מחויבת לעמוד בחוק המקומי. עם זאת, יש תחנות שגובות אותו בנפרד בעת האיסוף. תבדוק מראש.</p>
                   </div>
                   <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
                     <p className="font-bold text-orange-700 mb-1">כשנוסעים אליה ממדינה אחרת</p>
@@ -732,6 +732,9 @@ export default function GuidePage() {
                 </div>
                 <p className="text-xs text-gray-500 mt-3 leading-relaxed">
                   <strong className="text-gray-700">מדינות נפוצות:</strong> אוסטריה, שוויץ, צ׳כיה, סלובניה, הונגריה, רומניה, בולגריה, סלובקיה.
+                </p>
+                <p className="text-xs text-gray-500 mt-2 leading-relaxed border-t border-gray-100 pt-2">
+                  מחיר, זמינות ואופן השימוש באוטו-פס או בויניט משתנים לפי מדינה וחברת השכרה. תמיד כדאי לבדוק מראש לפני הנסיעה.
                 </p>
               </div>
             </div>

@@ -130,13 +130,26 @@ export default function InsuranceTabs() {
         {active === "supplemental" && (
           <div>
             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-              כיסוי שנרכש דרך ברוקר, סוכנות נסיעות, או עצמאית. לא מונע חיוב, אלא <strong>מחזיר כסף בדיעבד</strong>.
+              כיסוי שנרכש דרך ברוקר, סוכנות נסיעות, או עצמאית. לא מונע חיוב, אלא <strong>מחזיר כסף בדיעבד</strong> — תמיד עד לתקרה שנקבעה בפוליסה (בדרך כלל 2,000–3,000 יורו או דולר). לא כל כיסוי משלים זהה — חשוב לבדוק מה כולל הפוליסה שלך לפני שרוכשים.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                <p className="text-xs font-bold text-green-700 mb-2 flex items-center gap-1"><CheckCircle size={12} /> מכוסה בכיסוי משלים</p>
-                <ul className="space-y-1.5">
+            {/* 3 types of supplemental coverage */}
+            <div className="space-y-2 mb-4">
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">סוגי כיסוי משלים</p>
+
+              <div className="border border-gray-200 rounded-lg p-3">
+                <p className="text-xs font-bold text-navy mb-1">כיסוי השתתפות עצמית בלבד</p>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  מחזיר את ההשתתפות העצמית של CDW/TP במקרה נזק או גניבה, עד תקרה של 2,500–3,000 יורו. לא מכסה שמשות, צמיגים, מרכב תחתון ושאר נזקים ייחודיים.
+                </p>
+              </div>
+
+              <div className="border border-gray-200 rounded-lg p-3">
+                <p className="text-xs font-bold text-navy mb-1">כיסוי נזקים ייחודיים</p>
+                <p className="text-xs text-gray-600 leading-relaxed mb-1.5">
+                  מכסה את מה שה-CDW לא מכסה מלכתחילה:
+                </p>
+                <ul className="space-y-0.5">
                   {notCovered.map(({ item }) => (
                     <li key={item} className="text-xs text-gray-700 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
@@ -145,24 +158,34 @@ export default function InsuranceTabs() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                <p className="text-xs font-bold text-red-700 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה גם כאן</p>
-                <ul className="space-y-1.5">
-                  {neverCovered.map(({ item }) => (
-                    <li key={item} className="text-xs text-gray-700 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+
+              <div className="border border-green-200 bg-green-50 rounded-lg p-3">
+                <p className="text-xs font-bold text-green-800 mb-1">כיסוי משולב — השתתפות עצמית + נזקים ייחודיים</p>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים — הכל עד לתקרה שנקבעה בפוליסה.
+                </p>
               </div>
             </div>
 
-            <div className="space-y-3 mb-4">
+            {/* Never covered */}
+            <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+              <p className="text-xs font-bold text-red-700 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בשום כיסוי משלים</p>
+              <ul className="space-y-1">
+                {neverCovered.map(({ item }) => (
+                  <li key={item} className="text-xs text-gray-700 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Process */}
+            <div className="space-y-2 mb-4">
               {[
                 { step: "1", text: "חברת ההשכרה מחייבת אותך קודם." },
                 { step: "2", text: "אתה מגיש בקשת החזר עם חשבונית, קבלה ודו״ח נזק רשמי." },
-                { step: "3", text: "הכיסוי מחזיר עד לתקרה שלו, בדרך כלל 2,500 עד 3,000 יורו." },
+                { step: "3", text: "הכיסוי מחזיר עד לתקרה שנקבעה בפוליסה שלך." },
               ].map((s) => (
                 <div key={s.step} className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -172,6 +195,7 @@ export default function InsuranceTabs() {
                 </div>
               ))}
             </div>
+
             <div className="bg-yellow-50 border-r-4 border-gold p-3 rounded-sm">
               <p className="text-xs text-gray-700">
                 <strong>בלי חיוב בפועל, אין מה להחזיר.</strong> בלי מסמכים, אין מה לתבוע. זה לא עניין של רצון טוב.

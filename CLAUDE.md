@@ -204,6 +204,26 @@ The skill will automatically:
 
 ---
 
+## SESSION STARTUP — MANDATORY
+
+Au début de chaque nouvelle session (pas `-c` continue), faire dans cet ordre :
+
+1. **Vérifier si Claude Code est à jour**
+```bash
+claude update
+```
+Si une mise à jour est disponible, signaler à l'utilisateur avant de continuer.
+
+2. **Lire le Claude Code Guide** via le skill dédié :
+```
+/claude-code-guide
+```
+Permet de connaître les dernières fonctionnalités disponibles (hooks, MCP, slash commands, etc.) et d'en tirer parti pour ce projet.
+
+3. **Lire la mémoire du projet** (auto-chargée via MEMORY.md — vérifier qu'elle est à jour)
+
+---
+
 ## COMMANDS TO REMEMBER
 
 ```bash

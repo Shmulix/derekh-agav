@@ -35,6 +35,12 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handler = () => setOpen(false);
+    window.addEventListener("mobileFloatTOCClose", handler);
+    return () => window.removeEventListener("mobileFloatTOCClose", handler);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -102,7 +108,10 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
 
       {/* Floating button */}
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) window.dispatchEvent(new CustomEvent("mobileFloatCTAClose"));
+          setOpen((v) => !v);
+        }}
         className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"

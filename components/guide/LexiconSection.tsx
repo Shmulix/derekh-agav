@@ -98,13 +98,19 @@ const terms = [
     term: "No-Show",
     full: "No-Show Policy",
     he: "אי-הגעה",
-    desc: "לא הגעת לאסוף את הרכב ולא ביטלת. בדרך כלל גורר חיוב מלא ואי-החזרת כספים.",
+    desc: "לא הגעת לאסוף את הרכב ולא ביטלת מראש. חברת ההשכרה תחייב דמי No-Show בדרך כלל בין 50 ל-200 דולר, בין אם הסיבה היתה שינוי תוכנית, מסמך חסר או כל סיבה אחרת.",
+  },
+  {
+    term: "Cancellation Fee",
+    full: "Cancellation / Booking Cancellation",
+    he: "דמי ביטול",
+    desc: "חיוב על ביטול הזמנה. מעל 48 שעות לפני האיסוף: בדרך כלל ללא עלות או סמלי. בתוך 48 שעות: בדרך כלל 30 עד 100 דולר, לפי חברת ההשכרה והקטגוריה.",
   },
   {
     term: "Grace Period",
     full: "Late Return Grace",
     he: "זמן חסד",
-    desc: "פרק זמן קצר שהספק מאפשר לאחר שעת ההחזרה (לרוב 29–59 דקות) לפני שמחייבים שעה נוספת.",
+    desc: "פרק זמן קצר שחברת ההשכרה מאפשרת לאחר שעת ההחזרה (לרוב 29 עד 59 דקות) לפני שמחייבים שעה נוספת.",
   },
   {
     term: "Broker",
@@ -270,9 +276,9 @@ export default function LexiconSection() {
               onClick={() => setOpenTerm(isOpen ? null : term)}
               className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-surface transition-colors text-right"
             >
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="font-extrabold text-navy text-sm flex-shrink-0">{term}</span>
-                <span className="text-xs text-gold font-semibold truncate">{he}</span>
+              <div className="flex flex-col items-start min-w-0">
+                <span className="font-extrabold text-navy text-sm">{term}</span>
+                <span className="text-xs text-gold font-semibold leading-tight">{he}</span>
               </div>
               <ChevronDown
                 size={14}

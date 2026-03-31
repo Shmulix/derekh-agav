@@ -1157,6 +1157,25 @@ export default function GuidePage() {
 
           {/* Left gutter disclaimer + CTA */}
           <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24 space-y-4">
+            <div className="p-4 bg-white border border-gray-200 rounded-lg">
+              <div className="flex items-center gap-3 mb-3">
+                <Image
+                  src="/samuel.avif"
+                  alt="שמואל"
+                  width={44}
+                  height={44}
+                  className="rounded-full object-cover flex-shrink-0"
+                />
+                <div>
+                  <p className="text-xs font-bold text-navy leading-tight">שמואל</p>
+                  <p className="text-xs text-gray-400 leading-tight">10+ שנות ניסיון בתחום</p>
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed mb-3">
+                עמדתי מהצד השני של הדלפק. המדריך הזה נכתב על סמך מה שראיתי בשטח, לא מה שכתוב בוויקיפדיה.
+              </p>
+              <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>
+            </div>
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
               <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>
               <p className="text-xs text-yellow-900 leading-relaxed">

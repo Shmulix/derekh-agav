@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import {
   BookOpen, Car, FileText, CreditCard, MapPin, Globe, Shield, User,
-  Fuel, Route, Mail, AlertOctagon, LayoutGrid, CheckCircle, BookMarked, Snowflake,
+  Fuel, Route, Mail, AlertTriangle, LayoutGrid, CheckCircle, BookMarked,
+  Snowflake, Receipt, Package, CalendarX, MessageCircle,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -19,9 +20,13 @@ const iconMap: Record<string, React.ElementType> = {
   fuel: Fuel,
   mileage: Route,
   fines: Mail,
-  emergency: AlertOctagon,
+  tolls: Receipt,
+  extras: Package,
+  cancellation: CalendarX,
+  emergency: AlertTriangle,
   platforms: LayoutGrid,
   summary: CheckCircle,
+  faq: MessageCircle,
   lexicon: BookMarked,
 };
 

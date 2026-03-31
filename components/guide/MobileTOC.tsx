@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { List, X, FileText, Receipt, Package, AlertTriangle, CalendarX } from "lucide-react";
 import {
   BookOpen, Car, CreditCard, MapPin, Globe, Shield, User,
-  Fuel, Route, Mail, CheckCircle, BookMarked, Snowflake,
+  Fuel, Route, Mail, CheckCircle, BookMarked, Snowflake, MessageCircle,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -25,6 +25,7 @@ const iconMap: Record<string, React.ElementType> = {
   cancellation: CalendarX,
   emergency: AlertTriangle,
   summary: CheckCircle,
+  faq: MessageCircle,
   lexicon: BookMarked,
 };
 

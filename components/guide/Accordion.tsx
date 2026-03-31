@@ -35,21 +35,23 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
             />
           )}
           {(headerName || headerSubtitle) ? (
-            <div className="lg:hidden">
-              {headerName && <p className="font-bold text-navy text-sm leading-tight">{headerName}</p>}
-              {headerSubtitle && <p className="text-xs text-gray-400 leading-tight">{headerSubtitle}</p>}
-              <p className="text-xs font-semibold text-navy mt-1">{title}</p>
-            </div>
+            <>
+              <div className="lg:hidden">
+                {headerName && <p className="font-bold text-navy text-sm leading-tight">{headerName}</p>}
+                {headerSubtitle && <p className="text-xs text-gray-400 leading-tight">{headerSubtitle}</p>}
+                <p className="text-xs font-semibold text-navy mt-1">{title}</p>
+              </div>
+              <div className="hidden lg:flex items-center gap-3">
+                {icon && <span className="text-xl">{icon}</span>}
+                <span className="font-semibold text-navy text-sm">{title}</span>
+              </div>
+            </>
           ) : (
             <>
               {icon && <span className="text-xl">{icon}</span>}
               <span className="font-semibold text-navy text-sm">{title}</span>
             </>
           )}
-          <div className="hidden lg:flex items-center gap-3">
-            {icon && <span className="text-xl">{icon}</span>}
-            <span className="font-semibold text-navy text-sm">{title}</span>
-          </div>
         </div>
         <div className="flex items-center gap-1.5 flex-shrink-0">
           {expandLabel && !open && <span className="text-xs text-gray-400">{expandLabel}</span>}

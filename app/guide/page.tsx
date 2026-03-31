@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
-  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake, Receipt,
+  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake, Receipt, Package,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -34,6 +34,7 @@ const tocItems = [
   { id: "tolls", label: "כבישי אגרה", icon: Receipt },
   { id: "crossborder", label: "חציית גבול", icon: Globe },
   { id: "winter", label: "ציוד חורף", icon: Snowflake },
+  { id: "extras", label: "ציוד נוסף", icon: Package },
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
@@ -842,6 +843,54 @@ export default function GuidePage() {
               <Link href="/posts/winter-equipment" className="font-semibold underline underline-offset-2 hover:opacity-75">
                 טבלת חובות ציוד חורף לפי מדינה: המדריך המלא ←
               </Link>
+            </Callout>
+
+            {/* ─── EXTRAS / PRE-BOOK ITEMS ──────────────────────── */}
+            <SectionTitle id="extras" icon="🧳">ציוד נוסף ופריטים לפריבוק</SectionTitle>
+            <SectionIntro>
+              ציוד כמו כיסאות בטיחות, GPS וציוד חורף ניתן להזמין מראש או לבקש בעת האיסוף בהתאם לזמינות. התשלום תמיד מתבצע במקום, בעת קבלת הרכב. לא בהזמנה המקורית.
+            </SectionIntro>
+
+            <div className="space-y-3 mb-6">
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-2">👶 כיסא בטיחות לתינוק (Infant Seat)</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  מיועד לתינוקות עד כ-13 ק"ג, פונה לאחור. זהו הכיסא הקריטי ביותר מבחינת בטיחות לתינוקות צעירים.
+                </p>
+                <Callout type="warning">
+                  לא כל התחנות מצוידות בכיסאות תואמים לתינוקות מתחת לגיל שנה. אם הילד שלך מתחת לגיל שנה, פנה לחברת ההשכרה לפני ההזמנה ואשר זמינות. אל תסמוך על כך שיהיה במקום.
+                </Callout>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-2">🧒 כיסא ילדים / בוסטר (Child Seat / Booster)</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-2">
+                  כיסאות לילדים גדולים יותר, בין כ-9 ל-36 ק"ג, ישיבה קדמית. בוסטר מיועד לילדים מעל 15 ק"ג שכבר אינם זקוקים לכיסא עם שקת.
+                </p>
+                <Callout type="info">
+                  תמיד בדוק את תאימות הכיסא לגיל ומשקל הילד לפי מפרט היצרן, לא רק לפי קטגוריה כללית. כיסא לא תואם הוא לא כיסא בטוח.
+                </Callout>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">🗺️ GPS / ניווט</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  חלק מהרכבים כוללים ניווט מובנה. במקרים אחרים ניתן לשכור מכשיר GPS נפרד מחברת ההשכרה. בפועל, רוב הנוסעים משתמשים בנייד. אם מסתמכים על GPS של חברת ההשכרה, בדוק זמינות וודא שהמפות מעודכנות למדינות היעד.
+                </p>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">❄️ ציוד חורף</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  צמיגי חורף ושרשראות שלג. פרטים מלאים בסעיף ציוד חורף למעלה.
+                </p>
+              </div>
+
+            </div>
+
+            <Callout type="tip">
+              מזמינים מראש? הזמינות גבוהה יותר ומחיר זהה. מחכים לרגע האחרון? אפשרי, אבל בעונות שיא הציוד עשוי להיגמר. כיסאות בטיחות לתינוקות צעירים במיוחד, כדאי לא לקחת סיכון.
             </Callout>
 
             {/* ─── 8. FUEL ──────────────────────────────────────── */}

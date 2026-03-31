@@ -59,7 +59,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   }, [items]);
 
   return (
-    <nav className="flex flex-col gap-0.5">
+    <nav className="flex flex-col gap-0">
       {items.map((item) => {
         const Icon = iconMap[item.id] ?? FileText;
         const isActive = activeId === item.id;
@@ -67,13 +67,13 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`flex items-center gap-2 text-sm py-1.5 px-3 rounded transition-all duration-150 ${
+            className={`flex items-center gap-2 text-xs py-1 px-2 rounded transition-all duration-150 ${
               isActive
                 ? "bg-navy text-white font-semibold"
-                : "text-gray-600 hover:text-navy hover:bg-surface"
+                : "text-gray-500 hover:text-navy hover:bg-surface"
             }`}
           >
-            <Icon size={13} className="flex-shrink-0 text-gold" />
+            <Icon size={11} className="flex-shrink-0 text-gold flex-shrink-0" />
             {item.label}
           </a>
         );

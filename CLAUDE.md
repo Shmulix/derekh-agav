@@ -39,6 +39,12 @@ Key attributes:
 
 ---
 
+## WRITING RULES — MANDATORY
+
+- **Never use em dashes (—)** in any content, Hebrew or French. Replace with: period, colon, question mark, or restructure the sentence.
+
+---
+
 ## VOCABULARY RULES — MANDATORY
 
 - **Never use "ספק"** — it's a B2B term. Always use:

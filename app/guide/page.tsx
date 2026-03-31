@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   FileText, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle,
-  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake,
+  AlertTriangle, Info, Lightbulb, Clock, MapPin, Car, BookOpen, BookMarked, Globe, Snowflake, Receipt,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -31,6 +31,7 @@ const tocItems = [
   { id: "insurance", label: "ביטוח", icon: Shield },
   { id: "young-driver", label: "גיל הנהג", icon: User },
   { id: "pickup", label: "איסוף והחזרה", icon: MapPin },
+  { id: "tolls", label: "כבישי אגרה", icon: Receipt },
   { id: "crossborder", label: "חציית גבול", icon: Globe },
   { id: "winter", label: "ציוד חורף", icon: Snowflake },
   { id: "fuel", label: "דלק", icon: Fuel },
@@ -690,7 +691,52 @@ export default function GuidePage() {
               </div>
             </AccordionItem>
 
-            {/* ─── 7. CROSS-BORDER ──────────────────────────────── */}
+            {/* ─── 7. TOLLS ─────────────────────────────────────── */}
+            <SectionTitle id="tolls" icon="🛣️">כבישי אגרה</SectionTitle>
+            <SectionIntro>
+              לא כל כביש מהיר חינמי. חלק מהמדינות גובות תשלום ישיר בכניסה לכביש, חלק דורשות מכשיר אלקטרוני ברכב, וחלק פועלות עם תו תקופתי שנרכש מראש. חשוב לדעת איזה מנגנון פועל במדינה שאתה נוסע אליה לפני שיוצאים לדרך.
+            </SectionIntro>
+
+            <div className="space-y-3 mb-6">
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">💳 תשלום ישיר בכניסה לנתיב</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  תחנות גבייה פיזיות על הכביש. משלמים בכל מעבר. מקבלות מזומן, כרטיס אשראי, ולפעמים רק מזומן. חלק מהתחנות מקבלות רק כרטיסים מקומיים. לפני שיוצאים, בדוק אם קיימת כניסה לכביש המהיר בדרך שלך וודא שיש לך אמצעי תשלום מתאים.
+                </p>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">📡 טרנספוסנדר / אוטו-פס</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-2">
+                  מכשיר אלקטרוני מותקן ברכב שמאפשר מעבר בנתיב מהיר ייעודי בלי לעצור. הגבייה אוטומטית. חברות ההשכרה מציעות אותו בתשלום יומי נוסף.
+                </p>
+                <Callout type="warning">
+                  אם עברת בנתיב מהיר <strong>בלי טרנספוסנדר</strong>, האגרה תגיע לחברת ההשכרה בדיעבד. תחויב על האגרה עצמה <strong>ועוד דמי טיפול</strong> שיכולים להגיע לכמה עשרות יורו לכל מעבר. ודא שיש לך פתרון מתאים לפני שנכנסים לנתיב הלא נכון.
+                </Callout>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">🪟 ויניט (Vignette): תו תקופתי</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-2">
+                  מדינות מסוימות גובות אגרה לא לפי מעבר אלא לפי תקופה: שבוע, חודש, שנה. הויניט הוא התו שמעיד על התשלום, בצורת מדבקה פיזית או רישום דיגיטלי.
+                </p>
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                    <p className="font-bold text-green-700 mb-1">כשמשכירים במדינה שדורשת ויניט</p>
+                    <p className="text-gray-600 leading-relaxed">הויניט כלול בדרך כלל בהשכרה. חברת ההשכרה מחויבת לעמוד בחוק המקומי.</p>
+                  </div>
+                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                    <p className="font-bold text-orange-700 mb-1">כשנוסעים אליה ממדינה אחרת</p>
+                    <p className="text-gray-600 leading-relaxed">האחריות עליך. לא בדקת, לא שילמת? קנס. ניתן לרכוש דיגיטלית דרך האתר הרשמי של כל מדינה לפני הנסיעה.</p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mt-3 leading-relaxed">
+                  <strong className="text-gray-700">מדינות נפוצות:</strong> אוסטריה, שוויץ, צ׳כיה, סלובניה, הונגריה, רומניה, בולגריה, סלובקיה.
+                </p>
+              </div>
+            </div>
+
+            {/* ─── 8. CROSS-BORDER ──────────────────────────────── */}
             <SectionTitle id="crossborder" icon="🌍">חציית גבול עם רכב שכור</SectionTitle>
             <SectionIntro>
               נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. זה משהו שצריך להצהיר עליו בהזמנה. לא לקחת כמובן מאליו.
@@ -715,19 +761,8 @@ export default function GuidePage() {
               </p>
             </AccordionItem>
 
-            <AccordionItem title="ויניט (Vignette): תו כביש מהיר" icon="🪟">
-              <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
-                <p>
-                  במדינות מסוימות באירופה נדרש <strong className="text-gray-800">ויניט</strong>, תו דיגיטלי או מדבקה לשימוש בכבישים המהירים. כשמשכירים רכב באחת המדינות האלה הויניט לרוב כלול. כשנוסעים אליה ממדינה אחרת? <strong className="text-gray-800">האחריות על הנהג</strong>. לא בדקת, לא שילמת. קנס.
-                </p>
-                <Callout type="info">
-                  מדינות נפוצות שדורשות ויניט: אוסטריה, שוויץ, צ׳כיה, סלובניה, הונגריה, רומניה, בולגריה וסלובקיה. ניתן לרכוש דיגיטלית דרך האתר הרשמי של כל מדינה לפני הנסיעה.
-                </Callout>
-              </div>
-            </AccordionItem>
-
             <Callout type="tip">
-              נוסעים למדינה אחרת? שלושה דברים לסדר מראש: להצהיר בהזמנה, לאשר כיסוי ביטוחי, ולבדוק אם נדרש ויניט.
+              נוסעים למדינה אחרת? שלושה דברים לסדר מראש: להצהיר בהזמנה, לאשר כיסוי ביטוחי, ולבדוק אם נדרש ויניט. פרטים על ויניט וכבישי אגרה בסעיף כבישי אגרה למעלה.
             </Callout>
 
             {/* ─── WINTER EQUIPMENT ────────────────────────────── */}

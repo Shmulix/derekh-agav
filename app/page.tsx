@@ -4,6 +4,23 @@ import { FileText, Globe, Link2, Target, AlertTriangle, Map, MessageCircle, Chev
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
+  description:
+    "המדריך המקיף ביותר להשכרת רכב בחו״ל לישראלים. מסמכים, ביטוח, פיקדון, נהג צעיר, דלק, קנסות ועוד. כתוב מניסיון אמיתי של יותר מעשר שנים.",
+  alternates: {
+    canonical: "https://derekh-agav.vercel.app",
+  },
+  openGraph: {
+    title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
+    description:
+      "כל מה שצריך לדעת לפני שמגיעים לדלפק. מסמכים, ביטוח, פיקדון ועוד.",
+    url: "https://derekh-agav.vercel.app",
+    type: "website",
+  },
+};
 
 const guideTopics = [
   { icon: FileText, label: "מסמכים נדרשים", href: "/guide#documents" },
@@ -43,9 +60,36 @@ const posts = [
   },
 ];
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://derekh-agav.vercel.app/#website",
+      "url": "https://derekh-agav.vercel.app",
+      "name": "דרך אגב",
+      "description": "המדריך המקיף להשכרת רכב בחו״ל לישראלים",
+      "inLanguage": "he",
+      "publisher": { "@id": "https://derekh-agav.vercel.app/#author" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://derekh-agav.vercel.app/#author",
+      "name": "סמואל פרץ",
+      "jobTitle": "מומחה השכרת רכב בינלאומית",
+      "knowsAbout": ["השכרת רכב", "ביטוח רכב שכור", "חוזי השכרה בינלאומיים"],
+      "url": "https://derekh-agav.vercel.app/about",
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Header />
       <main>
         {/* ─── HERO ─────────────────────────────────────────────── */}

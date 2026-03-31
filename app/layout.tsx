@@ -9,20 +9,33 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
-  title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
+  metadataBase: new URL("https://derekh-agav.vercel.app"),
+  title: {
+    default: "דרך אגב | המדריך להשכרת רכב בחו״ל",
+    template: "%s | דרך אגב",
+  },
   description:
-    "המדריך המקיף להשכרת רכב בחו״ל — מסמכים, ביטוח, פיקדון, דלק וקנסות. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.",
+    "המדריך המקיף להשכרת רכב בחו״ל לישראלים. מסמכים, ביטוח, פיקדון, דלק וקנסות. כתוב מניסיון אמיתי של יותר מעשר שנים בתחום.",
   robots: {
     index: false,
     follow: false,
     googleBot: { index: false, follow: false },
   },
   openGraph: {
-    title: "דרך אגב | המדריך להשכרת רכב בחו״ל",
-    description:
-      "כל מה שצריך לדעת לפני שמגיעים לדלפק. מסמכים, ביטוח, פיקדון ועוד.",
+    siteName: "דרך אגב",
     locale: "he_IL",
     type: "website",
+    images: [
+      {
+        url: "/hero-bg.avif",
+        width: 1920,
+        height: 1080,
+        alt: "דרך אגב — המדריך המקיף להשכרת רכב בחו״ל",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

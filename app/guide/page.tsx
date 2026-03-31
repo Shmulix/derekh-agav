@@ -853,24 +853,50 @@ export default function GuidePage() {
 
             <div className="space-y-3 mb-6">
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-2">👶 כיסא בטיחות לתינוק (Infant Seat)</p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">
-                  מיועד לתינוקות עד כ-13 ק"ג, פונה לאחור. זהו הכיסא הקריטי ביותר מבחינת בטיחות לתינוקות צעירים.
+              {/* Child seats */}
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wide pt-1">כיסאות בטיחות</p>
+
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-2">👶 Infant Seat — קבוצה 0 / 0+</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-2">
+                  לתינוקות עד כ-13 ק"ג (בערך עד גיל שנה). פונה לאחור בלבד. הכיסא הקריטי ביותר לתינוקות צעירים.
                 </p>
-                <Callout type="warning">
-                  לא כל התחנות מצוידות בכיסאות תואמים לתינוקות מתחת לגיל שנה. אם הילד שלך מתחת לגיל שנה, פנה לחברת ההשכרה לפני ההזמנה ואשר זמינות. אל תסמוך על כך שיהיה במקום.
-                </Callout>
+                <p className="text-xs font-semibold text-red-700">לא כל התחנות מציעות כיסא תואם לתינוקות מתחת לגיל שנה. אם הילד שלך מתחת לגיל שנה, אשר זמינות ישירות מול חברת ההשכרה לפני ההזמנה. אל תניח שיהיה.</p>
               </div>
 
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-2">🧒 כיסא ילדים / בוסטר (Child Seat / Booster)</p>
-                <p className="text-sm text-gray-600 leading-relaxed mb-2">
-                  כיסאות לילדים גדולים יותר, בין כ-9 ל-36 ק"ג, ישיבה קדמית. בוסטר מיועד לילדים מעל 15 ק"ג שכבר אינם זקוקים לכיסא עם שקת.
+                <p className="text-sm font-bold text-navy mb-2">🐣 Baby Seat — קבוצה 1</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  לילדים בין כ-9 ל-18 ק"ג (בערך גיל 9 חודשים עד 4 שנים). יכול להיות פונה קדימה או אחורה לפי מודל הכיסא. בדוק תאימות לפי משקל, לא רק לפי גיל.
                 </p>
-                <Callout type="info">
-                  תמיד בדוק את תאימות הכיסא לגיל ומשקל הילד לפי מפרט היצרן, לא רק לפי קטגוריה כללית. כיסא לא תואם הוא לא כיסא בטוח.
-                </Callout>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-2">🧒 Child Seat — קבוצה 2/3</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  לילדים בין כ-15 ל-36 ק"ג (בערך גיל 3 עד 10 שנים). פונה קדימה, עם חגורת בטיחות של הרכב. מתאים לילדים שיצאו מכיסא עם שקת.
+                </p>
+              </div>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-2">🪑 Booster Seat — מושב הגבהה</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  לילדים מעל כ-22 ק"ג (בערך גיל 6 ומעלה). מגביה את הילד כך שחגורת הרכב תפגע בנקודה הנכונה. אין שקת, הילד כבר מאובטח עם חגורת הרכב עצמה.
+                </p>
+              </div>
+
+              <Callout type="info">
+                תמיד בדוק תאימות לפי משקל הילד, לא רק לפי גיל. כיסא לא תואם הוא לא כיסא בטוח.
+              </Callout>
+
+              {/* Other equipment */}
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wide pt-2">ציוד נוסף</p>
+
+              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+                <p className="text-sm font-bold text-navy mb-1">🎿 גגון סקי / תיבת גג</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  לנוסעים לאתרי סקי או עם מטען גדול. גגון סקי מאפשר קיבוע סקיות וסנובורד מחוץ לרכב. תיבת גג מוסיפה נפח אחסון. לא כל הרכבים מגיעים מוכנים לגגון, ולא כל התחנות מציעות את הציוד. הזמן מראש ואשר זמינות.
+                </p>
               </div>
 
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
@@ -881,9 +907,9 @@ export default function GuidePage() {
               </div>
 
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-1">❄️ ציוד חורף</p>
+                <p className="text-sm font-bold text-navy mb-1">❄️ צמיגי חורף, שרשראות שלג וגרביוני שלג</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  צמיגי חורף ושרשראות שלג. פרטים מלאים בסעיף ציוד חורף למעלה.
+                  פרטים מלאים בסעיף ציוד חורף למעלה.
                 </p>
               </div>
 

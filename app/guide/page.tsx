@@ -857,7 +857,7 @@ export default function GuidePage() {
               <p className="text-xs font-bold text-gray-400 uppercase tracking-wide pt-1">כיסאות בטיחות</p>
 
               <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-2">👶 Infant Seat — קבוצה 0 / 0+</p>
+                <p className="text-sm font-bold text-navy mb-2">👶 Infant Seat — כיסאון לתינוק</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
                   לתינוקות עד כ-13 ק"ג (בערך עד גיל שנה). פונה לאחור בלבד. הכיסא הקריטי ביותר לתינוקות צעירים.
                 </p>
@@ -865,14 +865,14 @@ export default function GuidePage() {
               </div>
 
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-2">🐣 Baby Seat — קבוצה 1</p>
+                <p className="text-sm font-bold text-navy mb-2">🐣 Baby Seat — כיסא לפעוט</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לילדים בין כ-9 ל-18 ק"ג (בערך גיל 9 חודשים עד 4 שנים). יכול להיות פונה קדימה או אחורה לפי מודל הכיסא. בדוק תאימות לפי משקל, לא רק לפי גיל.
                 </p>
               </div>
 
               <div className="bg-surface border border-gray-200 rounded-xl p-4">
-                <p className="text-sm font-bold text-navy mb-2">🧒 Child Seat — קבוצה 2/3</p>
+                <p className="text-sm font-bold text-navy mb-2">🧒 Child Seat — כיסא ילדים</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לילדים בין כ-15 ל-36 ק"ג (בערך גיל 3 עד 10 שנים). פונה קדימה, עם חגורת בטיחות של הרכב. מתאים לילדים שיצאו מכיסא עם שקת.
                 </p>

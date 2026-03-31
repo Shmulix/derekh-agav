@@ -311,9 +311,11 @@ export default function GuidePage() {
         <div className="flex gap-8 xl:gap-12 items-start">
 
           {/* Sticky TOC desktop */}
-          <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">תוכן עניינים</p>
-            <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
+          <aside className="hidden lg:flex flex-col w-56 flex-shrink-0 sticky top-24 max-h-[calc(100vh-7rem)]">
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 flex-shrink-0">תוכן עניינים</p>
+            <div className="overflow-y-auto flex-1 pl-1 -ml-1">
+              <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
+            </div>
           </aside>
 
           {/* Main content */}
@@ -1288,7 +1290,7 @@ export default function GuidePage() {
             <SectionIntro>
               התשובות לשאלות שחוזרות שוב ושוב. לפני שמזמינים, ולפני שמגיעים לדלפק.
             </SectionIntro>
-            <div className="space-y-0">
+            <div>
               {[
                 {
                   q: "מה המסמכים שחייבים לקחת להשכרת רכב בחו״ל?",

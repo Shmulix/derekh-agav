@@ -34,7 +34,7 @@ const tocItems = [
   { id: "tolls", label: "כבישי אגרה", icon: Receipt },
   { id: "crossborder", label: "חציית גבול", icon: Globe },
   { id: "winter", label: "ציוד חורף", icon: Snowflake },
-  { id: "extras", label: "ציוד נוסף", icon: Package },
+  { id: "extras", label: "ציוד ופריטים משלימים", icon: Package },
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
@@ -846,7 +846,7 @@ export default function GuidePage() {
             </Callout>
 
             {/* ─── EXTRAS / PRE-BOOK ITEMS ──────────────────────── */}
-            <SectionTitle id="extras" icon="🧳">ציוד נוסף ופריטים לפריבוק</SectionTitle>
+            <SectionTitle id="extras" icon="🧳">ציוד ופריטים משלימים</SectionTitle>
             <SectionIntro>
               ציוד כמו כיסאות בטיחות, GPS וציוד חורף ניתן להזמין מראש או לבקש בעת האיסוף בהתאם לזמינות. התשלום תמיד מתבצע במקום, בעת קבלת הרכב. לא בהזמנה המקורית.
             </SectionIntro>

@@ -214,24 +214,8 @@ export default function GuidePage() {
               </p>
 
               {/* Career timeline */}
-              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: "/samuel.avif", alt: "סמואל פרץ" }} expandLabel="קרא עוד">
+              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: "/samuel.avif", alt: "סמואל פרץ" }} headerName="סמואל פרץ" headerSubtitle="מומחה השכרת רכב בינלאומית · 10 שנות ניסיון" expandLabel="קרא עוד">
               <div className="bg-surface rounded-xl p-1 mb-2">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gold">
-                    <Image
-                      src="/samuel.avif"
-                      alt="מומחה השכרת רכב"
-                      fill
-                      className="object-cover object-top"
-                      sizes="64px"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-bold text-navy text-base">סמואל פרץ</p>
-                    <p className="text-xs text-gray-500 mt-0.5">מומחה השכרת רכב בינלאומית · 10 שנות ניסיון</p>
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">הדרך שעשיתי, ולמה היא רלוונטית בשבילך</p>
-                  </div>
-                </div>
 
                 <div className="space-y-0">
                   {[

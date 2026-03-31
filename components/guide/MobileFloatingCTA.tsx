@@ -11,7 +11,7 @@ export default function MobileFloatingCTA() {
       {/* Expanded panel — slides up above the button */}
       {open && (
         <div className="fixed bottom-[3.5rem] right-4 z-[60] w-64 bg-gold rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150">
-          <div className="relative px-4 pt-4 pb-3">
+          <div className="relative px-4 pt-9 pb-3">
             <button
               onClick={() => setOpen(false)}
               className="absolute top-3 left-3 text-navy/40 hover:text-navy transition-colors"

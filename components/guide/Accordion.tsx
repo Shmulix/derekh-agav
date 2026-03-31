@@ -10,10 +10,12 @@ interface AccordionProps {
   defaultOpen?: boolean;
   children: React.ReactNode;
   headerImage?: { src: string; alt: string };
+  headerName?: string;
+  headerSubtitle?: string;
   expandLabel?: string;
 }
 
-export function AccordionItem({ title, icon, defaultOpen = false, children, headerImage, expandLabel }: AccordionProps) {
+export function AccordionItem({ title, icon, defaultOpen = false, children, headerImage, headerName, headerSubtitle, expandLabel }: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
@@ -32,8 +34,22 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
               className="rounded-full object-cover flex-shrink-0 ring-2 ring-gold lg:hidden"
             />
           )}
-          {icon && <span className="text-xl">{icon}</span>}
-          <span className="font-semibold text-navy text-sm">{title}</span>
+          {(headerName || headerSubtitle) ? (
+            <div className="lg:hidden">
+              {headerName && <p className="font-bold text-navy text-sm leading-tight">{headerName}</p>}
+              {headerSubtitle && <p className="text-xs text-gray-400 leading-tight">{headerSubtitle}</p>}
+              <p className="text-xs font-semibold text-navy mt-1">{title}</p>
+            </div>
+          ) : (
+            <>
+              {icon && <span className="text-xl">{icon}</span>}
+              <span className="font-semibold text-navy text-sm">{title}</span>
+            </>
+          )}
+          <div className="hidden lg:flex items-center gap-3">
+            {icon && <span className="text-xl">{icon}</span>}
+            <span className="font-semibold text-navy text-sm">{title}</span>
+          </div>
         </div>
         <div className="flex items-center gap-1.5 flex-shrink-0">
           {expandLabel && !open && <span className="text-xs text-gray-400">{expandLabel}</span>}

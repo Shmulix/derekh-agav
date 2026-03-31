@@ -12,6 +12,11 @@ export default function MobileFloatingCTA() {
     return () => window.removeEventListener("mobileFloatCTAClose", handler);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   const handleOpen = () => {
     window.dispatchEvent(new CustomEvent("mobileFloatTOCClose"));
     setOpen(true);

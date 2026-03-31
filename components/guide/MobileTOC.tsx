@@ -60,6 +60,11 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
     return () => observer.disconnect();
   }, [items]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   const handleOpen = () => {
     window.dispatchEvent(new CustomEvent("mobileFloatCTAClose"));
     setOpen(true);

@@ -214,7 +214,7 @@ export default function GuidePage() {
               </p>
 
               {/* Career timeline */}
-              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪">
+              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: "/samuel.avif", alt: "סמואל פרץ" }} expandLabel="קרא עוד">
               <div className="bg-surface rounded-xl p-1 mb-2">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gold">

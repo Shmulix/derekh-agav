@@ -1028,14 +1028,14 @@ export default function GuidePage() {
                   <p>
                     הצעד הראשון: <strong className="text-navy">לפנות לשירות הדרכים (Roadside Assistance)</strong> של חברת ההשכרה. הם יעריכו את הבעיה ויתנו הוראות מדויקות לפי הסיטואציה.
                   </p>
-                  <div className="grid grid-cols-2 gap-3 text-xs mt-2">
+                  <div className="space-y-2 text-xs mt-2">
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                       <p className="font-bold text-blue-800 mb-1">אם הרכב מושבת לחלוטין</p>
-                      <p className="text-gray-600 leading-relaxed">שירות הדרכים ישלח גרר או יפנה אותך לתחנה הקרובה. שמור את המיקום שלך ואת פרטי הרכב נגישים.</p>
+                      <p className="text-gray-600 leading-relaxed">פנה לשירות הדרכים. הם ישלחו גרר וינחו אותך מה הלאה. אל תנסה להגיע לתחנה בכוחות עצמך. שמור את המיקום שלך ואת פרטי הרכב נגישים.</p>
                     </div>
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                       <p className="font-bold text-blue-800 mb-1">תקלה קלה (פנצ׳ר, שמן, נוזל)</p>
-                      <p className="text-gray-600 leading-relaxed">ניתן לטפל באופן עצמאי. שמור את כל הקבלות ובדוק אם ניתן לקבל החזר דרך הכיסוי שלך או ישירות מחברת ההשכרה.</p>
+                      <p className="text-gray-600 leading-relaxed">פנה לשירות הדרכים לקבלת הוראות. אם מדובר בנזק שכיסוי משלים מכסה (שמשה, צמיג וכו׳), יש שתי אפשרויות: לתקן עצמאית ולשמור קבלות לצורך החזר, או לתקן דרך שירות הדרכים ולקבל החזר מהכיסוי על מה שחויבת. בכל מקרה, שמור את כל הקבלות.</p>
                     </div>
                   </div>
                 </div>

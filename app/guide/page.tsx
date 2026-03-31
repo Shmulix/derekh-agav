@@ -38,7 +38,7 @@ const tocItems = [
   { id: "fuel", label: "דלק", icon: Fuel },
   { id: "mileage", label: "קילומטרז׳", icon: Route },
   { id: "fines", label: "קנסות ודוחות", icon: Mail },
-  { id: "cancellation", label: "ביטול והחזר", icon: CalendarX },
+  { id: "cancellation", label: "דמי ביטול ואי הגעה", icon: CalendarX },
   { id: "emergency", label: "תאונה ותקלה", icon: AlertTriangle },
   { id: "summary", label: "השורה התחתונה", icon: CheckCircle },
   { id: "lexicon", label: "מילון מונחים", icon: BookMarked },
@@ -1016,7 +1016,7 @@ export default function GuidePage() {
             </Callout>
 
             {/* ─── CANCELLATION ─────────────────────────────────── */}
-            <SectionTitle id="cancellation" icon="📅">ביטול והחזר</SectionTitle>
+            <SectionTitle id="cancellation" icon="📅">דמי ביטול ואי הגעה</SectionTitle>
             <SectionIntro>
               מדיניות הביטול משתנה לפי חברת ההשכרה, הקטגוריה והזמן שנותר עד לאיסוף. כדאי לבדוק את התנאים לפני שמאשרים הזמנה.
             </SectionIntro>

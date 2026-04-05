@@ -412,15 +412,13 @@ export default function GuidePage() {
               <div className="border-t border-gray-100 mt-10" />
             </div>
 
-            {/* Mobile: unified blue block */}
-            <div className="lg:hidden bg-blue-50 border border-navy rounded-xl p-5 mb-8">
-              <p className="text-navy text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                <Info size={13} /> לפני שמתחילים: הכי חשוב
-              </p>
-              <p className="text-navy font-bold text-sm mb-2 leading-snug">
+            {/* Mobile: unified navy block */}
+            <div className="lg:hidden bg-navy rounded-xl p-5 mb-8">
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">לפני שמתחילים: הכי חשוב</p>
+              <p className="text-white font-bold text-sm mb-2 leading-snug">
                 תנאי ההשכרה של חברת ההשכרה שלך. קרא אותם. כולם.
               </p>
-              <p className="text-navy/80 text-xs leading-relaxed">
+              <p className="text-slate-300 text-xs leading-relaxed">
                 המדריך נותן לך את הבסיס והלוגיקה. אבל כל חברת השכרה כותבת את החוזה שלה בעצמה: פיקדון, ביטוח, גיל מינימום, קילומטרז׳, כל אלה משתנים. הטעות הכי נפוצה? לצאת מנקודת הנחה שמה שאתה יודע נכון לכולם. תפתח את תנאי ההזמנה שלך, תקרא אותם, ותשתמש במדריך כדי להבין מה שקראת.
               </p>
             </div>

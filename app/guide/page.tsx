@@ -1342,9 +1342,9 @@ export default function GuidePage() {
             </AccordionItem>
 
             <div className="p-6 bg-navy rounded-xl text-center mt-10">
-              <p className="text-white font-bold text-lg mb-2">אהבת את המדריך?</p>
+              <p className="text-white font-bold text-lg mb-2">הגעת עד הסוף. אז יש לי בקשה אחת.</p>
               <p className="text-slate-300 text-sm mb-3 leading-relaxed">
-                אם המדריך עזר לך, הכי טוב שאתה יכול לעשות בשבילי הוא להזמין דרך הקישורים שלי. אתה בוחר את הפלטפורמה הכי טובה בשבילך, ואני מקבל עמלה קטנה שמאפשרת לי להמשיך לכתוב תוכן כזה. ללא עלות נוספת עבורך. שקוף? לגמרי.
+                תזמין את הרכב דרך הקישורים שלי. אותו מחיר, אותה פלטפורמה. רק שאני מקבל עמלה קטנה על זה, וזה מה שמאפשר לי לכתוב מדריכים כאלה בחינם. לא ביקשתי תשלום על המדריך. זה במקום.
               </p>
               <a href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">איפה הכי כדאי להזמין? השוואה מלאה ←</a>
             </div>

@@ -1,0 +1,11 @@
+[     795ms] Error: Cannot find module 'remotion/version'
+    at webpackMissingModule (http://localhost:3000/bundle.js:145413:50)
+    at ./node_modules/@remotion/web-renderer/dist/esm/index.mjs (http://localhost:3000/bundle.js:145413:141)
+    at options.factory (http://localhost:3000/bundle.js:209241:31)
+    at __webpack_require__ (http://localhost:3000/bundle.js:208618:33)
+    at fn (http://localhost:3000/bundle.js:208881:21)
+    at ./node_modules/@remotion/studio/dist/components/RenderQueue/ClientRenderQueueProcessor.js (http://localhost:3000/bundle.js:29619:24)
+    at options.factory (http://localhost:3000/bundle.js:209241:31)
+    at __webpack_require__ (http://localhost:3000/bundle.js:208618:33)
+    at fn (http://localhost:3000/bundle.js:208881:21)
+    at ./node_modules/@remotion/studio/dist/components/RenderQueue/RenderQueueDownloadItem.js (http://localhost:3000/bundle.js:29908:38)

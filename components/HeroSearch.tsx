@@ -12,12 +12,12 @@ const searchableContent = [
   { title: "ביטוח CDW ו-SCDW", href: "/guide#insurance", tags: ["ביטוח", "CDW", "SCDW", "השתתפות עצמית"] },
   { title: "מה לא מכוסה בביטוח", href: "/guide#not-covered", tags: ["ביטוח", "שמשה", "צמיגים"] },
   { title: "כיסוי ביטוח משלים", href: "/guide#supplemental", tags: ["ביטוח", "כיסוי", "החזר"] },
-  { title: "נהג צעיר — גיל ותוספות", href: "/guide#young-driver", tags: ["נהג צעיר", "גיל", "תוספת"] },
-  { title: "מדיניות דלק — Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"] },
-  { title: "קילומטרז׳ — חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"] },
+  { title: "נהג צעיר: גיל ותוספות", href: "/guide#young-driver", tags: ["נהג צעיר", "גיל", "תוספת"] },
+  { title: "מדיניות דלק: Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"] },
+  { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"] },
   { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות"] },
   { title: "השכרת רכב בארה״ב", href: "/posts/usa-car-rental", tags: ["ארה״ב", "אמריקה", "USA"] },
-  { title: "CDW או SCDW — מה לקחת?", href: "/posts/cdw-vs-scdw", tags: ["ביטוח", "CDW", "SCDW"] },
+  { title: "CDW או SCDW: מה לקחת?", href: "/posts/cdw-vs-scdw", tags: ["ביטוח", "CDW", "SCDW"] },
   { title: "7 טעויות נפוצות בהשכרת רכב", href: "/posts/7-mistakes", tags: ["טעויות", "טיפים"] },
 ];
 

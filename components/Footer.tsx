@@ -12,7 +12,7 @@ export default function Footer() {
                 <img src="/logo.svg" alt="דרך אגב" width={100} height={32} />
               </div>
             </div>
-            <p className="text-gray-400 text-sm">כי מי שיודע — לא מחכה לדלפק</p>
+            <p className="text-gray-400 text-sm">כי מי שיודע, לא מחכה לדלפק</p>
           </div>
 
           <nav className="flex flex-wrap gap-6">
@@ -35,13 +35,13 @@ export default function Footer() {
 
         {/* Disclaimer */}
         <p className="text-gray-500 text-xs leading-relaxed mb-6 max-w-2xl">
-          האתר מכיל קישורי שותפות. בעת הזמנה דרך הקישורים, האתר עשוי לקבל עמלה — ללא עלות נוספת עבורך.
+          האתר מכיל קישורי שותפות. בעת הזמנה דרך הקישורים, האתר עשוי לקבל עמלה, ללא עלות נוספת עבורך.
           המידע באתר מובא לצורכי מידע כללי בלבד ואינו מהווה ייעוץ משפטי או מקצועי.
         </p>
 
         {/* Copyright */}
         <p className="text-gray-600 text-xs text-center">
-          © {new Date().getFullYear()} דרך אגב — כל הזכויות שמורות
+          © {new Date().getFullYear()} דרך אגב. כל הזכויות שמורות.
         </p>
       </div>
     </footer>

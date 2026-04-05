@@ -41,7 +41,15 @@ Key attributes:
 
 ## WRITING RULES — MANDATORY
 
-- **Never use em dashes (—)** in any content, Hebrew or French. Replace with: period, colon, question mark, or restructure the sentence.
+### ⛔ EM DASH ABSOLUTE BAN — THIS IS A HARD RULE, NO EXCEPTIONS
+**NEVER write the character `—` (em dash / U+2014) anywhere in site content.**
+This has been violated repeatedly. It is unacceptable.
+- Replace with a period `.`
+- Or with a colon `:`
+- Or restructure the sentence entirely
+- This applies to ALL files: page.tsx, components, MDX posts, tooltips, callouts, accordion text, JSON-LD, everything.
+- Before writing ANY sentence, check it has no `—` character.
+- **If you see yourself about to write `—`, stop and rewrite the sentence.**
 
 ---
 

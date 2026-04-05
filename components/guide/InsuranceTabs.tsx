@@ -95,7 +95,7 @@ export default function InsuranceTabs() {
                 {neverCovered.map(({ item, note }) => (
                   <li key={item} className="text-xs text-gray-700">
                     <span className="font-semibold">{item}</span>
-                    <span className="text-gray-400"> — {note}</span>
+                    <span className="text-gray-400"> ({note})</span>
                   </li>
                 ))}
               </ul>
@@ -130,7 +130,7 @@ export default function InsuranceTabs() {
         {active === "supplemental" && (
           <div>
             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-              כיסוי שנרכש דרך ברוקר, סוכנות נסיעות, או עצמאית. לא מונע חיוב, אלא <strong>מחזיר כסף בדיעבד</strong> — תמיד עד לתקרה שנקבעה בפוליסה (בדרך כלל 2,000–3,000 יורו או דולר). לא כל כיסוי משלים זהה — חשוב לבדוק מה כולל הפוליסה שלך לפני שרוכשים.
+              כיסוי שנרכש דרך ברוקר, סוכנות נסיעות, או עצמאית. לא מונע חיוב, אלא <strong>מחזיר כסף בדיעבד</strong>. תמיד עד לתקרה שנקבעה בפוליסה (בדרך כלל 2,000–3,000 יורו או דולר). לא כל כיסוי משלים זהה. חשוב לבדוק מה כולל הפוליסה שלך לפני שרוכשים.
             </p>
 
             {/* 3 types of supplemental coverage */}
@@ -147,7 +147,7 @@ export default function InsuranceTabs() {
               <div className="border border-gray-200 rounded-lg p-3">
                 <p className="text-xs font-bold text-navy mb-1">כיסוי נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed mb-1.5">
-                  מכסה את מה שה-CDW לא מכסה מלכתחילה — <strong>עד תקרה שנקבעה בפוליסה:</strong>
+                  מכסה את מה שה-CDW לא מכסה מלכתחילה. <strong>עד תקרה שנקבעה בפוליסה:</strong>
                 </p>
                 <ul className="space-y-0.5">
                   {notCovered.map(({ item }) => (
@@ -160,9 +160,9 @@ export default function InsuranceTabs() {
               </div>
 
               <div className="border border-green-200 bg-green-50 rounded-lg p-3">
-                <p className="text-xs font-bold text-green-800 mb-1">כיסוי משולב — השתתפות עצמית + נזקים ייחודיים</p>
+                <p className="text-xs font-bold text-green-800 mb-1">כיסוי משולב: השתתפות עצמית + נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים — <strong>הכל עד לתקרה שנקבעה בפוליסה.</strong>
+                  משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים. <strong>הכל עד לתקרה שנקבעה בפוליסה.</strong>
                 </p>
               </div>
             </div>

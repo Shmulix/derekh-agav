@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const sections = [
   {
     id: "category",
-    title: "אות 1 — קטגוריה",
+    title: "אות 1: קטגוריה",
     subtitle: "Category",
     rows: [
       ["M", "מיני", "Mini"], ["N", "מיני אליט", "Mini Elite"],
@@ -22,7 +22,7 @@ const sections = [
   },
   {
     id: "type",
-    title: "אות 2 — סוג מרכב",
+    title: "אות 2: סוג מרכב",
     subtitle: "Type",
     rows: [
       ["B", "2-3 דלתות", "2-3 Door"], ["C", "2/4 דלתות", "2/4 Door"],
@@ -38,7 +38,7 @@ const sections = [
   },
   {
     id: "transmission",
-    title: "אות 3 — הילוכים והנעה",
+    title: "אות 3: הילוכים והנעה",
     subtitle: "Transmission",
     rows: [
       ["M", "ידני", "Manual"], ["A", "אוטומטי", "Automatic"],
@@ -48,7 +48,7 @@ const sections = [
   },
   {
     id: "fuel",
-    title: "אות 4 — דלק ומיזוג",
+    title: "אות 4: דלק ומיזוג",
     subtitle: "Fuel / Air",
     rows: [
       ["R", "בנזין עם מיזוג", "Petrol / Air"], ["N", "בנזין ללא מיזוג", "Petrol / No Air"],
@@ -74,7 +74,7 @@ function AcrissSection({ title, subtitle, rows, open, onToggle }: {
       >
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold">{title}</span>
-          <span className="text-xs text-slate-400 font-normal">— {subtitle}</span>
+          <span className="text-xs text-slate-400 font-normal">({subtitle})</span>
         </div>
         <ChevronDown
           size={16}

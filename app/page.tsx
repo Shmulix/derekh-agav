@@ -37,7 +37,7 @@ const posts = [
   {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
-    title: "CDW או SCDW — מה באמת שווה לקחת?",
+    title: "CDW או SCDW: מה באמת שווה לקחת?",
     excerpt: "ההבדל בין ביטוח בסיסי למשלים יכול להסתכם באלפי יורו. הנה איך להחליט נכון, לפי המצב שלך ולא לפי מה שמציעים בדלפק.",
     readTime: "5 דק׳ קריאה",
     href: "/posts/cdw-vs-scdw",
@@ -45,7 +45,7 @@ const posts = [
   {
     tag: "יעדים",
     tagColor: "bg-[#2563eb] text-white",
-    title: "השכרת רכב בארה״ב — כל מה שישראלים צריכים לדעת",
+    title: "השכרת רכב בארה״ב: כל מה שישראלים צריכים לדעת",
     excerpt: "ארה״ב זה לא אירופה. הכללים שונים, הביטוח שונה, ואפילו הפיקדון עובד אחרת. הנה מה שחייבים לבדוק לפני שמזמינים.",
     readTime: "7 דק׳ קריאה",
     href: "/posts/usa-car-rental",
@@ -360,7 +360,7 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
             <p className="text-slate-300 mb-8 leading-relaxed">
-              עכשיו שאתה מוכן — תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
+              עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
             </p>
             <a href="/posts/rental-platforms" className="btn-gold text-base px-10 py-3">
               איפה הכי כדאי להזמין? השוואה מלאה ←

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: "/hero-bg.avif",
         width: 1920,
         height: 1080,
-        alt: "דרך אגב — המדריך המקיף להשכרת רכב בחו״ל",
+        alt: "דרך אגב: המדריך המקיף להשכרת רכב בחו״ל",
       },
     ],
   },

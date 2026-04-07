@@ -155,16 +155,6 @@ export default function DrivingLicenseAbroadPost() {
             </div>
           </div>
 
-          <div className="mb-8">
-            <Image
-              src="/RISHUY_driving_licence.avif"
-              alt="רישיון נהיגה ישראלי רצו ושמאל"
-              width={600}
-              height={380}
-              className="rounded-xl w-full object-cover"
-            />
-            <p className="text-xs text-gray-400 mt-2 text-center">רישיון הנהיגה הישראלי בפורמט הסטנדרטי. הדלפק צריך לראות את הפלסטיק הזה.</p>
-          </div>
 
           {/* Section 2 — מה הדלפק לא מקבל */}
           <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
@@ -379,8 +369,7 @@ export default function DrivingLicenseAbroadPost() {
               <div>
                 <p className="font-bold text-red-800 text-sm mb-1">תקן אירופאי לא שווה רישיון בינלאומי</p>
                 <p className="text-sm text-red-700 leading-relaxed">
-                  העובדה שהרישיון הישראלי עומד בתקן האירופאי אומרת שהפורמט שלו סטנדרטי ומוכר לקריאה. היא לא אומרת שהוא מחליף את הרישיון הבינלאומי (IDP).
-                  במדינות שדורשות IDP על פי חוק, כמו ארה״ב, יפן, אוסטרליה ואחרות, גם רישיון ישראלי בתקן EU לא מספיק. הדלפק יבקש את שניהם.
+                  העובדה שהרישיון הישראלי עומד בתקן האירופאי אומרת שהפורמט שלו סטנדרטי ומוכר לקריאה. היא לא אומרת שהוא מחליף את הרישיון הבינלאומי (IDP). שני מסמכים שונים לגמרי.
                 </p>
               </div>
             </div>
@@ -397,15 +386,15 @@ export default function DrivingLicenseAbroadPost() {
 
           {/* Section 6 — Transition to IDP */}
           <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
-            הרישיון הישראלי הכרחי, אבל לא תמיד מספיק
+            רישיון ישראלי לא שווה רישיון בינלאומי
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
             עד כאן, הרישיון הישראלי. הוא חובה, ובלעדיו אין כלום.
-            אבל יש מקרים, ולא מעטים, שבהם הרישיון הישראלי לבד לא מספיק ודלפק ההשכרה יבקש גם רישיון נהיגה בינלאומי.
+            אבל יש עוד מסמך שחייב ללכת איתו. לא במקומו.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הרישיון הבינלאומי (International Driving Permit, IDP) הוא מסמך נלווה שמתורגם לשפות רבות ומאפשר לדלפקים מחוץ לאיחוד האירופי לאמת את זכות הנהיגה שלך.
-            ב-70% מהמקרים לא מבקשים אותו, אבל ב-30% הנותרים, בלעדיו אין רכב.
+            הרישיון הבינלאומי (International Driving Permit, IDP) הוא מסמך נלווה שלפי החוק הבינלאומי חייב להיות בידי כל נהג שנוהג מחוץ למדינת מגוריו.
+            בפועל, לא כל דלפק מבקש אותו. אבל החוק קובע שהוא חובה, ובמקרים שבהם הדלפק יבקש אותו, בלעדיו אין רכב.
           </p>
 
           <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-6">
@@ -417,10 +406,10 @@ export default function DrivingLicenseAbroadPost() {
               className="flex-shrink-0"
             />
             <div>
-              <p className="font-bold text-navy mb-1">מתי הדלפק מבקש IDP?</p>
+              <p className="font-bold text-navy mb-1">חובה חוקית שלא תמיד נאכפת</p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                אי אפשר לדעת מראש. ב-70% מהמקרים הדלפק לא מבקש אותו. אבל ב-30% הנותרים, בכל מדינה שהיא, כולל אירופה, הדלפק יבקש IDP ובלעדיו אין רכב.
-                לא שווה לסכן את זה. IDP הוא מסמך זול ופשוט להוציא, ולוקח כמה דקות. פשוט לעשות אותו לפני כל נסיעה.
+                ב-70% מהמקרים הדלפק לא בודק IDP. אבל זה לא אומר שהוא לא נדרש. זה אומר שהפעם הפקיד לא בדק.
+                ב-30% הנותרים הדלפק יבקש אותו, ואז אין ויכוח. IDP זול, פשוט ולוקח כמה דקות להוציא. אין סיבה לנסוע בלי.
               </p>
             </div>
           </div>

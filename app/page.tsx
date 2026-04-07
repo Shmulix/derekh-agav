@@ -35,12 +35,22 @@ const guideTopics = [
 
 const posts = [
   {
+    tag: "מסמכים",
+    tagColor: "bg-gold text-navy",
+    title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל",
+    excerpt: "מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
+    readTime: "6 דק׳ קריאה",
+    href: "/posts/driving-license-abroad",
+    image: "/driving-license-post.avif",
+  },
+  {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW: מה באמת שווה לקחת?",
     excerpt: "ההבדל בין ביטוח בסיסי למשלים יכול להסתכם באלפי יורו. הנה איך להחליט נכון, לפי המצב שלך ולא לפי מה שמציעים בדלפק.",
     readTime: "5 דק׳ קריאה",
     href: "/posts/cdw-vs-scdw",
+    image: null,
   },
   {
     tag: "יעדים",
@@ -49,14 +59,7 @@ const posts = [
     excerpt: "ארה״ב זה לא אירופה. הכללים שונים, הביטוח שונה, ואפילו הפיקדון עובד אחרת. הנה מה שחייבים לבדוק לפני שמזמינים.",
     readTime: "7 דק׳ קריאה",
     href: "/posts/usa-car-rental",
-  },
-  {
-    tag: "חיסכון",
-    tagColor: "bg-green-700 text-white",
-    title: "7 טעויות שכולם עושים כשמשכירים רכב בחו״ל",
-    excerpt: "מרישיון בינלאומי שנשכח ועד מיכל דלק שלא מלא. הטעויות שחוזרות על עצמן שוב ושוב ואיך להימנע מהן.",
-    readTime: "6 דק׳ קריאה",
-    href: "/posts/7-mistakes",
+    image: null,
   },
 ];
 
@@ -328,10 +331,26 @@ export default function HomePage() {
                   key={post.title}
                   className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col"
                 >
+                  {post.image && (
+                    <div className="relative h-44 overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <span className={`absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded ${post.tagColor}`}>
+                        {post.tag}
+                      </span>
+                    </div>
+                  )}
                   <div className="p-6 flex-1 flex flex-col">
-                    <span className={`inline-block text-xs font-bold px-2 py-1 rounded mb-4 w-fit ${post.tagColor}`}>
-                      {post.tag}
-                    </span>
+                    {!post.image && (
+                      <span className={`inline-block text-xs font-bold px-2 py-1 rounded mb-4 w-fit ${post.tagColor}`}>
+                        {post.tag}
+                      </span>
+                    )}
                     <h3 className="text-navy font-bold text-lg mb-3 leading-snug">{post.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">{post.excerpt}</p>
                   </div>

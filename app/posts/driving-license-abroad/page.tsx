@@ -97,8 +97,39 @@ export default function DrivingLicenseAbroadPost() {
           </div>
         </section>
 
-        {/* Article body */}
-        <article className="max-w-3xl mx-auto px-5 py-10 md:py-14">
+        {/* Article body — 3-column layout on desktop */}
+        <div className="max-w-6xl mx-auto px-4 py-10 md:py-14">
+          <div className="lg:grid lg:grid-cols-[220px_1fr_190px] lg:gap-10 items-start">
+
+            {/* RIGHT SIDEBAR — תוכן עניינים */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24">
+                <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                  תוכן עניינים
+                </p>
+                <nav className="space-y-1">
+                  {[
+                    { href: "#documents", label: "הרישיון הישראלי" },
+                    { href: "#invalid", label: "מה לא מתקבל" },
+                    { href: "#why-strict", label: "למה כך" },
+                    { href: "#renewal", label: "הרישיון פג?" },
+                    { href: "#eu-standard", label: "תקן אירופאי" },
+                    { href: "#idp", label: "ישראלי לא שווה בינלאומי" },
+                  ].map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block text-sm text-gray-500 hover:text-navy py-1 px-2 rounded hover:bg-surface transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* MAIN ARTICLE */}
+            <article className="min-w-0">
 
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
@@ -121,7 +152,7 @@ export default function DrivingLicenseAbroadPost() {
           </p>
 
           {/* Section 1 — הרישיון הישראלי: המסמך שפותח הכל */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="documents" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             הרישיון הישראלי: המסמך שפותח הכל
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
@@ -157,7 +188,7 @@ export default function DrivingLicenseAbroadPost() {
 
 
           {/* Section 2 — מה הדלפק לא מקבל */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="invalid" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             מה הדלפק לא מקבל: רשימת הכשלים שחוזרים שוב ושוב
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-5">
@@ -237,7 +268,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           {/* Section 3 — למה הכללים כל כך קשיחים */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="why-strict" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             למה הכללים כאלה קשיחים
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-3">
@@ -269,7 +300,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           {/* Section 4 — הרישיון פג? יש מה לעשות */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="renewal" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             הרישיון פג לפני הנסיעה? יש מה לעשות
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
@@ -325,7 +356,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           {/* Section 5 — מקור רשמי */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="eu-standard" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             הרישיון הישראלי בתקן אירופאי
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
@@ -385,7 +416,7 @@ export default function DrivingLicenseAbroadPost() {
           </a>
 
           {/* Section 6 — Transition to IDP */}
-          <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
+          <h2 id="idp" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             רישיון ישראלי לא שווה רישיון בינלאומי
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
@@ -437,7 +468,47 @@ export default function DrivingLicenseAbroadPost() {
             </a>
           </div>
 
-        </article>
+            </article>
+
+            {/* LEFT SIDEBAR — CTA + disclaimer */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 space-y-4">
+                <div className="bg-navy rounded-xl p-5 text-center">
+                  <p className="text-white font-bold text-sm mb-2 leading-snug">מוכן להזמין?</p>
+                  <p className="text-slate-300 text-xs mb-3 leading-relaxed">
+                    השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
+                  </p>
+                  <a
+                    href="/posts/rental-platforms"
+                    className="btn-gold text-xs px-4 py-2 w-full block text-center"
+                  >
+                    איפה להזמין? ←
+                  </a>
+                </div>
+
+                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                  <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
+                  <p className="text-xs text-amber-700 leading-relaxed">
+                    האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
+                  </p>
+                </div>
+
+                <div className="border border-gray-100 rounded-xl p-4">
+                  <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
+                  <div className="space-y-2">
+                    <a href="/posts/international-driving-license" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                      איך מוציאים IDP בישראל ←
+                    </a>
+                    <a href="/guide" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                      המדריך המלא להשכרת רכב ←
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+          </div>
+        </div>
       </main>
       <Footer />
     </>

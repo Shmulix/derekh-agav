@@ -325,10 +325,22 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון הישראלי הממוחשב עומד בתקן האירופאי (EU Standard). זה אומר שהפורמט שלו זהה לפורמט שמוכר בכל מדינות האיחוד האירופי ובמדינות רבות נוספות.
             הרישיון נושא תמונה של בעל הרישיון ומכיל את כל הפרטים שהדלפק צריך לאמת.
           </p>
+
+          <div className="mb-5">
+            <Image
+              src="/RISHUY_driving_licence.avif"
+              alt="רישיון נהיגה ישראלי בתקן אירופאי רצו ושמאל"
+              width={600}
+              height={380}
+              className="rounded-xl w-full object-cover"
+            />
+            <p className="text-xs text-gray-400 mt-2 text-center">רישיון הנהיגה הישראלי בפורמט EU Standard. כל השדות מסומנים לפי התקן האירופאי.</p>
+          </div>
+
           <p className="text-base text-gray-700 leading-relaxed mb-3">
             מה מופיע על הרישיון (השדות הרלוונטיים):
           </p>
-          <div className="grid grid-cols-2 gap-2 mb-4">
+          <div className="grid grid-cols-2 gap-2 mb-5">
             {[
               { field: "4b", label: "תוקף הרישיון" },
               { field: "4d", label: "מספר תעודת זהות" },
@@ -343,9 +355,19 @@ export default function DrivingLicenseAbroadPost() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            שימו לב: הרישיון הישראלי אינו רישיון נהיגה בינלאומי. שני מסמכים שונים לגמרי.
-          </p>
+
+          <div className="callout-warning mb-4">
+            <div className="flex items-start gap-3">
+              <AlertTriangle size={17} className="text-red-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-bold text-red-800 text-sm mb-1">תקן אירופאי לא שווה רישיון בינלאומי</p>
+                <p className="text-sm text-red-700 leading-relaxed">
+                  העובדה שהרישיון הישראלי עומד בתקן האירופאי אומרת שהפורמט שלו סטנדרטי ומוכר לקריאה. היא לא אומרת שהוא מחליף את הרישיון הבינלאומי (IDP).
+                  במדינות שדורשות IDP על פי חוק, כמו ארה״ב, יפן, אוסטרליה ואחרות, גם רישיון ישראלי בתקן EU לא מספיק. הדלפק יבקש את שניהם.
+                </p>
+              </div>
+            </div>
+          </div>
           <a
             href="https://www.gov.il/he/pages/driving_licence_european_standard"
             target="_blank"

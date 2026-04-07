@@ -80,6 +80,20 @@ export default function DrivingLicenseAbroadPost() {
             <p className="text-slate-300 text-sm md:text-base mt-2">
               מה הדלפק מקבל, מה הוא לא מקבל, ואיך לא לפספס את הרכב שלך
             </p>
+            {/* Author + date */}
+            <div className="flex items-center gap-3 mt-4">
+              <Image
+                src="/samuel.avif"
+                alt="סמואל פרץ"
+                width={36}
+                height={36}
+                className="rounded-full border-2 border-white/30 flex-shrink-0"
+              />
+              <div>
+                <p className="text-white text-sm font-semibold leading-none">סמואל פרץ</p>
+                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: אפריל 2026</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -236,8 +250,11 @@ export default function DrivingLicenseAbroadPost() {
           <h2 className="text-xl md:text-2xl font-bold text-navy mb-4">
             למה הכללים כאלה קשיחים
           </h2>
+          <p className="text-base text-gray-700 leading-relaxed mb-3">
+            קודם כל, ההיגיון הפשוט: בדיוק כמו שאי אפשר לעלות למטוס בלי דרכון תקף, אי אפשר לנהוג ברכב שכור בלי רישיון תקף. זה לא פרוצדורה בירוקרטית. זה תנאי יסודי.
+          </p>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            שלוש סיבות, וכולן חיוניות מבחינת חברת ההשכרה:
+            מעבר להיגיון, שלוש סיבות ספציפיות מחייבות את חברת ההשכרה לוודא זאת:
           </p>
           <div className="space-y-3 mb-8">
             {[
@@ -402,8 +419,8 @@ export default function DrivingLicenseAbroadPost() {
             <div>
               <p className="font-bold text-navy mb-1">מתי הדלפק מבקש IDP?</p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                בעיקר מחוץ לאיחוד האירופי: ארה״ב, יפן, אוסטרליה, מדינות מסוימות בדרום אמריקה ובאסיה.
-                גם בתוך אירופה יש חברות שמבקשות אותו. לא כדאי לנסוע בלי.
+                אי אפשר לדעת מראש. ב-70% מהמקרים הדלפק לא מבקש אותו. אבל ב-30% הנותרים, בכל מדינה שהיא, כולל אירופה, הדלפק יבקש IDP ובלעדיו אין רכב.
+                לא שווה לסכן את זה. IDP הוא מסמך זול ופשוט להוציא, ולוקח כמה דקות. פשוט לעשות אותו לפני כל נסיעה.
               </p>
             </div>
           </div>

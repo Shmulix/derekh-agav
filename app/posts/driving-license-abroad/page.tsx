@@ -499,9 +499,14 @@ export default function DrivingLicenseAbroadPost() {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-4">
 
-                <div className="bg-navy rounded-xl p-5 text-center">
-                  <p className="text-white font-bold text-sm mb-2 leading-snug">מוכן להזמין?</p>
-                  <p className="text-slate-300 text-xs mb-3 leading-relaxed">
+                <div className="border border-navy/20 rounded-xl p-4 bg-white">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
+                      <span className="text-gold text-sm">←</span>
+                    </div>
+                    <p className="text-navy font-bold text-sm leading-tight">מוכן להזמין?</p>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
                     השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
                   </p>
                   <a

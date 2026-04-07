@@ -288,7 +288,7 @@ export default function DrivingLicenseAbroadPost() {
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-amber-700">
                   <span className="font-bold text-amber-800 flex-shrink-0 w-5">{i + 1}.</span>
-                  <span><span className="font-semibold">{item.step}:</span> {item.detail}</span>
+                  <span className="flex flex-col gap-0.5"><span className="font-semibold">{item.step}</span>{item.detail && <span className="font-normal text-amber-600">{item.detail}</span>}</span>
                 </li>
               ))}
             </ol>

@@ -101,30 +101,60 @@ export default function DrivingLicenseAbroadPost() {
         <div className="max-w-6xl mx-auto px-4 py-10 md:py-14">
           <div className="lg:grid lg:grid-cols-[220px_1fr_190px] lg:gap-10 items-start">
 
-            {/* RIGHT SIDEBAR — תוכן עניינים */}
+            {/* RIGHT SIDEBAR — תוכן עניינים + כרטיס מחבר */}
             <aside className="hidden lg:block">
-              <div className="sticky top-24">
-                <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
-                  תוכן עניינים
-                </p>
-                <nav className="space-y-1">
-                  {[
-                    { href: "#documents", label: "הרישיון הישראלי" },
-                    { href: "#invalid", label: "מה לא מתקבל" },
-                    { href: "#why-strict", label: "למה כך" },
-                    { href: "#renewal", label: "הרישיון פג?" },
-                    { href: "#eu-standard", label: "תקן אירופאי" },
-                    { href: "#idp", label: "ישראלי לא שווה בינלאומי" },
-                  ].map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block text-sm text-gray-500 hover:text-navy py-1 px-2 rounded hover:bg-surface transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </nav>
+              <div className="sticky top-24 space-y-5">
+
+                {/* TOC */}
+                <div>
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                    תוכן עניינים
+                  </p>
+                  <nav className="space-y-1">
+                    {[
+                      { href: "#documents", label: "הרישיון הישראלי" },
+                      { href: "#invalid", label: "מה לא מתקבל" },
+                      { href: "#why-strict", label: "למה כך" },
+                      { href: "#renewal", label: "הרישיון פג?" },
+                      { href: "#eu-standard", label: "תקן אירופאי" },
+                      { href: "#idp", label: "ישראלי לא שווה בינלאומי" },
+                    ].map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block text-sm text-gray-500 hover:text-navy py-1 px-2 rounded hover:bg-surface transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+
+                {/* Author card */}
+                <div className="border border-gray-100 rounded-xl p-4 bg-white shadow-sm">
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <Image
+                      src="/samuel.avif"
+                      alt="סמואל פרץ"
+                      width={60}
+                      height={60}
+                      className="rounded-full border-2 border-gold/40"
+                    />
+                    <div>
+                      <p className="font-bold text-navy text-sm">סמואל פרץ</p>
+                      <p className="text-xs text-gold font-semibold mt-0.5">מומחה השכרת רכב בינלאומית</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed mt-3 text-center">
+                    יותר מ-10 שנים בתחום. עמדתי מהצד השני של הדלפק. כל מה שכתוב כאן, ראיתי בפועל.
+                  </p>
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex justify-center gap-3 text-xs text-gray-400">
+                    <span>10+ שנות ניסיון</span>
+                    <span>·</span>
+                    <span>אלפי לקוחות</span>
+                  </div>
+                </div>
+
               </div>
             </aside>
 
@@ -474,30 +504,6 @@ export default function DrivingLicenseAbroadPost() {
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-4">
 
-                {/* Author card */}
-                <div className="border border-gray-100 rounded-xl p-4 bg-white shadow-sm">
-                  <div className="flex flex-col items-center text-center gap-3">
-                    <Image
-                      src="/samuel.avif"
-                      alt="סמואל פרץ"
-                      width={64}
-                      height={64}
-                      className="rounded-full border-2 border-gold/40"
-                    />
-                    <div>
-                      <p className="font-bold text-navy text-sm">סמואל פרץ</p>
-                      <p className="text-xs text-gold font-semibold mt-0.5">מומחה השכרת רכב בינלאומית</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 leading-relaxed mt-3 text-center">
-                    יותר מ-10 שנים בתחום השכרת הרכב. עמדתי מהצד השני של הדלפק. כל מה שכתוב כאן, ראיתי בפועל.
-                  </p>
-                  <div className="mt-3 pt-3 border-t border-gray-100 flex justify-center gap-3 text-xs text-gray-400">
-                    <span>10+ שנות ניסיון</span>
-                    <span>·</span>
-                    <span>אלפי לקוחות</span>
-                  </div>
-                </div>
                 <div className="bg-navy rounded-xl p-5 text-center">
                   <p className="text-white font-bold text-sm mb-2 leading-snug">מוכן להזמין?</p>
                   <p className="text-slate-300 text-xs mb-3 leading-relaxed">

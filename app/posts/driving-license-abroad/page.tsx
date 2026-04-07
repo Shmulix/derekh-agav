@@ -112,12 +112,12 @@ export default function DrivingLicenseAbroadPost() {
                   </p>
                   <nav className="space-y-1">
                     {[
-                      { href: "#documents", label: "הרישיון הישראלי" },
-                      { href: "#invalid", label: "מה לא מתקבל" },
-                      { href: "#why-strict", label: "למה כך" },
-                      { href: "#renewal", label: "הרישיון פג?" },
-                      { href: "#eu-standard", label: "תקן אירופאי" },
-                      { href: "#idp", label: "ישראלי לא שווה בינלאומי" },
+                      { href: "#documents", label: "איזה רישיון מקבלים בדלפק?" },
+                      { href: "#invalid", label: "מה בטוח יגרום לסירוב?" },
+                      { href: "#why-strict", label: "למה אין גמישות?" },
+                      { href: "#renewal", label: "הרישיון פג לפני הנסיעה?" },
+                      { href: "#eu-standard", label: "מה כתוב על הכרטיס?" },
+                      { href: "#idp", label: "האם הרישיון הישראלי מספיק לבד?" },
                     ].map((item) => (
                       <a
                         key={item.href}

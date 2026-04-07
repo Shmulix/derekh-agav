@@ -2,8 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileTOC from "@/components/guide/MobileTOC";
+import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import type { Metadata } from "next";
 import { AlertTriangle, XCircle, CheckCircle, ExternalLink, ChevronLeft } from "lucide-react";
+
+const mobileTocItems = [
+  { id: "documents", label: "איזה רישיון מקבלים בדלפק?" },
+  { id: "invalid", label: "מה בטוח יגרום לסירוב?" },
+  { id: "temp-license", label: "רישיון זמני תקף?" },
+  { id: "why-strict", label: "למה אין גמישות?" },
+  { id: "renewal", label: "הרישיון פג לפני הנסיעה?" },
+  { id: "eu-standard", label: "מה כתוב על הכרטיס?" },
+  { id: "idp", label: "האם הרישיון הישראלי מספיק לבד?" },
+];
 
 export const metadata: Metadata = {
   title: "רישיון נהיגה ישראלי להשכרת רכב בחו״ל: מה שחייבים לדעת",
@@ -165,33 +177,6 @@ export default function DrivingLicenseAbroadPost() {
             <ChevronLeft size={12} />
             <span className="text-gray-600">רישיון נהיגה ישראלי בחו״ל</span>
           </nav>
-
-          {/* Mobile TOC */}
-          <details className="lg:hidden mb-8 border border-gray-200 rounded-xl overflow-hidden">
-            <summary className="px-4 py-3 bg-surface text-sm font-bold text-navy cursor-pointer select-none flex items-center justify-between">
-              תוכן העניינים
-              <span className="text-gray-400 text-xs font-normal">לחץ לפתיחה</span>
-            </summary>
-            <nav className="px-4 py-3 space-y-1 bg-white">
-              {[
-                { href: "#documents", label: "איזה רישיון מקבלים בדלפק?" },
-                { href: "#invalid", label: "מה בטוח יגרום לסירוב?" },
-                { href: "#temp-license", label: "↳ רישיון זמני תקף?" },
-                { href: "#why-strict", label: "למה אין גמישות?" },
-                { href: "#renewal", label: "הרישיון פג לפני הנסיעה?" },
-                { href: "#eu-standard", label: "מה כתוב על הכרטיס?" },
-                { href: "#idp", label: "האם הרישיון הישראלי מספיק לבד?" },
-              ].map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="block text-sm text-gray-600 hover:text-navy py-1.5 border-b border-gray-50 last:border-0"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </details>
 
           {/* Intro */}
           <p className="text-lg text-gray-800 leading-relaxed mb-5">
@@ -536,17 +521,6 @@ export default function DrivingLicenseAbroadPost() {
               </p>
             </div>
 
-            {/* CTA mobile */}
-            <div className="bg-navy rounded-xl p-5">
-              <p className="text-white font-bold text-sm mb-2">מוכן להזמין?</p>
-              <p className="text-slate-300 text-xs mb-3 leading-relaxed">
-                השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
-              </p>
-              <a href="/posts/rental-platforms" className="btn-gold text-xs px-4 py-2 w-full block text-center">
-                איפה להזמין? ←
-              </a>
-            </div>
-
             {/* Disclaimer mobile */}
             <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
               <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
@@ -613,6 +587,8 @@ export default function DrivingLicenseAbroadPost() {
           </div>
         </div>
       </main>
+      <MobileTOC items={mobileTocItems} />
+      <MobileFloatingCTA />
       <Footer />
     </>
   );

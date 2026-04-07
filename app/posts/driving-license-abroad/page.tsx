@@ -470,9 +470,34 @@ export default function DrivingLicenseAbroadPost() {
 
             </article>
 
-            {/* LEFT SIDEBAR — CTA + disclaimer */}
+            {/* LEFT SIDEBAR — Author + CTA + disclaimer */}
             <aside className="hidden lg:block">
               <div className="sticky top-24 space-y-4">
+
+                {/* Author card */}
+                <div className="border border-gray-100 rounded-xl p-4 bg-white shadow-sm">
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <Image
+                      src="/samuel.avif"
+                      alt="סמואל פרץ"
+                      width={64}
+                      height={64}
+                      className="rounded-full border-2 border-gold/40"
+                    />
+                    <div>
+                      <p className="font-bold text-navy text-sm">סמואל פרץ</p>
+                      <p className="text-xs text-gold font-semibold mt-0.5">מומחה השכרת רכב בינלאומית</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed mt-3 text-center">
+                    יותר מ-10 שנים בתחום השכרת הרכב. עמדתי מהצד השני של הדלפק. כל מה שכתוב כאן, ראיתי בפועל.
+                  </p>
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex justify-center gap-3 text-xs text-gray-400">
+                    <span>10+ שנות ניסיון</span>
+                    <span>·</span>
+                    <span>אלפי לקוחות</span>
+                  </div>
+                </div>
                 <div className="bg-navy rounded-xl p-5 text-center">
                   <p className="text-white font-bold text-sm mb-2 leading-snug">מוכן להזמין?</p>
                   <p className="text-slate-300 text-xs mb-3 leading-relaxed">

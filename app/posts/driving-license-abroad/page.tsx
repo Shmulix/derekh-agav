@@ -114,6 +114,7 @@ export default function DrivingLicenseAbroadPost() {
                     {[
                       { href: "#documents", label: "איזה רישיון מקבלים בדלפק?" },
                       { href: "#invalid", label: "מה בטוח יגרום לסירוב?" },
+                      { href: "#temp-license", label: "↳ רישיון זמני תקף?" },
                       { href: "#why-strict", label: "למה אין גמישות?" },
                       { href: "#renewal", label: "הרישיון פג לפני הנסיעה?" },
                       { href: "#eu-standard", label: "מה כתוב על הכרטיס?" },
@@ -232,15 +233,20 @@ export default function DrivingLicenseAbroadPost() {
               </p>
             </div>
 
-            <div className="border border-red-200 bg-red-50 rounded-xl p-5">
-              <div className="flex items-start gap-3 mb-2">
-                <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
-                <p className="font-bold text-red-800">רישיון זמני (נייר)</p>
+            <div id="temp-license" className="scroll-mt-24">
+              <h3 className="text-base font-bold text-navy mb-2 mt-1">
+                רישיון זמני: האם הוא תקף בחו״ל?
+              </h3>
+              <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+                <div className="flex items-start gap-3 mb-2">
+                  <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
+                  <p className="font-bold text-red-800">לא. הרישיון הזמני לא תקף בחו״ל.</p>
+                </div>
+                <p className="text-sm text-red-700 leading-relaxed">
+                  קיבלת מכתב מהמשרד שהרישיון החדש בדרך? הנייר הזה לא מוכר מחוץ לישראל. הדלפק רואה נייר, לא רישיון.
+                  זה לא מה שמסביר לך הפקיד כשנותן לך את המכתב, אבל ככה זה עובד בפועל.
+                </p>
               </div>
-              <p className="text-sm text-red-700 leading-relaxed">
-                קיבלת מכתב מהמשרד שהרישיון החדש בדרך? הנייר הזה לא מוכר מחוץ לישראל. הדלפק רואה נייר, לא רישיון.
-                זה לא מה שמסביר לך הפקיד כשנותן לך את המכתב, אבל ככה זה עובד בפועל.
-              </p>
             </div>
 
             <div className="border border-red-200 bg-red-50 rounded-xl p-5">

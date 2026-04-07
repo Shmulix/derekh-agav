@@ -131,28 +131,23 @@ export default function DrivingLicenseAbroadPost() {
                 </div>
 
                 {/* Author card */}
-                <div className="border border-gray-100 rounded-xl p-4 bg-white shadow-sm">
-                  <div className="flex flex-col items-center text-center gap-3">
+                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                  <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
                       alt="סמואל פרץ"
-                      width={60}
-                      height={60}
-                      className="rounded-full border-2 border-gold/40"
+                      width={44}
+                      height={44}
+                      className="rounded-full border-2 border-gold/40 flex-shrink-0"
                     />
                     <div>
-                      <p className="font-bold text-navy text-sm">סמואל פרץ</p>
-                      <p className="text-xs text-gold font-semibold mt-0.5">מומחה השכרת רכב בינלאומית</p>
+                      <p className="font-bold text-navy text-sm leading-tight">סמואל פרץ</p>
+                      <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed mt-3 text-center">
-                    יותר מ-10 שנים בתחום. עמדתי מהצד השני של הדלפק. כל מה שכתוב כאן, ראיתי בפועל.
+                  <p className="text-xs text-gray-500 leading-relaxed mt-3">
+                    המידע באתר מבוסס על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי או ממשלתי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה.
                   </p>
-                  <div className="mt-3 pt-3 border-t border-gray-100 flex justify-center gap-3 text-xs text-gray-400">
-                    <span>10+ שנות ניסיון</span>
-                    <span>·</span>
-                    <span>אלפי לקוחות</span>
-                  </div>
                 </div>
 
               </div>

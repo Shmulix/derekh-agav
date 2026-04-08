@@ -229,10 +229,10 @@ export default function DrivingLicenseAbroadPost() {
 
           {/* Section 2 — מה הדלפק לא מקבל */}
           <h2 id="invalid" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-            מה הדלפק לא מקבל: רשימת הכשלים שחוזרים שוב ושוב
+            מה הדלפק לא מקבל: רשימת הטעויות שחוזרות שוב ושוב
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-5">
-            כל אחד מהמקרים הבאים מסתיים באותה תוצאה: בלי רכב. אין "בסדר הפעם". אין מנהל שיעזור. אין כרטיס נאמנות שפותח דלתות. תוצאה אחת, בכל פעם.
+            כל אחד מהמקרים הבאים מסתיים באותה תוצאה מאכזבת: אין רכב. אין "בסדר הפעם". אין מנהל שיעזור. אין כרטיס נאמנות שפותח דלתות. תוצאה אחת, בכל פעם.
           </p>
 
           <div className="space-y-4 mb-8">

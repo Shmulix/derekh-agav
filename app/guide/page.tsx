@@ -926,7 +926,7 @@ export default function GuidePage() {
 
                 <div className="border-r-2 border-gray-400 pr-3">
                   <p className="font-semibold text-navy text-sm mb-0.5">⛓️ שרשראות שלג / גרביוני שלג</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">מתקינים על הגלגלים כשהכביש מכוסה שלג עמוק או קרח. שרשראות ממתכת וגרביוני שלג מטקסטיל, שתי הגרסאות מיועדות לאותה מטרה. חלק מהמדינות מחייבות לשאת אותן ברכב בחורף גם אם לא נדרשת ההתקנה בפועל.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">מתקינים על הגלגלים כשהכביש מכוסה שלג עמוק או קרח. שרשראות ממתכת וגרביוני שלג מטקסטיל, שתי הגרסאות מיועדות לאותה מטרה. חלק מהמדינות מחייבות לשאת אותם ברכב בחורף גם אם לא נדרשת ההתקנה בפועל.</p>
                 </div>
               </div>
 

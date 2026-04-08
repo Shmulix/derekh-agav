@@ -402,7 +402,7 @@ export default function GuidePage() {
               </p>
 
               <p className="text-gray-700 font-medium leading-relaxed">
-                תקרא אותו לפני שנוסעים. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.
+                תקרא אותו לפני שאתה נוסע. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.
               </p>
 
               <div className="border-t border-gray-100 mt-10" />

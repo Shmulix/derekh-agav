@@ -377,7 +377,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           <p className="text-base text-gray-700 leading-relaxed mb-2">
-            תאריך תפוגת הרישיון מופיע בשדה 4b על הכרטיס. בדוק אותו. עכשיו, לא יום לפני הטיסה.
+            תאריך תפוגת הרישיון מופיע בשדה 4b על הכרטיס. בדוק אותו. עכשיו! לא יום לפני הטיסה.
             רישיון שפג שבוע לפני הנסיעה? בר-פתרון. מגלה ביום הטיסה? זה כבר לחץ אחר לגמרי.
           </p>
           <p className="text-sm text-gray-500 leading-relaxed mb-4">

@@ -257,9 +257,17 @@ export default function DrivingLicenseAbroadPost() {
                   <p className="font-bold text-red-800">לא. הרישיון הזמני לא תקף בחו״ל.</p>
                 </div>
                 <p className="text-sm text-red-700 leading-relaxed">
-                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל. הדלפק מסתכל ורואה נייר. לא רישיון.
-                  אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
+                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל, הדלפק מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
                 </p>
+                <a
+                  href="https://www.gov.il/he/pages/fast_license"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-700 underline underline-offset-2 mt-2"
+                >
+                  חידוש מהיר של רישיון נהיגה באתר gov.il
+                  <ExternalLink size={12} />
+                </a>
               </div>
             </div>
 

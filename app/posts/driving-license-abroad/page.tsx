@@ -197,8 +197,7 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון הישראלי: המסמך שפותח הכל
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הדלפק פותח בשאלה אחת: איפה הרישיון? לא ההזמנה, לא האשראי, לא הרישיון הבינלאומי.
-            הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
+            הדלפק מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
           </p>
 
           <div className="flex items-start gap-4 bg-surface border border-gray-200 rounded-xl p-5 mb-6">

@@ -22,7 +22,7 @@ const sections = [
   },
   {
     id: "type",
-    title: "אות 2: סוג מרכב",
+    title: "אות 2: סוג הרכב",
     subtitle: "Type",
     rows: [
       ["B", "2-3 דלתות", "2-3 Door"], ["C", "2/4 דלתות", "2/4 Door"],

@@ -549,11 +549,11 @@ export default function GuidePage() {
               </p>
             </div>
 
-            <AccordionItem title="מה קורה כשחברת ההשכרה לא יכולה לחברת ההשכרה את הקטגוריה שהוזמנה" icon="⬆️">
+            <AccordionItem title="מה קורה כשחברת ההשכרה לא יכולה לספק את הקטגוריה שהוזמנה" icon="⬆️">
               <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <div className="flex gap-3">
                   <span className="text-lg flex-shrink-0">⬆️</span>
-                  <p><strong className="text-gray-800">שדרוג ללא תשלום.</strong> אם חברת ההשכרה לא יכולה לחברת ההשכרה את הקטגוריה שהוזמנה, הוא מחויב להציע את הקטגוריה הזמינה הבאה מעליה, ללא תוספת תשלום. זה לא טובה שלו, זו חובתה.</p>
+                  <p><strong className="text-gray-800">שדרוג ללא תשלום.</strong> אם חברת ההשכרה לא יכולה לספק את הקטגוריה שהוזמנה, הוא מחויב להציע את הקטגוריה הזמינה הבאה מעליה, ללא תוספת תשלום. זה לא טובה שלו, זו חובתה.</p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-lg flex-shrink-0">❌</span>
@@ -570,7 +570,7 @@ export default function GuidePage() {
             </AccordionItem>
 
             <Callout type="info">
-              קוד ACRISS מורכב מ-4 אותיות: קטגוריה, סוג מרכב, הילוכים, ודלק/מיזוג. לא חייב לשנן אותו, אבל כדאי לדעת שהוא קיים ולבדוק שהקטגוריה שמופיעה בהזמנה שלך תואמת את מה שציפית לקבל.
+              קוד ACRISS מורכב מ-4 אותיות: קטגוריה, סוג הרכב, הילוכים, ודלק/מיזוג. לא חייב לשנן אותו, אבל כדאי לדעת שהוא קיים ולבדוק שהקטגוריה שמופיעה בהזמנה שלך תואמת את מה שציפית לקבל.
             </Callout>
 
             <AccordionItem title="טבלת קודי ACRISS המלאה" icon="📊">

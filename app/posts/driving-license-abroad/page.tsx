@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { AlertTriangle, XCircle, CheckCircle, ExternalLink, ChevronLeft } from "lucide-react";
 
 const mobileTocItems = [
-  { id: "documents", label: "איזה רישיון מקבלים בדלפק?" },
+  { id: "documents", label: "איזה רישיון מקבלים בדלפק התחנה?" },
   { id: "invalid", label: "מה בטוח יגרום לסירוב?" },
   { id: "temp-license", label: "רישיון זמני תקף?" },
   { id: "why-strict", label: "למה אין גמישות?" },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "רישיון נהיגה ישראלי להשכרת רכב בחו״ל | דרך אגב",
     description:
-      "מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
+      "מה דלפק התחנה מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
     url: "https://derekh-agav.vercel.app/posts/driving-license-abroad",
     type: "article",
     images: [
@@ -90,7 +90,7 @@ export default function DrivingLicenseAbroadPost() {
               רישיון נהיגה ישראלי בהשכרת רכב בחו״ל
             </h1>
             <p className="text-slate-300 text-sm md:text-base mt-2">
-              מה הדלפק מקבל, מה הוא לא מקבל, ואיך לא לפספס את הרכב שלך
+              מה דלפק התחנה מקבל, מה הוא לא מקבל, ואיך לא לפספס את הרכב שלך
             </p>
             {/* Author + date */}
             <div className="flex items-center gap-3 mt-4">
@@ -124,7 +124,7 @@ export default function DrivingLicenseAbroadPost() {
                   </p>
                   <nav className="space-y-1">
                     {[
-                      { href: "#documents", label: "איזה רישיון מקבלים בדלפק?" },
+                      { href: "#documents", label: "איזה רישיון מקבלים בדלפק התחנה?" },
                       { href: "#invalid", label: "מה בטוח יגרום לסירוב?" },
                       { href: "#temp-license", label: "↳ רישיון זמני תקף?" },
                       { href: "#why-strict", label: "למה אין גמישות?" },
@@ -181,15 +181,15 @@ export default function DrivingLicenseAbroadPost() {
           {/* Intro */}
           <p className="text-lg text-gray-800 leading-relaxed mb-5">
             אם אתה קורא את זה, אתה כבר עושה משהו נכון: מתכנן מראש.
-            רוב האנשים לא עושים את זה. הם מגיעים לדלפק, מזוודות ירדו, כולם עייפים מהטיסה, ואז מגלים שיש בעיה עם הרישיון.
+            רוב האנשים לא עושים את זה. הם מגיעים לדלפק התחנה, מזוודות ירדו, כולם עייפים מהטיסה, ואז מגלים שיש בעיה עם הרישיון.
             לא נעים. ולגמרי אפשר למנוע את זה.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            מה שאנשים לא יודעים, ומגלים רק בדלפק, זה שרישיון ישראלי "תקין" בחו״ל זה לא משהו שמובן מאליו.
+            מה שאנשים לא יודעים, ומגלים רק בדלפק התחנה, זה שרישיון ישראלי "תקין" בחו״ל זה לא משהו שמובן מאליו.
             יש לזה דרישות מאוד ספציפיות. אני הולך להסביר לך אותן, בלי סיבוכים.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mb-8">
-            כל מה שכתוב כאן מבוסס על ניסיון אמיתי. לא על גוגל, לא על כתבות כלליות. על שנים שעמדתי מהצד השני של הדלפק.
+            כל מה שכתוב כאן מבוסס על ניסיון אמיתי. לא על גוגל, לא על כתבות כלליות. על שנים שעמדתי מהצד השני של דלפק התחנה.
           </p>
 
           {/* Section 1 — הרישיון הישראלי: המסמך שפותח הכל */}
@@ -197,7 +197,7 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון הישראלי: המסמך שפותח הכל
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הדלפק מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
+            דלפק התחנה מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
           </p>
 
           <div className="flex items-start gap-4 bg-surface border border-gray-200 rounded-xl p-5 mb-6">
@@ -227,12 +227,12 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
 
-          {/* Section 2 — מה הדלפק לא מקבל */}
+          {/* Section 2 — מה דלפק התחנה לא מקבל */}
           <h2 id="invalid" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-            מה הדלפק לא מקבל: רשימת הטעויות שחוזרות שוב ושוב
+            מה דלפק התחנה לא מקבל: רשימת הטעויות שחוזרות שוב ושוב
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-5">
-            כל אחד מהמקרים הבאים מסתיים באותה תוצאה מאכזבת. אף מנהל בדלפק לא יעזור, אין "הפעם נוותר לך", אין כרטיס נאמנות שפותח דלתות. התוצאה חד-משמעית ומיידית: פשוט לא תקבל את הרכב.
+            כל אחד מהמקרים הבאים מסתיים באותה תוצאה מאכזבת. אף מנהל בדלפק התחנה לא יעזור, אין "הפעם נוותר לך", אין כרטיס נאמנות שפותח דלתות. התוצאה חד-משמעית ומיידית: פשוט לא תקבל את הרכב.
           </p>
 
           <div className="space-y-4 mb-8">
@@ -257,7 +257,7 @@ export default function DrivingLicenseAbroadPost() {
                   <p className="font-bold text-red-800">לא. הרישיון הזמני לא תקף בחו״ל.</p>
                 </div>
                 <p className="text-sm text-red-700 leading-relaxed">
-                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל, הדלפק מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
+                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל, דלפק התחנה מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
                 </p>
                 <a
                   href="https://www.gov.il/he/pages/fast_license"
@@ -278,7 +278,7 @@ export default function DrivingLicenseAbroadPost() {
               </div>
               <p className="text-sm text-red-700 leading-relaxed">
                 Apple Wallet? לא. תמונה בטלפון? לא. PDF? בטח שלא.
-                הדלפק סורק את הפלסטיק הפיזי ומוודא שהוא אמיתי. אין תחליף לכרטיס עצמו, בכל פורמט דיגיטלי שתבחר.
+                דלפק התחנה סורק את הפלסטיק הפיזי ומוודא שהוא אמיתי. אין תחליף לכרטיס עצמו, בכל פורמט דיגיטלי שתבחר.
               </p>
             </div>
 
@@ -288,7 +288,7 @@ export default function DrivingLicenseAbroadPost() {
                 <p className="font-bold text-red-800">צילום מאושר / עותק נוטריוני</p>
               </div>
               <p className="text-sm text-red-700 leading-relaxed">
-                נוטריון, אישורים, חותמות? שמור אותם למסמכים אחרים. לרישיון נהיגה בדלפק השכרה יש פתרון אחד בלבד: הפלסטיק המקורי. שום דבר אחר לא עובד.
+                נוטריון, אישורים, חותמות? שמור אותם למסמכים אחרים. לרישיון נהיגה בדלפק התחנה יש פתרון אחד בלבד: הפלסטיק המקורי. שום דבר אחר לא עובד.
               </p>
             </div>
 
@@ -298,7 +298,7 @@ export default function DrivingLicenseAbroadPost() {
                 <p className="font-bold text-red-800">שם שונה מזה שמופיע בהזמנה</p>
               </div>
               <p className="text-sm text-red-700 leading-relaxed">
-                הדלפק משווה את השם על הרישיון לשם שבהזמנה. הבדל קטן, כתיב שונה, ניסיון שונה? חברת ההשכרה יכולה לסרב.
+                דלפק התחנה משווה את השם על הרישיון לשם שבהזמנה. הבדל קטן, כתיב שונה, ניסיון שונה? חברת ההשכרה יכולה לסרב.
                 לפני שמזמינים, תוודא שהשם בהזמנה זהה בדיוק לשם על הרישיון.
               </p>
             </div>
@@ -410,7 +410,7 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון הישראלי בתקן אירופאי
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הרישיון הישראלי עומד בתקן האירופאי (EU Standard). זה אומר שדלפק בפריז, ברומא או בלונדון יידע לקרוא אותו בלי בעיה. הפורמט מוכר, השדות סטנדרטיים, התמונה שם.
+            הרישיון הישראלי עומד בתקן האירופאי (EU Standard). זה אומר שדלפק התחנה בפריז, ברומא או בלונדון יידע לקרוא אותו בלי בעיה. הפורמט מוכר, השדות סטנדרטיים, התמונה שם.
           </p>
 
           <div className="mb-5">
@@ -425,7 +425,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           <p className="text-base text-gray-700 leading-relaxed mb-3">
-            מה שהדלפק מחפש על הכרטיס:
+            מה שדלפק התחנה מחפש על הכרטיס:
           </p>
           <div className="grid grid-cols-2 gap-2 mb-5">
             {[
@@ -469,11 +469,11 @@ export default function DrivingLicenseAbroadPost() {
             רישיון ישראלי לא שווה רישיון בינלאומי
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הרישיון הישראלי? חובה. בלעדיו לא יוצאים מהדלפק. אבל הוא לא עובד לבד. יש מסמך נוסף שצריך ללכת איתו, לא במקומו.
+            הרישיון הישראלי? חובה. בלעדיו לא יוצאים מדלפק התחנה. אבל הוא לא עובד לבד. יש מסמך נוסף שצריך ללכת איתו, לא במקומו.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
             הרישיון הבינלאומי (IDP) הוא מסמך שלפי החוק הבינלאומי חייב ללוות את הרישיון המקומי של כל נהג שנוהג מחוץ למדינתו.
-            בפועל? לא כל דלפק מבקש. אבל כשמבקשים, ואתה לא מביא? אין רכב. פשוט כך.
+            בפועל? לא כל דלפק התחנה מבקש. אבל כשמבקשים, ואתה לא מביא? אין רכב. פשוט כך.
           </p>
 
           <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-6">
@@ -487,7 +487,7 @@ export default function DrivingLicenseAbroadPost() {
             <div>
               <p className="font-bold text-navy mb-1">חובה חוקית שלא תמיד נאכפת</p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                70% מהדלפקים לא יבקשו אותו. אבל זה לא אומר שאתה פטור. זה אומר שהפעם הפקיד לא בדק.
+                70% מדלפקי התחנות לא יבקשו אותו. אבל זה לא אומר שאתה פטור. זה אומר שהפעם הפקיד לא בדק.
                 ה-30% האחרים? שם אין ויכוח. IDP עולה כמה עשרות שקלים ומוציאים תוך כמה דקות. אין שום סיבה להגיע בלעדיו.
               </p>
             </div>

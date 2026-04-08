@@ -557,7 +557,7 @@ export default function GuidePage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="text-lg flex-shrink-0">❌</span>
-                  <p><strong className="text-gray-800">אין רכב בכלל.</strong> אם היא לא יכולה לספק רכב, ההזמנה יכולה להיות מבוטלת ללא דמי ביטול או קנס על אי-לקיחת הרכב.</p>
+                  <p><strong className="text-gray-800">אין רכב בכלל.</strong> אם היא לא יכולה לספק רכב, ההזמנה תבוטל ללא דמי ביטול או קנס על אי-לקיחת הרכב.</p>
                 </div>
                 <div className="flex gap-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                   <span className="text-lg flex-shrink-0">🧾</span>

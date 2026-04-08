@@ -310,7 +310,7 @@ export default function GuidePage() {
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-5">
-                כתבתי אותו על סמך יותר מעשר שנים בתחום. אם יש שאלה שנשאלת בדלפק, היא כאן. עם תשובה ישרה.
+                כתבתי אותו על סמך יותר מעשר שנים בתחום. אם יש שאלה שנשאלת בדלפק, כנראה שאת התשובה תמצא במדריך שלי.
               </p>
 
               <div className="w-full h-px bg-gray-200 mb-6" />

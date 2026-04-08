@@ -553,7 +553,7 @@ export default function GuidePage() {
               <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <div className="flex gap-3">
                   <span className="text-lg flex-shrink-0">⬆️</span>
-                  <p><strong className="text-gray-800">שדרוג ללא תשלום.</strong> אם חברת ההשכרה לא יכולה לספק את הקטגוריה שהוזמנה, הוא מחויב להציע את הקטגוריה הזמינה הבאה מעליה, ללא תוספת תשלום. זה לא טובה שלו, זו חובתה.</p>
+                  <p><strong className="text-gray-800">שדרוג ללא תשלום.</strong> אם חברת ההשכרה לא יכולה לספק את הקטגוריה שהוזמנה, היא מחויבת להציע את הקטגוריה הזמינה הבאה מעליה, ללא תוספת תשלום. זה לא טובה שלה, זו חובתה.</p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-lg flex-shrink-0">❌</span>

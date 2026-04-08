@@ -653,7 +653,7 @@ export default function GuidePage() {
 
             <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">
               <div>
-                <p className="text-sm font-bold text-navy mb-0.5">עכשיו שאתה מבין את הביטוח:</p>
+                <p className="text-sm font-bold text-navy mb-0.5">עכשיו כשאתה מבין את הביטוח:</p>
                 <p className="text-xs text-gray-500">תקרא את ההשוואה שלנו בין הפלטפורמות</p>
               </div>
               <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-5 flex-shrink-0">איפה להזמין? ←</a>

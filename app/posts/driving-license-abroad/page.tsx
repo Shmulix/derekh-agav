@@ -214,7 +214,7 @@ export default function DrivingLicenseAbroadPost() {
               <ul className="space-y-1.5">
                 {[
                   "הרישיון הוא הכרטיס הפלסטיק המקורי, לא עותק ולא סריקה",
-                  "הרישיון בתוקף בתאריך האיסוף",
+                  "הרישיון בתוקף לאורך כל תקופת ההשכרה",
                   "הרישיון על שם הנהג הרשום בהזמנה",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-700">

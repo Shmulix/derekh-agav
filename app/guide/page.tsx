@@ -921,7 +921,7 @@ export default function GuidePage() {
 
                 <div className="border-r-2 border-blue-400 pr-3">
                   <p className="font-semibold text-navy text-sm mb-0.5">🔵 צמיגי רב-עונתיים עם סימון 3PMSF</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">צמיגים המיועדים לכל השנה, שעומדים בתקן החורפי האירופי (סמל הפתית על הצמיג). מתאימים לקור, גשם, ושלג קל. כשהשלג מתעמק או הקרח מתגבש, גם הם מגיעים לגבול שלהם. צריך שרשראות.</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">צמיגים המיועדים לכל השנה, שעומדים בתקן החורפי האירופי (סמל הפתית על הצמיג). מתאימים לקור, גשם, ושלג קל. כשהשלג נערם או הקרח מתגבש, גם הם מגיעים לגבול שלהם. צריך שרשראות.</p>
                 </div>
 
                 <div className="border-r-2 border-gray-400 pr-3">

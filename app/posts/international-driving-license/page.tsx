@@ -429,7 +429,7 @@ export default function InternationalDrivingLicensePost() {
                   href="/posts/driving-license-abroad"
                   className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
                 >
-                  <p className="text-xs text-gray-400 mb-1">המאמר הקודם ←</p>
+                  <p className="text-xs text-gray-400 mb-1">→ המאמר הקודם</p>
                   <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בחו״ל</p>
                   <p className="text-xs text-gray-500 mt-1 leading-snug">מה דלפק התחנה מקבל ומה לא</p>
                 </Link>
@@ -437,7 +437,7 @@ export default function InternationalDrivingLicensePost() {
                   href="/posts/passport"
                   className="block bg-navy rounded-xl p-5 hover:bg-navy/90 transition-colors"
                 >
-                  <p className="text-xs text-gold font-semibold mb-1">→ המאמר הבא</p>
+                  <p className="text-xs text-gold font-semibold mb-1">המאמר הבא ←</p>
                   <p className="font-bold text-white text-base leading-snug mb-1">הדרכון בהשכרת רכב בחו״ל</p>
                   <p className="text-sm text-slate-300 leading-snug">הדרכון נשאר בכספת המלון. הרכב לא יוצא. כל מה שצריך לדעת לפני שזה קורה לך.</p>
                   <span className="inline-block mt-3 text-gold text-sm font-semibold">לקריאה ←</span>

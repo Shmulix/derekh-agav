@@ -373,7 +373,7 @@ export default function InternationalDrivingLicensePost() {
                 בפנים: תמונת הנהג, הפרטים האישיים, ודרגת הרישיון, עם תרגום לאנגלית.
               </p>
 
-              <div className="rounded-xl overflow-hidden border border-gray-200 mb-4">
+              <div className="rounded-xl overflow-hidden mb-4">
                 <Image
                   src="/exemple-idp.png"
                   alt="רישיון נהיגה בינלאומי ישראלי פתוח"
@@ -424,22 +424,23 @@ export default function InternationalDrivingLicensePost() {
               </div>
 
               {/* Article navigation — prev / next */}
-              <div className="grid grid-cols-2 gap-3 mb-10">
+              <div className="space-y-3 mb-10">
                 <Link
                   href="/posts/driving-license-abroad"
                   className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
                 >
-                  <p className="text-xs text-gray-400 mb-1.5">המאמר הקודם ←</p>
+                  <p className="text-xs text-gray-400 mb-1">המאמר הקודם ←</p>
                   <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בחו״ל</p>
                   <p className="text-xs text-gray-500 mt-1 leading-snug">מה דלפק התחנה מקבל ומה לא</p>
                 </Link>
                 <Link
                   href="/posts/passport"
-                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
+                  className="block bg-navy rounded-xl p-5 hover:bg-navy/90 transition-colors"
                 >
-                  <p className="text-xs text-gray-400 mb-1.5">→ המאמר הבא</p>
-                  <p className="font-bold text-navy text-sm leading-snug">הדרכון בהשכרת רכב בחו״ל</p>
-                  <p className="text-xs text-gray-500 mt-1 leading-snug">מה קורה כשהדרכון נשאר במלון</p>
+                  <p className="text-xs text-gold font-semibold mb-1">→ המאמר הבא</p>
+                  <p className="font-bold text-white text-base leading-snug mb-1">הדרכון בהשכרת רכב בחו״ל</p>
+                  <p className="text-sm text-slate-300 leading-snug">הדרכון נשאר בכספת המלון. הרכב לא יוצא. כל מה שצריך לדעת לפני שזה קורה לך.</p>
+                  <span className="inline-block mt-3 text-gold text-sm font-semibold">לקריאה ←</span>
                 </Link>
               </div>
 

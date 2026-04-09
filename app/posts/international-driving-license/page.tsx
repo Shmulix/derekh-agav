@@ -375,14 +375,14 @@ export default function InternationalDrivingLicensePost() {
 
               <div className="rounded-xl overflow-hidden border border-gray-200 mb-4">
                 <Image
-                  src="/idp.avif"
-                  alt="רישיון נהיגה בינלאומי IDP ישראלי"
+                  src="/exemple-idp.png"
+                  alt="רישיון נהיגה בינלאומי ישראלי פתוח"
                   width={800}
-                  height={500}
+                  height={530}
                   className="w-full object-cover"
                 />
               </div>
-              <p className="text-xs text-gray-400 text-center mb-8">דוגמה לרישיון נהיגה בינלאומי ישראלי</p>
+              <p className="text-xs text-gray-400 text-center mb-8">רישיון נהיגה בינלאומי ישראלי — כך הוא נראה פתוח</p>
 
               <div className="space-y-2 mb-8">
                 {[

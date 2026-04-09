@@ -75,7 +75,7 @@ export default function InternationalDrivingLicensePost() {
         {/* Hero */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <Image
-            src="/idp.avif"
+            src="/idp-hero.avif"
             alt="רישיון נהיגה בינלאומי IDP"
             fill
             className="object-cover object-center"

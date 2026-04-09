@@ -261,7 +261,7 @@ export default function InternationalDrivingLicensePost() {
                 <p className="text-white font-bold text-base mb-3 text-center">כמו בדיקת ביטחון בשדה התעופה</p>
                 <p className="text-slate-300 text-sm leading-relaxed text-center">
                   לא בודקים את כולם. אבל כולם חייבים להיות מוכנים לבדיקה.
-                  מי שנבחר ואין לו מה שצריך, לא עולה על הטיסה. ברכב זה בדיוק אותו דבר.
+                  מי שנבחר ולא עומד בתנאים, לא עולה על הטיסה. ברכב זה בדיוק אותו דבר.
                   לא ביקשו ממך עשר פעמים? מזל. הפעם האחת עשרה שיבקשו ואין לך, הרכב נשאר בחניה.
                 </p>
               </div>

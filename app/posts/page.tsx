@@ -32,6 +32,17 @@ const allPosts = [
     date: "אפריל 2026",
   },
   {
+    tag: "מסמכים",
+    tagColor: "bg-gold text-navy",
+    title: "רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר",
+    excerpt:
+      "הרישיון הישראלי לא מספיק לבד. לפי החוק הבינלאומי צריך גם רישיון נהיגה בינלאומי. למה הדלפק לא תמיד מבקש, ואיך מוציאים אחד בפחות מרבע שעה.",
+    readTime: "5 דק׳ קריאה",
+    href: "/posts/international-driving-license",
+    image: "/idp-hero.avif",
+    date: "אפריל 2026",
+  },
+  {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW: מה באמת שווה לקחת?",

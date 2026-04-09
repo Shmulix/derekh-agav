@@ -214,12 +214,20 @@ export default function InternationalDrivingLicensePost() {
               <p className="text-base text-gray-700 leading-relaxed mb-4">
                 כאן מגיע הבלבול הכי נפוץ.
               </p>
+
+              {/* Quote from clients */}
+              <div className="border-r-4 border-orange-400 bg-orange-50 pr-4 pl-3 py-3 mb-5 rounded-l-lg">
+                <p className="text-sm font-bold text-orange-800 mb-1">"מה? אבל הרישיון הישראלי הוא בינלאומי!"</p>
+                <p className="text-sm text-orange-700 leading-relaxed">
+                  שמעתי את המשפט הזה מאות פעמים, מלקוחות שעמדו בדלפק התחנה בטוחים שהם מסודרים. לא. הרישיון הישראלי אינו רישיון נהיגה בינלאומי. שני מסמכים שונים לגמרי.
+                </p>
+              </div>
+
               <p className="text-base text-gray-700 leading-relaxed mb-4">
                 הרישיון הישראלי כתוב בעברית ובאנגלית. הוא עומד בתקן האירופאי. חברות ההשכרה ברחבי אירופה מכירות אותו. כל זה נכון. אבל הכרה לא שווה מספיקות.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                הרבה ישראלים חושבים שכי יש להם רישיון באנגלית, הם פטורים מרישיון הנהיגה הבינלאומי. הם מגיעים לדלפק התחנה בביטחון, ואז מגלים שהפקיד מחפש גם מסמך נוסף.
-                לא כי הוא מתנכל, כי זה מה שהנוהל דורש.
+                הרבה ישראלים מגיעים לדלפק התחנה בביטחון, ואז מגלים שהפקיד מחפש גם מסמך נוסף. לא כי הוא מתנכל. כי זה מה שהנוהל דורש.
               </p>
 
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-8">
@@ -252,8 +260,9 @@ export default function InternationalDrivingLicensePost() {
               <div className="bg-navy rounded-xl p-6 mb-8">
                 <p className="text-white font-bold text-base mb-3 text-center">כמו בדיקת ביטחון בשדה התעופה</p>
                 <p className="text-slate-300 text-sm leading-relaxed text-center">
-                  לא לכולם עושים בדיקה מלאה. רוב האנשים עוברים בלי שנוגעים בתיק שלהם. אבל אם נבחרת לבדיקה ואין לך את מה שצריך, לא עולים על הטיסה.
-                  אותו עיקרון חל על רישיון הנהיגה הבינלאומי. לא נבדקת עשר פעמים? טוב לך. הפעם האחת עשרה שבה יבדקו, ואין לך? הרכב לא יוצא.
+                  לא בודקים את כולם. אבל כולם חייבים להיות מוכנים לבדיקה.
+                  מי שנבחר ואין לו מה שצריך, לא עולה על הטיסה. ברכב זה בדיוק אותו דבר.
+                  לא ביקשו ממך עשר פעמים? מזל. הפעם האחת עשרה שיבקשו ואין לך, הרכב נשאר בחניה.
                 </p>
               </div>
 
@@ -414,18 +423,25 @@ export default function InternationalDrivingLicensePost() {
                 </div>
               </div>
 
-              {/* Connecting to prior post */}
-              <Link
-                href="/posts/driving-license-abroad"
-                className="block border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 hover:bg-[#e8eeff] transition-colors mb-10"
-              >
-                <p className="text-xs font-semibold text-navy mb-1">מאמר קשור</p>
-                <p className="font-bold text-navy text-base mb-1">רישיון נהיגה ישראלי בהשכרת רכב בחו״ל</p>
-                <p className="text-sm text-gray-600">
-                  מה דלפק התחנה מקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.
-                </p>
-                <span className="inline-block mt-3 text-navy text-sm font-semibold">לקריאה ←</span>
-              </Link>
+              {/* Article navigation — prev / next */}
+              <div className="grid grid-cols-2 gap-3 mb-10">
+                <Link
+                  href="/posts/driving-license-abroad"
+                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 mb-1.5">המאמר הקודם ←</p>
+                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בחו״ל</p>
+                  <p className="text-xs text-gray-500 mt-1 leading-snug">מה דלפק התחנה מקבל ומה לא</p>
+                </Link>
+                <Link
+                  href="/posts/passport"
+                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 mb-1.5">→ המאמר הבא</p>
+                  <p className="font-bold text-navy text-sm leading-snug">הדרכון בהשכרת רכב בחו״ל</p>
+                  <p className="text-xs text-gray-500 mt-1 leading-snug">מה קורה כשהדרכון נשאר במלון</p>
+                </Link>
+              </div>
 
               {/* Mobile: author + CTA + disclaimer */}
               <div className="lg:hidden space-y-4 mb-8">

@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   description:
     "איך מוציאים רישיון נהיגה בינלאומי בישראל, כמה זה עולה, כמה זמן לוקח, ולמה הוא חובה גם אם הדלפק לא תמיד מבקש אותו.",
   alternates: {
-    canonical: "https://derekh-agav.vercel.app/posts/international-driving-license",
+    canonical: "https://derekh-agav.vercel.app/posts/international-driving-permit",
   },
   openGraph: {
     title: "רישיון נהיגה בינלאומי (IDP) בישראל | דרך אגב",
     description:
       "איך מוציאים IDP, כמה עולה, כמה זמן בתוקף, ולמה הרישיון הישראלי לא מספיק לבד בחו״ל.",
-    url: "https://derekh-agav.vercel.app/posts/international-driving-license",
+    url: "https://derekh-agav.vercel.app/posts/international-driving-permit",
     type: "article",
     images: [
       {
@@ -59,7 +59,7 @@ const articleJsonLd = {
     url: "https://derekh-agav.vercel.app",
   },
   inLanguage: "he",
-  url: "https://derekh-agav.vercel.app/posts/international-driving-license",
+  url: "https://derekh-agav.vercel.app/posts/international-driving-permit",
 };
 
 export default function InternationalDrivingLicensePost() {

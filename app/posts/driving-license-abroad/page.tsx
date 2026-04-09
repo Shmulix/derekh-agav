@@ -494,7 +494,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           <Link
-            href="/posts/international-driving-license"
+            href="/posts/international-driving-permit"
             className="block bg-navy text-white rounded-xl p-5 hover:bg-navy-dark transition-colors mb-10"
           >
             <p className="text-xs font-semibold text-gold mb-1">המאמר הבא</p>
@@ -580,7 +580,7 @@ export default function DrivingLicenseAbroadPost() {
                 <div className="border border-gray-100 rounded-xl p-4">
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
-                    <a href="/posts/international-driving-license" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                    <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
                       איך מוציאים IDP בישראל ←
                     </a>
                     <a href="/guide" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">

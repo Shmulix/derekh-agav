@@ -38,7 +38,7 @@ const allPosts = [
     excerpt:
       "הרישיון הישראלי לא מספיק לבד. לפי החוק הבינלאומי צריך גם רישיון נהיגה בינלאומי. למה הדלפק לא תמיד מבקש, ואיך מוציאים אחד בפחות מרבע שעה.",
     readTime: "5 דק׳ קריאה",
-    href: "/posts/international-driving-license",
+    href: "/posts/international-driving-permit",
     image: "/idp-hero.avif",
     date: "אפריל 2026",
   },

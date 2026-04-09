@@ -10,7 +10,7 @@ import { AlertTriangle, CheckCircle, ExternalLink, ChevronLeft, Info } from "luc
 const mobileTocItems = [
   { id: "what-is-idp", label: "מה זה רישיון נהיגה בינלאומי?" },
   { id: "not-enough", label: "למה הרישיון הישראלי לא מספיק לבד?" },
-  { id: "why-not-asked", label: "למה הפקיד בדלפק של התחנה לא תמיד מבקש?" },
+  { id: "why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "looks-like", label: "איך הוא נראה" },
@@ -124,7 +124,7 @@ export default function InternationalDrivingLicensePost() {
                     {[
                       { href: "#what-is-idp", label: "מה זה רישיון נהיגה בינלאומי?" },
                       { href: "#not-enough", label: "למה הרישיון הישראלי לא מספיק?" },
-                      { href: "#why-not-asked", label: "למה הפקיד בדלפק של התחנה לא תמיד מבקש?" },
+                      { href: "#why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#looks-like", label: "איך הוא נראה" },
@@ -244,7 +244,7 @@ export default function InternationalDrivingLicensePost() {
 
               {/* Section 3 */}
               <h2 id="why-not-asked" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                למה הפקיד בדלפק של התחנה לא תמיד מבקש
+                למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
                 זו השאלה שגורמת לכל הבלבול.

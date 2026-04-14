@@ -4,6 +4,8 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import IDPLocations from "@/components/posts/IDPLocations";
+import MobileTOC from "@/components/guide/MobileTOC";
+import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import { ChevronLeft, Info, AlertTriangle, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -18,6 +20,14 @@ export const metadata: Metadata = {
     description: "כל 66 התחנות המורשות ממשרד התחבורה. חפש לפי עיר וקבל כתובת, טלפון ושעות פתיחה.",
     url: "https://derekh-agav.vercel.app/posts/idp-stations",
     type: "article",
+    images: [
+      {
+        url: "/idp-location.avif",
+        width: 1200,
+        height: 630,
+        alt: "תחנות הנפקת רישיון נהיגה בינלאומי בישראל",
+      },
+    ],
   },
 };
 
@@ -27,6 +37,7 @@ const articleJsonLd = {
   headline: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל — כל 66 התחנות המורשות",
   description:
     "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לאפריל 2026.",
+  image: "https://derekh-agav.vercel.app/idp-location.avif",
   inLanguage: "he",
   author: {
     "@type": "Person",
@@ -41,6 +52,14 @@ const articleJsonLd = {
   url: "https://derekh-agav.vercel.app/posts/idp-stations",
   dateModified: "2026-04-01",
 };
+
+const mobileTocItems = [
+  { id: "intro", label: "מה זה אומר בפועל" },
+  { id: "what-to-bring", label: "מה להביא לתחנה" },
+  { id: "search", label: "חיפוש תחנות" },
+  { id: "season", label: "עונת השיא" },
+  { id: "source", label: "על הרשימה" },
+];
 
 const whatToBring = [
   { icon: "🪪", text: "רישיון נהיגה ישראלי פיזי בתוקף" },
@@ -95,117 +114,228 @@ export default function IDPStationsPost() {
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto px-6 py-10">
+        {/* 3-column layout */}
+        <div className="max-w-6xl mx-auto px-4 py-10 md:py-14">
+          <div className="lg:grid lg:grid-cols-[220px_1fr_190px] lg:gap-10 items-start">
 
-          {/* Intro text */}
-          <div className="prose prose-sm max-w-none mb-10 text-right">
-            <p className="text-gray-700 text-base leading-relaxed mb-4">
-              משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. לא צריך לתאם פגישה מראש, לא צריך לשלוח בקשות, לא צריך לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-4">
-              למטה תמצא את כל 66 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לאפריל 2026.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed">
-              אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
-              <a href="/posts/international-driving-permit" className="text-navy font-semibold underline underline-offset-2 hover:opacity-75">
-                המדריך המלא על IDP
-              </a>
-              . הקיצור: בלי רישיון בינלאומי אתה עלול להיפסל מהרכב בדלפק, גם אם הרישיון הישראלי שלך בתוקף מושלם.
-            </p>
-          </div>
+            {/* RIGHT SIDEBAR — TOC + author card */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 space-y-5">
 
-          {/* What to bring */}
-          <div className="bg-[#f0f4ff] border border-navy/15 rounded-xl p-5 mb-8">
-            <p className="font-bold text-navy text-sm mb-4 flex items-center gap-2">
-              <Info size={16} />
-              מה להביא לתחנה
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {whatToBring.map((item) => (
-                <div key={item.text} className="bg-white rounded-lg p-3 text-center border border-navy/10">
-                  <div className="text-2xl mb-1">{item.icon}</div>
-                  <p className="text-xs text-gray-700 leading-snug">{item.text}</p>
+                <div>
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                    תוכן עניינים
+                  </p>
+                  <nav className="space-y-1">
+                    {[
+                      { href: "#intro", label: "מה זה אומר בפועל" },
+                      { href: "#what-to-bring", label: "מה להביא לתחנה" },
+                      { href: "#search", label: "חיפוש תחנות" },
+                      { href: "#season", label: "עונת השיא" },
+                      { href: "#source", label: "על הרשימה" },
+                    ].map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block text-sm text-gray-500 hover:text-navy py-1 px-2 rounded hover:bg-surface transition-colors"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </nav>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Search component */}
-          <div className="mb-10">
-            <IDPLocations />
-          </div>
+                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/samuel.avif"
+                      alt="סמואל פרץ"
+                      width={44}
+                      height={44}
+                      className="rounded-full border-2 border-gold/40 flex-shrink-0"
+                    />
+                    <div>
+                      <p className="font-bold text-navy text-sm leading-tight">סמואל פרץ</p>
+                      <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed mt-3">
+                    המידע באתר מבוסס על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי או ממשלתי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה.
+                  </p>
+                </div>
 
-          {/* High season warning */}
-          <div className="border border-orange-200 bg-orange-50 rounded-xl p-4 mb-8 flex items-start gap-3">
-            <AlertTriangle size={17} className="text-orange-500 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="font-bold text-orange-800 text-sm mb-1">מרץ–יולי: עונת השיא</p>
-              <p className="text-sm text-orange-700 leading-relaxed">
-                לפני קיץ, תחנות ההנפקה עמוסות. תורים יכולים להתארך. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
-              </p>
-            </div>
-          </div>
+              </div>
+            </aside>
 
-          {/* Source note */}
-          <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-10">
-            <p className="text-sm font-bold text-navy mb-2">על הרשימה הזו</p>
-            <p className="text-sm text-gray-600 leading-relaxed mb-3">
-              הרשימה מבוססת על נתוני{" "}
-              <a
-                href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-navy font-semibold underline underline-offset-2 hover:opacity-80"
-              >
-                משרד התחבורה והבטיחות בדרכים
-              </a>{" "}
-              ועודכנה לאחרונה באפריל 2026. לאחר מועד זה, ייתכנו שינויים בפרטי תחנות בודדות. לרשימה הרשמית והמעודכנת ביותר:
-            </p>
-            <a
-              href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:opacity-75"
-            >
-              לרשימה הרשמית באתר gov.il
-              <ExternalLink size={13} />
-            </a>
-          </div>
+            {/* MAIN CONTENT */}
+            <article className="min-w-0">
 
-          {/* Internal links */}
-          <div className="space-y-3 mb-10">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">מאמרים קשורים</p>
-            <Link
-              href="/posts/international-driving-permit"
-              className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
-            >
-              <p className="text-xs text-gray-400 mb-1">מדריך מלא</p>
-              <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
-              <p className="text-xs text-gray-500 mt-1">למה הרישיון הישראלי לא מספיק לבד, ומה קורה כשלא מביאים IDP</p>
-            </Link>
-            <Link
-              href="/posts/driving-license-abroad"
-              className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
-            >
-              <p className="text-xs text-gray-400 mb-1">מאמר</p>
-              <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בהשכרת רכב בחו״ל</p>
-              <p className="text-xs text-gray-500 mt-1">מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון.</p>
-            </Link>
-          </div>
+              {/* Breadcrumb */}
+              <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
+                <Link href="/" className="hover:text-navy">דרך אגב</Link>
+                <ChevronLeft size={12} />
+                <Link href="/posts" className="hover:text-navy">מאמרים</Link>
+                <ChevronLeft size={12} />
+                <span className="text-gray-600">תחנות הנפקת רישיון נהיגה בינלאומי</span>
+              </nav>
 
-          {/* CTA */}
-          <div className="bg-navy rounded-xl p-7 text-center">
-            <p className="text-white font-bold text-lg mb-2">הכל מסודר. עכשיו בוא נמצא רכב.</p>
-            <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
-              השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות. כולל טיפים מה לבדוק לפני שמאשרים.
-            </p>
-            <Link href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">
-              איפה הכי כדאי להזמין? השוואה מלאה ←
-            </Link>
-          </div>
+              {/* Intro */}
+              <div id="intro" className="scroll-mt-24 mb-10">
+                <p className="text-gray-700 text-base leading-relaxed mb-4">
+                  משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. לא צריך לתאם פגישה מראש, לא צריך לשלוח בקשות, לא צריך לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
+                </p>
+                <p className="text-gray-700 text-base leading-relaxed mb-4">
+                  למטה תמצא את כל 66 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לאפריל 2026.
+                </p>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
+                  <a href="/posts/international-driving-permit" className="text-navy font-semibold underline underline-offset-2 hover:opacity-75">
+                    המדריך המלא על IDP
+                  </a>
+                  . הקיצור: בלי רישיון בינלאומי אתה עלול להיפסל מהרכב בדלפק, גם אם הרישיון הישראלי שלך בתוקף מושלם.
+                </p>
+              </div>
 
+              {/* What to bring */}
+              <div id="what-to-bring" className="scroll-mt-24 bg-[#f0f4ff] border border-navy/15 rounded-xl p-5 mb-8">
+                <p className="font-bold text-navy text-sm mb-4 flex items-center gap-2">
+                  <Info size={16} />
+                  מה להביא לתחנה
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {whatToBring.map((item) => (
+                    <div key={item.text} className="bg-white rounded-lg p-3 text-center border border-navy/10">
+                      <div className="text-2xl mb-1">{item.icon}</div>
+                      <p className="text-xs text-gray-700 leading-snug">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Search component */}
+              <div id="search" className="scroll-mt-24 mb-10">
+                <IDPLocations />
+              </div>
+
+              {/* High season warning */}
+              <div id="season" className="scroll-mt-24 border border-orange-200 bg-orange-50 rounded-xl p-4 mb-8 flex items-start gap-3">
+                <AlertTriangle size={17} className="text-orange-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-orange-800 text-sm mb-1">מרץ–יולי: עונת השיא</p>
+                  <p className="text-sm text-orange-700 leading-relaxed">
+                    לפני קיץ, תחנות ההנפקה עמוסות. תורים יכולים להתארך. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
+                  </p>
+                </div>
+              </div>
+
+              {/* Source note */}
+              <div id="source" className="scroll-mt-24 bg-surface border border-gray-200 rounded-xl p-5 mb-10">
+                <p className="text-sm font-bold text-navy mb-2">על הרשימה הזו</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  הרשימה מבוססת על נתוני{" "}
+                  <a
+                    href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-navy font-semibold underline underline-offset-2 hover:opacity-80"
+                  >
+                    משרד התחבורה והבטיחות בדרכים
+                  </a>{" "}
+                  ועודכנה לאחרונה באפריל 2026. לאחר מועד זה, ייתכנו שינויים בפרטי תחנות בודדות. לרשימה הרשמית והמעודכנת ביותר:
+                </p>
+                <a
+                  href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:opacity-75"
+                >
+                  לרשימה הרשמית באתר gov.il
+                  <ExternalLink size={13} />
+                </a>
+              </div>
+
+              {/* Internal links */}
+              <div className="space-y-3 mb-10">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">מאמרים קשורים</p>
+                <Link
+                  href="/posts/international-driving-permit"
+                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 mb-1">מדריך מלא</p>
+                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
+                  <p className="text-xs text-gray-500 mt-1">למה הרישיון הישראלי לא מספיק לבד, ומה קורה כשלא מביאים IDP</p>
+                </Link>
+                <Link
+                  href="/posts/driving-license-abroad"
+                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 mb-1">מאמר</p>
+                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בהשכרת רכב בחו״ל</p>
+                  <p className="text-xs text-gray-500 mt-1">מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון.</p>
+                </Link>
+              </div>
+
+              {/* CTA */}
+              <div className="bg-navy rounded-xl p-7 text-center">
+                <p className="text-white font-bold text-lg mb-2">הכל מסודר. עכשיו בוא נמצא רכב.</p>
+                <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
+                  השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות. כולל טיפים מה לבדוק לפני שמאשרים.
+                </p>
+                <Link href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">
+                  איפה הכי כדאי להזמין? השוואה מלאה ←
+                </Link>
+              </div>
+
+            </article>
+
+            {/* LEFT SIDEBAR — CTA + disclaimer + related */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 space-y-4">
+
+                <div className="bg-navy rounded-xl p-5">
+                  <p className="text-white font-bold text-sm leading-tight mb-2">מוכן להזמין?</p>
+                  <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                    השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
+                  </p>
+                  <a
+                    href="/posts/rental-platforms"
+                    className="btn-gold text-xs px-4 py-2 w-full block text-center"
+                  >
+                    איפה להזמין? ←
+                  </a>
+                </div>
+
+                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                  <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
+                  <p className="text-xs text-amber-700 leading-relaxed">
+                    האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
+                  </p>
+                </div>
+
+                <div className="border border-gray-100 rounded-xl p-4">
+                  <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
+                  <div className="space-y-2">
+                    <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                      המדריך המלא על IDP ←
+                    </a>
+                    <a href="/posts/driving-license-abroad" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                      רישיון ישראלי בחו״ל ←
+                    </a>
+                    <a href="/guide" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
+                      המדריך המלא להשכרת רכב ←
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </aside>
+
+          </div>
         </div>
+
       </main>
+      <MobileTOC items={mobileTocItems} />
+      <MobileFloatingCTA />
       <Footer />
     </>
   );

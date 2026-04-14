@@ -15,7 +15,7 @@ const mobileTocItems = [
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "which-countries", label: "באיזו מדינה צריך רישיון בינלאומי?" },
   { id: "conventions", label: "אמנת 1949 לעומת 1968: מה זה אומר לך בפועל" },
-  { id: "japan", label: "רישיון נהיגה בינלאומי ליפן" },
+  { id: "japan", label: "רישיון בינלאומי ליפן" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "רישיון נהיגה בינלאומי (IDP) בישראל | דרך אגב",
     description:
-      "איך מוציאים IDP, כמה עולה, כמה זמן בתוקף, ולמה הרישיון הישראלי לא מספיק לבד בחו״ל.",
+      "איך מוציאים רישיון נהיגה בינלאומי, כמה עולה, כמה זמן בתוקף, ולמה הרישיון הישראלי לא מספיק לבד בחו״ל.",
     url: "https://derekh-agav.vercel.app/posts/international-driving-permit",
     type: "article",
     images: [
@@ -133,7 +133,7 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#which-countries", label: "באיזו מדינה צריך?" },
                       { href: "#conventions", label: "אמנת 1949 לעומת 1968" },
-                      { href: "#japan", label: "IDP ליפן" },
+                      { href: "#japan", label: "רישיון בינלאומי ליפן" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
@@ -186,7 +186,7 @@ export default function InternationalDrivingLicensePost() {
 
               {/* Intro */}
               <p className="text-lg text-gray-800 leading-relaxed mb-5">
-                אם קראת כבר על הרישיון הישראלי בחו״ל, טוב מאוד. אבל יש מקרים שבהם הרישיון הישראלי שלך, גם אם הוא תקין לגמרי, לא שווה כלום בלי המסמך שהולך לידו. המסמך הזה הוא ה-IDP ( International Driving Permit ), רישיון הנהיגה הבינלאומי, והוא הכרחי.
+                אם קראת כבר על הרישיון הישראלי בחו״ל, טוב מאוד. אבל יש מקרים שבהם הרישיון הישראלי שלך, גם אם הוא תקין לגמרי, לא שווה כלום בלי המסמך שהולך לידו. המסמך הזה הוא רישיון הנהיגה הבינלאומי (International Driving Permit, בקיצור IDP), והוא הכרחי.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-8">
                 המאמר הזה יסביר מה זה רישיון הנהיגה הבינלאומי, למה הוא חובה לפי החוק הבינלאומי, למה הדלפק לא תמיד מבקש, ואיך מוציאים אותו בישראל תוך כמה דקות.
@@ -327,13 +327,13 @@ export default function InternationalDrivingLicensePost() {
                 לא בגלל שאני מגזים. בגלל שזה מה שמשרד התחבורה קובע. ההנחיה הרשמית היא שרישיון נהיגה בינלאומי נדרש לנהיגה מחוץ לישראל. לא קיימת רשימה רשמית של מדינות שבהן הרישיון הישראלי לבדו מספיק. לא של משרד התחבורה, לא של שום גוף רשמי אחר.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                אני לא עושה רשימת מדינות "שלא דורשות IDP" בכוונה. כי מה שקורה בפועל הוא שגם במדינות שנחשבות ל"לא דורשות", יש נציגים בדלפק שדורשים. אמריקה, גרמניה, צרפת. עשיתי שכירויות בכולן. שמעתי על מקרים בכולן. הפקיד שעומד מולך לא קרא את אותה רשימה שקראת ברשת.
+                אני לא עושה רשימת מדינות "שלא דורשות רישיון נהיגה בינלאומי" בכוונה. כי מה שקורה בפועל הוא שגם במדינות שנחשבות ל"לא דורשות", יש נציגים בדלפק שדורשים. אמריקה, גרמניה, צרפת. עשיתי שכירויות בכולן. שמעתי על מקרים בכולן. הפקיד שעומד מולך לא קרא את אותה רשימה שקראת ברשת.
               </p>
 
               <div className="bg-navy rounded-xl p-6 mb-8">
                 <p className="text-white font-bold text-base mb-3 text-center">למה אני לא כותב רשימת מדינות</p>
                 <p className="text-slate-300 text-sm leading-relaxed text-center">
-                  רשימת "מדינות שלא צריך בהן IDP" תיצור אצלך ביטחון שגוי. תגיע לדלפק בלי IDP כי "קראתי שלא צריך", והפקיד שם ידרוש אותו. אני לא מוכן להיות הסיבה שבגללה נשארת בלי רכב.
+                  רשימת "מדינות שלא צריך בהן רישיון נהיגה בינלאומי" תיצור אצלך ביטחון שגוי. תגיע לדלפק בלי רישיון בינלאומי כי "קראתי שלא צריך", והפקיד שם ידרוש אותו. אני לא מוכן להיות הסיבה שבגללה נשארת בלי רכב.
                 </p>
               </div>
 
@@ -356,7 +356,7 @@ export default function InternationalDrivingLicensePost() {
                 <div className="border border-gray-200 rounded-xl p-4 bg-white">
                   <p className="font-bold text-navy mb-2 text-sm">אמנת ז׳נבה 1949</p>
                   <ul className="space-y-1.5 text-sm text-gray-600">
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />תוקף ה-IDP: שנה אחת</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />תוקף הרישיון: שנה אחת</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />נפוצה יותר מחוץ לאירופה</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />יפן חתומה על אמנה זו בלבד</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />ישראל חתומה גם על אמנה זו (אושרר 1955)</li>
@@ -365,7 +365,7 @@ export default function InternationalDrivingLicensePost() {
                 <div className="border border-navy/30 rounded-xl p-4 bg-[#f0f4ff]">
                   <p className="font-bold text-navy mb-2 text-sm">אמנת וינה 1968</p>
                   <ul className="space-y-1.5 text-sm text-gray-600">
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />תוקף ה-IDP: שלוש שנים</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />תוקף הרישיון: שלוש שנים</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />מרבית מדינות אירופה ועוד</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />ישראל חתומה גם על אמנה זו (אושרר 1971)</li>
                   </ul>
@@ -373,7 +373,7 @@ export default function InternationalDrivingLicensePost() {
               </div>
 
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                ישראל חתומה על שתי האמנות. ה-IDP הישראלי תקף לפי שתי האמנות ומוכר ברוב מדינות העולם. לרוב יעדי הנסיעה: אין בעיה. הכול עובד. יש חריגה אחת שחשוב להכיר.
+                ישראל חתומה על שתי האמנות. הרישיון הבינלאומי הישראלי תקף לפי שתי האמנות ומוכר ברוב מדינות העולם. לרוב יעדי הנסיעה: אין בעיה. הכול עובד. יש חריגה אחת שחשוב להכיר.
               </p>
 
               {/* Section 4d */}
@@ -381,10 +381,10 @@ export default function InternationalDrivingLicensePost() {
                 רישיון נהיגה בינלאומי ליפן: מה ישראלים חייבים לדעת
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                ה-IDP הישראלי תקף ביפן. יפן מופיעה ברשימת המדינות המוכרות. אין בעיה עם הכרה.
+                הרישיון הבינלאומי הישראלי תקף ביפן. יפן מופיעה ברשימת המדינות המוכרות. אין בעיה עם הכרה.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                הבעיה היא בתוקף. יפן חתומה על אמנת 1949 בלבד. כשפקיד יפני בודק את ה-IDP שלך, הוא מיישם את כללי 1949 — כלומר, מכיר בתוקף של שנה אחת מיום ההנפקה, לא שלוש. גם אם כתוב על הרישיון שלך שהוא תקף שלוש שנים.
+                הבעיה היא בתוקף. יפן חתומה על אמנת 1949 בלבד. כשפקיד יפני בודק את הרישיון הבינלאומי שלך, הוא מיישם את כללי 1949. כלומר, מכיר בתוקף של שנה אחת מיום ההנפקה, לא שלוש. גם אם כתוב על הרישיון שלך שהוא תקף שלוש שנים.
               </p>
 
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-5">
@@ -393,10 +393,10 @@ export default function InternationalDrivingLicensePost() {
                   <div>
                     <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? כך מחשבים את התוקף</p>
                     <ul className="space-y-2 text-sm text-amber-700">
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ה-IDP חייב להיות בתוקף ביום הכניסה ליפן: לא יותר משנה מיום ההנפקה.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>מותר לנהוג מיום הכניסה ועד שנה מיום ההנפקה. הכניסה ליפן לא מאפסת את המונה.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>דוגמה: הנפקתם IDP ב-1 בינואר, נחתתם ביפן ב-1 במרץ. מותר לנהוג עד 1 בינואר של השנה הבאה, לא עד 1 במרץ.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם ה-IDP הונפק לפני יותר משנה ביום הנחיתה, הוא לא תקף. תוציאו חדש לפני הטיסה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>הרישיון הבינלאומי חייב להיות בתוקף ביום הכניסה ליפן: לא יותר משנה מיום ההנפקה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>מותר לנהוג מיום הכניסה ועד שנה מיום ההנפקה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>דוגמה: הנפקתם רישיון בינלאומי ב-1 בינואר, נחתתם ביפן ב-1 במרץ. מותר לנהוג עד 1 בינואר של השנה הבאה, לא עד 1 במרץ.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם הרישיון הבינלאומי הונפק לפני יותר משנה ביום הנחיתה, הוא לא תקף. תוציאו חדש לפני הטיסה.</span></li>
                     </ul>
                   </div>
                 </div>
@@ -405,7 +405,7 @@ export default function InternationalDrivingLicensePost() {
               <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
                 <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  לא צריך לעשות כלום מיוחד בתחנת ההנפקה. ה-IDP הישראלי הרגיל תקף ביפן. רק וודאו שתאריך ההנפקה שלו לא עבר שנה ביום הנחיתה.
+                  לא צריך לעשות כלום מיוחד בתחנת ההנפקה. הרישיון הבינלאומי הישראלי הרגיל תקף ביפן. רק וודאו שתאריך ההנפקה שלו לא עבר שנה ביום הנחיתה.
                 </p>
               </div>
 

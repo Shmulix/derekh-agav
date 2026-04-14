@@ -190,7 +190,7 @@ export default function IDPStationsPost() {
                 <p className="text-gray-700 text-base leading-relaxed">
                   אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
                   <a href="/posts/international-driving-permit" className="text-navy font-semibold underline underline-offset-2 hover:opacity-75">
-                    המאמר שלנו על הרישיון הבינלאומי
+                    המאמר שלנו על הרישיון נהיגה הבינלאומי
                   </a>
                   . הקיצור: בלי רישיון בינלאומי אתה עלול להיפסל מהרכב בדלפק, גם אם הרישיון הישראלי שלך בתוקף מושלם.
                 </p>
@@ -316,7 +316,7 @@ export default function IDPStationsPost() {
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
-                      המאמר שלנו על הרישיון הבינלאומי ←
+                      המאמר שלנו על הרישיון נהיגה הבינלאומי ←
                     </a>
                     <a href="/posts/driving-license-abroad" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
                       רישיון ישראלי בחו״ל ←

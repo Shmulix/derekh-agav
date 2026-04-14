@@ -43,6 +43,17 @@ const allPosts = [
     date: "אפריל 2026",
   },
   {
+    tag: "מסמכים",
+    tagColor: "bg-gold text-navy",
+    title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?",
+    excerpt:
+      "66 תחנות מורשות ברחבי הארץ, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מבוסס על נתוני משרד התחבורה, עדכני לאפריל 2026.",
+    readTime: "כלי חיפוש",
+    href: "/posts/idp-stations",
+    image: null,
+    date: "אפריל 2026",
+  },
+  {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW: מה באמת שווה לקחת?",

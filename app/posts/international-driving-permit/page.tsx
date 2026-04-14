@@ -6,7 +6,6 @@ import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import type { Metadata } from "next";
 import { AlertTriangle, CheckCircle, ExternalLink, ChevronLeft, Info } from "lucide-react";
-import IDPLocations from "@/components/posts/IDPLocations";
 
 const mobileTocItems = [
   { id: "what-is-idp", label: "מה זה רישיון נהיגה בינלאומי?" },
@@ -379,15 +378,18 @@ export default function InternationalDrivingLicensePost() {
                 </div>
               </div>
 
-              {/* Section 6 — Stations */}
-              <h2 id="stations" className="text-xl md:text-2xl font-bold text-navy mb-3 scroll-mt-24">
-                כל תחנות ההנפקה בישראל
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-5">
-                66 תחנות מורשות מטעם משרד התחבורה. חפש לפי עיר או שם — כתובת, טלפון ושעות מופיעים ישר.
-              </p>
-              <div className="border border-gray-200 rounded-xl bg-surface p-4 mb-8">
-                <IDPLocations />
+              {/* Section 6 — Stations link */}
+              <div id="stations" className="scroll-mt-24 border border-orange-200 bg-orange-50 rounded-xl p-5 mb-8 flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-bold text-navy text-base mb-1">66 תחנות ברחבי הארץ — רשימה מלאה עם חיפוש</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">כתובת, טלפון ושעות לפי עיר. כל התחנות המורשות ממשרד התחבורה.</p>
+                </div>
+                <Link
+                  href="/posts/idp-stations"
+                  className="flex-shrink-0 bg-navy text-white text-sm font-bold px-4 py-2.5 rounded-lg hover:bg-navy/90 transition-colors whitespace-nowrap"
+                >
+                  לרשימה המלאה ←
+                </Link>
               </div>
 
               {/* Section 7 */}

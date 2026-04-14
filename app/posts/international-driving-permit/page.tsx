@@ -373,7 +373,7 @@ export default function InternationalDrivingLicensePost() {
               </div>
 
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                ישראל חתומה על שתי האמנות ויכולה להנפיק IDP לפי כל אחת מהן. הנפקת ברירת המחדל בישראל היא לפי אמנת 1968 — תוקף שלוש שנים. זה מה שרוב האנשים מקבלים. לרוב יעדי הנסיעה זה מספיק.
+                ישראל חתומה על שתי האמנות. ה-IDP הישראלי תקף לפי שתי האמנות ומוכר ברוב מדינות העולם. לרוב יעדי הנסיעה: אין בעיה. הכול עובד. יש חריגה אחת שחשוב להכיר.
               </p>
 
               {/* Section 4d */}
@@ -381,21 +381,21 @@ export default function InternationalDrivingLicensePost() {
                 רישיון נהיגה בינלאומי ליפן: מה ישראלים חייבים לדעת
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                יפן חתומה על אמנת 1949 בלבד. היא לא מכירה ב-IDP שהונפק לפי אמנת 1968. זה אומר שה-IDP הישראלי הרגיל, זה עם שלוש שנות תוקף, לא מוכר ביפן.
+                ה-IDP הישראלי תקף ביפן. יפן מופיעה ברשימת המדינות המוכרות. אין בעיה עם הכרה.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                כדי לנהוג ביפן עם רישיון נהיגה בינלאומי ישראלי, צריך IDP שהונפק ספציפית לפי אמנת 1949. הוא תקף שנה אחת מיום ההנפקה. ישראל מנפיקה גם מסוג זה, אבל צריך לבקש אותו במפורש בתחנת ההנפקה.
+                הבעיה היא בתוקף. יפן חתומה על אמנת 1949 בלבד. כשפקיד יפני בודק את ה-IDP שלך, הוא מיישם את כללי 1949 — כלומר, מכיר בתוקף של שנה אחת מיום ההנפקה, לא שלוש. גם אם כתוב על הרישיון שלך שהוא תקף שלוש שנים.
               </p>
 
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-5">
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שלושה דברים לבדוק</p>
+                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? בדקו את תאריך ההנפקה</p>
                     <ul className="space-y-2 text-sm text-amber-700">
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>בקשו במפורש <strong>IDP לפי אמנת 1949</strong> בתחנת ההנפקה. לא את הסטנדרטי.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>תוקפו שנה אחת בלבד מיום ההנפקה. תחשבו שמגיעים ביפן לפני שתאריך זה פג.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ה-IDP הרגיל מסוג 1968 — זה שמוציאים ברירת מחדל — לא יעזור לכם ביפן.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ביפן מכירים ב-IDP ישראלי לתקופה של שנה אחת בלבד מיום ההנפקה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם ה-IDP שלך הונפק לפני יותר מ-12 חודש עד ליום החזרה מיפן, הוא לא תקף שם.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>הפתרון פשוט: תוציאו IDP חדש לפני הנסיעה. עשרה שקלים, רבע שעה.</span></li>
                     </ul>
                   </div>
                 </div>
@@ -404,7 +404,7 @@ export default function InternationalDrivingLicensePost() {
               <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
                 <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  בתחנות ההנפקה בישראל לא תמיד יציעו לכם את שתי האפשרויות מיוזמתם. אם הנסיעה שלכם ליפן, אמרו מראש שאתם צריכים IDP לפי אמנת 1949. זה אותה תחנה, אותו תהליך, אותו מחיר.
+                  לא צריך לעשות כלום מיוחד בתחנת ההנפקה. ה-IDP הישראלי הרגיל תקף ביפן. רק וודאו שתאריך ההנפקה שלו לא עבר שנה עד תום השהייה שלכם שם.
                 </p>
               </div>
 

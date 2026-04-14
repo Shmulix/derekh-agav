@@ -391,11 +391,12 @@ export default function InternationalDrivingLicensePost() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? בדקו את תאריך ההנפקה</p>
+                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שתי כללי תוקף שצריך לדעת</p>
                     <ul className="space-y-2 text-sm text-amber-700">
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ביפן מכירים ב-IDP ישראלי לתקופה של שנה אחת בלבד מיום ההנפקה.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם ה-IDP שלך הונפק לפני יותר מ-12 חודש עד ליום החזרה מיפן, הוא לא תקף שם.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>הפתרון פשוט: תוציאו IDP חדש לפני הנסיעה. עשרה שקלים, רבע שעה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span><strong>כלל ראשון:</strong> ה-IDP חייב להיות בתוקף ביום הכניסה ליפן. כלומר, לא יותר משנה מיום ההנפקה ביום שנוחתים.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span><strong>כלל שני:</strong> ברגע שנכנסתם ליפן, מותר לנהוג שנה אחת מיום הכניסה. לא מיום ההנפקה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>דוגמה: הנפקתם IDP ב-1 בינואר, נחתתם ביפן ב-1 במרץ. מותר לנהוג עד 1 במרץ של השנה הבאה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם ה-IDP הונפק לפני יותר משנה ביום הנחיתה, הוא לא תקף. תוציאו חדש לפני הטיסה.</span></li>
                     </ul>
                   </div>
                 </div>
@@ -404,7 +405,7 @@ export default function InternationalDrivingLicensePost() {
               <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
                 <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  לא צריך לעשות כלום מיוחד בתחנת ההנפקה. ה-IDP הישראלי הרגיל תקף ביפן. רק וודאו שתאריך ההנפקה שלו לא עבר שנה עד תום השהייה שלכם שם.
+                  לא צריך לעשות כלום מיוחד בתחנת ההנפקה. ה-IDP הישראלי הרגיל תקף ביפן. רק וודאו שתאריך ההנפקה שלו לא עבר שנה ביום הנחיתה.
                 </p>
               </div>
 

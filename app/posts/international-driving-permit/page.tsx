@@ -505,12 +505,12 @@ export default function InternationalDrivingLicensePost() {
 
               {/* Final CTA */}
               <div className="bg-navy rounded-xl p-7 text-center">
-                <p className="text-white font-bold text-lg mb-2">מוכן לבחור את הרכב הבא שלך?</p>
+                <p className="text-white font-bold text-lg mb-2">אז איפה בדיוק עושים את זה?</p>
                 <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
-                  עכשיו שאתה יודע מה לקחת איתך, השאלה הבאה היא פשוטה: איפה הכי כדאי להזמין? כתבתי השוואה בין חברות ההשכרה המובילות. כולל מחיר, ביטוח ושירות.
+                  66 תחנות מורשות ברחבי הארץ, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה.
                 </p>
-                <a href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">
-                  איפה הכי כדאי להזמין? השוואה מלאה ←
+                <a href="/posts/idp-stations" className="btn-gold text-sm px-8 py-2.5">
+                  איפה מנפיקים רישיון נהיגה בינלאומי בישראל ←
                 </a>
               </div>
 

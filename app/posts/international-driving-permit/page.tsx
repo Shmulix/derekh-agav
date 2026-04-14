@@ -14,6 +14,7 @@ const mobileTocItems = [
   { id: "why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "which-countries", label: "באיזו מדינה צריך רישיון בינלאומי?" },
+  { id: "conventions", label: "אמנת 1949 לעומת 1968: מה זה אומר לך בפועל" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
@@ -130,6 +131,7 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#which-countries", label: "באיזו מדינה צריך?" },
+                      { href: "#conventions", label: "אמנת 1949 לעומת 1968" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
@@ -338,6 +340,55 @@ export default function InternationalDrivingLicensePost() {
                 <p className="text-sm text-gray-700 leading-relaxed">
                   אתה יוצא מישראל לנהוג על רכב שכור? לך תוציא רישיון נהיגה בינלאומי. זה עולה עשרה שקלים. זה לוקח רבע שעה. זה מבטל את כל הסיכונים האלה בבת אחת.
                 </p>
+              </div>
+
+              {/* Section 4c */}
+              <h2 id="conventions" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                אמנת 1949 לעומת 1968: מה זה אומר לך בפועל
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                יש שתי אמנות בינלאומיות שמסדירות את נושא רישיון הנהיגה הבינלאומי. אמנת 1949 ואמנת 1968. שתיהן קיימות במקביל, ומדינות שונות חתומות על אחת מהן או על שתיהן.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="border border-gray-200 rounded-xl p-4 bg-white">
+                  <p className="font-bold text-navy mb-2 text-sm">אמנת 1949</p>
+                  <ul className="space-y-1.5 text-sm text-gray-600">
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />תוקף הרישיון: שנה אחת</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />נפוצה יותר במדינות מחוץ לאירופה</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />יפן חתומה על אמנה זו בלבד</li>
+                  </ul>
+                </div>
+                <div className="border border-navy/30 rounded-xl p-4 bg-[#f0f4ff]">
+                  <p className="font-bold text-navy mb-2 text-sm">אמנת 1968</p>
+                  <ul className="space-y-1.5 text-sm text-gray-600">
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />תוקף הרישיון: שלוש שנים</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />מרבית מדינות אירופה ועוד</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />ישראל חתומה על אמנה זו</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                ישראל חתומה על אמנת 1968. הרישיון הבינלאומי שמוציאים בישראל מונפק לפיה ותקף לשלוש שנים. זה נכון לרוב יעדי הנסיעה.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-5">
+                יפן היא חריגה חשובה. יפן חתומה על אמנת 1949 בלבד ומכירה רק ב-IDP שהונפק לפיה. כלומר, לפי הכללים שחלים שם, הרישיון הבינלאומי הישראלי תקף לשנה אחת בלבד, לא שלוש.
+              </p>
+
+              <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-8">
+                <div className="flex items-start gap-3">
+                  <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שימו לב לתאריך ההנפקה</p>
+                    <p className="text-sm text-amber-700 leading-relaxed mb-2">
+                      הרישיון הבינלאומי הישראלי תקף 3 שנים, אבל ביפן מכירים רק בשנה הראשונה שלו. אם הרישיון שלך הונפק לפני יותר משנה, הוא לא מוכר ביפן.
+                    </p>
+                    <p className="text-sm text-amber-700 leading-relaxed">
+                      לפני נסיעה ליפן: בדוק את תאריך ההנפקה של הרישיון הבינלאומי שלך. אם עבר יותר מ-12 חודש מיום ההנפקה ועד יום חזרתך מיפן, תוציא חדש. זה עולה עשרה שקלים ולוקח רבע שעה. לא שווה להסתכן.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Section 5 */}

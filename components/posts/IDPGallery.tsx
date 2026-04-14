@@ -22,14 +22,14 @@ const insidePages = [
 ];
 
 const translationPages = [
-  { src: "/transen.avif", lang: "English" },
-  { src: "/transfr.avif", lang: "Français" },
-  { src: "/transdu.avif", lang: "Deutsch" },
-  { src: "/transit.avif", lang: "Italiano" },
-  { src: "/transsp.avif", lang: "Español" },
-  { src: "/transrs.avif", lang: "Русский" },
-  { src: "/tranasiat.avif", lang: "中文" },
-  { src: "/transarab.avif", lang: "العربية" },
+  { src: "/transen.avif", lang: "אנגלית" },
+  { src: "/transfr.avif", lang: "צרפתית" },
+  { src: "/transdu.avif", lang: "גרמנית" },
+  { src: "/transit.avif", lang: "איטלקית" },
+  { src: "/transsp.avif", lang: "ספרדית" },
+  { src: "/transrs.avif", lang: "רוסית" },
+  { src: "/tranasiat.avif", lang: "סינית" },
+  { src: "/transarab.avif", lang: "ערבית" },
 ];
 
 export default function IDPGallery() {

@@ -533,18 +533,6 @@ export default function InternationalDrivingLicensePost() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-amber-800 mb-1">בחודשים מרץ–יולי: תורים עלולים להתארך</p>
-                    <p className="text-sm text-amber-700 leading-relaxed">
-                      בעונת הקיץ, תחנות ההנפקה עמוסות. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-8">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div>
                     <p className="font-bold text-amber-800 mb-1">לא ניתן לעשות את זה מחו״ל</p>
                     <p className="text-sm text-amber-700 leading-relaxed">
                       רישיון הנהיגה הבינלאומי מוציאים רק בישראל, לפני הנסיעה. אם שכחת ונזכרת בשדה התעופה, כבר מאוחר. תזמן את זה לפני שאתה עוזב.

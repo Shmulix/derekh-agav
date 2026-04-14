@@ -13,6 +13,7 @@ const mobileTocItems = [
   { id: "not-enough", label: "למה הרישיון הישראלי לא מספיק לבד?" },
   { id: "why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
   { id: "when-required", label: "כשהוא כן נדרש" },
+  { id: "which-countries", label: "באיזו מדינה צריך רישיון בינלאומי?" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
@@ -128,6 +129,7 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#not-enough", label: "למה הרישיון הישראלי לא מספיק?" },
                       { href: "#why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
                       { href: "#when-required", label: "כשהוא כן נדרש" },
+                      { href: "#which-countries", label: "באיזו מדינה צריך?" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
@@ -304,6 +306,37 @@ export default function InternationalDrivingLicensePost() {
                 <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700 leading-relaxed">
                   אגדה עירונית או לא, רישיון הנהיגה הבינלאומי עולה עשרה שקלים ולוקח רבע שעה להוציא. אם אי פעם ייטענו נגדך שנהגת ללא המסמכים החוקיים, לא תרצה שהתשובה תהיה שחסכת עשרה שקלים.
+                </p>
+              </div>
+
+              {/* Section 4b */}
+              <h2 id="which-countries" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                באיזו מדינה צריך רישיון נהיגה בינלאומי?
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                זו השאלה שכולם שואלים. "אני נוסע לאיטליה, צריך?" "לארה״ב?" "לגרמניה?"
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                התשובה שלי: בכל מדינה.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                לא בגלל שאני מגזים. בגלל שזה מה שמשרד התחבורה קובע. ההנחיה הרשמית היא שרישיון נהיגה בינלאומי נדרש לנהיגה מחוץ לישראל. לא קיימת רשימה רשמית של מדינות שבהן הרישיון הישראלי לבדו מספיק. לא של משרד התחבורה, לא של שום גוף רשמי אחר.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                אני לא עושה רשימת מדינות "שלא דורשות IDP" בכוונה. כי מה שקורה בפועל הוא שגם במדינות שנחשבות ל"לא דורשות", יש נציגים בדלפק שדורשים. אמריקה, גרמניה, צרפת. עשיתי שכירויות בכולן. שמעתי על מקרים בכולן. הפקיד שעומד מולך לא קרא את אותה רשימה שקראת ברשת.
+              </p>
+
+              <div className="bg-navy rounded-xl p-6 mb-8">
+                <p className="text-white font-bold text-base mb-3 text-center">למה אני לא כותב רשימת מדינות</p>
+                <p className="text-slate-300 text-sm leading-relaxed text-center">
+                  רשימת "מדינות שלא צריך בהן IDP" תיצור אצלך ביטחון שגוי. תגיע לדלפק בלי IDP כי "קראתי שלא צריך", והפקיד שם ידרוש אותו. אני לא מוכן להיות הסיבה שבגללה נשארת בלי רכב.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
+                <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  אתה יוצא מישראל לנהוג על רכב שכור? לך תוציא רישיון נהיגה בינלאומי. זה עולה עשרה שקלים. זה לוקח רבע שעה. זה מבטל את כל הסיכונים האלה בבת אחת.
                 </p>
               </div>
 

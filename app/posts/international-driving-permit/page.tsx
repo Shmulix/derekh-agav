@@ -15,6 +15,7 @@ const mobileTocItems = [
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "which-countries", label: "באיזו מדינה צריך רישיון בינלאומי?" },
   { id: "conventions", label: "אמנת 1949 לעומת 1968: מה זה אומר לך בפועל" },
+  { id: "japan", label: "רישיון נהיגה בינלאומי ליפן" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
@@ -132,6 +133,7 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#which-countries", label: "באיזו מדינה צריך?" },
                       { href: "#conventions", label: "אמנת 1949 לעומת 1968" },
+                      { href: "#japan", label: "IDP ליפן" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
@@ -347,48 +349,63 @@ export default function InternationalDrivingLicensePost() {
                 אמנת 1949 לעומת 1968: מה זה אומר לך בפועל
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                יש שתי אמנות בינלאומיות שמסדירות את נושא רישיון הנהיגה הבינלאומי. אמנת 1949 ואמנת 1968. שתיהן קיימות במקביל, ומדינות שונות חתומות על אחת מהן או על שתיהן.
+                יש שתי אמנות בינלאומיות שמסדירות את נושא רישיון הנהיגה הבינלאומי: אמנת ז׳נבה 1949 ואמנת וינה 1968. שתיהן קיימות במקביל, ומדינות שונות חתומות על אחת מהן, על שתיהן, או על אף אחת מהן.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="border border-gray-200 rounded-xl p-4 bg-white">
-                  <p className="font-bold text-navy mb-2 text-sm">אמנת 1949</p>
+                  <p className="font-bold text-navy mb-2 text-sm">אמנת ז׳נבה 1949</p>
                   <ul className="space-y-1.5 text-sm text-gray-600">
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />תוקף הרישיון: שנה אחת</li>
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />נפוצה יותר במדינות מחוץ לאירופה</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />תוקף ה-IDP: שנה אחת</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />נפוצה יותר מחוץ לאירופה</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />יפן חתומה על אמנה זו בלבד</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-1.5" />ישראל חתומה גם על אמנה זו (אושרר 1955)</li>
                   </ul>
                 </div>
                 <div className="border border-navy/30 rounded-xl p-4 bg-[#f0f4ff]">
-                  <p className="font-bold text-navy mb-2 text-sm">אמנת 1968</p>
+                  <p className="font-bold text-navy mb-2 text-sm">אמנת וינה 1968</p>
                   <ul className="space-y-1.5 text-sm text-gray-600">
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />תוקף הרישיון: שלוש שנים</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />תוקף ה-IDP: שלוש שנים</li>
                     <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />מרבית מדינות אירופה ועוד</li>
-                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />ישראל חתומה על אמנה זו</li>
+                    <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-navy flex-shrink-0 mt-1.5" />ישראל חתומה גם על אמנה זו (אושרר 1971)</li>
                   </ul>
                 </div>
               </div>
 
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                ישראל חתומה על אמנת 1968. הרישיון הבינלאומי שמוציאים בישראל מונפק לפיה ותקף לשלוש שנים. זה נכון לרוב יעדי הנסיעה.
-              </p>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                יפן היא חריגה חשובה. יפן חתומה על אמנת 1949 בלבד ומכירה רק ב-IDP שהונפק לפיה. כלומר, לפי הכללים שחלים שם, הרישיון הבינלאומי הישראלי תקף לשנה אחת בלבד, לא שלוש.
+                ישראל חתומה על שתי האמנות ויכולה להנפיק IDP לפי כל אחת מהן. הנפקת ברירת המחדל בישראל היא לפי אמנת 1968 — תוקף שלוש שנים. זה מה שרוב האנשים מקבלים. לרוב יעדי הנסיעה זה מספיק.
               </p>
 
-              <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-8">
+              {/* Section 4d */}
+              <h2 id="japan" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                רישיון נהיגה בינלאומי ליפן: מה ישראלים חייבים לדעת
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                יפן חתומה על אמנת 1949 בלבד. היא לא מכירה ב-IDP שהונפק לפי אמנת 1968. זה אומר שה-IDP הישראלי הרגיל, זה עם שלוש שנות תוקף, לא מוכר ביפן.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-5">
+                כדי לנהוג ביפן עם רישיון נהיגה בינלאומי ישראלי, צריך IDP שהונפק ספציפית לפי אמנת 1949. הוא תקף שנה אחת מיום ההנפקה. ישראל מנפיקה גם מסוג זה, אבל צריך לבקש אותו במפורש בתחנת ההנפקה.
+              </p>
+
+              <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-5">
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שימו לב לתאריך ההנפקה</p>
-                    <p className="text-sm text-amber-700 leading-relaxed mb-2">
-                      הרישיון הבינלאומי הישראלי תקף 3 שנים, אבל ביפן מכירים רק בשנה הראשונה שלו. אם הרישיון שלך הונפק לפני יותר משנה, הוא לא מוכר ביפן.
-                    </p>
-                    <p className="text-sm text-amber-700 leading-relaxed">
-                      לפני נסיעה ליפן: בדוק את תאריך ההנפקה של הרישיון הבינלאומי שלך. אם עבר יותר מ-12 חודש מיום ההנפקה ועד יום חזרתך מיפן, תוציא חדש. זה עולה עשרה שקלים ולוקח רבע שעה. לא שווה להסתכן.
-                    </p>
+                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שלושה דברים לבדוק</p>
+                    <ul className="space-y-2 text-sm text-amber-700">
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>בקשו במפורש <strong>IDP לפי אמנת 1949</strong> בתחנת ההנפקה. לא את הסטנדרטי.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>תוקפו שנה אחת בלבד מיום ההנפקה. תחשבו שמגיעים ביפן לפני שתאריך זה פג.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ה-IDP הרגיל מסוג 1968 — זה שמוציאים ברירת מחדל — לא יעזור לכם ביפן.</span></li>
+                    </ul>
                   </div>
                 </div>
+              </div>
+
+              <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
+                <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  בתחנות ההנפקה בישראל לא תמיד יציעו לכם את שתי האפשרויות מיוזמתם. אם הנסיעה שלכם ליפן, אמרו מראש שאתם צריכים IDP לפי אמנת 1949. זה אותה תחנה, אותו תהליך, אותו מחיר.
+                </p>
               </div>
 
               {/* Section 5 */}

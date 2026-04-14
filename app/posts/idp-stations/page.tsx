@@ -275,15 +275,25 @@ export default function IDPStationsPost() {
                 </Link>
               </div>
 
-              {/* CTA */}
-              <div className="bg-navy rounded-xl p-7 text-center">
-                <p className="text-white font-bold text-lg mb-2">הכל מסודר. עכשיו בוא נמצא רכב.</p>
-                <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
-                  השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות. כולל טיפים מה לבדוק לפני שמאשרים.
-                </p>
-                <Link href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">
-                  איפה הכי כדאי להזמין? השוואה מלאה ←
+              {/* Prev / Next navigation */}
+              <div className="grid grid-cols-2 gap-4">
+
+                {/* Previous */}
+                <Link
+                  href="/posts/international-driving-permit"
+                  className="border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 mb-1">→ הקודם</p>
+                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
                 </Link>
+
+                {/* Next — coming soon */}
+                <div className="bg-navy rounded-xl p-4 text-right">
+                  <p className="text-slate-400 text-xs mb-1">הבא ←</p>
+                  <p className="text-white font-bold text-sm leading-snug mb-2">דרכון: מה הדלפק בודק ולמה זה לא מובן מאליו</p>
+                  <span className="inline-block bg-white/10 text-slate-300 text-xs px-2 py-0.5 rounded">בקרוב</span>
+                </div>
+
               </div>
 
             </article>

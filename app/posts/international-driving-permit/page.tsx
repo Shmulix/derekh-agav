@@ -14,12 +14,12 @@ const mobileTocItems = [
   { id: "why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "which-countries", label: "באיזו מדינה צריך רישיון בינלאומי?" },
+  { id: "validity", label: "כמה זמן בתוקף" },
   { id: "conventions", label: "אמנת 1949 לעומת 1968: מה זה אומר לך בפועל" },
   { id: "japan", label: "רישיון בינלאומי ליפן" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
   { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
-  { id: "validity", label: "כמה זמן בתוקף" },
   { id: "faq", label: "שאלות נפוצות" },
 ];
 
@@ -133,12 +133,12 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#which-countries", label: "באיזו מדינה צריך?" },
+                      { href: "#validity", label: "כמה זמן בתוקף" },
                       { href: "#conventions", label: "אמנת 1949 לעומת 1968" },
                       { href: "#japan", label: "רישיון בינלאומי ליפן" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
                       { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
-                      { href: "#validity", label: "כמה זמן בתוקף" },
                       { href: "#faq", label: "שאלות נפוצות" },
                     ].map((item) => (
                       <a
@@ -354,6 +354,31 @@ export default function InternationalDrivingLicensePost() {
                 </p>
               </div>
 
+              {/* Section validity */}
+              <h2 id="validity" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                כמה זמן הוא בתוקף
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                רישיון הנהיגה הבינלאומי בתוקף לשלוש שנים מיום ההנפקה, או עד שפג תוקף הרישיון הישראלי, לפי המוקדם מביניהם.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                מה זה אומר בפועל: אם הרישיון הישראלי שלך פג בעוד שנה, רישיון הנהיגה הבינלאומי שתוציא היום יהיה בתוקף שנה בלבד, לא שלוש.
+                לפני נסיעה ארוכה או טיול מרוחק, כדאי לבדוק את שני המסמכים במקביל.
+              </p>
+
+              <div className="border border-gray-200 rounded-xl p-5 bg-surface mb-8">
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div>
+                    <p className="text-2xl font-bold text-navy">3 שנים</p>
+                    <p className="text-xs text-gray-500 mt-1">תוקף מקסימלי</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-navy">10.10 ₪</p>
+                    <p className="text-xs text-gray-500 mt-1">עלות ההנפקה</p>
+                  </div>
+                </div>
+              </div>
+
               {/* Section 4c */}
               <h2 id="conventions" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
                 אמנת 1949 לעומת 1968: מה זה אומר לך בפועל
@@ -546,31 +571,6 @@ export default function InternationalDrivingLicensePost() {
                     {item}
                   </div>
                 ))}
-              </div>
-
-              {/* Section 7 */}
-              <h2 id="validity" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                כמה זמן הוא בתוקף
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                רישיון הנהיגה הבינלאומי בתוקף לשלוש שנים מיום ההנפקה, או עד שפג תוקף הרישיון הישראלי, לפי המוקדם מביניהם.
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                מה זה אומר בפועל: אם הרישיון הישראלי שלך פג בעוד שנה, רישיון הנהיגה הבינלאומי שתוציא היום יהיה בתוקף שנה בלבד, לא שלוש.
-                לפני נסיעה ארוכה או טיול מרוחק, כדאי לבדוק את שני המסמכים במקביל.
-              </p>
-
-              <div className="border border-gray-200 rounded-xl p-5 bg-surface mb-8">
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <p className="text-2xl font-bold text-navy">3 שנים</p>
-                    <p className="text-xs text-gray-500 mt-1">תוקף מקסימלי</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-navy">10.10 ₪</p>
-                    <p className="text-xs text-gray-500 mt-1">עלות ההנפקה</p>
-                  </div>
-                </div>
               </div>
 
               {/* FAQ */}

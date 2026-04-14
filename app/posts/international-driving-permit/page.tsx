@@ -314,6 +314,19 @@ export default function InternationalDrivingLicensePost() {
                   </p>
                 </div>
 
+                <div className="border border-amber-300 bg-amber-50 rounded-xl p-5">
+                  <p className="font-bold text-amber-900 mb-2">הטריק שלא יספרו לך בדלפק: פטנט עונת השיא</p>
+                  <p className="text-sm text-amber-800 leading-relaxed mb-3">
+                    בעונת השיא, כשביקוש הרכבים גבוה, יש מצב שבו הרכב שהזמנת חודשים מראש במחיר מוקדם שווה עכשיו, בדלפק, פי שניים או שלושה ממה ששילמת. נהג שמגיע ללא הזמנה מראש ישלם את המחיר היומי הנוכחי, הרבה יותר גבוה.
+                  </p>
+                  <p className="text-sm text-amber-800 leading-relaxed mb-3">
+                    יש נציגים בדלפק שמבינים את החשבון הזה. אם הם מוצאים סיבה טכנית לגיטימית לסרב לך, הרכב חוזר למלאי ויוצא לנהג הבא בתעריף גבוה יותר. הם לא ייתפסו בשקר. כי טכנית הם צודקים.
+                  </p>
+                  <p className="text-sm font-bold text-amber-900 leading-relaxed">
+                    העדר רישיון נהיגה בינלאומי הוא הזדמנות מושלמת לזה. דרישה חוקית לגיטימית, שאי אפשר לערער עליה. אין לך רישיון בינלאומי? אין רכב. עם רישיון בינלאומי, הנשק הזה לא קיים.
+                  </p>
+                </div>
+
               </div>
 
               <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">

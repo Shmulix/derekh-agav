@@ -471,6 +471,25 @@ export default function InternationalDrivingLicensePost() {
                 ))}
               </div>
 
+              {/* Fake online IDP warning */}
+              <div className="border border-red-200 bg-red-50 rounded-xl p-5 mb-6">
+                <div className="flex items-start gap-3">
+                  <AlertTriangle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-red-800 mb-2">רישיון נהיגה בינלאומי אונליין? לא קיים. לא תקף. לא לגיטימי.</p>
+                    <p className="text-sm text-red-700 leading-relaxed mb-3">
+                      רק המדינה שהנפיקה את הרישיון המקומי שלך מוסמכת להנפיק את הרישיון הבינלאומי המתאים לו. בישראל: רק תחנות מורשות מטעם משרד התחבורה. אף גוף אחר, אף חברה, אף אתר אינטרנט, לא מוסמך לעשות זאת.
+                    </p>
+                    <p className="text-sm text-red-700 leading-relaxed mb-2">
+                      מה שמוכרים אונליין תחת השם "International Driving Permit" — הקובצי PDF להדפסה, האפליקציות, הכרטיסים הדיגיטליים — הם מסמכים ללא כל תוקף חוקי. חברות ההשכרה יסרבו לקבל אותם. המשטרה לא תכיר בהם.
+                    </p>
+                    <p className="text-sm font-bold text-red-800">
+                      רישיון נהיגה בינלאומי מוציאים רק פיזית, בתחנה מורשית בישראל. זה עולה 10.10 ש״ח. אין קיצורי דרך.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* High season note */}
               <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 mb-6 flex items-start gap-3">
                 <AlertTriangle size={17} className="text-amber-600 flex-shrink-0 mt-0.5" />

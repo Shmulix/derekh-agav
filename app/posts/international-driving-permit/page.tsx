@@ -6,6 +6,7 @@ import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import type { Metadata } from "next";
 import { AlertTriangle, CheckCircle, ExternalLink, ChevronLeft, Info } from "lucide-react";
+import IDPLocations from "@/components/posts/IDPLocations";
 
 const mobileTocItems = [
   { id: "what-is-idp", label: "מה זה רישיון נהיגה בינלאומי?" },
@@ -13,6 +14,7 @@ const mobileTocItems = [
   { id: "why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
   { id: "when-required", label: "כשהוא כן נדרש" },
   { id: "how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
+  { id: "stations", label: "כל תחנות ההנפקה בישראל" },
   { id: "looks-like", label: "איך הוא נראה" },
   { id: "validity", label: "כמה זמן בתוקף" },
 ];
@@ -127,6 +129,7 @@ export default function InternationalDrivingLicensePost() {
                       { href: "#why-not-asked", label: "למה חברות השכרה לא תמיד מבקשות את רישיון הנהיגה הבינלאומי?" },
                       { href: "#when-required", label: "כשהוא כן נדרש" },
                       { href: "#how-to-get", label: "איך מוציאים רישיון נהיגה בינלאומי" },
+                      { href: "#stations", label: "כל תחנות ההנפקה בישראל" },
                       { href: "#looks-like", label: "איך הוא נראה" },
                       { href: "#validity", label: "כמה זמן בתוקף" },
                     ].map((item) => (
@@ -356,6 +359,18 @@ export default function InternationalDrivingLicensePost() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
+                    <p className="font-bold text-amber-800 mb-1">בחודשים מרץ–יולי: תורים עלולים להתארך</p>
+                    <p className="text-sm text-amber-700 leading-relaxed">
+                      בעונת הקיץ, תחנות ההנפקה עמוסות. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border border-amber-200 bg-amber-50 rounded-xl p-5 mb-8">
+                <div className="flex items-start gap-3">
+                  <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
                     <p className="font-bold text-amber-800 mb-1">לא ניתן לעשות את זה מחו״ל</p>
                     <p className="text-sm text-amber-700 leading-relaxed">
                       רישיון הנהיגה הבינלאומי מוציאים רק בישראל, לפני הנסיעה. אם שכחת ונזכרת בשדה התעופה, כבר מאוחר. תזמן את זה לפני שאתה עוזב.
@@ -364,7 +379,18 @@ export default function InternationalDrivingLicensePost() {
                 </div>
               </div>
 
-              {/* Section 6 */}
+              {/* Section 6 — Stations */}
+              <h2 id="stations" className="text-xl md:text-2xl font-bold text-navy mb-3 scroll-mt-24">
+                כל תחנות ההנפקה בישראל
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-5">
+                66 תחנות מורשות מטעם משרד התחבורה. חפש לפי עיר או שם — כתובת, טלפון ושעות מופיעים ישר.
+              </p>
+              <div className="border border-gray-200 rounded-xl bg-surface p-4 mb-8">
+                <IDPLocations />
+              </div>
+
+              {/* Section 7 */}
               <h2 id="looks-like" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
                 איך הוא נראה
               </h2>

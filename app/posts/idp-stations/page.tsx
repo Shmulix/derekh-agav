@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -85,6 +86,18 @@ export default function IDPStationsPost() {
           </div>
         </section>
 
+        {/* Featured image */}
+        <div className="relative w-full h-56 md:h-72 overflow-hidden">
+          <Image
+            src="/idp-location.avif"
+            alt="תחנת הנפקת רישיון נהיגה בינלאומי בישראל"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+
         <div className="max-w-3xl mx-auto px-6 py-10">
 
           {/* Intro text */}
@@ -93,7 +106,7 @@ export default function IDPStationsPost() {
               משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. לא צריך לתאם פגישה מראש, לא צריך לשלוח בקשות, לא צריך לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
             </p>
             <p className="text-gray-700 text-base leading-relaxed mb-4">
-              הבעיה היחידה: אתר משרד התחבורה מפוזר, לא קל לחיפוש, ולפעמים פשוט לא נטען. אז לקחנו את הרשימה הרשמית ועשינו ממנה כלי שמחפש לפי עיר ומציג את מה שצריך: כתובת, טלפון ושעות פתיחה. בלי סינונים מיותרים, בלי לחפש בין עמודים.
+              למטה תמצא את כל 66 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לאפריל 2026.
             </p>
             <p className="text-gray-700 text-base leading-relaxed">
               אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
@@ -117,17 +130,6 @@ export default function IDPStationsPost() {
                   <p className="text-xs text-gray-700 leading-snug">{item.text}</p>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Important note */}
-          <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 mb-8 flex items-start gap-3">
-            <AlertTriangle size={17} className="text-amber-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="font-bold text-amber-800 text-sm mb-1">לפני שמגיעים: וודאו שהתחנה מספקת את השירות</p>
-              <p className="text-sm text-amber-700 leading-relaxed">
-                לא כל תחנת צילום מבצעת גם הנפקת רישיון נהיגה בינלאומי. כל התחנות ברשימה זו מורשות לכך מטעם משרד התחבורה. עדיין מומלץ להתקשר ולאשר לפני הגעה, במיוחד בתקופות חג.
-              </p>
             </div>
           </div>
 

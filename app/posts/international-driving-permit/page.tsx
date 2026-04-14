@@ -335,6 +335,17 @@ export default function InternationalDrivingLicensePost() {
                 ))}
               </div>
 
+              {/* Photo update Jan 2026 */}
+              <div className="bg-[#f0f4ff] border border-navy/20 rounded-xl p-5 mb-6 flex items-start gap-3">
+                <Info size={17} className="text-navy flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-navy text-sm mb-1">עדכון ינואר 2026: הצילום נלקח עכשיו בתחנה</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    עד סוף 2025, הרישיון הבינלאומי הודפס עם התמונה שמופיעה ברישיון הישראלי. מינואר 2026 השתנה הנוהל: צילום חדש נלקח ישירות בתחנת ההנפקה בעת הבקשה. לא צריך להביא תמונות מהבית. מגיעים, מצלמים במקום, מקבלים את הרישיון.
+                  </p>
+                </div>
+              </div>
+
               <a
                 href="https://www.gov.il/he/service/drivers_license_photo_stations"
                 target="_blank"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 const locations = [
   // אופטיקה הלפרין
@@ -33,14 +33,13 @@ const locations = [
   { name: "אופטיקה הלפרין", city: "טבריה", address: "בניין לב הגליל, רח׳ הבנים 2", phone: "04-6721000", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ג׳: 9:00-14:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "בית שאן", address: "צים סנטר, העמל 7", phone: "04-6323494", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "גן יבנה", address: "קניון פרנדלי, המגינים 56", phone: "08-9219723", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
-  { name: "אופטיקה הלפרין", city: "אשדוד", address: "שמיר 11 - מרכז צים סנטר", phone: "08-6582733", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
+  { name: "אופטיקה הלפרין", city: "ערד", address: "מרכז צים סנטר, שמיר 11", phone: "08-6582733", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "אשקלון", address: "מתחם פאוואר סנטר סילבר", phone: "08-6729040", hours: "א׳-ה׳: 10:00-15:00, 16:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "קריית גת", address: "מתחם ביג, דרך הדרום 3", phone: "08-6816655", hours: "א׳-ה׳: 10:00-15:00, 16:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "שדרות", address: "סמטת הפלגה 20", phone: "08-6616161", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "נתיבות", address: "גלובוס סנטר, בעלי המלאכה 203", phone: "08-9934303", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "דימונה", address: "גולדה מאיר 20", phone: "08-6610442", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "אופקים", address: "מנחם בגין 6", phone: "08-9718255", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
-  { name: "אופטיקה הלפרין", city: "ערד", address: "מרכז צים סנטר, שמיר 11", phone: "08-6582733", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "קריית מלאכי", address: "רש\"י 1 פינת בן גוריון", phone: "08-8502500", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "גוש עציון", address: "צומת גוש עציון, מול רמי לוי", phone: "02-5618129", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
   { name: "אופטיקה הלפרין", city: "מעלה אדומים", address: "קניון עופר, דרך קדם 5", phone: "02-6269543", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00 | ו׳: 9:00-13:00" },
@@ -76,8 +75,11 @@ const locations = [
   { name: "אופטיקה היא", city: "אום אל-פחם", address: "אלשאגור - מתחם אלונית", phone: "04-9020033", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00" },
 ];
 
+const PER_PAGE = 10;
+
 export default function IDPLocations() {
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -90,10 +92,16 @@ export default function IDPLocations() {
     );
   }, [search]);
 
+  // Reset to page 1 on new search
+  useEffect(() => { setPage(1); }, [search]);
+
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+  const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+
   return (
     <div dir="rtl">
       {/* Search */}
-      <div className="relative mb-4">
+      <div className="relative mb-3">
         <input
           type="text"
           value={search}
@@ -104,7 +112,7 @@ export default function IDPLocations() {
         {search && (
           <button
             onClick={() => setSearch("")}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-lg leading-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl leading-none"
           >
             ×
           </button>
@@ -113,48 +121,85 @@ export default function IDPLocations() {
 
       {/* Count */}
       <p className="text-xs text-gray-500 mb-3">
-        {filtered.length === locations.length
-          ? `${locations.length} תחנות מורשות ברחבי הארץ`
-          : `${filtered.length} תוצאות מתוך ${locations.length}`}
+        {search
+          ? `${filtered.length} תוצאות — עמוד ${page} מתוך ${totalPages || 1}`
+          : `${locations.length} תחנות מורשות — עמוד ${page} מתוך ${totalPages}`}
       </p>
 
-      {/* List */}
+      {/* Cards */}
       {filtered.length === 0 ? (
-        <div className="text-center py-10 text-gray-400 text-sm">
+        <div className="text-center py-10 text-gray-400 text-sm border border-gray-100 rounded-xl">
           לא נמצאו תחנות לחיפוש זה
         </div>
       ) : (
         <div className="grid gap-2 sm:grid-cols-2">
-          {filtered.map((loc, i) => (
+          {paginated.map((loc, i) => (
             <div
               key={i}
-              className="bg-white border border-gray-100 rounded-lg px-4 py-3 hover:border-orange-200 hover:shadow-sm transition-all"
+              className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-orange-200 hover:shadow-sm transition-all"
             >
               <div className="flex items-start justify-between gap-2 mb-1">
-                <span className="font-bold text-navy text-sm">{loc.name}</span>
+                <span className="font-bold text-navy text-sm leading-snug">{loc.name}</span>
                 <span className="text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-100 px-2 py-0.5 rounded flex-shrink-0">
                   {loc.city}
                 </span>
               </div>
-              <p className="text-xs text-gray-600 mb-1">{loc.address}</p>
-              <div className="flex items-center justify-between mt-2 gap-2">
+              <p className="text-xs text-gray-500 mb-2">{loc.address}</p>
+              <div className="flex items-center justify-between gap-2 pt-2 border-t border-gray-100">
                 <a
                   href={`tel:${loc.phone.replace(/-/g, "")}`}
-                  className="text-xs font-semibold text-orange-700 hover:text-orange-900 flex items-center gap-1"
+                  className="text-xs font-bold text-orange-700 hover:text-orange-900"
                   dir="ltr"
                 >
                   {loc.phone}
                 </a>
-                <span className="text-xs text-gray-400 text-left leading-snug">{loc.hours}</span>
+                <span className="text-xs text-gray-400 text-left leading-tight">{loc.hours}</span>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Source note */}
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-between mt-4 gap-2">
+          <button
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            className="text-sm font-semibold px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            → הקודם
+          </button>
+
+          <div className="flex items-center gap-1">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <button
+                key={p}
+                onClick={() => setPage(p)}
+                className={`w-8 h-8 rounded-lg text-xs font-bold transition-colors ${
+                  p === page
+                    ? "bg-navy text-white"
+                    : "bg-white border border-gray-200 text-gray-500 hover:border-navy hover:text-navy"
+                }`}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+            className="text-sm font-semibold px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            הבא ←
+          </button>
+        </div>
+      )}
+
+      {/* Source */}
       <p className="text-xs text-gray-400 mt-4 text-center">
-        המידע מבוסס על רשימת התחנות המורשות של{" "}
+        מקור: רשימת התחנות המורשות של{" "}
         <a
           href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"
           target="_blank"
@@ -163,7 +208,7 @@ export default function IDPLocations() {
         >
           משרד התחבורה
         </a>
-        . לפני הגעה, מומלץ לאמת שהתחנה עדיין פעילה.
+        . עדכני לאפריל 2026. מומלץ לאשר לפני הגעה.
       </p>
     </div>
   );

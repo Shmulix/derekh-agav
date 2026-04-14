@@ -87,6 +87,23 @@ export default function IDPStationsPost() {
 
         <div className="max-w-3xl mx-auto px-6 py-10">
 
+          {/* Intro text */}
+          <div className="prose prose-sm max-w-none mb-10 text-right">
+            <p className="text-gray-700 text-base leading-relaxed mb-4">
+              משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. לא צריך לתאם פגישה מראש, לא צריך לשלוח בקשות, לא צריך לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-4">
+              הבעיה היחידה: אתר משרד התחבורה מפוזר, לא קל לחיפוש, ולפעמים פשוט לא נטען. אז לקחנו את הרשימה הרשמית ועשינו ממנה כלי שמחפש לפי עיר ומציג את מה שצריך: כתובת, טלפון ושעות פתיחה. בלי סינונים מיותרים, בלי לחפש בין עמודים.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
+              <a href="/posts/international-driving-permit" className="text-navy font-semibold underline underline-offset-2 hover:opacity-75">
+                המדריך המלא על IDP
+              </a>
+              . הקיצור: בלי רישיון בינלאומי אתה עלול להיפסל מהרכב בדלפק, גם אם הרישיון הישראלי שלך בתוקף מושלם.
+            </p>
+          </div>
+
           {/* What to bring */}
           <div className="bg-[#f0f4ff] border border-navy/15 rounded-xl p-5 mb-8">
             <p className="font-bold text-navy text-sm mb-4 flex items-center gap-2">

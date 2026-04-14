@@ -318,7 +318,7 @@ export default function InternationalDrivingLicensePost() {
 
               <div className="space-y-3 mb-6">
                 {[
-                  { num: "1", title: "מגיעים לתחנת הנפקה מורשית", text: "רק בתחנות מורשות מטעם משרד התחבורה. החברות המורשות הן אופטיקה הלפרין ומרמנת. לא ניתן להוציא רישיון נהיגה בינלאומי בדואר, בטלפון, או על ידי מיופה כוח." },
+                  { num: "1", title: "מגיעים לתחנת הנפקה מורשית", text: "רק בתחנות מורשות מטעם משרד התחבורה. לא ניתן להוציא רישיון נהיגה בינלאומי בדואר, בטלפון, או על ידי מיופה כוח. רשימת כל 66 התחנות עם כתובות ושעות פתיחה — בהמשך הדף." },
                   { num: "2", title: "מביאים תעודה מזהה בתוקף", text: "תעודת זהות, דרכון, או רישיון נהיגה ישראלי. אחד מהם מספיק." },
                   { num: "3", title: "מצלמים במקום ומשלמים 10.10 ש״ח", text: "מינואר 2026 הצילום נלקח ישירות בתחנה. לא נעשה שימוש בתמונה ממאגר הנתונים. המחיר הרשמי הוא 10.10 ש״ח, ניתן לשלם בתחנה." },
                   { num: "4", title: "מקבלים את הרישיון במקום", text: "מדפיסים ומוסרים על המקום. לא מחכים, לא שולחים בדואר. יוצאים עם המסמך ביד." },
@@ -346,15 +346,12 @@ export default function InternationalDrivingLicensePost() {
                 </div>
               </div>
 
-              <a
-                href="https://www.gov.il/he/service/drivers_license_photo_stations"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/posts/idp-stations"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:opacity-80 mb-3"
               >
-                לרשימת תחנות הצילום המורשות באתר gov.il
-                <ExternalLink size={14} />
-              </a>
+                לרשימת כל 66 תחנות ההנפקה המורשות עם חיפוש לפי עיר ←
+              </Link>
               <br />
               <a
                 href="https://www.gov.il/he/service/license-international"

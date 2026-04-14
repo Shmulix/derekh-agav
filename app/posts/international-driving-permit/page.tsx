@@ -294,8 +294,7 @@ export default function InternationalDrivingLicensePost() {
                 <div className="border border-red-200 bg-red-50 rounded-xl p-5">
                   <p className="font-bold text-red-800 mb-2">תאונה וביטוח</p>
                   <p className="text-sm text-red-700 leading-relaxed">
-                    זה המקרה הכי כואב. חברת הביטוח יכולה לטעון שנהגת ללא המסמכים החוקיים הנדרשים, ולכן הכיסוי הביטוחי פוקע.
-                    הכסף שחסכת על רישיון הנהיגה הבינלאומי יכול לעלות לך בכמה אלפי אירו.
+                    אני אישית לא שמעתי על מקרה מוכח שבו חברת ביטוח סירבה לשלם תביעה רק בגלל שהנהג לא היה עם רישיון בינלאומי. יתכן שזו אורבן לג׳נד. אבל בשביל עשרה שקלים ורבע שעה, אני לא בקטע לבדוק את זה על חשבון החופשה שלי.
                   </p>
                 </div>
 
@@ -304,7 +303,7 @@ export default function InternationalDrivingLicensePost() {
               <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
                 <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  רישיון הנהיגה הבינלאומי לא מבטיח שהביטוח יכסה הכל. אבל בלי רישיון הנהיגה הבינלאומי, חברת הביטוח יכולה להשתמש בזה כעילה לסירוב. עם רישיון הנהיגה הבינלאומי, אפשרות הסירוב הזו לא קיימת.
+                  לגנד או לא, רישיון הנהיגה הבינלאומי עולה עשרה שקלים ולוקח רבע שעה להוציא. אם אי פעם ייטענו נגדך שנהגת ללא המסמכים החוקיים, לא תרצה שהתשובה תהיה שחסכת עשרה שקלים.
                 </p>
               </div>
 

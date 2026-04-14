@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
+import IDPGallery from "@/components/posts/IDPGallery";
 import type { Metadata } from "next";
 import { AlertTriangle, CheckCircle, ExternalLink, ChevronLeft, Info } from "lucide-react";
 
@@ -401,16 +402,7 @@ export default function InternationalDrivingLicensePost() {
                 בפנים: תמונת הנהג, הפרטים האישיים, ודרגת הרישיון, עם תרגום לאנגלית.
               </p>
 
-              <div className="rounded-xl overflow-hidden mb-4">
-                <Image
-                  src="/exemple-idp.png"
-                  alt="רישיון נהיגה בינלאומי ישראלי פתוח"
-                  width={800}
-                  height={530}
-                  className="w-full object-cover"
-                />
-              </div>
-              <p className="text-xs text-gray-400 text-center mb-8">רישיון נהיגה בינלאומי ישראלי — כך הוא נראה פתוח</p>
+              <IDPGallery />
 
               <div className="space-y-2 mb-8">
                 {[

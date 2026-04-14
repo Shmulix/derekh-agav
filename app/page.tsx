@@ -53,6 +53,15 @@ const posts = [
     image: "/idp-hero.avif",
   },
   {
+    tag: "מסמכים",
+    tagColor: "bg-gold text-navy",
+    title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?",
+    excerpt: "66 תחנות מורשות ברחבי הארץ עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה.",
+    readTime: "כלי חיפוש",
+    href: "/posts/idp-stations",
+    image: "/idp-location.avif",
+  },
+  {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW: מה באמת שווה לקחת?",

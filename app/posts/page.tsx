@@ -50,7 +50,7 @@ const allPosts = [
       "66 תחנות מורשות ברחבי הארץ, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מבוסס על נתוני משרד התחבורה, עדכני לאפריל 2026.",
     readTime: "כלי חיפוש",
     href: "/posts/idp-stations",
-    image: null,
+    image: "/idp-location.avif",
     date: "אפריל 2026",
   },
   {

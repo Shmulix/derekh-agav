@@ -59,7 +59,7 @@ export default function IDPStationsPost() {
       <Header />
       <main className="bg-white min-h-screen">
 
-        {/* Hero — image background */}
+        {/* Hero */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <Image
             src="/idp-location.avif"
@@ -68,15 +68,8 @@ export default function IDPStationsPost() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c]/85 via-navy/60 to-transparent" />
-          <div className="absolute bottom-0 right-0 left-0 px-6 pb-8 max-w-3xl mx-auto">
-            <nav className="flex items-center gap-2 text-xs text-slate-400 mb-4">
-              <Link href="/" className="hover:text-white transition-colors">דרך אגב</Link>
-              <ChevronLeft size={12} />
-              <Link href="/posts" className="hover:text-white transition-colors">מאמרים</Link>
-              <ChevronLeft size={12} />
-              <span className="text-slate-300">תחנות הנפקת רישיון נהיגה בינלאומי</span>
-            </nav>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c]/90 via-navy/70 to-transparent" />
+          <div className="absolute bottom-0 right-0 left-0 px-6 pb-8 max-w-4xl mx-auto">
             <span className="inline-block bg-gold text-navy text-xs font-bold px-3 py-1 rounded mb-3">
               מסמכים נדרשים
             </span>
@@ -86,10 +79,18 @@ export default function IDPStationsPost() {
             <p className="text-slate-300 text-sm md:text-base mt-2">
               66 תחנות מורשות ברחבי הארץ. חפש לפי עיר, קבל כתובת, טלפון ושעות פתיחה.
             </p>
-            <div className="flex flex-wrap gap-2 mt-4 text-xs">
-              <span className="bg-white/10 text-slate-200 px-3 py-1.5 rounded-full">66 תחנות</span>
-              <span className="bg-white/10 text-slate-200 px-3 py-1.5 rounded-full">עדכני לאפריל 2026</span>
-              <span className="bg-white/10 text-slate-200 px-3 py-1.5 rounded-full">מבוסס על נתוני משרד התחבורה</span>
+            <div className="flex items-center gap-3 mt-4">
+              <Image
+                src="/samuel.avif"
+                alt="סמואל פרץ"
+                width={36}
+                height={36}
+                className="rounded-full border-2 border-white/30 flex-shrink-0"
+              />
+              <div>
+                <p className="text-white text-sm font-semibold leading-none">סמואל פרץ</p>
+                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: אפריל 2026</p>
+              </div>
             </div>
           </div>
         </section>

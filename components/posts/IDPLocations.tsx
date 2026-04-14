@@ -75,7 +75,7 @@ const locations = [
   { name: "אופטיקה היא", city: "אום אל-פחם", address: "אלשאגור - מתחם אלונית", phone: "04-9020033", hours: "א׳-ה׳: 10:00-14:00, 15:00-19:00" },
 ];
 
-const PER_PAGE = 10;
+const PER_PAGE = 5;
 
 export default function IDPLocations() {
   const [search, setSearch] = useState("");
@@ -87,8 +87,7 @@ export default function IDPLocations() {
     return locations.filter(
       (l) =>
         l.city.toLowerCase().includes(q) ||
-        l.name.toLowerCase().includes(q) ||
-        l.address.toLowerCase().includes(q)
+        l.name.toLowerCase().includes(q)
     );
   }, [search]);
 
@@ -106,7 +105,7 @@ export default function IDPLocations() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="חפש לפי עיר, שם המקום או כתובת..."
+          placeholder="חפש לפי עיר או שם המקום..."
           className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm bg-white text-right focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-200"
         />
         {search && (
@@ -132,7 +131,7 @@ export default function IDPLocations() {
           לא נמצאו תחנות לחיפוש זה
         </div>
       ) : (
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="grid gap-2">
           {paginated.map((loc, i) => (
             <div
               key={i}
@@ -162,7 +161,7 @@ export default function IDPLocations() {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between mt-4 gap-2">
+        <div className="flex items-center justify-between mt-4">
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
@@ -170,23 +169,7 @@ export default function IDPLocations() {
           >
             → הקודם
           </button>
-
-          <div className="flex items-center gap-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <button
-                key={p}
-                onClick={() => setPage(p)}
-                className={`w-8 h-8 rounded-lg text-xs font-bold transition-colors ${
-                  p === page
-                    ? "bg-navy text-white"
-                    : "bg-white border border-gray-200 text-gray-500 hover:border-navy hover:text-navy"
-                }`}
-              >
-                {p}
-              </button>
-            ))}
-          </div>
-
+          <span className="text-xs text-gray-400">{page} / {totalPages}</span>
           <button
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}

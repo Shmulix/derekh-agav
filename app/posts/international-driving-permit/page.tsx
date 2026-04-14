@@ -462,12 +462,12 @@ export default function InternationalDrivingLicensePost() {
                   <p className="text-xs text-gray-500 mt-1 leading-snug">מה דלפק התחנה מקבל ומה לא</p>
                 </Link>
                 <Link
-                  href="/posts/passport"
+                  href="/posts/idp-stations"
                   className="block bg-navy rounded-xl p-5 hover:bg-navy/90 transition-colors"
                 >
                   <p className="text-xs text-gold font-semibold mb-1">המאמר הבא ←</p>
-                  <p className="font-bold text-white text-base leading-snug mb-1">הדרכון בהשכרת רכב בחו״ל</p>
-                  <p className="text-sm text-slate-300 leading-snug">הדרכון נשאר בכספת המלון. הרכב לא יוצא. כל מה שצריך לדעת לפני שזה קורה לך.</p>
+                  <p className="font-bold text-white text-base leading-snug mb-1">איפה מנפיקים רישיון נהיגה בינלאומי בישראל?</p>
+                  <p className="text-sm text-slate-300 leading-snug">66 תחנות מורשות ברחבי הארץ עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה.</p>
                   <span className="inline-block mt-3 text-gold text-sm font-semibold">לקריאה ←</span>
                 </Link>
               </div>

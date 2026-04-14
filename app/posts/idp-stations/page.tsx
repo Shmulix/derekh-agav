@@ -254,46 +254,22 @@ export default function IDPStationsPost() {
                 </a>
               </div>
 
-              {/* Internal links */}
+              {/* Article navigation — prev / next */}
               <div className="space-y-3 mb-10">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">מאמרים קשורים</p>
                 <Link
                   href="/posts/international-driving-permit"
-                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
+                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
                 >
-                  <p className="text-xs text-gray-400 mb-1">מדריך מלא</p>
+                  <p className="text-xs text-gray-400 mb-1">→ המאמר הקודם</p>
                   <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
-                  <p className="text-xs text-gray-500 mt-1">למה הרישיון הישראלי לא מספיק לבד, ומה קורה כשלא מביאים IDP</p>
+                  <p className="text-xs text-gray-500 mt-1 leading-snug">למה הרישיון הישראלי לא מספיק לבד, ומה קורה כשלא מביאים IDP</p>
                 </Link>
-                <Link
-                  href="/posts/driving-license-abroad"
-                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
-                >
-                  <p className="text-xs text-gray-400 mb-1">מאמר</p>
-                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה ישראלי בהשכרת רכב בחו״ל</p>
-                  <p className="text-xs text-gray-500 mt-1">מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון.</p>
-                </Link>
-              </div>
-
-              {/* Prev / Next navigation */}
-              <div className="grid grid-cols-2 gap-4">
-
-                {/* Previous */}
-                <Link
-                  href="/posts/international-driving-permit"
-                  className="border border-gray-200 rounded-xl p-4 hover:border-navy/30 hover:bg-[#f0f4ff] transition-colors"
-                >
-                  <p className="text-xs text-gray-400 mb-1">→ הקודם</p>
-                  <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
-                </Link>
-
-                {/* Next — coming soon */}
-                <div className="bg-navy rounded-xl p-4 text-right">
-                  <p className="text-slate-400 text-xs mb-1">הבא ←</p>
-                  <p className="text-white font-bold text-sm leading-snug mb-2">דרכון: מה הדלפק בודק ולמה זה לא מובן מאליו</p>
-                  <span className="inline-block bg-white/10 text-slate-300 text-xs px-2 py-0.5 rounded">בקרוב</span>
+                <div className="block bg-navy rounded-xl p-5">
+                  <p className="text-xs text-gold font-semibold mb-1">המאמר הבא ←</p>
+                  <p className="font-bold text-white text-base leading-snug mb-1">הדרכון בהשכרת רכב בחו״ל</p>
+                  <p className="text-sm text-slate-300 leading-snug">הדרכון נשאר בכספת המלון. הרכב לא יוצא. כל מה שצריך לדעת לפני שזה קורה לך.</p>
+                  <span className="inline-block mt-3 bg-white/10 text-slate-300 text-xs px-2 py-1 rounded">בקרוב</span>
                 </div>
-
               </div>
 
             </article>

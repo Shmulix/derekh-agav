@@ -205,14 +205,22 @@ export default function InternationalDrivingLicensePost() {
                 ישראל חתומה על האמנה. כלומר, לפי הדין הבינלאומי, כל ישראלי שנוהג בחו״ל חייב להחזיק רישיון נהיגה בינלאומי. לא מומלץ. חייב.
               </p>
 
-              <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-8">
-                <Info size={20} className="text-navy flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-bold text-navy mb-1">רישיון הנהיגה הבינלאומי תמיד יחד עם הרישיון הישראלי</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    רישיון הנהיגה הבינלאומי לא תקף לבד. הוא חייב להיות מוצג תמיד יחד עם הרישיון הישראלי המקורי, הפלסטיק הפיזי בתוקף.
-                    אחד בלי השני? כאילו אין כלום.
-                  </p>
+              <div className="border border-red-200 bg-red-50 rounded-xl p-5 mb-8">
+                <div className="flex items-start gap-3">
+                  <AlertTriangle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-red-800 mb-2">רישיון נהיגה בינלאומי לא תקף לבד — חובה להציגו יחד עם הרישיון הישראלי</p>
+                    <p className="text-sm text-red-700 leading-relaxed mb-3">
+                      הרישיון הבינלאומי הוא תרגום רשמי של הרישיון הישראלי. בלי המקור, התרגום לא שווה כלום. שניהם, פיזית, ביד. תמיד.
+                    </p>
+                    <p className="text-sm font-bold text-red-800 mb-1">מה לא עובד בדלפק:</p>
+                    <ul className="space-y-1.5 text-sm text-red-700">
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי בלי רישיון ישראלי פיזי. אין רכב.</li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />צילום של הרישיון הישראלי בטלפון. אין רכב.</li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון ישראלי זמני מנייר (שקיבלתם בזמן שהפלסטיק בדרך). אין רכב.</li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי בלבד, בלי הישראלי. אין רכב.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 

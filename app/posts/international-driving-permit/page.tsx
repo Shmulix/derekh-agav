@@ -391,11 +391,11 @@ export default function InternationalDrivingLicensePost() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? שתי כללי תוקף שצריך לדעת</p>
+                    <p className="font-bold text-amber-800 mb-2">נוסעים ליפן? כך מחשבים את התוקף</p>
                     <ul className="space-y-2 text-sm text-amber-700">
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span><strong>כלל ראשון:</strong> ה-IDP חייב להיות בתוקף ביום הכניסה ליפן. כלומר, לא יותר משנה מיום ההנפקה ביום שנוחתים.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span><strong>כלל שני:</strong> ברגע שנכנסתם ליפן, מותר לנהוג שנה אחת מיום הכניסה. לא מיום ההנפקה.</span></li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>דוגמה: הנפקתם IDP ב-1 בינואר, נחתתם ביפן ב-1 במרץ. מותר לנהוג עד 1 במרץ של השנה הבאה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>ה-IDP חייב להיות בתוקף ביום הכניסה ליפן: לא יותר משנה מיום ההנפקה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>מותר לנהוג מיום הכניסה ועד שנה מיום ההנפקה. הכניסה ליפן לא מאפסת את המונה.</span></li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>דוגמה: הנפקתם IDP ב-1 בינואר, נחתתם ביפן ב-1 במרץ. מותר לנהוג עד 1 בינואר של השנה הבאה, לא עד 1 במרץ.</span></li>
                       <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" /><span>אם ה-IDP הונפק לפני יותר משנה ביום הנחיתה, הוא לא תקף. תוציאו חדש לפני הטיסה.</span></li>
                     </ul>
                   </div>

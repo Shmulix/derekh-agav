@@ -414,7 +414,7 @@ export default function InternationalDrivingLicensePost() {
                 איך מוציאים רישיון נהיגה בינלאומי בישראל
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                הידיעה הטובה: זה ממש קל. לוקח פחות מרבע שעה ועולה פחות מחמישה עשר שקלים.
+                הידיעה הטובה: זה ממש קל. מרגע שהגיע תורך בתחנה, כל התהליך לוקח כחמש דקות ועולה 10.10 ש״ח.
               </p>
 
               <div className="space-y-3 mb-6">
@@ -434,6 +434,17 @@ export default function InternationalDrivingLicensePost() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* High season note */}
+              <div className="border border-amber-200 bg-amber-50 rounded-xl p-4 mb-6 flex items-start gap-3">
+                <AlertTriangle size={17} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-amber-800 text-sm mb-1">בחודשים מרץ עד יולי: קחו בחשבון תור</p>
+                  <p className="text-sm text-amber-700 leading-relaxed">
+                    עצם ההנפקה לוקחת כחמש דקות. אבל בעונת השיא של הנסיעות לחו״ל, התחנות עמוסות יותר והמתנה יכולה להתארך. אל תשאירו את זה לשעות הבוקר של יום הטיסה. יום-יומיים לפני, ובבוקר מוקדם, זה תמיד יותר בטוח.
+                  </p>
+                </div>
               </div>
 
               {/* Photo update Jan 2026 */}

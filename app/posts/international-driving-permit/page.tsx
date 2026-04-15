@@ -175,8 +175,8 @@ export default function InternationalDrivingLicensePost() {
           <div className="lg:grid lg:grid-cols-[220px_1fr_190px] lg:gap-10 items-start">
 
             {/* RIGHT SIDEBAR */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-24 space-y-5">
+            <aside className="hidden lg:block sticky top-24 self-start">
+              <div className="space-y-5">
 
                 <div>
                   <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
@@ -794,8 +794,8 @@ export default function InternationalDrivingLicensePost() {
             </article>
 
             {/* LEFT SIDEBAR */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-24 space-y-4">
+            <aside className="hidden lg:block sticky top-24 self-start">
+              <div className="space-y-4">
 
                 <div className="bg-navy rounded-xl p-5">
                   <p className="text-white font-bold text-sm leading-tight mb-3">מוכן להזמין?</p>

@@ -114,8 +114,8 @@ export default function DrivingLicenseAbroadPost() {
           <div className="lg:grid lg:grid-cols-[220px_1fr_190px] lg:gap-10 items-start">
 
             {/* RIGHT SIDEBAR — תוכן עניינים + כרטיס מחבר */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-24 space-y-5">
+            <aside className="hidden lg:block sticky top-24 self-start">
+              <div className="space-y-5">
 
                 {/* TOC */}
                 <div>
@@ -552,8 +552,8 @@ export default function DrivingLicenseAbroadPost() {
             </article>
 
             {/* LEFT SIDEBAR — Author + CTA + disclaimer */}
-            <aside className="hidden lg:block">
-              <div className="sticky top-24 space-y-4">
+            <aside className="hidden lg:block sticky top-24 self-start">
+              <div className="space-y-4">
 
                 <div className="bg-navy rounded-xl p-5">
                   <div className="flex items-center gap-3 mb-3">

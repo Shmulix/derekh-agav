@@ -276,8 +276,7 @@ export default function InternationalDrivingLicensePost() {
                       <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי בלי רישיון ישראלי פיזי. אין רכב.</li>
                       <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />צילום של הרישיון הישראלי בטלפון. אין רכב.</li>
                       <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון ישראלי זמני מנייר (שקיבלתם בזמן שהפלסטיק בדרך). אין רכב.</li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי בלבד, בלי הישראלי. אין רכב.</li>
-                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי שלא הונפק על ידי תחנה מורשית מטעם משרד התחבורה, בין אם פיזי ובין אם דיגיטלי. רק הרישיון הישראלי שהונפק על ידי משרד התחבורה תקף. אין רכב.</li>
+                      <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5" />רישיון בינלאומי שלא הונפק על ידי תחנה מורשית מטעם משרד התחבורה, בין אם פיזי ובין אם דיגיטלי. רק הרישיון הבינלאומי שהונפק על ידי תחנה מורשית תקף. אין רכב.</li>
                     </ul>
                   </div>
                 </div>
@@ -352,7 +351,7 @@ export default function InternationalDrivingLicensePost() {
                 כשרישיון הנהיגה הבינלאומי כן נדרש בפועל
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                גם אם עברת את דלפק התחנה בלי בעיה, זה לא גמר. יש שני מצבים שבהם היעדר רישיון הנהיגה הבינלאומי יכול לעלות לך בהרבה.
+                גם אם עברת את דלפק התחנה בלי בעיה, זה לא גמר. יש שלושה מצבים שבהם היעדר רישיון הנהיגה הבינלאומי יכול לעלות לך בהרבה.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -657,7 +656,7 @@ export default function InternationalDrivingLicensePost() {
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
                 רישיון הנהיגה הבינלאומי הוא חוברת קטנה בפורמט A6. הכריכה מודפסת בכמה שפות, כולל את שם המדינה המנפיקה.
-                בפנים: תמונת הנהג, הפרטים האישיים, ודרגת הרישיון, עם תרגום לאנגלית.
+                בפנים: תמונת הנהג, הפרטים האישיים, ודרגת הרישיון, עם תרגום למספר שפות.
               </p>
 
               <IDPGallery />

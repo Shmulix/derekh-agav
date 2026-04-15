@@ -54,6 +54,8 @@ const articleJsonLd = {
   description:
     "איך מוציאים רישיון נהיגה בינלאומי בישראל, כמה זה עולה, כמה זמן לוקח, ולמה הוא חובה גם אם הדלפק לא תמיד מבקש.",
   image: "https://derekh-agav.vercel.app/idp.avif",
+  datePublished: "2026-04-09",
+  dateModified: "2026-04-14",
   author: {
     "@type": "Person",
     name: "סמואל פרץ",
@@ -68,12 +70,41 @@ const articleJsonLd = {
   url: "https://derekh-agav.vercel.app/posts/international-driving-permit",
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "דרך אגב",
+      item: "https://derekh-agav.vercel.app",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "מאמרים",
+      item: "https://derekh-agav.vercel.app/posts",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "רישיון נהיגה בינלאומי (IDP)",
+      item: "https://derekh-agav.vercel.app/posts/international-driving-permit",
+    },
+  ],
+};
+
 export default function InternationalDrivingLicensePost() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
       <main className="bg-white">

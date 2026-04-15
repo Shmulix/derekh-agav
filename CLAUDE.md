@@ -216,6 +216,14 @@ The skill will automatically:
 
 **Never** finish a task without running `/deploy-site`. Local, GitHub and Vercel must always be in sync.
 
+### MANDATORY: Update dateModified on every post edit
+
+After every modification to a post page (any file under `app/posts/`), update the `dateModified` field in the `articleJsonLd` object at the top of that page to today's date in `YYYY-MM-DD` format.
+
+```ts
+dateModified: "2026-04-15", // update this on every edit
+```
+
 ---
 
 ## SESSION STARTUP — MANDATORY

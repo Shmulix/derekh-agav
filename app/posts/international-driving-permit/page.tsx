@@ -55,11 +55,13 @@ const articleJsonLd = {
     "איך מוציאים רישיון נהיגה בינלאומי בישראל, כמה זה עולה, כמה זמן לוקח, ולמה הוא חובה גם אם הדלפק לא תמיד מבקש.",
   image: "https://derekh-agav.vercel.app/idp.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-04-14",
+  dateModified: "2026-04-15",
   author: {
     "@type": "Person",
     name: "סמואל פרץ",
     url: "https://derekh-agav.vercel.app/about",
+    jobTitle: "מומחה השכרת רכב בינלאומית",
+    knowsAbout: ["השכרת רכב בינלאומית", "רישיון נהיגה בינלאומי", "ביטוח רכב שכור", "תנאי השכרה בחו״ל"],
   },
   publisher: {
     "@type": "Organization",
@@ -95,6 +97,25 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "איך מוציאים רישיון נהיגה בינלאומי בישראל",
+  description: "4 שלבים פשוטים להוצאת רישיון נהיגה בינלאומי בישראל",
+  totalTime: "PT15M",
+  estimatedCost: {
+    "@type": "MonetaryAmount",
+    currency: "ILS",
+    value: "10.10",
+  },
+  step: [
+    { "@type": "HowToStep", position: 1, name: "מגיעים לתחנת הנפקה מורשית", text: "רק בתחנות מורשות מטעם משרד התחבורה. לא ניתן להוציא רישיון נהיגה בינלאומי בדואר, בטלפון, או על ידי מיופה כוח." },
+    { "@type": "HowToStep", position: 2, name: "מביאים תעודה מזהה בתוקף", text: "תעודת זהות, דרכון, או רישיון נהיגה ישראלי. אחד מהם מספיק." },
+    { "@type": "HowToStep", position: 3, name: "מצלמים במקום ומשלמים 10.10 ש״ח", text: "מינואר 2026 הצילום נלקח ישירות בתחנה. המחיר הרשמי הוא 10.10 ש״ח." },
+    { "@type": "HowToStep", position: 4, name: "מקבלים את הרישיון במקום", text: "מדפיסים ומוסרים על המקום. לא מחכים, לא שולחים בדואר." },
+  ],
+};
+
 export default function InternationalDrivingLicensePost() {
   return (
     <>
@@ -105,6 +126,10 @@ export default function InternationalDrivingLicensePost() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       <Header />
       <main className="bg-white">
@@ -606,7 +631,7 @@ export default function InternationalDrivingLicensePost() {
                   <div>
                     <p className="font-bold text-amber-800 mb-1">לא ניתן לעשות את זה מחו״ל</p>
                     <p className="text-sm text-amber-700 leading-relaxed">
-                      רישיון הנהיגה הבינלאומי מוציאים רק בישראל, לפני הנסיעה. אם שכחת ונזכרת בשדה התעופה, כבר מאוחר. תזמן את זה לפני שאתה עוזב.
+                      רישיון הנהיגה הבינלאומי מוציאים רק בישראל, לפני הנסיעה. אם שכחת ונזכרת יום לפני הטיסה, יש תחנות שפתוחות בשעות הבוקר המוקדמות ואפשר עדיין להספיק. ביום הטיסה עצמו, כבר מאוחר מדי. תזמן את זה לפני שאתה עוזב.
                     </p>
                   </div>
                 </div>

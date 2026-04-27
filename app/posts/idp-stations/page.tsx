@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/idp-location.avif",
+        url: "/idp-counter.avif",
         width: 1200,
         height: 630,
         alt: "תחנות הנפקת רישיון נהיגה בינלאומי בישראל",
@@ -37,7 +37,7 @@ const articleJsonLd = {
   headline: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל — כל 66 התחנות המורשות",
   description:
     "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לאפריל 2026.",
-  image: "https://derekh-agav.vercel.app/idp-location.avif",
+  image: "https://derekh-agav.vercel.app/idp-counter.avif",
   inLanguage: "he",
   author: {
     "@type": "Person",
@@ -50,7 +50,7 @@ const articleJsonLd = {
     url: "https://derekh-agav.vercel.app",
   },
   url: "https://derekh-agav.vercel.app/posts/idp-stations",
-  dateModified: "2026-04-01",
+  dateModified: "2026-04-27",
 };
 
 const mobileTocItems = [
@@ -81,7 +81,7 @@ export default function IDPStationsPost() {
         {/* Hero */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <Image
-            src="/idp-location.avif"
+            src="/idp-counter.avif"
             alt="תחנות הנפקת רישיון נהיגה בינלאומי בישראל"
             fill
             className="object-cover object-center"

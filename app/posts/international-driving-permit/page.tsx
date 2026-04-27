@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/idp.avif",
+        url: "/idp-travel.avif",
         width: 1200,
         height: 630,
         alt: "רישיון נהיגה בינלאומי IDP",
@@ -53,9 +53,9 @@ const articleJsonLd = {
   headline: "רישיון נהיגה בינלאומי (IDP) בישראל: המדריך המלא",
   description:
     "איך מוציאים רישיון נהיגה בינלאומי בישראל, כמה זה עולה, כמה זמן לוקח, ולמה הוא חובה גם אם הדלפק לא תמיד מבקש.",
-  image: "https://derekh-agav.vercel.app/idp.avif",
+  image: "https://derekh-agav.vercel.app/idp-travel.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-04-15",
+  dateModified: "2026-04-27",
   author: {
     "@type": "Person",
     name: "סמואל פרץ",
@@ -137,7 +137,7 @@ export default function InternationalDrivingLicensePost() {
         {/* Hero */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <Image
-            src="/idp-hero.avif"
+            src="/idp-travel.avif"
             alt="רישיון נהיגה בינלאומי IDP"
             fill
             className="object-cover object-center"

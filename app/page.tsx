@@ -41,7 +41,7 @@ const posts = [
     excerpt: "מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
     readTime: "6 דק׳ קריאה",
     href: "/posts/driving-license-abroad",
-    image: "/driving-license-post.avif",
+    image: "/israeli-license-abroad.avif",
   },
   {
     tag: "מסמכים",
@@ -50,7 +50,7 @@ const posts = [
     excerpt: "הרישיון הישראלי לא מספיק לבד. לפי החוק הבינלאומי צריך גם רישיון נהיגה בינלאומי. למה הדלפק לא תמיד מבקש, ואיך מוציאים אחד בפחות מרבע שעה.",
     readTime: "5 דק׳ קריאה",
     href: "/posts/international-driving-permit",
-    image: "/idp-hero.avif",
+    image: "/idp-travel.avif",
   },
   {
     tag: "מסמכים",
@@ -59,7 +59,7 @@ const posts = [
     excerpt: "66 תחנות מורשות ברחבי הארץ עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה.",
     readTime: "כלי חיפוש",
     href: "/posts/idp-stations",
-    image: "/idp-location.avif",
+    image: "/idp-counter.avif",
   },
   {
     tag: "ביטוח",

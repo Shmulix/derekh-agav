@@ -28,7 +28,7 @@ const allPosts = [
       "מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
     readTime: "6 דק׳ קריאה",
     href: "/posts/driving-license-abroad",
-    image: "/israeli-license-travel.avif",
+    image: "/israeli-driving-license.avif",
     date: "אפריל 2026",
   },
   {

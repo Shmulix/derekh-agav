@@ -1,43 +1,122 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Search, BookOpen, Newspaper, ArrowLeft } from "lucide-react";
-import Fuse from "fuse.js";
+import { Search, BookOpen, Newspaper, Hash } from "lucide-react";
+import Fuse, { FuseResult } from "fuse.js";
 import Link from "next/link";
 
 type SearchItem = {
   title: string;
   href: string;
   tags: string[];
-  type: "guide" | "post";
-  category: string;
+  type: "guide-main" | "guide-section" | "post";
+  category?: string;
+  content?: string;
 };
 
+type SearchResultWithSnippet = SearchItem & { snippet?: string };
+
 const searchableContent: SearchItem[] = [
-  { title: "מסמכים נדרשים להשכרת רכב", href: "/guide#documents", tags: ["מסמכים", "רישיון", "דרכון"], type: "guide", category: "מסמכים" },
-  { title: "רישיון נהיגה בינלאומי", href: "/guide#international-license", tags: ["רישיון", "בינלאומי"], type: "guide", category: "מסמכים" },
-  { title: "כרטיס אשראי ופיקדון", href: "/guide#deposit", tags: ["אשראי", "פיקדון", "כרטיס"], type: "guide", category: "פיקדון" },
-  { title: "ביטוח CDW ו-SCDW", href: "/guide#insurance", tags: ["ביטוח", "CDW", "SCDW", "השתתפות עצמית"], type: "guide", category: "ביטוח" },
-  { title: "מה לא מכוסה בביטוח", href: "/guide#not-covered", tags: ["ביטוח", "שמשה", "צמיגים"], type: "guide", category: "ביטוח" },
-  { title: "כיסוי ביטוח משלים", href: "/guide#supplemental", tags: ["ביטוח", "כיסוי", "החזר"], type: "guide", category: "ביטוח" },
-  { title: "נהג צעיר: גיל ותוספות", href: "/guide#young-driver", tags: ["נהג צעיר", "גיל", "תוספת"], type: "guide", category: "גיל הנהג" },
-  { title: "מדיניות דלק: Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"], type: "guide", category: "דלק" },
-  { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"], type: "guide", category: "קילומטרז'" },
-  { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות"], type: "guide", category: "קנסות" },
-  { title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל", href: "/posts/driving-license-abroad", tags: ["רישיון ישראלי", "מסמכים", "רישיון פג", "רישיון זמני", "צילום בטלפון"], type: "post", category: "מסמכים" },
-  { title: "רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר", href: "/posts/international-driving-permit", tags: ["IDP", "רישיון בינלאומי", "אמנת ז'נבה", "אמנת וינה", "מסמכים"], type: "post", category: "מסמכים" },
-  { title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?", href: "/posts/idp-stations", tags: ["IDP", "תחנות", "מנפיקים", "אופטיקה הלפרין", "מוסך מורשה", "ישראל"], type: "post", category: "מסמכים" },
+  {
+    title: "המדריך המלא להשכרת רכב בחו״ל",
+    href: "/guide",
+    tags: ["מדריך", "המדריך המלא", "השכרת רכב", "מדריך מלא", "מסמכים", "ביטוח", "פיקדון", "דלק", "קנסות"],
+    type: "guide-main",
+  },
+  { title: "מסמכים נדרשים להשכרת רכב", href: "/guide#documents", tags: ["מסמכים", "רישיון", "דרכון"], type: "guide-section", category: "מסמכים" },
+  { title: "רישיון נהיגה בינלאומי", href: "/guide#international-license", tags: ["רישיון", "בינלאומי"], type: "guide-section", category: "מסמכים" },
+  { title: "כרטיס אשראי ופיקדון", href: "/guide#deposit", tags: ["אשראי", "פיקדון", "כרטיס"], type: "guide-section", category: "פיקדון" },
+  { title: "ביטוח CDW ו-SCDW", href: "/guide#insurance", tags: ["ביטוח", "CDW", "SCDW", "השתתפות עצמית"], type: "guide-section", category: "ביטוח" },
+  { title: "מה לא מכוסה בביטוח", href: "/guide#not-covered", tags: ["ביטוח", "שמשה", "צמיגים"], type: "guide-section", category: "ביטוח" },
+  { title: "כיסוי ביטוח משלים", href: "/guide#supplemental", tags: ["ביטוח", "כיסוי", "החזר"], type: "guide-section", category: "ביטוח" },
+  { title: "נהג צעיר: גיל ותוספות", href: "/guide#young-driver", tags: ["נהג צעיר", "גיל", "תוספת"], type: "guide-section", category: "גיל הנהג" },
+  { title: "מדיניות דלק: Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"], type: "guide-section", category: "דלק" },
+  { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"], type: "guide-section", category: "קילומטרז'" },
+  { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות"], type: "guide-section", category: "קנסות" },
+  {
+    title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל",
+    href: "/posts/driving-license-abroad",
+    tags: ["רישיון ישראלי", "מסמכים", "רישיון פג", "רישיון זמני", "צילום בטלפון"],
+    type: "post",
+    category: "מסמכים",
+    content: "הרישיון הישראלי הוא המסמך החשוב ביותר בהשכרת רכב בחו״ל. בלי רישיון פיזי בתוקף אין רכב. רישיון פג זה לא בסדר, גם אם רק לכמה ימים. צילום של הרישיון בטלפון לא מספיק לדלפק. השם על הרישיון חייב להתאים בדיוק לשם שעל הדרכון. אם הרישיון העיקרי אבד אפשר להשתמש ברישיון זמני, אבל לא כל חברת השכרה תקבל אותו. רישיון נהיגה חדש שטרם הגיע פיזית הביתה לא מתקבל בדלפק. השכרת רכב בחו״ל דורשת רישיון תקף לפחות שנה לפני הנסיעה.",
+  },
+  {
+    title: "רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר",
+    href: "/posts/international-driving-permit",
+    tags: ["IDP", "רישיון בינלאומי", "אמנת ז'נבה", "אמנת וינה", "מסמכים"],
+    type: "post",
+    category: "מסמכים",
+    content: "רישיון נהיגה בינלאומי הוא חובה לפי אמנת ז'נבה 1949 ואמנת וינה 1968. הוא לא מחליף את הרישיון הישראלי, רק מתרגם אותו לעשר שפות. עלות הוצאת IDP בישראל היא כ-110 ש״ח, תקף לשנה. הדלפק לא תמיד מבקש אותו אבל המשטרה במדינות זרות כן עלולה לדרוש. נהיגה ללא רישיון בינלאומי תקף בחו״ל יכולה לגרור קנס, פסילת רכב ואפילו ביטול ביטוח. אפשר להוציא רישיון בינלאומי בכמה דקות באופטיקה הלפרין או במוסך מורשה. צריך להביא רישיון נהיגה ישראלי בתוקף, תעודת זהות ושתי תמונות פספורט. הרישיון תקף רק יחד עם הרישיון הישראלי.",
+  },
+  {
+    title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?",
+    href: "/posts/idp-stations",
+    tags: ["IDP", "תחנות", "מנפיקים", "אופטיקה הלפרין", "מוסך מורשה", "ישראל"],
+    type: "post",
+    category: "מסמכים",
+    content: "בישראל יש 66 תחנות מורשות שמנפיקות רישיון נהיגה בינלאומי. אופטיקה הלפרין היא הרשת הגדולה והמוכרת ביותר עם סניפים בכל הארץ. בנוסף יש מוסכים מורשים שגם הם רשאים להנפיק. כל תחנה דורשת רישיון נהיגה ישראלי בתוקף, תעודת זהות ושתי תמונות פספורט. שעות פעילות משתנות בין הסניפים, חלק פתוחים גם בערב ובימי שישי. עדיף להגיע מוקדם בעונת השיא כי יש תורים. אפשר לחפש תחנה לפי עיר. הנפקה בפועל לוקחת 5 עד 10 דקות, מקבלים את הרישיון מיד במקום.",
+  },
 ];
 
 const fuse = new Fuse(searchableContent, {
-  keys: ["title", "tags"],
+  keys: [
+    { name: "title", weight: 2 },
+    { name: "tags", weight: 1.5 },
+    { name: "content", weight: 0.6 },
+  ],
   threshold: 0.35,
+  includeMatches: true,
   includeScore: true,
+  ignoreLocation: true,
+  minMatchCharLength: 2,
 });
+
+function extractSnippet(result: FuseResult<SearchItem>): string | null {
+  if (result.item.type !== "post" || !result.item.content) return null;
+  const contentMatch = result.matches?.find((m) => m.key === "content");
+  if (!contentMatch || !contentMatch.indices?.length) return null;
+
+  // Pick the longest matched range to ensure the snippet covers a full word
+  const [start, end] = [...contentMatch.indices].sort((a, b) => (b[1] - b[0]) - (a[1] - a[0]))[0];
+  const content = result.item.content;
+  const padding = 45;
+  let snippetStart = Math.max(0, start - padding);
+  let snippetEnd = Math.min(content.length, end + 1 + padding);
+
+  while (snippetStart > 0 && content[snippetStart] !== " " && content[snippetStart] !== ".") snippetStart--;
+  while (snippetEnd < content.length && content[snippetEnd] !== " " && content[snippetEnd] !== ".") snippetEnd++;
+
+  let snippet = content.slice(snippetStart, snippetEnd).trim();
+  if (snippetStart > 0) snippet = "... " + snippet;
+  if (snippetEnd < content.length) snippet = snippet + " ...";
+
+  return snippet;
+}
+
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function HighlightedText({ text, query }: { text: string; query: string }) {
+  if (!query.trim()) return <>{text}</>;
+  const parts = text.split(new RegExp(`(${escapeRegex(query.trim())})`, "gi"));
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.toLowerCase() === query.trim().toLowerCase() ? (
+          <mark key={i} className="bg-gold/25 text-text-main rounded-sm px-0.5">{part}</mark>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
 
 export default function HeroSearch() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchItem[]>([]);
+  const [results, setResults] = useState<SearchResultWithSnippet[]>([]);
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -47,9 +126,10 @@ export default function HeroSearch() {
       setOpen(false);
       return;
     }
-    const hits = fuse.search(query).slice(0, 6).map((r) => r.item);
-    setResults(hits);
-    setOpen(hits.length > 0);
+    const hits = fuse.search(query).slice(0, 6);
+    const enriched = hits.map((h) => ({ ...h.item, snippet: extractSnippet(h) ?? undefined }));
+    setResults(enriched);
+    setOpen(enriched.length > 0);
   }, [query]);
 
   useEffect(() => {
@@ -79,41 +159,56 @@ export default function HeroSearch() {
       </div>
 
       {open && (
-        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden">
-          <div className="px-5 py-2 bg-surface/60 border-b border-gray-100">
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-              {results.length} תוצאות
-            </p>
-          </div>
-          {results.map((item, i) => (
-            <Link
-              key={i}
-              href={item.href}
-              onClick={() => { setOpen(false); setQuery(""); }}
-              className="flex items-start gap-3 px-5 py-3 hover:bg-surface transition-colors border-b border-gray-50 last:border-0 group"
-            >
-              <div className={`flex-shrink-0 w-9 h-9 rounded-md flex items-center justify-center mt-0.5 ${
-                item.type === "guide" ? "bg-gold/10 text-gold" : "bg-navy/10 text-navy"
-              }`}>
-                {item.type === "guide" ? <BookOpen size={16} /> : <Newspaper size={16} />}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider ${
-                    item.type === "guide" ? "text-gold" : "text-navy"
-                  }`}>
-                    {item.type === "guide" ? "מדריך" : "מאמר"}
-                  </span>
-                  <span className="text-[10px] text-gray-400">·</span>
-                  <span className="text-[10px] text-gray-400">{item.category}</span>
+        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden max-h-[70vh] overflow-y-auto">
+          {results.map((item, i) => {
+            const isMain = item.type === "guide-main";
+            const isSection = item.type === "guide-section";
+            const isPost = item.type === "post";
+
+            return (
+              <Link
+                key={i}
+                href={item.href}
+                onClick={() => { setOpen(false); setQuery(""); }}
+                className={`flex items-start gap-3 px-5 py-3 transition-colors border-b border-gray-50 last:border-0 group ${
+                  isMain ? "bg-gold/5 hover:bg-gold/10" : "hover:bg-surface"
+                }`}
+              >
+                <div className="flex-shrink-0 mt-0.5 text-gray-400 group-hover:text-navy transition-colors">
+                  {isMain && <BookOpen size={18} className="text-gold" />}
+                  {isSection && <Hash size={16} />}
+                  {isPost && <Newspaper size={16} />}
                 </div>
-                <p className="text-text-main text-sm font-medium leading-snug group-hover:text-navy transition-colors">
-                  {item.title}
-                </p>
-              </div>
-              <ArrowLeft size={14} className="text-gray-300 group-hover:text-navy transition-colors flex-shrink-0 mt-2.5" />
-            </Link>
-          ))}
+                <div className="flex-1 min-w-0">
+                  {isMain && (
+                    <span className="inline-block text-[10px] font-bold text-gold uppercase tracking-widest mb-1">
+                      המדריך המלא
+                    </span>
+                  )}
+                  {isSection && (
+                    <span className="block text-[10px] text-gray-400 mb-0.5">
+                      מתוך המדריך המלא <span className="text-gray-300">›</span> {item.category}
+                    </span>
+                  )}
+                  {isPost && (
+                    <span className="block text-[10px] text-gray-400 mb-0.5">
+                      מאמר <span className="text-gray-300">›</span> {item.category}
+                    </span>
+                  )}
+                  <p className={`text-text-main leading-snug group-hover:text-navy transition-colors ${
+                    isMain ? "text-base font-bold" : "text-sm font-medium"
+                  }`}>
+                    <HighlightedText text={item.title} query={query} />
+                  </p>
+                  {isPost && item.snippet && (
+                    <p className="text-xs text-gray-500 mt-1.5 leading-relaxed line-clamp-2">
+                      <HighlightedText text={item.snippet} query={query} />
+                    </p>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

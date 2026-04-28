@@ -105,8 +105,8 @@ export default function PostsArchive() {
         </section>
 
         {/* Posts grid */}
-        <section className="max-w-4xl mx-auto px-6 py-14">
-          <div className="grid md:grid-cols-2 gap-6">
+        <section className="max-w-6xl mx-auto px-6 py-14">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allPosts.map((post) => (
               <article
                 key={post.href}

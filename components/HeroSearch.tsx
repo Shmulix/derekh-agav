@@ -16,9 +16,9 @@ const searchableContent = [
   { title: "מדיניות דלק: Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"] },
   { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"] },
   { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות"] },
-  { title: "השכרת רכב בארה״ב", href: "/posts/usa-car-rental", tags: ["ארה״ב", "אמריקה", "USA"] },
-  { title: "CDW או SCDW: מה לקחת?", href: "/posts/cdw-vs-scdw", tags: ["ביטוח", "CDW", "SCDW"] },
-  { title: "7 טעויות נפוצות בהשכרת רכב", href: "/posts/7-mistakes", tags: ["טעויות", "טיפים"] },
+  { title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל", href: "/posts/driving-license-abroad", tags: ["רישיון ישראלי", "מסמכים", "רישיון פג", "רישיון זמני", "צילום בטלפון"] },
+  { title: "רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר", href: "/posts/international-driving-permit", tags: ["IDP", "רישיון בינלאומי", "אמנת ז'נבה", "אמנת וינה", "מסמכים"] },
+  { title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?", href: "/posts/idp-stations", tags: ["IDP", "תחנות", "מנפיקים", "אופטיקה הלפרין", "מוסך מורשה", "ישראל"] },
 ];
 
 const fuse = new Fuse(searchableContent, {

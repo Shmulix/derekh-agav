@@ -16,9 +16,9 @@ const coverPages = [
 ];
 
 const insidePages = [
-  { src: "/idp-validity.avif", alt: "תנאי תוקף הרישיון הבינלאומי וההגבלות לשימוש בו", caption: "תנאי תוקף" },
-  { src: "/idp-countries.avif", alt: "רשימת המדינות המכירות ברישיון נהיגה בינלאומי", caption: "רשימת מדינות" },
-  { src: "/idp-countries-2.avif", alt: "המשך רשימת המדינות המכירות ברישיון הבינלאומי לפי אמנות 1949 ו-1968", caption: "המשך רשימת מדינות" },
+  { src: "/idp-inside-1.avif", alt: "תנאי תוקף הרישיון הבינלאומי וההגבלות לשימוש בו", caption: "עמוד 1 . תנאי תוקף" },
+  { src: "/idp-inside-2.avif", alt: "רשימת המדינות המכירות ברישיון נהיגה בינלאומי", caption: "עמוד 2 . רשימת מדינות" },
+  { src: "/idp-inside-3.avif", alt: "המשך רשימת המדינות המכירות ברישיון הבינלאומי לפי אמנות 1949 ו-1968", caption: "עמוד 3 . המשך רשימת מדינות" },
 ];
 
 const translationPages = [

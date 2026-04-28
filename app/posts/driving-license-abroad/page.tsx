@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/israeli-license-abroad.avif",
+        url: "/israeli-license-travel.avif",
         width: 1200,
         height: 630,
         alt: "רישיון נהיגה ישראלי להשכרת רכב בחו״ל",
@@ -47,9 +47,9 @@ const articleJsonLd = {
   headline: "רישיון נהיגה ישראלי להשכרת רכב בחו״ל: מה שחייבים לדעת",
   description:
     "הרישיון הישראלי בהשכרת רכב בחו״ל: מה מתקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.",
-  image: "https://derekh-agav.vercel.app/israeli-license-abroad.avif",
+  image: "https://derekh-agav.vercel.app/israeli-license-travel.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-04-27",
+  dateModified: "2026-04-28",
   author: {
     "@type": "Person",
     name: "סמואל פרץ",
@@ -77,7 +77,7 @@ export default function DrivingLicenseAbroadPost() {
         {/* Hero */}
         <section className="relative h-[320px] md:h-[420px] overflow-hidden">
           <Image
-            src="/israeli-license-abroad.avif"
+            src="/israeli-license-travel.avif"
             alt="רישיון נהיגה ישראלי להשכרת רכב בחו״ל"
             fill
             className="object-cover object-center"

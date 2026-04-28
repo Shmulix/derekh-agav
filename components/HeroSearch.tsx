@@ -20,19 +20,27 @@ const searchableContent: SearchItem[] = [
   {
     title: "המדריך המלא להשכרת רכב בחו״ל",
     href: "/guide",
-    tags: ["מדריך", "המדריך המלא", "השכרת רכב", "מדריך מלא", "מסמכים", "ביטוח", "פיקדון", "דלק", "קנסות"],
+    tags: ["מדריך", "המדריך המלא", "השכרת רכב", "מדריך מלא", "מסמכים", "ביטוח", "פיקדון", "דלק", "קנסות", "ציוד חורף", "כבישי אגרה", "חציית גבול"],
     type: "guide-main",
   },
-  { title: "מסמכים נדרשים להשכרת רכב", href: "/guide#documents", tags: ["מסמכים", "רישיון", "דרכון"], type: "guide-section", category: "מסמכים" },
-  { title: "רישיון נהיגה בינלאומי", href: "/guide#international-license", tags: ["רישיון", "בינלאומי"], type: "guide-section", category: "מסמכים" },
-  { title: "כרטיס אשראי ופיקדון", href: "/guide#deposit", tags: ["אשראי", "פיקדון", "כרטיס"], type: "guide-section", category: "פיקדון" },
-  { title: "ביטוח CDW ו-SCDW", href: "/guide#insurance", tags: ["ביטוח", "CDW", "SCDW", "השתתפות עצמית"], type: "guide-section", category: "ביטוח" },
-  { title: "מה לא מכוסה בביטוח", href: "/guide#not-covered", tags: ["ביטוח", "שמשה", "צמיגים"], type: "guide-section", category: "ביטוח" },
-  { title: "כיסוי ביטוח משלים", href: "/guide#supplemental", tags: ["ביטוח", "כיסוי", "החזר"], type: "guide-section", category: "ביטוח" },
-  { title: "נהג צעיר: גיל ותוספות", href: "/guide#young-driver", tags: ["נהג צעיר", "גיל", "תוספת"], type: "guide-section", category: "גיל הנהג" },
-  { title: "מדיניות דלק: Full to Full", href: "/guide#fuel", tags: ["דלק", "מלא", "Full to Full"], type: "guide-section", category: "דלק" },
-  { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited"], type: "guide-section", category: "קילומטרז'" },
-  { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות"], type: "guide-section", category: "קנסות" },
+
+  { title: "מסמכים נדרשים להשכרת רכב", href: "/guide#documents", tags: ["מסמכים", "רישיון", "דרכון", "כרטיס אשראי", "IDP", "רישיון בינלאומי"], type: "guide-section", category: "מסמכים" },
+  { title: "פיקדון בכרטיס אשראי", href: "/guide#deposit", tags: ["פיקדון", "כרטיס אשראי", "deposit", "הפקדה", "אשראי"], type: "guide-section", category: "פיקדון" },
+  { title: "קטגוריית הרכב (ACRISS)", href: "/guide#category", tags: ["קטגוריה", "ACRISS", "קוד", "סוג רכב", "דגם"], type: "guide-section", category: "רכב" },
+  { title: "ביטוח: CDW, SCDW וכיסויים", href: "/guide#insurance", tags: ["ביטוח", "CDW", "SCDW", "TP", "LDW", "השתתפות עצמית", "כיסוי", "השלמה", "צמיגים", "שמשה", "החזר"], type: "guide-section", category: "ביטוח" },
+  { title: "גיל הנהג: צעיר ומבוגר", href: "/guide#young-driver", tags: ["גיל", "נהג צעיר", "נהג מבוגר", "תוספת גיל", "young driver"], type: "guide-section", category: "גיל הנהג" },
+  { title: "איסוף והחזרת הרכב", href: "/guide#pickup", tags: ["איסוף", "החזרה", "after-hours", "one-way", "שעות", "תחנה"], type: "guide-section", category: "איסוף והחזרה" },
+  { title: "כבישי אגרה ותשלומי vignette", href: "/guide#tolls", tags: ["כבישי אגרה", "אגרה", "vignette", "tolls", "ZTL", "אוטוסטרדה"], type: "guide-section", category: "כבישי אגרה" },
+  { title: "חציית גבול עם רכב שכור", href: "/guide#crossborder", tags: ["גבול", "חציית גבול", "border", "מדינות", "אירופה"], type: "guide-section", category: "חציית גבול" },
+  { title: "ציוד חורף ושרשראות שלג", href: "/guide#winter", tags: ["ציוד חורף", "חורף", "שלג", "שרשראות שלג", "צמיגי חורף", "snow", "winter"], type: "guide-section", category: "ציוד חורף" },
+  { title: "כיסאות בטיחות וציוד משלים", href: "/guide#extras", tags: ["כיסא בטיחות", "ציוד", "תינוק", "GPS", "תיבה אוטומטית", "ילדים", "booster"], type: "guide-section", category: "ציוד משלים" },
+  { title: "מדיניות דלק (Full to Full)", href: "/guide#fuel", tags: ["דלק", "Full to Full", "מלא", "fuel", "תדלוק", "סולר", "בנזין"], type: "guide-section", category: "דלק" },
+  { title: "קילומטרז׳: חופשי או מוגבל?", href: "/guide#mileage", tags: ["קילומטרז", "ק״מ", "unlimited", "מוגבל", "חופשי"], type: "guide-section", category: "קילומטרז'" },
+  { title: "קנסות ודוחות בחו״ל", href: "/guide#fines", tags: ["קנסות", "דוחות", "ZTL", "מצלמות", "תנועה", "חניה"], type: "guide-section", category: "קנסות" },
+  { title: "דמי ביטול ואי הגעה", href: "/guide#cancellation", tags: ["ביטול", "דמי ביטול", "no-show", "אי הגעה", "החזר כספי"], type: "guide-section", category: "ביטול" },
+  { title: "תאונה ותקלה מכנית", href: "/guide#emergency", tags: ["תאונה", "תקלה", "חירום", "סיוע בדרכים", "טרקטור", "גרירה"], type: "guide-section", category: "חירום" },
+  { title: "מילון מונחים בהשכרת רכב", href: "/guide#lexicon", tags: ["מילון", "מונחים", "פירוש", "lexicon", "הגדרות"], type: "guide-section", category: "מילון" },
+
   {
     title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל",
     href: "/posts/driving-license-abroad",
@@ -61,15 +69,15 @@ const searchableContent: SearchItem[] = [
 
 const fuse = new Fuse(searchableContent, {
   keys: [
-    { name: "title", weight: 2 },
-    { name: "tags", weight: 1.5 },
-    { name: "content", weight: 0.6 },
+    { name: "title", weight: 3 },
+    { name: "tags", weight: 2 },
+    { name: "content", weight: 1 },
   ],
-  threshold: 0.35,
+  threshold: 0.3,
   includeMatches: true,
   includeScore: true,
   ignoreLocation: true,
-  minMatchCharLength: 2,
+  minMatchCharLength: 3,
 });
 
 function extractSnippet(result: FuseResult<SearchItem>): string | null {
@@ -77,7 +85,6 @@ function extractSnippet(result: FuseResult<SearchItem>): string | null {
   const contentMatch = result.matches?.find((m) => m.key === "content");
   if (!contentMatch || !contentMatch.indices?.length) return null;
 
-  // Pick the longest matched range to ensure the snippet covers a full word
   const [start, end] = [...contentMatch.indices].sort((a, b) => (b[1] - b[0]) - (a[1] - a[0]))[0];
   const content = result.item.content;
   const padding = 45;
@@ -149,7 +156,7 @@ export default function HeroSearch() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="חפש נושא... למשל: ביטוח, פיקדון, נהג צעיר"
+          placeholder="חפש נושא... למשל: ביטוח, פיקדון, ציוד חורף"
           className="flex-1 px-5 py-3 text-text-main text-base outline-none bg-transparent placeholder:text-gray-400"
           dir="rtl"
         />
@@ -159,29 +166,34 @@ export default function HeroSearch() {
       </div>
 
       {open && (
-        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden max-h-[70vh] overflow-y-auto">
+        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden max-h-[70vh] overflow-y-auto text-right">
           {results.map((item, i) => {
             const isMain = item.type === "guide-main";
             const isSection = item.type === "guide-section";
             const isPost = item.type === "post";
+            const hasSnippet = isPost && !!item.snippet;
 
             return (
               <Link
                 key={i}
                 href={item.href}
                 onClick={() => { setOpen(false); setQuery(""); }}
-                className={`flex items-start gap-3 px-5 py-3 transition-colors border-b border-gray-50 last:border-0 group ${
+                className={`flex gap-3 px-5 py-3 transition-colors border-b border-gray-50 last:border-0 group ${
+                  hasSnippet ? "items-start" : "items-center"
+                } ${
                   isMain ? "bg-gold/5 hover:bg-gold/10" : "hover:bg-surface"
                 }`}
               >
-                <div className="flex-shrink-0 mt-0.5 text-gray-400 group-hover:text-navy transition-colors">
+                <div className={`flex-shrink-0 text-gray-400 group-hover:text-navy transition-colors ${
+                  hasSnippet ? "mt-1" : ""
+                }`}>
                   {isMain && <BookOpen size={18} className="text-gold" />}
                   {isSection && <Hash size={16} />}
                   {isPost && <Newspaper size={16} />}
                 </div>
                 <div className="flex-1 min-w-0">
                   {isMain && (
-                    <span className="inline-block text-[10px] font-bold text-gold uppercase tracking-widest mb-1">
+                    <span className="block text-[10px] font-bold text-gold uppercase tracking-widest mb-1">
                       המדריך המלא
                     </span>
                   )}
@@ -200,9 +212,9 @@ export default function HeroSearch() {
                   }`}>
                     <HighlightedText text={item.title} query={query} />
                   </p>
-                  {isPost && item.snippet && (
+                  {hasSnippet && (
                     <p className="text-xs text-gray-500 mt-1.5 leading-relaxed line-clamp-2">
-                      <HighlightedText text={item.snippet} query={query} />
+                      <HighlightedText text={item.snippet!} query={query} />
                     </p>
                   )}
                 </div>

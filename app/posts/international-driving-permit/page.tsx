@@ -55,7 +55,7 @@ const articleJsonLd = {
     "איך מוציאים רישיון נהיגה בינלאומי בישראל, כמה זה עולה, כמה זמן לוקח, ולמה הוא חובה גם אם הדלפק לא תמיד מבקש.",
   image: "https://derekh-agav.vercel.app/idp-travel.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-04-27",
+  dateModified: "2026-04-28",
   author: {
     "@type": "Person",
     name: "סמואל פרץ",

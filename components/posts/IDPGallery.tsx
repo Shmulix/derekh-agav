@@ -10,9 +10,9 @@ const tabs = [
 ];
 
 const coverPages = [
-  { src: "/idp1out.avif", alt: "כריכה קדמית של רישיון נהיגה בינלאומי ישראלי", caption: "עמוד 1 — חזית" },
-  { src: "/idp2out.avif", alt: "עמוד אמצעי של כריכת הרישיון הבינלאומי", caption: "עמוד 2" },
-  { src: "/idp3out.avif", alt: "כריכה אחורית של רישיון נהיגה בינלאומי ישראלי", caption: "עמוד 3 — גב" },
+  { src: "/idp-cover.avif", alt: "טופס רישיון נהיגה בינלאומי ישראלי בעברית ובאנגלית", caption: "עמוד 1 . טופס הרישיון" },
+  { src: "/idp-driver-details.avif", alt: "עמוד פרטי הנהג וטבלת קטגוריות הרכב ברישיון הבינלאומי", caption: "עמוד 2 . פרטי נהג וקטגוריות" },
+  { src: "/idp-categories.avif", alt: "עמוד התמונה, הקטגוריות והתנאים המגבילים ברישיון הבינלאומי", caption: "עמוד 3 . תמונה וסיווגים" },
 ];
 
 const insidePages = [
@@ -59,7 +59,7 @@ export default function IDPGallery() {
       {/* Cover */}
       {active === "cover" && (
         <div>
-          <p className="text-xs text-gray-400 mb-4">הכריכה החיצונית של החוברת — שלושה עמודים</p>
+          <p className="text-xs text-gray-400 mb-4">שלושת העמודים הראשיים של החוברת. זה מה שהדלפק רואה כשפותחים את הרישיון.</p>
           <div className="grid grid-cols-3 gap-3">
             {coverPages.map((page) => (
               <button

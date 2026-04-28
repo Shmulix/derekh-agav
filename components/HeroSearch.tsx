@@ -128,13 +128,30 @@ export default function HeroSearch() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (query.trim().length < 2) {
+    const trimmed = query.trim();
+    if (trimmed.length < 2) {
       setResults([]);
       setOpen(false);
       return;
     }
-    const hits = fuse.search(query).slice(0, 6);
-    const enriched = hits.map((h) => ({ ...h.item, snippet: extractSnippet(h) ?? undefined }));
+
+    const queryWords = trimmed.toLowerCase().split(/\s+/).filter((w) => w.length >= 2);
+
+    const validated = fuse
+      .search(trimmed)
+      .filter((h) => {
+        const haystack = (
+          h.item.title +
+          " " +
+          h.item.tags.join(" ") +
+          " " +
+          (h.item.content ?? "")
+        ).toLowerCase();
+        return queryWords.some((word) => haystack.includes(word));
+      })
+      .slice(0, 6);
+
+    const enriched = validated.map((h) => ({ ...h.item, snippet: extractSnippet(h) ?? undefined }));
     setResults(enriched);
     setOpen(enriched.length > 0);
   }, [query]);

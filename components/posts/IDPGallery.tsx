@@ -17,7 +17,7 @@ const coverPages = [
 
 const insidePages = [
   { src: "/idp1in.avif", alt: "עמוד פנימי ראשון של הרישיון הבינלאומי", caption: "עמוד 1 — פרטי הנהג" },
-  { src: "/idp2in.avif", alt: "עמוד פנימי שני של הרישיון הבינלאומי", caption: "עמוד 2" },
+  { src: "/idp-countries.avif", alt: "רשימת המדינות המכירות ברישיון נהיגה בינלאומי", caption: "רשימת מדינות" },
   { src: "/idp3in.avif", alt: "עמוד פנימי שלישי של הרישיון הבינלאומי", caption: "עמוד 3" },
 ];
 

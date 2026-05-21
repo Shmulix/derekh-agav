@@ -488,7 +488,7 @@ export default function ZtlItalyPost() {
                 המלון שלכם בתוך אזור ZTL? הנה מה לעשות.
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-5">
-                זה מצב נפוץ: הזמנתם מלון מקסים במרכז ההיסטורי, ורק עכשיו גיליתם שהוא בתוך אזור ZTL. אל פאניקה. יש פתרון.
+                זה מצב נפוץ: הזמנתם מלון מקסים במרכז ההיסטורי, ורק עכשיו גיליתם שהוא בתוך אזור ZTL. אל פאניקה. יש פתרון, ובחינם.
               </p>
 
               <div className="border border-green-200 bg-green-50 rounded-xl p-5 mb-6">
@@ -497,14 +497,17 @@ export default function ZtlItalyPost() {
                   <div>
                     <p className="font-bold text-green-800 mb-1">הכלל הזהב</p>
                     <p className="text-sm text-green-700 leading-relaxed">
-                      שלחו את מספר לוחית הרישוי של הרכב למלון <strong>לפני שאתם מגיעים</strong>. המלון ירשום אתכם ב"רשימה הלבנה" (Lista Bianca) של העירייה, וזה יבטל את הקנס שנוצר אוטומטית כשנכנסתם.
+                      ברגע שקיבלתם את מפתח הרכב מדלפק ההשכרה, שלחו את מספר הלוחית למלון. מיד. עוד <strong>לפני</strong> שאתם נוסעים לשם. המלון ירשום אתכם ב"רשימה הלבנה" (Lista Bianca) של העירייה, וזה ימנע את הקנס.
                     </p>
                   </div>
                 </div>
               </div>
 
               <p className="text-base text-gray-700 leading-relaxed mb-6">
-                אבל. וזה אבל חשוב. ההרשמה מכסה רק כניסה ויציאה לצורך פריקת מזוודות וחניה בחניון מאושר. זה <strong>לא</strong> מאפשר לכם לשוטט ברכב בתוך האזור ההיסטורי.
+                הנקודה שכמעט אף אחד לא מסביר: <strong>אי אפשר לשלוח את מספר הלוחית מראש</strong>, כי לא יודעים איזה רכב יקבלו עד הרגע שמגיעים לדלפק ההשכרה. כל מי שמספר לכם "תשלחו 48 שעות לפני" פשוט לא מבין איך זה עובד עם רכב שכור. הרישום הוא בזמן אמת: ברגע שיש לכם לוחית, מעבירים אותה, והמלון מזין אותה למערכת תוך דקות מול העירייה.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-6">
+                ההרשמה הזאת מכסה כניסה ויציאה לצורך פריקת מזוודות וחניה בחניון מאושר של המלון. היא <strong>לא</strong> מאפשרת לכם לנסוע ברכב בתוך מרכז ההיסטורי.
               </p>
 
               <div className="space-y-4 mb-6">
@@ -512,9 +515,9 @@ export default function ZtlItalyPost() {
                   <div className="flex items-start gap-2">
                     <Hotel size={16} className="text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-navy text-sm mb-1">1. צרו קשר עם המלון מראש</p>
+                      <p className="font-bold text-navy text-sm mb-1">1. הודיעו למלון מראש שאתם מגיעים ברכב</p>
                       <p className="text-sm text-gray-700 leading-relaxed">
-                        לפחות 48 שעות לפני ההגעה. שלחו את מספר הרכב המדויק, דגם, צבע, ותאריכי שהייה.
+                        כשמזמינים, או בימים שלפני ההגעה, כתבו למלון שתגיעו ברכב שכור ותעבירו את מספר הלוחית ביום ההגעה. בקשו את האימייל או הוואטסאפ שאליו לשלוח את המספר. ככה כשתגיעו לדלפק ההשכרה, אתם כבר יודעים לאן לשלוח.
                       </p>
                     </div>
                   </div>
@@ -523,9 +526,9 @@ export default function ZtlItalyPost() {
                   <div className="flex items-start gap-2">
                     <MapPin size={16} className="text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-navy text-sm mb-1">2. ברכב שכור: שימו לב</p>
+                      <p className="font-bold text-navy text-sm mb-1">2. שלחו את הלוחית ברגע שקיבלתם את הרכב</p>
                       <p className="text-sm text-gray-700 leading-relaxed">
-                        אתם לא יודעים איזה רכב תקבלו עד שמגיעים לדלפק. ברגע שקיבלתם מפתח, שלחו מיד את מספר הלוחית למלון. <strong>לפני שנוסעים לשם.</strong>
+                        ברגע שיצאתם מדלפק ההשכרה עם המפתחות, שלחו למלון את מספר הלוחית, דגם וצבע הרכב. <strong>לפני שאתם נוסעים לכיוון המלון.</strong> למלונות יש מערכת ייעודית מול העירייה והם יכולים לרשום אתכם תוך דקות.
                       </p>
                     </div>
                   </div>
@@ -534,11 +537,23 @@ export default function ZtlItalyPost() {
                   <div className="flex items-start gap-2">
                     <CheckCircle size={16} className="text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-navy text-sm mb-1">3. בכל כניסה: וודאו שהמלון רשם</p>
+                      <p className="font-bold text-navy text-sm mb-1">3. בקשו אישור בכתב שהרישום בוצע</p>
                       <p className="text-sm text-gray-700 leading-relaxed">
-                        כל פעם שנכנסים לאזור ZTL, גם אם זה רק לאסוף מזוודות לפני צ׳ק-אאוט, וודאו שהמלון ביצע רישום. זה לא אוטומטי. אם שכחו, הקנס הוא עליכם, לא על המלון.
+                        אל תתקדמו לכיוון המלון לפני שקיבלתם הודעת חזרה שאומרת שהלוחית נרשמה. ואת ההודעה הזאת? שמרו אותה. אם בכל זאת יגיע קנס, היא תהיה ההוכחה שלכם בערעור.
                       </p>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="callout-tip mb-6">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle size={16} className="text-amber-700 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-bold text-amber-800 text-sm mb-1">קיבלתם קנס בכל זאת? אפשר לערער, גם בדיעבד.</p>
+                    <p className="text-sm text-amber-700 leading-relaxed">
+                      אם המלון שכח לרשום אתכם, או שהרישום נעשה באיחור, יש לכם 60 יום מקבלת הקנס לערער. צרפו את אישור ההזמנה במלון, את ההתכתבות עם הקבלה, וכל הוכחה שהייתם אורחים באותו לילה. במקרים רבים העירייה מבטלת את הקנס לאחר שמוצג שהייתם זכאים לפטור. הרישום ברשימה הלבנה יכול להיעשות גם רטרואקטיבית, אם המלון מוכן לשתף פעולה.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -549,7 +564,7 @@ export default function ZtlItalyPost() {
                   <div>
                     <p className="font-bold text-red-800 mb-1">Airbnb</p>
                     <p className="text-sm text-red-700 leading-relaxed">
-                      אם שוכרים דירת Airbnb ולא מלון, התהליך הרבה יותר מסובך. ברוב הערים, דירות פרטיות לא יכולות לרשום רכבים. תצטרכו לבקש היתר זמני דרך האתר של העירייה, וההליך הוא באיטלקית.
+                      אם שוכרים דירת Airbnb ולא מלון, התהליך הרבה יותר מסובך. ברוב הערים, דירות פרטיות לא יכולות לרשום רכבים ברשימה הלבנה. ההמלצה היא לחנות מחוץ לאזור ה-ZTL בחניון ציבורי, ולהיכנס לאזור ההיסטורי ברגל או בתחבורה ציבורית. אם בכל זאת צריך להוריד מזוודות, מבקשים היתר זמני באתר של העירייה (תהליך באיטלקית).
                     </p>
                   </div>
                 </div>

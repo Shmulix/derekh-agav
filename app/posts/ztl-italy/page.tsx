@@ -289,22 +289,22 @@ export default function ZtlItalyPost() {
 
               {/* Intro */}
               <p className="text-lg text-gray-800 leading-relaxed mb-5">
-                בואו נדבר ברצינות רגע.
+                מישהו באיטליה, יום אחד, התיישב ואמר לעצמו: "איך אני יכול להרוויח כסף בלי למכור כלום לאף אחד?"
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                אתם שוכרים רכב באיטליה. מעולה. אחד הדברים הכי שווים שאפשר לעשות בחופשה. נופים, חופש, עצמאות.
+                ואז הוא המציא את ה-ZTL.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                אבל. וזה אבל גדול.
+                הרעיון גאוני. אתה משכיר רכב, נוסע לפירנצה ברומנטיקה, חוצה רחוב שנראה לך כמו כל רחוב אחר, ובלי לדעת. סיימת עכשיו לתרום 200 אירו לעירייה. בלי תור, בלי טופס, בלי שאמר לך מישהו תודה.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                באיטליה יש מערכת שנקראת ZTL, קיצור של <strong>Zona Traffico Limitato</strong>, שזה בעברית "אזור תנועה מוגבלת". ובקיצור? אזורים במרכזי הערים ההיסטוריות שאסור להיכנס אליהם ברכב בלי אישור מיוחד.
+                ואני אומר את זה בלי טיפת טינה. באמת. זה אחד הדברים הכי חכמים שראיתי בתחום. צריך לתת קרדיט: הם הצליחו במשהו שאף אחד אחר באירופה לא עשה בהיקף כזה.
               </p>
-              <p className="text-base text-gray-700 leading-relaxed mb-6">
-                הבעיה? אין מחסום פיזי. אין שוטר שעוצר אתכם. אתם נכנסים, ממשיכים לנסוע, הכל נראה רגיל. ואז, חודשיים-שלושה אחרי שחזרתם הביתה: מגיע מכתב עם קנס. ולפעמים כמה מכתבים. כי כל כניסה לאזור ZTL זה קנס נפרד.
+              <p className="text-base text-gray-700 leading-relaxed mb-8">
+                הבעיה היחידה? אתם בצד השני של המשוואה. ואני בצד שלכם. המדריך הזה הוא בדיוק בשביל זה: שתבינו איך זה עובד, ושלא תגלו את זה בדרך היקרה.
               </p>
 
-              <div className="callout-warning mb-8">
+              <div className="callout-warning mb-10">
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -315,10 +315,6 @@ export default function ZtlItalyPost() {
                   </div>
                 </div>
               </div>
-
-              <p className="text-base text-gray-700 leading-relaxed mb-10">
-                אני בתחום הזה מספיק שנים כדי לדעת: ה-ZTL הוא כנראה הנושא מספר אחת שתיירים ישראלים לא מכירים לפני שהם טסים לאיטליה. והם לומדים אותו בדרך הכי יקרה. אז המדריך הזה? הוא כדי שזה לא יקרה לכם.
-              </p>
 
               {/* Section 1 . What is ZTL */}
               <h2 id="what-is-ztl" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">

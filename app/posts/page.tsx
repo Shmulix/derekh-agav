@@ -54,6 +54,17 @@ const allPosts = [
     date: "אפריל 2026",
   },
   {
+    tag: "יעדים",
+    tagColor: "bg-[#2563eb] text-white",
+    title: "ZTL באיטליה: אזורי תנועה מוגבלת ברכב שכור",
+    excerpt:
+      "מעל 60% מהתיירים שמשכירים רכב באיטליה נכנסים לאזור ZTL בלי לדעת. קנס של 80-335 אירו לכל כניסה, פלוס עמלה מחברת ההשכרה. איך לזהות, איך להימנע, ומה לעשות אם המלון בתוך האזור.",
+    readTime: "8 דק׳ קריאה",
+    href: "/posts/ztl-italy",
+    image: "/ztl-italy-hero.avif",
+    date: "מאי 2026",
+  },
+  {
     tag: "ביטוח",
     tagColor: "bg-navy text-white",
     title: "CDW או SCDW: מה באמת שווה לקחת?",

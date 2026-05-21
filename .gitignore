@@ -37,3 +37,15 @@ next-env.d.ts
 .playwright-mcp/
 *.test-screenshot.png
 guide-mobile-*.png
+
+# non-site projects and assets (kept locally, excluded from repo)
+/video/
+/.agents/
+/stitch/
+/images/
+playground.html
+intro-script.txt
+stitch-design-prompt.txt
+car rental guide.txt
+skills-lock.json
+*.claudenotify.log

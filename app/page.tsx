@@ -4,6 +4,7 @@ import { FileText, Globe, Link2, Target, AlertTriangle, Map, MessageCircle, Chev
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
+import { latestPosts, postHref } from "@/lib/posts";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,53 +34,7 @@ const guideTopics = [
   { icon: CheckCircle, label: "השורה התחתונה", href: "/guide#summary" },
 ];
 
-const posts = [
-  {
-    tag: "מסמכים",
-    tagColor: "bg-gold text-navy",
-    title: "רישיון נהיגה ישראלי בהשכרת רכב בחו״ל",
-    excerpt: "מה הדלפק מקבל ומה לא. רישיון פג, רישיון זמני, צילום בטלפון, שם שונה. כל הטעויות שגורמות לאנשים לפספס את הרכב שלהם.",
-    readTime: "6 דק׳ קריאה",
-    href: "/posts/driving-license-abroad",
-    image: "/israeli-driving-license.avif",
-  },
-  {
-    tag: "מסמכים",
-    tagColor: "bg-gold text-navy",
-    title: "רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר",
-    excerpt: "הרישיון הישראלי לא מספיק לבד. לפי החוק הבינלאומי צריך גם רישיון נהיגה בינלאומי. למה הדלפק לא תמיד מבקש, ואיך מוציאים אחד בפחות מרבע שעה.",
-    readTime: "5 דק׳ קריאה",
-    href: "/posts/international-driving-permit",
-    image: "/idp-travel.avif",
-  },
-  {
-    tag: "מסמכים",
-    tagColor: "bg-gold text-navy",
-    title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל?",
-    excerpt: "66 תחנות מורשות ברחבי הארץ עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה.",
-    readTime: "כלי חיפוש",
-    href: "/posts/idp-stations",
-    image: "/idp-counter.avif",
-  },
-  {
-    tag: "ביטוח",
-    tagColor: "bg-navy text-white",
-    title: "CDW או SCDW: מה באמת שווה לקחת?",
-    excerpt: "ההבדל בין ביטוח בסיסי למשלים יכול להסתכם באלפי יורו. הנה איך להחליט נכון, לפי המצב שלך ולא לפי מה שמציעים בדלפק.",
-    readTime: "5 דק׳ קריאה",
-    href: "/posts/cdw-vs-scdw",
-    image: null,
-  },
-  {
-    tag: "יעדים",
-    tagColor: "bg-[#2563eb] text-white",
-    title: "השכרת רכב בארה״ב: כל מה שישראלים צריכים לדעת",
-    excerpt: "ארה״ב זה לא אירופה. הכללים שונים, הביטוח שונה, ואפילו הפיקדון עובד אחרת. הנה מה שחייבים לבדוק לפני שמזמינים.",
-    readTime: "7 דק׳ קריאה",
-    href: "/posts/usa-car-rental",
-    image: null,
-  },
-];
+const posts = latestPosts(3);
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
@@ -376,7 +331,7 @@ export default function HomePage() {
                     <span className="text-gray-400 text-xs flex items-center gap-1">
                       <Clock size={12} /> {post.readTime}
                     </span>
-                    <Link href={post.href} className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors">
+                    <Link href={postHref(post)} className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors">
                       קרא ←
                     </Link>
                   </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, ArrowLeft } from "lucide-react";
+import { booking } from "@/lib/site-config";
 
 export default function MobileFloatingCTA() {
   const [open, setOpen] = useState(false);
@@ -48,20 +49,23 @@ export default function MobileFloatingCTA() {
             {/* Content */}
             <div className="px-6 pt-3 pb-10">
               <p className="text-xs font-bold text-navy/50 uppercase tracking-widest mb-2">
-                בחירת פלטפורמה
+                {booking.download ? "המדריך המלא" : "בחירת פלטפורמה"}
               </p>
               <p className="text-xl font-bold text-navy leading-snug mb-2">
-                גלה איפה הכי כדאי להזמין
+                {booking.download ? "קח את המדריך איתך" : "גלה איפה הכי כדאי להזמין"}
               </p>
               <p className="text-sm text-navy/70 leading-relaxed mb-6">
-                לפני שמגיעים לדלפק. השוואה מלאה של הפלטפורמות הגדולות.
+                {booking.download
+                  ? "גרסת PDF ידידותית, לקריאה גם בלי אינטרנט."
+                  : "לפני שמגיעים לדלפק. השוואה מלאה של הפלטפורמות הגדולות."}
               </p>
               <a
-                href="/posts/rental-platforms"
-                className="flex items-center justify-between w-full bg-navy text-white text-base font-bold px-5 py-4 rounded-2xl active:scale-95 transition-transform"
+                href={booking.href}
+                {...(booking.download ? { download: true } : {})}
+                className="flex items-center justify-between w-full bg-navy text-white text-base font-bold px-5 py-4 rounded-none active:scale-95 transition-transform"
                 onClick={() => setOpen(false)}
               >
-                <span>איפה הכי כדאי להזמין?</span>
+                <span>{booking.download ? "הורד את המדריך" : "איפה הכי כדאי להזמין?"}</span>
                 <ArrowLeft size={18} />
               </a>
             </div>
@@ -83,7 +87,7 @@ export default function MobileFloatingCTA() {
           <X size={16} />
         ) : (
           <>
-            <span>איפה להזמין?</span>
+            <span>{booking.download ? "הורד את המדריך" : "איפה להזמין?"}</span>
             <ArrowLeft size={14} />
           </>
         )}

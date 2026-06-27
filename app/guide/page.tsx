@@ -18,6 +18,9 @@ import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import Reveal from "@/components/Reveal";
 import LaneDash from "@/components/v2/LaneDash";
 import { EbookTile, EbookBanner } from "@/components/guide/EbookCTA";
+import { author } from "@/lib/site-config";
+import BookingCTA from "@/components/BookingCTA";
+import AuthorAvatar from "@/components/AuthorAvatar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -329,6 +332,8 @@ export default function GuidePage() {
                 כתבתי אותו על סמך יותר מעשר שנים בתחום. אם יש שאלה שנשאלת בדלפק, כנראה שאת התשובה תמצא במדריך שלי.
               </p>
 
+              {author.showStory && (
+              <>
               <div className="w-full h-px bg-gray-200 mb-6" />
 
               <p className="text-gray-800 text-lg font-semibold leading-relaxed mb-4">
@@ -416,6 +421,8 @@ export default function GuidePage() {
               <p className="text-gray-600 leading-relaxed mb-2">
                 המדריך הזה לא נכתב מגוגל. לא מפוסטים. הוא נכתב ממה שראיתי קורה, ממה שטיפלתי בו, ממה שלמדתי עשר שנים. כל נקודה כאן יצאה ממקרה אמיתי.
               </p>
+              </>
+              )}
 
               <p className="text-gray-700 font-medium leading-relaxed">
                 תקרא אותו לפני שאתה נוסע. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.
@@ -672,7 +679,7 @@ export default function GuidePage() {
                 <p className="text-sm font-bold text-navy mb-0.5">עכשיו כשאתה מבין את הביטוח:</p>
                 <p className="text-xs text-gray-500">תקרא את ההשוואה שלנו בין הפלטפורמות</p>
               </div>
-              <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-5 flex-shrink-0">איפה להזמין? ←</a>
+              <BookingCTA className="btn-gold text-xs py-2 px-5 flex-shrink-0">איפה להזמין? ←</BookingCTA>
             </div>
 
             {/* ─── 5. DRIVER AGE ────────────────────────────────── */}
@@ -1362,7 +1369,7 @@ export default function GuidePage() {
               <p className="text-slate-300 text-sm mb-3 leading-relaxed">
                 אם הגעת עד כאן, כנראה שהמדריך שווה לך משהו. הדרך הכי טובה לתמוך בתוכן כזה? פשוט תזמין דרך הקישורים שלמטה. אותו מחיר, לפעמים אפילו יותר זול, אותם חברות ההשכרה המוכרות, רק שאני מקבל עמלה קטנה שמאפשרת לי להמשיך לכתוב. עסקה הוגנת.
               </p>
-              <a href="/posts/rental-platforms" className="btn-gold text-sm px-8 py-2.5">איפה הכי כדאי להזמין? השוואה מלאה ←</a>
+              <BookingCTA anon="long" className="btn-gold text-sm px-8 py-2.5">איפה הכי כדאי להזמין? השוואה מלאה ←</BookingCTA>
             </div>
           </article>
 
@@ -1370,15 +1377,9 @@ export default function GuidePage() {
           <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24 space-y-4">
             <div className="p-4 bg-white border border-[#e7e9f0] rounded-none">
               <div className="flex items-center gap-3 mb-3">
-                <Image
-                  src="/samuel.avif"
-                  alt="סמואל פרץ"
-                  width={44}
-                  height={44}
-                  className="rounded-full object-cover flex-shrink-0"
-                />
+                <AuthorAvatar size={44} />
                 <div>
-                  <p className="text-xs font-bold text-navy leading-tight">סמואל פרץ</p>
+                  <p className="text-xs font-bold text-navy leading-tight">{author.name}</p>
                   <p className="text-xs text-gray-400 leading-tight">10+ שנות ניסיון בתעשייה</p>
                 </div>
               </div>
@@ -1395,7 +1396,7 @@ export default function GuidePage() {
             </div>
             <div className="p-4 bg-surface rounded-none border border-[#e7e9f0]">
               <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן להזמין? קרא קודם איפה כדאי.</p>
-              <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-4 w-full text-center block">איפה להזמין? ←</a>
+              <BookingCTA className="btn-gold text-xs py-2 px-4 w-full text-center block">איפה להזמין? ←</BookingCTA>
             </div>
           </aside>
 

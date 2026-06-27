@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import LaneDash from "./LaneDash";
+import { booking } from "@/lib/site-config";
 
 export default function FooterV2() {
   return (
@@ -26,7 +27,7 @@ export default function FooterV2() {
               <li><Link href="/" className="hover:text-white transition-colors">דף הבית</Link></li>
               <li><Link href="/guide" className="hover:text-white transition-colors">המדריך המלא</Link></li>
               <li><Link href="/posts" className="hover:text-white transition-colors">מאמרים</Link></li>
-              <li><a href="/posts/rental-platforms" className="hover:text-white transition-colors">איפה להזמין</a></li>
+              <li><a href={booking.href} {...(booking.download ? { download: true } : {})} className="hover:text-white transition-colors">{booking.download ? "הורד את המדריך" : "איפה להזמין"}</a></li>
             </ul>
           </div>
 

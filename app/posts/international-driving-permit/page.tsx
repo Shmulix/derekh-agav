@@ -6,6 +6,7 @@ import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import IDPGallery from "@/components/posts/IDPGallery";
 import type { Metadata } from "next";
+import { author, booking } from "@/lib/site-config";
 import { AlertTriangle, CheckCircle, ExternalLink, ChevronLeft, Info } from "lucide-react";
 
 const mobileTocItems = [
@@ -58,7 +59,7 @@ const articleJsonLd = {
   dateModified: "2026-04-28",
   author: {
     "@type": "Person",
-    name: "סמואל פרץ",
+    name: author.name,
     url: "https://derekh-agav.vercel.app/about",
     jobTitle: "מומחה השכרת רכב בינלאומית",
     knowsAbout: ["השכרת רכב בינלאומית", "רישיון נהיגה בינלאומי", "ביטוח רכב שכור", "תנאי השכרה בחו״ל"],
@@ -156,14 +157,14 @@ export default function InternationalDrivingLicensePost() {
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
-                src="/samuel.avif"
-                alt="סמואל פרץ"
+                src={author.image}
+                alt={author.name}
                 width={36}
                 height={36}
                 className="rounded-full border-2 border-white/30 flex-shrink-0"
               />
               <div>
-                <p className="text-white text-sm font-semibold leading-none">סמואל פרץ</p>
+                <p className="text-white text-sm font-semibold leading-none">{author.name}</p>
                 <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: אפריל 2026</p>
               </div>
             </div>
@@ -211,14 +212,14 @@ export default function InternationalDrivingLicensePost() {
                 <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/samuel.avif"
-                      alt="סמואל פרץ"
+                      src={author.image}
+                      alt={author.name}
                       width={44}
                       height={44}
                       className="rounded-full border-2 border-gold/40 flex-shrink-0"
                     />
                     <div>
-                      <p className="font-bold text-navy text-sm leading-tight">סמואל פרץ</p>
+                      <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
                       <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
                     </div>
                   </div>
@@ -755,14 +756,14 @@ export default function InternationalDrivingLicensePost() {
                 <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/samuel.avif"
-                      alt="סמואל פרץ"
+                      src={author.image}
+                      alt={author.name}
                       width={44}
                       height={44}
                       className="rounded-full border-2 border-gold/40 flex-shrink-0"
                     />
                     <div>
-                      <p className="font-bold text-navy text-sm leading-tight">סמואל פרץ</p>
+                      <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
                       <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
                     </div>
                   </div>
@@ -803,10 +804,10 @@ export default function InternationalDrivingLicensePost() {
                     השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
                   </p>
                   <a
-                    href="/posts/rental-platforms"
+                    href={booking.href}
                     className="btn-gold text-xs px-4 py-2 w-full block text-center"
                   >
-                    איפה להזמין? ←
+                    {booking.short}
                   </a>
                 </div>
 

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileTOC from "@/components/guide/MobileTOC";
 import type { Metadata } from "next";
+import { author } from "@/lib/site-config";
 import { CheckCircle, AlertTriangle, ExternalLink, ChevronLeft } from "lucide-react";
 
 // NOTE (placeholder) : contenu éditorial SIMULÉ en attendant les vraies affiliations.
@@ -109,7 +110,7 @@ const articleJsonLd = {
   dateModified: "2026-06-27", // update this on every edit
   author: {
     "@type": "Person",
-    name: "סמואל פרץ",
+    name: author.name,
     url: "https://derekh-agav.vercel.app/about",
   },
   publisher: {
@@ -153,14 +154,14 @@ export default function RentalPlatformsPost() {
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
-                src="/samuel.avif"
-                alt="סמואל פרץ"
+                src={author.image}
+                alt={author.name}
                 width={36}
                 height={36}
                 className="rounded-full border-2 border-white/30 flex-shrink-0"
               />
               <div>
-                <p className="text-white text-sm font-semibold leading-none">סמואל פרץ</p>
+                <p className="text-white text-sm font-semibold leading-none">{author.name}</p>
                 <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: יוני 2026</p>
               </div>
             </div>
@@ -194,14 +195,14 @@ export default function RentalPlatformsPost() {
                 <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/samuel.avif"
-                      alt="סמואל פרץ"
+                      src={author.image}
+                      alt={author.name}
                       width={44}
                       height={44}
                       className="rounded-full border-2 border-gold/40 flex-shrink-0"
                     />
                     <div>
-                      <p className="font-bold text-navy text-sm leading-tight">סמואל פרץ</p>
+                      <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
                       <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
                     </div>
                   </div>

@@ -164,6 +164,22 @@ L'état détaillé du guide (19 sections) et de chaque post vit dans `docs/conte
 
 ---
 
+## MODE ANONYME (backend only)
+
+Interrupteur centralisé dans `lib/site-config.ts` : `export const ANONYMOUS_MODE = false | true`.
+Modifiable UNIQUEMENT via Claude Code (pas d'UI admin, pas exposé au front).
+
+Quand `true` :
+- L'identité de l'auteur (nom « סמואל פרץ », photo `/samuel.avif`, récit de carrière dans le guide) est remplacée par une identité générique (`מומחה דרך אגב`, avatar `/avatar-anon.png`, récit masqué).
+- Tous les CTA d'affiliation (« où réserver » → `/posts/rental-platforms`) deviennent le téléchargement du PDF (`/guide-ebook.pdf`).
+- JSON-LD auteur passe en `Organization`.
+
+Quand `false` : comportement normal, rien ne change.
+
+Tout passe par `lib/site-config.ts` (`author`, `authorJsonLd`, `booking`) + les composants `components/BookingCTA.tsx` et `components/AuthorAvatar.tsx`. Pour activer/désactiver : changer le booléen, `npm run build`, `/deploy-site`.
+
+---
+
 ## DEPLOYMENT
 
 The site is live on Vercel: **https://derekh-agav.vercel.app**

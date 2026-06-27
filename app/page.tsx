@@ -8,6 +8,8 @@ import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
 import { latestPosts, postHref } from "@/lib/posts";
+import BookingCTA from "@/components/BookingCTA";
+import { author, authorJsonLd } from "@/lib/site-config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -63,12 +65,10 @@ const websiteJsonLd = {
       "publisher": { "@id": "https://derekh-agav.vercel.app/#author" },
     },
     {
-      "@type": "Person",
       "@id": "https://derekh-agav.vercel.app/#author",
-      "name": "סמואל פרץ",
+      ...authorJsonLd,
       "jobTitle": "מומחה השכרת רכב בינלאומית",
       "knowsAbout": ["השכרת רכב", "ביטוח רכב שכור", "חוזי השכרה בינלאומיים"],
-      "url": "https://derekh-agav.vercel.app/about",
     },
   ],
 };
@@ -117,9 +117,9 @@ export default function HomePage() {
                 <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center">
                   קרא את המדריך ←
                 </Link>
-                <a href="/posts/rental-platforms" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
+                <BookingCTA anon="long" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
                   איפה הכי כדאי להזמין?
-                </a>
+                </BookingCTA>
               </div>
             </Reveal>
 
@@ -172,7 +172,7 @@ export default function HomePage() {
                 עשר שנים מאחורי הדלפק.
                 <span className="block text-gold">עכשיו אני בצד שלך.</span>
               </p>
-              <p className={`mt-7 text-xs tracking-[0.15em] text-[#5b6377] ${mono}`}>סמואל פרץ · INTL. CAR RENTAL EXPERT</p>
+              <p className={`mt-7 text-xs tracking-[0.15em] text-[#5b6377] ${mono}`}>{author.name} · INTL. CAR RENTAL EXPERT</p>
             </Reveal>
             <Reveal delay={120}>
               <div className="space-y-4 text-[#3a4255] leading-relaxed text-base md:text-lg border-r-2 border-gold pr-6">
@@ -289,9 +289,9 @@ export default function HomePage() {
               <p className="text-slate-300 text-lg mt-5 leading-relaxed">
                 עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
               </p>
-              <a href="/posts/rental-platforms" className="inline-block bg-gold text-navy text-base font-bold px-10 py-4 rounded-none hover:bg-[#b8941f] transition-colors mt-9">
+              <BookingCTA anon="long" className="inline-block bg-gold text-navy text-base font-bold px-10 py-4 rounded-none hover:bg-[#b8941f] transition-colors mt-9">
                 השוואה מלאה ←
-              </a>
+              </BookingCTA>
             </Reveal>
           </div>
         </section>

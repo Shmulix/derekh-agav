@@ -4,6 +4,7 @@ import { FileText, Globe, Link2, Target, AlertTriangle, Map, MessageCircle, Chev
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
+import Testimonials from "@/components/Testimonials";
 import { latestPosts, postHref } from "@/lib/posts";
 import type { Metadata } from "next";
 
@@ -218,7 +219,7 @@ export default function HomePage() {
                 },
                 {
                   icon: Map,
-                  title: "מכסה את כל הספקים והמדינות",
+                  title: "מכסה את כל חברות ההשכרה והמדינות",
                   text: "לא מדריך גנרי. מידע שרלוונטי לישראלים שנוסעים לחו״ל.",
                 },
                 {
@@ -346,6 +347,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* ─── TESTIMONIALS ─────────────────────────────────────── */}
+        <Testimonials />
 
         {/* ─── FINAL CTA ────────────────────────────────────────── */}
         <section className="bg-navy py-16 border-t-4 border-gold">

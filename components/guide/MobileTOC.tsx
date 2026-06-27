@@ -132,36 +132,29 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       )}
 
       {/* Floating button */}
-      <div className="fixed bottom-[4.5rem] right-4 z-50 animate-fab-pop">
-      <button
-        onClick={open ? () => setOpen(false) : handleOpen}
-        className={`h-12 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 active:scale-95 ${
-          open
-            ? "bg-navy text-white w-12"
-            : collapsed
-              ? "bg-white border border-[#e7e9f0] text-navy w-12"
-              : "bg-white border border-[#e7e9f0] text-navy gap-2 px-4 pr-5"
-        }`}
-        aria-label="תוכן עניינים"
-      >
-        {open ? (
-          <X size={18} />
-        ) : collapsed ? (
-          <List size={18} />
-        ) : (
-          <>
-            <List size={16} className="flex-shrink-0" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-xs font-bold whitespace-nowrap">תוכן עניינים</span>
-              {activeId && (
-                <span className="text-[10px] text-navy/50 whitespace-nowrap font-normal">
-                  {items.find((i) => i.id === activeId)?.label}
-                </span>
-              )}
-            </div>
-          </>
-        )}
-      </button>
+      <div className="fixed bottom-[4.7rem] right-4 z-50 animate-fab-pop" style={{ animationDelay: "60ms" }}>
+        <button
+          onClick={open ? () => setOpen(false) : handleOpen}
+          className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
+            open ? "bg-navy text-white w-11" : "bg-white border border-[#e7e9f0] text-navy ps-3.5 pe-3.5"
+          }`}
+          aria-label="תוכן עניינים"
+        >
+          {open ? (
+            <X size={18} />
+          ) : (
+            <>
+              <List size={16} className="flex-shrink-0" />
+              <span
+                className={`whitespace-nowrap text-xs font-bold transition-all duration-300 ease-out ${
+                  collapsed ? "max-w-0 opacity-0 ms-0" : "max-w-[10rem] opacity-100 ms-2"
+                }`}
+              >
+                תוכן עניינים
+              </span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

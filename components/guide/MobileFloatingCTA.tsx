@@ -76,26 +76,26 @@ export default function MobileFloatingCTA() {
       )}
 
       {/* Floating button */}
-      <div className="fixed bottom-4 right-4 z-50 animate-fab-pop">
+      <div className="fixed bottom-4 right-4 z-50 animate-fab-pop" style={{ animationDelay: "140ms" }}>
         <button
           onClick={open ? () => setOpen(false) : handleOpen}
-          className={`h-10 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 active:scale-95 ${
-            open
-              ? "bg-navy text-white w-10"
-              : collapsed
-                ? "bg-gold text-navy w-10"
-                : "bg-gold text-navy gap-2 px-4 font-bold text-sm hover:bg-gold/90"
+          className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
+            open ? "bg-navy text-white w-11" : "bg-gold text-navy ps-3.5 pe-3.5 hover:bg-gold/90"
           }`}
           aria-label="איפה הכי כדאי להזמין?"
         >
           {open ? (
-            <X size={16} />
-          ) : collapsed ? (
-            <ArrowLeft size={16} />
+            <X size={18} />
           ) : (
             <>
-              <span className="whitespace-nowrap">{booking.download ? "הורד את המדריך" : "איפה להזמין?"}</span>
-              <ArrowLeft size={14} />
+              <ArrowLeft size={16} className="flex-shrink-0" />
+              <span
+                className={`whitespace-nowrap font-bold text-sm transition-all duration-300 ease-out ${
+                  collapsed ? "max-w-0 opacity-0 ms-0" : "max-w-[12rem] opacity-100 ms-2"
+                }`}
+              >
+                {booking.download ? "הורד את המדריך" : "איפה להזמין?"}
+              </span>
             </>
           )}
         </button>

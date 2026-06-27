@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Replie les FAB en fonction de la VITESSE de scroll :
-//  - scroll doux  -> reste déplié (false)
-//  - scroll rapide -> se replie (true)
-//  - quand ça ralentit / s'arrête -> se redéploie (false)
-// threshold en px/ms. Respecte prefers-reduced-motion (jamais de repli).
-export function useScrollCollapse(threshold = 0.6, idleMs = 350) {
+// Replie les FAB selon la VITESSE de scroll, avec hystérésis (anti-clignotement) :
+//  - se replie quand la vitesse dépasse `high`
+//  - se redéploie quand elle redescend sous `low`, ou à l'arrêt
+//  - scroll doux (< low) => reste déplié
+// Vitesse en px/ms. Respecte prefers-reduced-motion (jamais de repli).
+export function useScrollCollapse(high = 0.75, low = 0.32, idleMs = 450) {
   const [collapsed, setCollapsed] = useState(false);
+  const state = useRef(false);
   const lastY = useRef(0);
   const lastT = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -18,18 +19,26 @@ export function useScrollCollapse(threshold = 0.6, idleMs = 350) {
     lastY.current = window.scrollY;
     lastT.current = performance.now();
 
+    const apply = (v: boolean) => {
+      if (state.current !== v) {
+        state.current = v;
+        setCollapsed(v);
+      }
+    };
+
     const onScroll = () => {
       const y = window.scrollY;
       const t = performance.now();
       const dt = t - lastT.current || 16;
-      const v = Math.abs(y - lastY.current) / dt; // vitesse px/ms
+      const vel = Math.abs(y - lastY.current) / dt;
       lastY.current = y;
       lastT.current = t;
 
-      setCollapsed(v > threshold); // rapide -> replié, doux -> déplié
+      if (!state.current && vel > high) apply(true);
+      else if (state.current && vel < low) apply(false);
 
       if (timer.current) clearTimeout(timer.current);
-      timer.current = setTimeout(() => setCollapsed(false), idleMs); // arrêt -> redéploie
+      timer.current = setTimeout(() => apply(false), idleMs);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -37,7 +46,7 @@ export function useScrollCollapse(threshold = 0.6, idleMs = 350) {
       window.removeEventListener("scroll", onScroll);
       if (timer.current) clearTimeout(timer.current);
     };
-  }, [threshold, idleMs]);
+  }, [high, low, idleMs]);
 
   return collapsed;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { List, X, FileText, Receipt, Package, AlertTriangle, CalendarX } from "lucide-react";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
 import {
@@ -38,7 +38,14 @@ interface TocItem {
 export default function MobileTOC({ items }: { items: TocItem[] }) {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const collapsed = useScrollCollapse();
+  const collapsedByScroll = useScrollCollapse();
+  const [manual, setManual] = useState(false);
+  const manualTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shrunk = collapsedByScroll && !manual;
+
+  useEffect(() => {
+    if (!collapsedByScroll) setManual(false);
+  }, [collapsedByScroll]);
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -70,6 +77,21 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
   const handleOpen = () => {
     window.dispatchEvent(new CustomEvent("mobileFloatCTAClose"));
     setOpen(true);
+  };
+
+  // Tap : si réduit, un 1er tap le ré-agrandit ; sinon il ouvre le sommaire.
+  const onFab = () => {
+    if (open) {
+      setOpen(false);
+      return;
+    }
+    if (shrunk) {
+      setManual(true);
+      if (manualTimer.current) clearTimeout(manualTimer.current);
+      manualTimer.current = setTimeout(() => setManual(false), 3500);
+    } else {
+      handleOpen();
+    }
   };
 
   return (
@@ -132,9 +154,9 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       )}
 
       {/* Floating button */}
-      <div className="fixed bottom-[4.7rem] right-4 z-50 animate-fab-pop" style={{ animationDelay: "60ms" }}>
+      <div className="fixed bottom-[4.7rem] right-4 z-50 animate-fab-pop" style={{ animationDelay: "650ms" }}>
         <button
-          onClick={open ? () => setOpen(false) : handleOpen}
+          onClick={onFab}
           className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
             open ? "bg-navy text-white w-11" : "bg-white border border-[#e7e9f0] text-navy ps-3.5 pe-3.5"
           }`}
@@ -147,7 +169,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
               <List size={16} className="flex-shrink-0" />
               <span
                 className={`whitespace-nowrap text-xs font-bold transition-all duration-300 ease-out ${
-                  collapsed ? "max-w-0 opacity-0 ms-0" : "max-w-[10rem] opacity-100 ms-2"
+                  shrunk ? "max-w-0 opacity-0 ms-0" : "max-w-[10rem] opacity-100 ms-2"
                 }`}
               >
                 תוכן עניינים

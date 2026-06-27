@@ -1,52 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-// Replie les FAB selon la VITESSE de scroll, avec hystérésis (anti-clignotement) :
-//  - se replie quand la vitesse dépasse `high`
-//  - se redéploie quand elle redescend sous `low`, ou à l'arrêt
-//  - scroll doux (< low) => reste déplié
-// Vitesse en px/ms. Respecte prefers-reduced-motion (jamais de repli).
-export function useScrollCollapse(high = 0.75, low = 0.32, idleMs = 450) {
+// Replie les FAB selon la POSITION dans la page :
+//  - déplié dans les premiers `startPct` et les derniers `endPct` de la page
+//  - replié au milieu
+// Respecte prefers-reduced-motion (jamais de repli).
+export function useScrollCollapse(startPct = 0.2, endPct = 0.2) {
   const [collapsed, setCollapsed] = useState(false);
-  const state = useRef(false);
-  const lastY = useRef(0);
-  const lastT = useRef(0);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    lastY.current = window.scrollY;
-    lastT.current = performance.now();
+    let ticking = false;
 
-    const apply = (v: boolean) => {
-      if (state.current !== v) {
-        state.current = v;
-        setCollapsed(v);
+    const compute = () => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) {
+        setCollapsed(false);
+        return;
       }
+      const p = window.scrollY / max; // 0 (haut) .. 1 (bas)
+      setCollapsed(p > startPct && p < 1 - endPct);
     };
 
     const onScroll = () => {
-      const y = window.scrollY;
-      const t = performance.now();
-      const dt = t - lastT.current || 16;
-      const vel = Math.abs(y - lastY.current) / dt;
-      lastY.current = y;
-      lastT.current = t;
-
-      if (!state.current && vel > high) apply(true);
-      else if (state.current && vel < low) apply(false);
-
-      if (timer.current) clearTimeout(timer.current);
-      timer.current = setTimeout(() => apply(false), idleMs);
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(compute);
+      }
     };
 
+    compute();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (timer.current) clearTimeout(timer.current);
+      window.removeEventListener("resize", onScroll);
     };
-  }, [high, low, idleMs]);
+  }, [startPct, endPct]);
 
   return collapsed;
 }

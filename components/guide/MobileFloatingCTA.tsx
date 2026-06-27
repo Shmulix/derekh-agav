@@ -1,13 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { booking } from "@/lib/site-config";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
 
 export default function MobileFloatingCTA() {
   const [open, setOpen] = useState(false);
-  const collapsed = useScrollCollapse();
+  const collapsedByScroll = useScrollCollapse();
+  const [manual, setManual] = useState(false);
+  const manualTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shrunk = collapsedByScroll && !manual;
+
+  // Si on sort de la zone du milieu, on oublie l'expansion manuelle.
+  useEffect(() => {
+    if (!collapsedByScroll) setManual(false);
+  }, [collapsedByScroll]);
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -23,6 +31,21 @@ export default function MobileFloatingCTA() {
   const handleOpen = () => {
     window.dispatchEvent(new CustomEvent("mobileFloatTOCClose"));
     setOpen(true);
+  };
+
+  // Tap : si le bouton est réduit, un 1er tap le ré-agrandit ; sinon il ouvre.
+  const onFab = () => {
+    if (open) {
+      setOpen(false);
+      return;
+    }
+    if (shrunk) {
+      setManual(true);
+      if (manualTimer.current) clearTimeout(manualTimer.current);
+      manualTimer.current = setTimeout(() => setManual(false), 3500);
+    } else {
+      handleOpen();
+    }
   };
 
   return (
@@ -76,9 +99,9 @@ export default function MobileFloatingCTA() {
       )}
 
       {/* Floating button */}
-      <div className="fixed bottom-4 right-4 z-50 animate-fab-pop" style={{ animationDelay: "140ms" }}>
+      <div className="fixed bottom-4 right-4 z-50 animate-fab-pop" style={{ animationDelay: "750ms" }}>
         <button
-          onClick={open ? () => setOpen(false) : handleOpen}
+          onClick={onFab}
           className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
             open ? "bg-navy text-white w-11" : "bg-gold text-navy ps-3.5 pe-3.5 hover:bg-gold/90"
           }`}
@@ -91,7 +114,7 @@ export default function MobileFloatingCTA() {
               <ArrowLeft size={16} className="flex-shrink-0" />
               <span
                 className={`whitespace-nowrap font-bold text-sm transition-all duration-300 ease-out ${
-                  collapsed ? "max-w-0 opacity-0 ms-0" : "max-w-[12rem] opacity-100 ms-2"
+                  shrunk ? "max-w-0 opacity-0 ms-0" : "max-w-[12rem] opacity-100 ms-2"
                 }`}
               >
                 {booking.download ? "הורד את המדריך" : "איפה להזמין?"}

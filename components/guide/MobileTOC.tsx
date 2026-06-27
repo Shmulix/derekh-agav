@@ -80,13 +80,13 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-none shadow-2xl animate-in slide-in-from-bottom duration-200 flex flex-col" style={{maxHeight: "95vh"}}>
+          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-2xl shadow-2xl animate-in slide-in-from-bottom duration-200 flex flex-col" style={{maxHeight: "95vh"}}>
             {/* Drag handle */}
             <div className="flex justify-center pt-2 pb-1 flex-shrink-0">
               <div className="w-10 h-1 rounded-full bg-gray-200" />
             </div>
             {/* Header */}
-            <div className="bg-navy mx-4 mb-2 rounded-none px-4 py-2.5 flex items-center justify-between flex-shrink-0">
+            <div className="bg-navy mx-4 mb-2 rounded-lg px-4 py-2.5 flex items-center justify-between flex-shrink-0">
               <div>
                 <p className="text-xs font-bold text-gold uppercase tracking-widest">תוכן עניינים</p>
                 {activeId && (
@@ -132,7 +132,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       {/* Floating button */}
       <button
         onClick={open ? () => setOpen(false) : handleOpen}
-        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-none flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
+        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-xl flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"
             : "bg-white border border-[#e7e9f0] text-navy pr-5"

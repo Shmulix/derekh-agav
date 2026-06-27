@@ -135,16 +135,19 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       <div className="fixed bottom-[4.5rem] right-4 z-50 animate-fab-pop">
       <button
         onClick={open ? () => setOpen(false) : handleOpen}
-        style={collapsed && !open ? { transform: "translateX(72%)" } : undefined}
-        className={`h-12 rounded-xl flex items-center gap-2 px-4 transition-all duration-300 active:scale-95 ${
+        className={`h-12 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 active:scale-95 ${
           open
-            ? "bg-navy text-white w-12 justify-center"
-            : "bg-white border border-[#e7e9f0] text-navy pr-5"
+            ? "bg-navy text-white w-12"
+            : collapsed
+              ? "bg-white border border-[#e7e9f0] text-navy w-12"
+              : "bg-white border border-[#e7e9f0] text-navy gap-2 px-4 pr-5"
         }`}
         aria-label="תוכן עניינים"
       >
         {open ? (
           <X size={18} />
+        ) : collapsed ? (
+          <List size={18} />
         ) : (
           <>
             <List size={16} className="flex-shrink-0" />

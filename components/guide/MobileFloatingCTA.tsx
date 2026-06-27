@@ -1,21 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { booking } from "@/lib/site-config";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
 
 export default function MobileFloatingCTA() {
   const [open, setOpen] = useState(false);
-  const collapsedByScroll = useScrollCollapse();
-  const [manual, setManual] = useState(false);
-  const manualTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const shrunk = collapsedByScroll && !manual;
-
-  // Si on sort de la zone du milieu, on oublie l'expansion manuelle.
-  useEffect(() => {
-    if (!collapsedByScroll) setManual(false);
-  }, [collapsedByScroll]);
+  const shrunk = useScrollCollapse();
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -33,19 +25,10 @@ export default function MobileFloatingCTA() {
     setOpen(true);
   };
 
-  // Tap : si le bouton est réduit, un 1er tap le ré-agrandit ; sinon il ouvre.
+  // Un seul tap : ouvre (ou ferme), même quand le bouton est réduit.
   const onFab = () => {
-    if (open) {
-      setOpen(false);
-      return;
-    }
-    if (shrunk) {
-      setManual(true);
-      if (manualTimer.current) clearTimeout(manualTimer.current);
-      manualTimer.current = setTimeout(() => setManual(false), 3500);
-    } else {
-      handleOpen();
-    }
+    if (open) setOpen(false);
+    else handleOpen();
   };
 
   return (

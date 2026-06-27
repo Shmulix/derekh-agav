@@ -55,11 +55,11 @@ export default function MobileFloatingCTA() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-[55] bg-black/40"
+            className="fixed inset-0 z-[55] bg-black/40 animate-fade-in"
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-gold rounded-t-2xl shadow-2xl animate-in slide-in-from-bottom duration-200">
+          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-gold rounded-t-2xl shadow-2xl animate-sheet-up">
             {/* Drag handle */}
             <div className="flex justify-center pt-3 pb-1">
               <div className="w-10 h-1 rounded-full bg-navy/20" />

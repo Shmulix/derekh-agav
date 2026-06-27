@@ -102,11 +102,11 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-[55] bg-black/50"
+            className="fixed inset-0 z-[55] bg-black/50 animate-fade-in"
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-2xl shadow-2xl animate-in slide-in-from-bottom duration-200 flex flex-col" style={{maxHeight: "95vh"}}>
+          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-2xl shadow-2xl animate-sheet-up flex flex-col" style={{maxHeight: "95vh"}}>
             {/* Drag handle */}
             <div className="flex justify-center pt-2 pb-1 flex-shrink-0">
               <div className="w-10 h-1 rounded-full bg-gray-200" />

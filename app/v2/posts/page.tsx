@@ -85,7 +85,7 @@ export default function V2Posts() {
               <p className="text-slate-400 mt-3 max-w-lg leading-relaxed">
                 המדריך המלא מכסה מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. 18 פרקים, בסדר הנכון.
               </p>
-              <Link href="/guide" className="inline-flex items-center gap-2 bg-gold text-navy text-sm font-bold px-7 py-3.5 rounded-sm hover:bg-[#b8941f] transition-colors mt-7">
+              <Link href="/guide" className="inline-flex items-center gap-2 bg-gold text-navy text-sm font-bold px-7 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors mt-7">
                 למדריך המלא <ArrowLeft size={16} />
               </Link>
             </div>

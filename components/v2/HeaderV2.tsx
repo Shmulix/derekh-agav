@@ -57,7 +57,7 @@ export default function HeaderV2() {
         <div className="hidden md:block">
           <a
             href="/posts/rental-platforms"
-            className={`text-sm font-bold px-5 py-2.5 rounded-sm transition-colors ${
+            className={`text-sm font-bold px-5 py-2.5 rounded-none transition-colors ${
               onLight
                 ? "bg-navy text-white hover:bg-[#0e1a30]"
                 : "bg-gold text-navy hover:bg-[#b8941f]"
@@ -85,7 +85,7 @@ export default function HeaderV2() {
               {l.label}
             </Link>
           ))}
-          <a href="/posts/rental-platforms" className="bg-navy text-white text-sm font-bold text-center px-5 py-3 rounded-sm mt-1">
+          <a href="/posts/rental-platforms" className="bg-navy text-white text-sm font-bold text-center px-5 py-3 rounded-none mt-1">
             איפה להזמין? ←
           </a>
         </div>

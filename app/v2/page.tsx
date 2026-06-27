@@ -6,6 +6,7 @@ import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
+import TestimonialsV2 from "@/components/v2/TestimonialsV2";
 import { latestPosts, postHref } from "@/lib/posts";
 
 const mono = "[font-family:var(--font-mono-v2)]";
@@ -50,7 +51,7 @@ export default function V2Home() {
               <p className="text-gold text-xs font-bold tracking-[0.25em] mb-7">המדריך העצמאי הישראלי</p>
             </Reveal>
             <Reveal y={16} delay={80}>
-              <h1 className="text-white font-black tracking-tight leading-[0.95] text-[2.7rem] sm:text-6xl md:text-7xl max-w-4xl">
+              <h1 className="text-white font-black tracking-[-0.035em] leading-[0.95] text-[clamp(2.6rem,8vw,5.5rem)] max-w-4xl">
                 תדע הכל לפני<br />שתגיע לדלפק.
               </h1>
             </Reveal>
@@ -67,10 +68,10 @@ export default function V2Home() {
 
             <Reveal y={14} delay={360}>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-sm hover:bg-[#b8941f] transition-colors text-center">
+                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center">
                   קרא את המדריך ←
                 </Link>
-                <a href="/posts/rental-platforms" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-sm hover:bg-white/10 transition-colors text-center">
+                <a href="/posts/rental-platforms" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
                   איפה הכי כדאי להזמין?
                 </a>
               </div>
@@ -172,7 +173,7 @@ export default function V2Home() {
               <p className="text-[#5b6377] leading-relaxed text-lg mt-6 max-w-md">
                 18 פרקים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
               </p>
-              <Link href="/guide" className="inline-flex items-center gap-2 bg-navy text-white text-sm font-bold px-7 py-3.5 rounded-sm hover:bg-[#0e1a30] transition-colors mt-8">
+              <Link href="/guide" className="inline-flex items-center gap-2 bg-navy text-white text-sm font-bold px-7 py-3.5 rounded-none hover:bg-[#0e1a30] transition-colors mt-8">
                 לכל 18 הפרקים <ArrowLeft size={16} />
               </Link>
             </Reveal>
@@ -231,6 +232,9 @@ export default function V2Home() {
           </div>
         </section>
 
+        {/* ───────────── TESTIMONIALS ───────────── */}
+        <TestimonialsV2 />
+
         {/* ───────────── FINAL CTA ───────────── */}
         <section className="bg-[#0b1730]">
           <LaneDash />
@@ -240,7 +244,7 @@ export default function V2Home() {
               <p className="text-slate-300 text-lg mt-5 leading-relaxed">
                 עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
               </p>
-              <a href="/posts/rental-platforms" className="inline-block bg-gold text-navy text-base font-bold px-10 py-4 rounded-sm hover:bg-[#b8941f] transition-colors mt-9">
+              <a href="/posts/rental-platforms" className="inline-block bg-gold text-navy text-base font-bold px-10 py-4 rounded-none hover:bg-[#b8941f] transition-colors mt-9">
                 השוואה מלאה ←
               </a>
             </Reveal>

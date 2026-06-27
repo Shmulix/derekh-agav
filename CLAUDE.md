@@ -11,7 +11,7 @@ Expert-written content (10+ years industry experience). Maximum trust, zero fluf
 
 ### Site Name
 **דרך אגב** — Logo: text-based, navy + gold dot or road-dash accent.
-Tagline: "כי מי שיודע — לא מחכה לדלפק"
+Tagline: "כי מי שיודע, לא מחכה לדלפק"
 
 ### Tone of Voice
 **Friendly-professional with character. Raw but smart. No corporate speak.**
@@ -31,7 +31,7 @@ Key attributes:
 
 ### Voice Examples (use as reference for all copy):
 - Instead of: "חשוב לוודא שברשותך את כל המסמכים הנדרשים"
-  Write: "בלי רישיון פיזי? אין רכב. זה לא עיניים צרות — ככה זה עובד."
+  Write: "בלי רישיון פיזי? אין רכב. זה לא עיניים צרות. ככה זה עובד."
 - Instead of: "מומלץ לרכוש ביטוח מקיף"
   Write: "CDW בלי SCDW זה כמו לצאת בגשם עם מטרייה שבורה. כיסוי חלקי זה לא כיסוי."
 - Instead of: "האתר מספק מידע מקצועי ואמין"
@@ -65,15 +65,15 @@ This has been violated repeatedly. It is unacceptable.
 
 ## TECH STACK
 
-- Framework: Next.js 14 (App Router)
+- Framework: Next.js 14.2.5 (App Router)
 - Language: TypeScript
-- Styling: Tailwind CSS + shadcn/ui
-- Fonts: Heebo (Google Fonts)
+- Styling: Tailwind CSS (PAS de shadcn/ui : UI faite main avec Tailwind)
+- Fonts: Heebo (next/font/google)
 - Icons: Lucide React
 - Search: Fuse.js (client-side fuzzy search)
-- MDX: next-mdx-remote (blog posts & guides)
-- Images: next/image with optimization (AVIF format preferred)
-- SEO: next/metadata API
+- Content: pages React `.tsx` natives. Le guide et CHAQUE post sont des composants `.tsx` (PAS de MDX, PAS de next-mdx-remote). Métadonnées des posts centralisées dans `lib/posts.ts`.
+- Images: next/image + AVIF (sharp pour l'optimisation)
+- SEO: API next/metadata + JSON-LD (`articleJsonLd` dans chaque post)
 - Deployment: Vercel
 
 ---
@@ -93,30 +93,16 @@ This has been violated repeatedly. It is unacceptable.
 
 ---
 
-## SITE STRUCTURE
+## FICHIERS D'ÉTAT VIVANTS (NE PAS dupliquer ici)
 
-```
-/                        → Home page
-/guide                   → Full car rental guide
-/posts                   → Blog/articles index
-/posts/[slug]            → Individual MDX post
-/posts/rental-platforms  → Platform comparison post (planned — main CTA target)
-/about                   → About page
-```
+L'état qui CHANGE avec le site ne vit PAS dans ce CLAUDE.md (qui ne contient que des règles stables). Il est dans des fichiers dédiés, à tenir à jour :
 
----
+- **`docs/site-architecture.md`** : toutes les routes, pages, composants, liens cassés, problèmes connus.
+  Règle : mettre à jour à chaque ajout / suppression / renommage de page, route ou composant.
+- **`docs/content/`** : état du contenu. `_index.md` (sommaire posts + guide) + `guide.md` + un fichier par post.
+  Règle : mettre à jour `_index.md` ET le fichier concerné à chaque création ou modification substantielle d'un post ou d'une section du guide.
 
-## HOME PAGE SECTIONS (in order)
-
-1. **Header** (sticky) — Logo + Nav + CTA → `/posts/rental-platforms`
-2. **Hero** — H1 + subtitle + Fuse.js content search + 2 CTAs
-3. **About the site** — 3-column: reliable info / all topics / no conflict of interest
-4. **Who am I** — Author credibility, 10+ years experience, trust metrics
-5. **Why this content is better** — 4-column dark navy section
-6. **The Guide** — Split layout, topics grid, CTA to /guide
-7. **Latest Posts** — 3-column card grid
-8. **Final CTA Banner** — Navy + gold, links to `/posts/rental-platforms`
-9. **Footer** — Logo + links + affiliate disclaimer + copyright
+Ces fichiers complètent la mémoire (`project_context.md`) et le journal (`.claude/journal/JOURNAL.md`). AVANT de travailler sur une page ou un contenu, lire le fichier correspondant.
 
 ---
 
@@ -132,11 +118,25 @@ This has been violated repeatedly. It is unacceptable.
 
 ---
 
-## IMAGES
+## IMAGES — RÈGLE DE TRAITEMENT (MANDATORY)
 
-- Home hero: `/public/hero-bg.avif` (1920×1080, AVIF)
-- Guide banner: `/public/hero-bg-banner.avif` (1920×480, AVIF, cropped 200px above bottom)
-- Both use `next/image fill priority` + gradient overlay: `from-[#0d1f3c]/90 via-navy/80 to-[#0a1628]/85`
+Toute image mise en ligne doit être traitée et optimisée AVANT intégration. Jamais d'image brute (PNG/JPG lourd, mauvaise dimension) servie telle quelle.
+
+**Étape 1 — Cadrer l'usage (avant de toucher l'image).**
+Que l'utilisateur fournisse l'image OU que Claude décide d'en ajouter une, TOUJOURS clarifier d'abord (demander à l'utilisateur si ce n'est pas évident, sinon se le poser) :
+1. **But de l'image** : à quoi sert-elle (hero, illustration d'article, vignette, icône, image OG) ?
+2. **Emplacement** : sur quelle page et dans quel bloc exactement ?
+3. **Taille d'affichage réelle** : pleine largeur, carte, demi-colonne… (détermine la dimension cible).
+
+**Étape 2 — Traiter (avec `sharp`, déjà installé).**
+- **Format : AVIF**, toujours.
+- **Dimensions adaptées à l'usage réel** : ne pas servir du 4000px pour un affichage de 600px. Viser ~1.5x à 2x la taille d'affichage max (pour les écrans Retina), pas plus.
+- **Compresser** pour le meilleur ratio poids / qualité (pas de perte visible).
+- Renseigner `width`/`height` et un `alt` descriptif (perf + SEO + accessibilité).
+
+**Objectif** : l'image la plus légère possible, à la dimension juste, en AVIF. Priorité à la vitesse de chargement, au SEO et à la cohérence d'affichage.
+
+Référence d'images existantes et hero des posts : voir `docs/site-architecture.md`.
 
 ---
 
@@ -150,47 +150,17 @@ This has been violated repeatedly. It is unacceptable.
 - No intrusive popups, no forced redirects, no sales panels
 - Affiliate disclaimer visible in footer on every page
 
+> NOTE (état actuel) : tous les CTAs pointent vers `/posts/rental-platforms`. Tant que les affiliations réelles ne sont pas en place, cette page contient un **contenu simulé (placeholder éditorial)** pour éviter le 404. À remplacer par le vrai comparatif quand les deals affiliés seront prêts.
+
 ### CTA text convention:
 - Long CTAs (hero, end of guide, final banner): `"איפה הכי כדאי להזמין? השוואה מלאה ←"`
 - Short CTAs (header, aside, floating button): `"איפה להזמין? ←"`
 
 ---
 
-## /guide PAGE — CURRENT STATE
+## CONTENU (GUIDE & POSTS)
 
-Sections implemented:
-1. מסמכים נדרשים (DocTiles) — Israeli license, international license, passport, credit card
-2. פיקדון — deposit mechanics
-3. קטגוריית הרכב — ACRISS codes, vehicle category table
-4. ביטוח (InsuranceTabs + AccordionItem) — CDW/TP/LDW, SCDW/Super TP, supplemental coverage
-5. גיל הנהג — young driver, senior driver
-6. איסוף והחזרה — including after-hours, one-way fee
-7. חציית גבול — border crossing, with tip to declare destination at booking
-8. ציוד חורף — winter equipment by country table
-9. דלק — all fuel policy types
-10. קילומטרז׳ — unlimited vs. limited
-11. קנסות ודוחות
-12. השורה התחתונה
-13. מילון מונחים (glossary)
-
-Insurance exclusion logic (important — maintain this):
-- **Orange category** (AlertCircle): "לא מכוסה בדרך הביטוח הבסיסי" — coverable via supplemental insurance
-- **Red category** (XCircle): "לא מכוסה בשום מקרה, עם שום ביטוח או כיסוי" — never covered regardless
-
-Mobile components:
-- `MobileFloatingCTA` — gold pill at `bottom-4 right-4`, z-50; expands to panel z-[60]
-- `MobileTOC` — repositioned to `bottom-[4.5rem]` to avoid overlap with CTA
-
-**Planned sections to add:**
-- כבישי אגרה (toll roads) — vignettes, automatic systems, admin fees from rental companies
-- ציוד לטיול משפחתי / פריטים לפריבוק — child seats, GPS, automatic transmission, baby equipment
-
----
-
-## PLANNED POSTS
-
-- `/posts/rental-platforms` — Main platform comparison: Rentalcars, DiscoverCars, Kayak, etc. Compared by service quality (not just price): cancellation policy, insurance options, customer support, extras. **This is the primary affiliate target of all CTAs.**
-- Individual posts extractable from guide sections (licenses abroad, insurance deep-dive, etc.)
+L'état détaillé du guide (19 sections) et de chaque post vit dans `docs/content/` : `_index.md` (sommaire), `guide.md`, et un fichier `post-*.md` par article. La logique d'exclusion d'assurance à maintenir (catégories orange / rouge) est documentée dans `docs/content/guide.md`.
 
 ---
 
@@ -199,6 +169,28 @@ Mobile components:
 The site is live on Vercel: **https://derekh-agav.vercel.app**
 GitHub repo: **https://github.com/Shmulix/derekh-agav**
 Branch: **master**
+
+### VERCEL ACCESS — already authenticated, no need to search
+
+The Vercel CLI is logged in as user **`shmulix`**, team **`samuels-projects-963d06d6`**.
+The project on Vercel is **`derekh-agav`** → live URL **https://derekh-agav.vercel.app**.
+
+I have full account access through the CLI (no web dashboard clicking, but everything else):
+
+```bash
+npx vercel whoami                       # confirm logged-in user
+npx vercel projects ls                  # list all projects on the account
+npx vercel ls derekh-agav               # list deployments for this project
+npx vercel inspect <deployment-url>     # details of a specific deployment
+npx vercel logs <deployment-url>        # build + runtime logs
+npx vercel env ls                       # list env variables
+npx vercel domains ls                   # list domains
+npx vercel --prod                       # deploy current local code to production
+```
+
+To check whether the LIVE site matches local code: compare the latest production
+deployment age (`npx vercel ls derekh-agav`) against recent local commits (`git log`).
+If local is ahead, run `/deploy-site` to sync.
 
 ### MANDATORY: After every modification — NO EXCEPTIONS
 
@@ -223,6 +215,40 @@ After every modification to a post page (any file under `app/posts/`), update th
 ```ts
 dateModified: "2026-04-15", // update this on every edit
 ```
+
+---
+
+## JOURNAL DE BORD : MÉMOIRE DE SESSION (MANDATORY)
+
+Le projet tient un journal de bord persistant pour garder le contexte propre d'une session à l'autre. Tout est sous `.claude/journal/` (local, hors git). Deux niveaux :
+
+1. **Capture automatique (déterministe, via hooks)** : `.claude/journal/auto-YYYY-MM.log`
+   Chaque prompt et chaque fin de tour avec changements de fichiers y sont écrits automatiquement par les hooks utilisateur `UserPromptSubmit` et `Stop`. C'est le filet de sécurité. Ne pas éditer à la main.
+
+2. **Journal curé (lisible, écrit par Claude)** : `.claude/journal/JOURNAL.md`
+   À LA FIN DE CHAQUE ITÉRATION qui modifie le projet ou prend une décision, AJOUTER une entrée en bas du fichier, AVANT de lancer `/deploy-site` :
+
+   ```
+   ## YYYY-MM-DD HH:MM : titre court de l'itération
+   - Demande : ce que l'utilisateur a demandé (1 ligne)
+   - Fait : ce qui a été fait (puces courtes)
+   - Fichiers : fichiers touchés
+   - Déploiement : oui (URL) / non / n/a
+   ```
+
+   Ne PAS journaliser les échanges triviaux (questions sans action, "merci"). Une entrée = une itération de travail réelle.
+
+Au démarrage, le hook `SessionStart` affiche automatiquement les dernières entrées du JOURNAL.md + l'activité auto récente. Lire ce bloc en premier pour savoir où on en est.
+
+Pour l'état GLOBAL haut niveau (vue d'ensemble, pas chronologique), continuer à mettre à jour la mémoire `project_context.md` aux jalons importants.
+
+### Ancrage permanent (à chaque session ET chaque prompt)
+
+Sources de vérité à consulter en continu, dans cet ordre : **CLAUDE.md** (ce fichier, instructions projet) → **mémoire** (`MEMORY.md` + `project_context.md`) → **journal de bord** (`.claude/journal/JOURNAL.md`).
+
+- Le CLAUDE.md et la mémoire sont **auto-chargés à chaque démarrage de session** et persistent toute la session (ré-injectés même après une compaction de contexte).
+- Le hook `UserPromptSubmit` **ré-injecte à chaque prompt** un rappel + les dernières entrées du journal.
+- Toujours raisonner à partir de ces sources pour ne jamais perdre le fil. En cas de doute sur l'état du projet, relire `project_context.md` et le journal AVANT d'agir.
 
 ---
 

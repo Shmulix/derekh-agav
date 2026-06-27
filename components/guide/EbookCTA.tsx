@@ -9,7 +9,7 @@ export function EbookTile() {
     <a
       href={PDF_HREF}
       download={PDF_NAME}
-      className="block mt-6 rounded-none bg-navy p-4 hover:bg-navy-dark transition-colors"
+      className="block rounded-none bg-navy p-4 hover:bg-navy-dark transition-colors"
     >
       <div className="w-9 h-9 rounded-none bg-gold/15 flex items-center justify-center mb-3">
         <BookOpen size={18} className="text-gold" />

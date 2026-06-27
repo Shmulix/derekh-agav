@@ -308,7 +308,6 @@ export default function GuidePage() {
             <p className="text-[11px] font-bold tracking-[0.15em] text-gold mb-2">תוכן עניינים</p>
             <LaneDash className="mb-3 max-w-[90px]" />
             <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
-            <EbookTile />
           </aside>
 
           {/* Main content */}
@@ -1394,10 +1393,7 @@ export default function GuidePage() {
                 המדריך הזה מבוסס על ניסיון אישי ומקרים מהשטח. הוא מדריך, לא חוזה. כל חברת השכרה קובעת את תנאיה בעצמה. סכומי פיקדון, דרישות ביטוח, גיל מינימום, רשימת מסמכים. כל אלה יכולים להיות שונים ממה שכתוב כאן. תמיד תבדוק את תנאי חברת ההשכרה שלך לפני שנוסעים.
               </p>
             </div>
-            <div className="p-4 bg-surface rounded-none border border-[#e7e9f0]">
-              <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן להזמין? קרא קודם איפה כדאי.</p>
-              <BookingCTA className="btn-gold text-xs py-2 px-4 w-full text-center block">איפה להזמין? ←</BookingCTA>
-            </div>
+            <EbookTile />
           </aside>
 
         </div>

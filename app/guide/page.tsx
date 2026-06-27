@@ -18,7 +18,7 @@ import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import Reveal from "@/components/Reveal";
 import LaneDash from "@/components/v2/LaneDash";
 import { EbookTile, EbookBanner } from "@/components/guide/EbookCTA";
-import { author } from "@/lib/site-config";
+import { author, authorIntro } from "@/lib/site-config";
 import BookingCTA from "@/components/BookingCTA";
 import AuthorAvatar from "@/components/AuthorAvatar";
 import type { Metadata } from "next";
@@ -1384,9 +1384,9 @@ export default function GuidePage() {
                 </div>
               </div>
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
-                עשר שנים בתעשיית השכרת הרכב: תפעול, ניהול ושירות לקוחות מהצד של חברת ההשכרה. המדריך הזה מבוסס על מה שראיתי בשטח.
+                {authorIntro.sidebar}
               </p>
-              <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>
+              {author.showStory && <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>}
             </div>
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-none">
               <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>

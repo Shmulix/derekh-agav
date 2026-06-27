@@ -9,7 +9,7 @@ import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
 import { latestPosts, postHref } from "@/lib/posts";
 import BookingCTA from "@/components/BookingCTA";
-import { author, authorJsonLd } from "@/lib/site-config";
+import { author, authorJsonLd, authorIntro } from "@/lib/site-config";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -169,16 +169,16 @@ export default function HomePage() {
             <Reveal>
               <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Author</p>
               <p className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-[1.1] mt-4">
-                עשר שנים מאחורי הדלפק.
-                <span className="block text-gold">עכשיו אני בצד שלך.</span>
+                {authorIntro.headline[0]}
+                <span className="block text-gold">{authorIntro.headline[1]}</span>
               </p>
               <p className={`mt-7 text-xs tracking-[0.15em] text-[#5b6377] ${mono}`}>{author.name} · INTL. CAR RENTAL EXPERT</p>
             </Reveal>
             <Reveal delay={120}>
               <div className="space-y-4 text-[#3a4255] leading-relaxed text-base md:text-lg border-r-2 border-gold pr-6">
-                <p>עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי: סוכן הזמנות, ניהול אופרציה, ניהול מוקד, ובסוף שיווק שותפים.</p>
-                <p>כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.</p>
-                <p className="text-navy font-semibold">האתר הזה הוא מה שהייתי רוצה שיהיה קיים כשהלקוחות שלי שאלו אותי ״אז מה לעשות?״</p>
+                {authorIntro.paragraphs.map((t, i) => (
+                  <p key={i} className={i === authorIntro.paragraphs.length - 1 ? "text-navy font-semibold" : undefined}>{t}</p>
+                ))}
               </div>
             </Reveal>
           </div>

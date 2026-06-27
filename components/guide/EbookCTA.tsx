@@ -1,13 +1,13 @@
 import { Download, BookOpen } from "lucide-react";
+import { pdfHref } from "@/lib/site-config";
 
-const PDF_HREF = "/guide-ebook.pdf";
 const PDF_NAME = "דרך-אגב-המדריך-המלא.pdf";
 
 // Tuile pour la gouttière (sidebar sticky, desktop)
 export function EbookTile() {
   return (
     <a
-      href={PDF_HREF}
+      href={pdfHref}
       download={PDF_NAME}
       className="block rounded-none bg-navy p-4 hover:bg-navy-dark transition-colors"
     >
@@ -41,7 +41,7 @@ export function EbookBanner() {
         </div>
       </div>
       <a
-        href={PDF_HREF}
+        href={pdfHref}
         download={PDF_NAME}
         className="btn-gold text-xs py-2.5 px-5 flex items-center gap-2 flex-shrink-0 justify-center"
       >

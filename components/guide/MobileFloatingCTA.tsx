@@ -33,7 +33,7 @@ export default function MobileFloatingCTA() {
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-gold rounded-t-3xl shadow-2xl animate-in slide-in-from-bottom duration-200">
+          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-gold rounded-t-none shadow-2xl animate-in slide-in-from-bottom duration-200">
             {/* Drag handle */}
             <div className="flex justify-center pt-3 pb-1">
               <div className="w-10 h-1 rounded-full bg-navy/20" />
@@ -78,8 +78,8 @@ export default function MobileFloatingCTA() {
         onClick={open ? () => setOpen(false) : handleOpen}
         className={`fixed bottom-4 right-4 z-50  transition-all duration-150 active:scale-95 ${
           open
-            ? "bg-navy text-white h-10 w-10 rounded-full flex items-center justify-center"
-            : "bg-gold text-navy h-10 rounded-full flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"
+            ? "bg-navy text-white h-10 w-10 rounded-none flex items-center justify-center"
+            : "bg-gold text-navy h-10 rounded-none flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"
         }`}
         aria-label="איפה הכי כדאי להזמין?"
       >

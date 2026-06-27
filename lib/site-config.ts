@@ -48,7 +48,10 @@ export const authorJsonLd = ANONYMOUS_MODE
   ? { "@type": "Organization", name: "דרך אגב", url: "https://derekh-agav.vercel.app" }
   : { "@type": "Person", name: "סמואל פרץ", url: "https://derekh-agav.vercel.app/about" };
 
+// PDF du guide servi selon le mode (anonyme = version sans identité, même style v2).
+export const pdfHref = ANONYMOUS_MODE ? "/guide-ebook-anon.pdf" : "/guide-ebook.pdf";
+
 // CTA « où réserver » : lien d'affiliation (normal) ou téléchargement du PDF (anonyme).
 export const booking = ANONYMOUS_MODE
-  ? { href: "/guide-ebook.pdf", download: true, short: "הורד את המדריך ←", long: "הורד את המדריך המלא (PDF) ←" }
+  ? { href: pdfHref, download: true, short: "הורד את המדריך ←", long: "הורד את המדריך המלא (PDF) ←" }
   : { href: "/posts/rental-platforms", download: false, short: "איפה להזמין? ←", long: "איפה הכי כדאי להזמין? השוואה מלאה ←" };

@@ -20,6 +20,7 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 | `/posts/idp-stations` | `app/posts/idp-stations/page.tsx` | ✅ En ligne | 66 stations IDP, outil de recherche |
 | `/posts/rental-platforms` | `app/posts/rental-platforms/page.tsx` | ✅ En ligne (placeholder) | Comparatif éditorial simulé. Cible de tous les CTAs. Liens plateformes = sites officiels, à remplacer par les liens d'affiliation. Pas dans `posts.ts` (hors archive). |
 | `/about` | (à créer) | ❌ 404 | Lien « אודות » présent dans la nav (`Header.tsx`) mais page inexistante. |
+| `/redesign` | `app/redesign/page.tsx` | 🧪 Preview (noindex) | TEST de refonte de la home (bento + trust & authority, charte navy/gold). Isolé, ne remplace pas `/`. Réutilise Header/Footer/HeroSearch. À supprimer ou promouvoir selon décision. |
 
 Pas de route dynamique `[slug]` : chaque post est une page `.tsx` autonome (pas de MDX).
 

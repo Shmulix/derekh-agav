@@ -106,7 +106,7 @@ export default function IDPLocations() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="חפש לפי עיר או שם המקום..."
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm bg-white text-right focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-200"
+          className="w-full border border-[#e7e9f0] rounded-none px-4 py-3 text-sm bg-white text-right focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-200"
         />
         {search && (
           <button
@@ -127,7 +127,7 @@ export default function IDPLocations() {
 
       {/* Cards */}
       {filtered.length === 0 ? (
-        <div className="text-center py-10 text-gray-400 text-sm border border-gray-100 rounded-xl">
+        <div className="text-center py-10 text-gray-400 text-sm border border-[#e7e9f0] rounded-none">
           לא נמצאו תחנות לחיפוש זה
         </div>
       ) : (
@@ -135,7 +135,7 @@ export default function IDPLocations() {
           {paginated.map((loc, i) => (
             <div
               key={i}
-              className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-orange-200 hover:shadow-sm transition-all"
+              className="bg-white border border-[#e7e9f0] rounded-none px-4 py-3 hover:border-orange-200  transition-all"
             >
               <div className="flex items-start justify-between gap-2 mb-1">
                 <span className="font-bold text-navy text-sm leading-snug">{loc.name}</span>
@@ -144,7 +144,7 @@ export default function IDPLocations() {
                 </span>
               </div>
               <p className="text-xs text-gray-500 mb-2">{loc.address}</p>
-              <div className="flex items-center justify-between gap-2 pt-2 border-t border-gray-100">
+              <div className="flex items-center justify-between gap-2 pt-2 border-t border-[#e7e9f0]">
                 <a
                   href={`tel:${loc.phone.replace(/-/g, "")}`}
                   className="text-xs font-bold text-orange-700 hover:text-orange-900"
@@ -165,7 +165,7 @@ export default function IDPLocations() {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="text-sm font-semibold px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="text-sm font-semibold px-4 py-2 rounded-none border border-[#e7e9f0] bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             → הקודם
           </button>
@@ -173,7 +173,7 @@ export default function IDPLocations() {
           <button
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
-            className="text-sm font-semibold px-4 py-2 rounded-lg border border-gray-200 bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="text-sm font-semibold px-4 py-2 rounded-none border border-[#e7e9f0] bg-white text-gray-600 hover:border-navy hover:text-navy disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             הבא ←
           </button>

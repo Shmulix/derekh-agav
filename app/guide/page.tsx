@@ -174,7 +174,7 @@ function SectionTitle({ id, icon, children }: { id: string; icon: string; childr
 }
 
 function SectionIntro({ children }: { children: React.ReactNode }) {
-  return <p className="text-gray-600 text-sm leading-relaxed mb-6 pb-4 border-b border-gray-100">{children}</p>;
+  return <p className="text-gray-600 text-sm leading-relaxed mb-6 pb-4 border-b border-[#e7e9f0]">{children}</p>;
 }
 
 function Callout({ type, children }: { type: "warning" | "tip" | "info"; children: React.ReactNode }) {
@@ -185,7 +185,7 @@ function Callout({ type, children }: { type: "warning" | "tip" | "info"; childre
   }[type];
   const Icon = config.icon;
   return (
-    <div className={`${config.bg} border-r-4 ${config.border} p-4 rounded-sm my-5 flex gap-3`}>
+    <div className={`${config.bg} border-r-4 ${config.border} p-4 rounded-none my-5 flex gap-3`}>
       <Icon size={16} className={`${config.iconColor} flex-shrink-0 mt-0.5`} />
       <div className="text-sm leading-relaxed text-gray-700">{children}</div>
     </div>
@@ -194,7 +194,7 @@ function Callout({ type, children }: { type: "warning" | "tip" | "info"; childre
 
 function StatCard({ value, label, sub }: { value: string; label: string; sub?: string }) {
   return (
-    <div className="bg-surface border border-gray-200 rounded-lg p-4 text-center">
+    <div className="bg-surface border border-[#e7e9f0] rounded-none p-4 text-center">
       <p className="text-2xl font-extrabold text-navy mb-0.5">{value}</p>
       <p className="text-xs font-semibold text-gray-600">{label}</p>
       {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
@@ -204,7 +204,7 @@ function StatCard({ value, label, sub }: { value: string; label: string; sub?: s
 
 function DocCard({ icon, title, required, items }: { icon: string; title: string; required: "always" | "sometimes"; items: string[] }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 hover:border-navy hover:shadow-sm transition-all">
+    <div className="bg-white border border-[#e7e9f0] rounded-none p-4 hover:border-navy  transition-all">
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
           <span className="text-2xl">{icon}</span>
@@ -230,8 +230,8 @@ function DocCard({ icon, title, required, items }: { icon: string; title: string
 
 function FuelPolicyCard({ title, subtitle, tag, desc, highlighted }: { title: string; subtitle: string; tag: string; desc: string; highlighted?: boolean }) {
   return (
-    <div className={`rounded-lg p-4 border-2 transition-all ${
-      highlighted ? "border-navy bg-navy text-white" : "border-gray-200 bg-white"
+    <div className={`rounded-none p-4 border-2 transition-all ${
+      highlighted ? "border-navy bg-navy text-white" : "border-[#e7e9f0] bg-white"
     }`}>
       <span className={`text-xs font-bold px-2 py-0.5 rounded mb-2 inline-block ${
         highlighted ? "bg-gold text-navy" : "bg-gray-100 text-gray-600"
@@ -344,7 +344,7 @@ export default function GuidePage() {
 
               {/* Career timeline */}
               <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: "/samuel.avif", alt: "סמואל פרץ" }} headerName="סמואל פרץ" headerSubtitle="מומחה השכרת רכב בינלאומית · 10 שנות ניסיון" expandLabel="קרא עוד">
-              <div className="bg-surface rounded-xl p-1 mb-2">
+              <div className="bg-surface rounded-none p-1 mb-2">
                 <div className="hidden lg:flex items-center gap-4 mb-6">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gold">
                     <Image
@@ -403,7 +403,7 @@ export default function GuidePage() {
                 טיפלתי באלפי מקרים ישירות. אלפי שיחות. ואני יכול להגיד לך בדיוק מה גורם לאנשים להישאר בדלפק בלי רכב, לשלם פיקדון שלא ציפו לו, לגלות שהביטוח לא מכסה מה שחשבו ועוד הפתעות לא נעימות.
               </p>
 
-              <div className="border-r-4 border-gold bg-yellow-50/60 pr-5 py-5 rounded-sm mb-6">
+              <div className="border-r-4 border-gold bg-yellow-50/60 pr-5 py-5 rounded-none mb-6">
                 <p className="text-gray-700 leading-relaxed text-sm italic mb-3">
                   תמיד יוצא אותו משפט. מאנשים חכמים, מסודרים, כאלה שהכינו הכל מראש:
                 </p>
@@ -420,11 +420,11 @@ export default function GuidePage() {
                 תקרא אותו לפני שאתה נוסע. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.
               </p>
 
-              <div className="border-t border-gray-100 mt-10" />
+              <div className="border-t border-[#e7e9f0] mt-10" />
             </div>
 
             {/* Mobile: unified navy block */}
-            <div className="lg:hidden bg-navy rounded-xl p-5 mb-8">
+            <div className="lg:hidden bg-navy rounded-none p-5 mb-8">
               <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">לפני שמתחילים: הכי חשוב</p>
               <p className="text-white font-bold text-sm mb-2 leading-snug">
                 תנאי ההשכרה של חברת ההשכרה שלך. קרא אותם. כולם.
@@ -438,7 +438,7 @@ export default function GuidePage() {
             </div>
 
             {/* ─── IMPORTANT NOTICE (desktop) ───────────────────── */}
-            <div className="hidden lg:block bg-navy rounded-xl p-6 mb-10">
+            <div className="hidden lg:block bg-navy rounded-none p-6 mb-10">
               <p className="text-gold text-xs font-bold uppercase tracking-widest mb-3">לפני שמתחילים: הכי חשוב</p>
               <p className="text-white font-bold text-base mb-3 leading-snug">
                 תנאי ההשכרה של חברת ההשכרה שלך. קרא אותם. כולם.
@@ -459,7 +459,7 @@ export default function GuidePage() {
 
             <DocTiles />
 
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 text-sm text-gray-600 leading-relaxed">
+            <div className="bg-gray-50 border border-[#e7e9f0] rounded-none p-4 mb-6 text-sm text-gray-600 leading-relaxed">
               <span className="font-bold text-gray-700">✈️ כרטיס עלייה למטוס:</span> לא תמיד נדרש, אבל יש חברות השכרה שמבקשות אותו בנקודת האיסוף. בעיקר בארה״ב ובמדינות מסוימות באירופה. שמור אותו נגיש, גם כרטיס הטיסה חזור. אם לא תצטרך, מעולה. אם יבקשו ולא יהיה לך, תצא להדפיס.
             </div>
 
@@ -486,7 +486,7 @@ export default function GuidePage() {
                 <li className="flex gap-2"><span className="text-red-500 font-bold flex-shrink-0">✗</span> איות שונה בין הזמנה לדרכון</li>
                 <li className="flex gap-2"><span className="text-green-600 font-bold flex-shrink-0">✓</span> שם זהה לחלוטין בכל המסמכים ובהזמנה</li>
               </ul>
-              <p className="text-xs text-gray-500 leading-relaxed mt-4 border-t border-gray-100 pt-3">
+              <p className="text-xs text-gray-500 leading-relaxed mt-4 border-t border-[#e7e9f0] pt-3">
                 יש מקרים שבהם הפקיד מקבל איות שונה במקצת, אם ברור שמדובר באותו אדם. אבל זה לפי שיקול דעתו באותו רגע, ולא זכות. אני לא הייתי בונה על זה.
               </p>
             </AccordionItem>
@@ -517,18 +517,18 @@ export default function GuidePage() {
             </SectionIntro>
 
             {/* Deposit visual */}
-            <div className="bg-navy rounded-xl p-5 mb-5 text-white">
+            <div className="bg-navy rounded-none p-5 mb-5 text-white">
               <p className="text-xs text-slate-400 mb-3 font-semibold uppercase tracking-widest">מה זה פיקדון בפועל</p>
               <div className="grid grid-cols-3 gap-3 text-center mb-4">
-                <div className="bg-white/10 rounded-lg p-3">
+                <div className="bg-white/10 rounded-none p-3">
                   <p className="text-gold font-bold text-lg">300-3,000€</p>
                   <p className="text-xs text-slate-300 mt-1">סכום נחסם</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
+                <div className="bg-white/10 rounded-none p-3">
                   <p className="text-gold font-bold text-lg">לא חיוב</p>
                   <p className="text-xs text-slate-300 mt-1">חסימת מסגרת</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
+                <div className="bg-white/10 rounded-none p-3">
                   <p className="text-gold font-bold text-lg">משתחרר</p>
                   <p className="text-xs text-slate-300 mt-1">אחרי החזרת הרכב</p>
                 </div>
@@ -555,7 +555,7 @@ export default function GuidePage() {
               בעולם השכרת הרכב לא מזמינים רכב ספציפי. מזמינים קטגוריה. זה אחד הדברים הבסיסיים שהרבה אנשים לא יודעים, ושמפתיע אותם בדלפק.
             </SectionIntro>
 
-            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
+            <div className="bg-surface border border-[#e7e9f0] rounded-none p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
               <p>
                 כל רכב בתחום ההשכרה משויך לקטגוריה שמוגדרת לפי קוד <strong className="text-navy">ACRISS</strong>, מערכת תקן בינלאומית שמתארת את סוג הרכב, גודלו, סוג ההילוכים והמיזוג. הרכב שמוצג בהזמנה או בהצעת המחיר הוא <strong className="text-navy">רכב כדגם מייצג בלבד</strong>. לא הבטחה.
               </p>
@@ -574,7 +574,7 @@ export default function GuidePage() {
                   <span className="text-lg flex-shrink-0">❌</span>
                   <p><strong className="text-gray-800">אין רכב בכלל.</strong> אם היא לא יכולה לספק רכב, ההזמנה תבוטל ללא דמי ביטול או קנס על אי-לקיחת הרכב.</p>
                 </div>
-                <div className="flex gap-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                <div className="flex gap-3 bg-yellow-50 border border-yellow-200 rounded-none p-3">
                   <span className="text-lg flex-shrink-0">🧾</span>
                   <div>
                     <p className="font-semibold text-gray-800 mb-1">תבקש פיצוי על הנזק שנגרם.</p>
@@ -624,7 +624,7 @@ export default function GuidePage() {
                       { icon: "⚙️", title: "מצמד ומצבר", sub: "כשל מכני, בלאי, שימוש לא נכון" },
                       { icon: "🔑", title: "אובדן מפתחות", sub: "אובדן או גניבת מפתח הרכב" },
                     ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2.5">
+                      <div key={i} className="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-none px-3 py-2.5">
                         <span className="text-base flex-shrink-0">{item.icon}</span>
                         <div>
                           <p className="text-sm font-semibold text-gray-800">{item.title}</p>
@@ -652,7 +652,7 @@ export default function GuidePage() {
                       { icon: "⚖️", title: "רשלנות מוכחת", sub: "נזק שנגרם בכוונה או באי זהירות חמורה" },
                       { icon: "🌊", title: "אסון טבע", sub: "שיטפון, ברד, רעידת אדמה" },
                     ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-lg px-3 py-2.5">
+                      <div key={i} className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-none px-3 py-2.5">
                         <span className="text-base flex-shrink-0">{item.icon}</span>
                         <div>
                           <p className="text-sm font-semibold text-gray-800">{item.title}</p>
@@ -666,7 +666,7 @@ export default function GuidePage() {
               </div>
             </AccordionItem>
 
-            <div className="flex items-center justify-between bg-surface border border-gray-200 rounded-xl px-5 py-4 my-6">
+            <div className="flex items-center justify-between bg-surface border border-[#e7e9f0] rounded-none px-5 py-4 my-6">
               <div>
                 <p className="text-sm font-bold text-navy mb-0.5">עכשיו כשאתה מבין את הביטוח:</p>
                 <p className="text-xs text-gray-500">תקרא את ההשוואה שלנו בין הפלטפורמות</p>
@@ -693,7 +693,7 @@ export default function GuidePage() {
                 ברוב החברות אפשר לשכור מגיל 21. אבל עד גיל מסוים, חברת ההשכרה מגדירה אותך כ"נהג צעיר" ומוסיף תוספת יומית. הגבול הזה משתנה: חלק עוצרים ב-23, חלק ב-25, יש שמגיעים ל-26. ברכבי פרימיום, לעיתים גיל המינימום עצמו עולה.
               </p>
               <div className="grid grid-cols-2 gap-2 mb-3">
-                <div className="bg-green-50 rounded-lg p-3">
+                <div className="bg-green-50 rounded-none p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">בדרך כלל זמין</p>
                   <ul className="text-xs text-gray-600 space-y-1">
                     <li>מיני / סיטי קאר</li>
@@ -702,7 +702,7 @@ export default function GuidePage() {
                     <li>מנוע עד 1.6</li>
                   </ul>
                 </div>
-                <div className="bg-red-50 rounded-lg p-3">
+                <div className="bg-red-50 rounded-none p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">בדרך כלל לא זמין</p>
                   <ul className="text-xs text-gray-600 space-y-1">
                     <li>SUV בינוני וגדול</li>
@@ -726,7 +726,7 @@ export default function GuidePage() {
                 <li className="flex gap-2 items-start"><span className="text-gold font-bold flex-shrink-0">·</span> תוספת יומית, בדומה לנהג צעיר</li>
                 <li className="flex gap-2 items-start"><span className="text-gold font-bold flex-shrink-0">·</span> הגבלה על קטגוריות רכב מסוימות</li>
               </ul>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs text-gray-600 leading-relaxed">
+              <div className="bg-gray-50 border border-[#e7e9f0] rounded-none p-3 text-xs text-gray-600 leading-relaxed">
                 גיל מקסימום ברוב חברות ההשכרה הוא בין <strong className="text-navy">80 ל-85</strong>. מעבר לכך, ברוב המקרים ההשכרה לא אפשרית. לפני שמזמינים, תבדוק את המדיניות של חברת ההשכרה הספציפי.
               </div>
             </AccordionItem>
@@ -744,7 +744,7 @@ export default function GuidePage() {
                 { icon: "🚌", title: "מחוץ לשדה", desc: "תחנה בסמוך לשדה. שאטל חינמי מהטרמינל לתחנה." },
                 { icon: "🙋", title: "נציג ממתין", desc: "נציג ממתין באולם הנוסעים בנקודה מוסכמת מראש." },
               ].map((t) => (
-                <div key={t.title} className="bg-surface border border-gray-200 rounded-lg p-3 text-center">
+                <div key={t.title} className="bg-surface border border-[#e7e9f0] rounded-none p-3 text-center">
                   <span className="text-2xl block mb-1">{t.icon}</span>
                   <p className="text-xs font-bold text-navy mb-1">{t.title}</p>
                   <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
@@ -767,11 +767,11 @@ export default function GuidePage() {
                   <span className="text-lg flex-shrink-0">✈️</span>
                   <p><strong className="text-gray-800">איסוף בשדה עם מספר טיסה.</strong> חברת ההשכרה עוקבת אחרי הלוחות של חברת התעופה ומתאים את עצמו. איחור? הם רואים את זה ומחכים. תמיד תציין מספר טיסה. זה לא פרט אופציונלי.</p>
                 </div>
-                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-none p-3">
                   <span className="text-lg flex-shrink-0">⚠️</span>
                   <p><strong className="text-red-700">בלי מספר טיסה.</strong> חברת ההשכרה לא יודעת אם אתה מאחר או לא מגיע. אחרי שעת האיסוף, היא רשאית לבטל. אין לה חובה לחכות.</p>
                 </div>
-                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-none p-3">
                   <span className="text-lg flex-shrink-0">🕐</span>
                   <p><strong className="text-red-700">איחור של יותר משעה.</strong> צור קשר עם חברת ההשכרה או הברוקר מיידית. אם האיחור מעביר אותך אחרי שעות הפעילות: יש שירות מחוץ לשעות? יחייבו. אין? תחזור למחרת ותקווה שההזמנה לא בוטלה.</p>
                 </div>
@@ -789,7 +789,7 @@ export default function GuidePage() {
                   <span className="text-lg flex-shrink-0">🕙</span>
                   <p><strong className="text-gray-800">שירות מחוץ לשעות הפעילות.</strong> יש חברות השכרה שמציעות שירות איסוף או החזרה מחוץ לשעות הרגילות, עם נציג שמגיע במיוחד. זה קיים, אבל בתשלום נוסף ולא אצל כולם.</p>
                 </div>
-                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-lg p-3">
+                <div className="flex gap-3 bg-red-50 border border-red-200 rounded-none p-3">
                   <span className="text-lg flex-shrink-0">⚠️</span>
                   <div>
                     <p className="text-red-700 font-bold mb-1">שינוי שעה לאחר שעות הפעילות: אין פתרון.</p>
@@ -812,7 +812,7 @@ export default function GuidePage() {
                 <p>
                   <strong className="text-gray-800">מה זה דמי החזרה?</strong> תוספת תשלום שמחויבת כי חברת ההשכרה צריכה להחזיר את הרכב למקום האיסוף המקורי. זה לוגיסטיקה, ואתה משלם עליה. הסכום יכול לנוע בין כמה עשרות יורו לכמה מאות, תלוי במרחק, במדינה ובחברת השכרה.
                 </p>
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 space-y-2">
+                <div className="bg-yellow-50 border border-yellow-200 rounded-none p-3 space-y-2">
                   <p className="text-xs font-bold text-yellow-800">מה חשוב לדעת לפני שמזמינים:</p>
                   <ul className="space-y-1.5 text-xs text-gray-700">
                     <li className="flex items-start gap-2">
@@ -841,14 +841,14 @@ export default function GuidePage() {
             </SectionIntro>
 
             <div className="space-y-3 mb-6">
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">💳 תשלום ישיר בכניסה לנתיב</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   תחנות גבייה פיזיות על הכביש. משלמים בכל מעבר. מקבלות מזומן, כרטיס אשראי, ולפעמים רק מזומן. חלק מהתחנות מקבלות רק כרטיסים מקומיים. לפני שיוצאים, בדוק אם קיימת כניסה לכביש המהיר בדרך שלך וודא שיש לך אמצעי תשלום מתאים.
                 </p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">📡 טרנספוסנדר / אוטו-פס</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
                   מכשיר אלקטרוני מותקן ברכב שמאפשר מעבר בנתיב מהיר ייעודי בלי לעצור. הגבייה אוטומטית. במדינות מסוימות חברת ההשכרה מציעה אותו בעת איסוף הרכב בתשלום יומי נוסף. לא כל תחנה מציעה את השירות הזה.
@@ -858,26 +858,26 @@ export default function GuidePage() {
                 </Callout>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">🪟 ויניט (Vignette): תו תקופתי</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
                   מדינות מסוימות גובות אגרה לא לפי מעבר אלא לפי תקופה: שבוע, חודש, שנה. הויניט הוא התו שמעיד על התשלום, בצורת מדבקה פיזית או רישום דיגיטלי.
                 </p>
                 <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <div className="bg-green-50 border border-green-200 rounded-none p-3">
                     <p className="font-bold text-green-700 mb-1">כשמשכירים במדינה שדורשת ויניט</p>
                     <p className="text-gray-600 leading-relaxed">הויניט כלול בדרך כלל בהשכרה. חברת ההשכרה מחויבת לעמוד בחוק המקומי. עם זאת, יש תחנות שגובות אותו בנפרד בעת האיסוף. תבדוק מראש.</p>
                   </div>
-                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                  <div className="bg-orange-50 border border-orange-200 rounded-none p-3">
                     <p className="font-bold text-orange-700 mb-1">כשנוסעים אליה ממדינה אחרת</p>
                     <p className="text-gray-600 leading-relaxed">האחריות עליך. לא בדקת, לא שילמת? קנס. ניתן לרכוש דיגיטלית דרך האתר הרשמי של כל מדינה לפני הנסיעה.</p>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-2 leading-relaxed border-t border-gray-100 pt-2">
+                <p className="text-xs text-gray-500 mt-2 leading-relaxed border-t border-[#e7e9f0] pt-2">
                   מחיר, זמינות ואופן השימוש באוטו-פס או בויניט משתנים לפי מדינה וחברת השכרה. תמיד כדאי לבדוק מראש לפני הנסיעה.
                 </p>
               </div>
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+              <div className="bg-red-50 border border-red-200 rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">🚫 ZTL באיטליה: אזורי כניסה מוגבלת</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   ערים רבות באיטליה (רומא, פירנצה, בולוניה ועוד) מפעילות אזורי <strong>ZTL</strong> (Zona a Traffico Limitato): אזורי כניסה מוגבלת לרכבים פרטיים. הכניסה נשלטת על ידי מצלמות. אם נכנסת בלי אישור, הקנס מגיע לחברת ההשכרה בדיעבד ומועבר אליך בתוספת דמי טיפול. הקנסות האיטלקיים לא זולים, ודמי הטיפול מכפילים את הכאב.
@@ -892,7 +892,7 @@ export default function GuidePage() {
               נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. זה משהו שצריך להצהיר עליו בהזמנה. לא לקחת כמובן מאליו.
             </SectionIntro>
 
-            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
+            <div className="bg-surface border border-[#e7e9f0] rounded-none p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-3">
               <p>
                 ברוב החוזים, <strong className="text-navy">נסיעה מחוץ למדינת ההשכרה אסורה ללא אישור מראש בכתב</strong>. מי שנוסע בלי אישור ונגרם נזק? עלול למצוא את עצמו ללא כיסוי ביטוחי כלל.
               </p>
@@ -927,7 +927,7 @@ export default function GuidePage() {
               במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה. חוק.
             </SectionIntro>
 
-            <div className="bg-surface border border-gray-200 rounded-xl p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-4">
+            <div className="bg-surface border border-[#e7e9f0] rounded-none p-5 mb-5 text-sm text-gray-700 leading-relaxed space-y-4">
               <p className="font-semibold text-navy text-xs uppercase tracking-wide">סוגי ציוד חורף:</p>
 
               <div className="space-y-3">
@@ -947,22 +947,22 @@ export default function GuidePage() {
                 </div>
               </div>
 
-              <div className="pt-1 border-t border-gray-200 space-y-2">
+              <div className="pt-1 border-t border-[#e7e9f0] space-y-2">
                 <p className="font-semibold text-navy text-xs uppercase tracking-wide">מה החוק אומר vs. מה הבטיחות דורשת:</p>
                 <div className="flex flex-col gap-3">
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                  <div className="bg-blue-50 border border-blue-200 rounded-none p-3">
                     <p className="text-xs font-bold text-blue-700 mb-1.5">מה החוק מחייב</p>
                     <p className="text-xs text-gray-600 leading-relaxed">יש מדינות שמחייבות <strong>צמיגי חורף / רב-עונתיים (3PMSF)</strong> בכל רחבי המדינה בחורף (אוסטריה, פינלנד, נורווגיה). יש שמחייבות גם <strong>שרשראות</strong> בנוסף. ויש כמו צרפת ואיטליה שבהן החובה חלה רק <strong>על אזורים ספציפיים</strong>: אלפים, פירנאים, אזורי הרים.</p>
                   </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                  <div className="bg-amber-50 border border-amber-200 rounded-none p-3">
                     <p className="text-xs font-bold text-amber-700 mb-1.5">מה הבטיחות דורשת</p>
                     <p className="text-xs text-gray-600 leading-relaxed">גם במדינות שמחייבות רק צמיגי חורף / רב-עונתיים: על כביש מושלג או קפוא, <strong>בלי שרשראות לא תוכלו לנסוע</strong>. הרכב יחליק, יתקע, ולא ינוע. זה לא עניין של המלצה. זו מציאות פיזית. לאזור סקי או כביש הררי בחורף? מבחינה בטיחותית שרשראות הן ציוד חובה, גם אם החוק לא מחייב.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 pt-1 border-t border-gray-200">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+              <div className="flex flex-col gap-3 pt-1 border-t border-[#e7e9f0]">
+                <div className="bg-green-50 border border-green-200 rounded-none p-3">
                   <p className="text-xs font-bold text-green-700 mb-1.5">השכרה במדינה שבה חובה</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-2">חברת ההשכרה מחויבת לעמוד בחוק, אבל <strong>רק הציוד שהחוק מחייב</strong> יהיה כלול: בדרך כלל צמיגי חורף / רב-עונתיים <em>או</em> שרשראות. לא בהכרח שניהם.</p>
                   <ul className="text-xs text-gray-600 leading-relaxed space-y-1">
@@ -970,7 +970,7 @@ export default function GuidePage() {
                     <li>• גם ציוד שהחוק מחייב לא תמיד כלול במחיר ההשכרה. <strong>בחלק מהמקרים זה תוספת תשלום</strong>. כדאי לבדוק בעת ההזמנה.</li>
                   </ul>
                 </div>
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                <div className="bg-red-50 border border-red-200 rounded-none p-3">
                   <p className="text-xs font-bold text-red-700 mb-1.5">השכרה במדינה שבה אין חובה</p>
                   <p className="text-xs text-gray-600 leading-relaxed mb-2">נוסעים לאזור הרים, אתר סקי, או מדינה עם חובת ציוד חורף? <strong>האחריות עליך לחלוטין.</strong> שתי אפשרויות:</p>
                   <ul className="text-xs text-gray-600 leading-relaxed space-y-1.5">
@@ -998,7 +998,7 @@ export default function GuidePage() {
               {/* Child seats */}
               <p className="text-xs font-bold text-gray-400 uppercase tracking-wide pt-1">כיסאות בטיחות</p>
 
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+              <div className="bg-red-50 border border-red-200 rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-2">👶 Infant Seat: כיסאון לתינוק</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-2">
                   לתינוקות עד כ-13 ק"ג (בערך עד גיל שנה). פונה לאחור בלבד. הכיסא הקריטי ביותר לתינוקות צעירים.
@@ -1006,21 +1006,21 @@ export default function GuidePage() {
                 <p className="text-xs font-semibold text-red-700">לא כל התחנות מציעות כיסא תואם לתינוקות מתחת לגיל שנה. אם הילד שלך מתחת לגיל שנה, אשר זמינות ישירות מול חברת ההשכרה לפני ההזמנה. אל תניח שיהיה.</p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-2">🐣 Baby Seat: כיסא לפעוט</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לילדים בין כ-9 ל-18 ק"ג (בערך גיל 9 חודשים עד 4 שנים). יכול להיות פונה קדימה או אחורה לפי מודל הכיסא. בדוק תאימות לפי משקל, לא רק לפי גיל.
                 </p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-2">🧒 Child Seat: כיסא ילדים</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לילדים בין כ-15 ל-36 ק"ג (בערך גיל 3 עד 10 שנים). פונה קדימה, עם חגורת בטיחות של הרכב. מתאים לילדים שיצאו מכיסא עם שקת.
                 </p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-2">🪑 Booster Seat: מושב הגבהה</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לילדים מעל כ-22 ק"ג (בערך גיל 6 ומעלה). מגביה את הילד כך שחגורת הרכב תפגע בנקודה הנכונה. אין שקת, הילד כבר מאובטח עם חגורת הרכב עצמה.
@@ -1034,21 +1034,21 @@ export default function GuidePage() {
               {/* Other equipment */}
               <p className="text-xs font-bold text-gray-400 uppercase tracking-wide pt-2">ציוד נוסף</p>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">🎿 גגון סקי / תיבת גג</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   לנוסעים לאתרי סקי או עם מטען גדול. גגון סקי מאפשר קיבוע סקיות וסנובורד מחוץ לרכב. תיבת גג מוסיפה נפח אחסון. לא כל הרכבים מגיעים מוכנים לגגון, ולא כל התחנות מציעות את הציוד. הזמן מראש ואשר זמינות.
                 </p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">🗺️ GPS / ניווט</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   חלק מהרכבים כוללים ניווט מובנה. במקרים אחרים ניתן לשכור מכשיר GPS נפרד מחברת ההשכרה. בפועל, רוב הנוסעים משתמשים בנייד. אם מסתמכים על GPS של חברת ההשכרה, בדוק זמינות וודא שהמפות מעודכנות למדינות היעד.
                 </p>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-4">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-4">
                 <p className="text-sm font-bold text-navy mb-1">❄️ צמיגי חורף, שרשראות שלג וגרביוני שלג</p>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   פרטים מלאים בסעיף ציוד חורף למעלה.
@@ -1090,7 +1090,7 @@ export default function GuidePage() {
               />
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 flex gap-3">
+            <div className="bg-red-50 border border-red-200 rounded-none p-4 mb-4 flex gap-3">
               <span className="text-2xl flex-shrink-0">⚠️</span>
               <p className="text-sm text-gray-700">
                 <strong className="text-red-700">"כמעט מלא" זה לא מלא.</strong> קו אחד חסר? מבחינת חברת ההשכרה זה לא עומד בתנאים. אין בדלק מושג שנקרא "בערך".
@@ -1108,12 +1108,12 @@ export default function GuidePage() {
             </SectionIntro>
 
             <div className="grid grid-cols-2 gap-3 mb-5">
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+              <div className="bg-green-50 border-2 border-green-200 rounded-none p-4">
                 <p className="text-xs font-bold text-green-700 mb-1 uppercase tracking-wide">Unlimited Mileage</p>
                 <p className="text-sm font-bold text-navy mb-2">ק״מ חופשי</p>
                 <p className="text-xs text-gray-600 leading-relaxed">כמה שרוצים, בלי ספירה. חייב להיות כתוב <strong>במפורש</strong> בתנאי ההשכרה. לא כתוב? לא קיים.</p>
               </div>
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-4">
+              <div className="bg-orange-50 border-2 border-orange-200 rounded-none p-4">
                 <p className="text-xs font-bold text-orange-700 mb-1 uppercase tracking-wide">Limited Mileage</p>
                 <p className="text-sm font-bold text-navy mb-2">ק״מ מוגבל</p>
                 <p className="text-xs text-gray-600 leading-relaxed">מכסה יומית או לכל התקופה. כל ק״מ מעבר מחויב בנפרד. מה שנראה זול בהתחלה, יכול להיות יקר בסוף.</p>
@@ -1131,7 +1131,7 @@ export default function GuidePage() {
             </SectionIntro>
 
             {/* Fine timeline */}
-            <div className="bg-surface rounded-xl p-5 mb-5 border border-gray-200">
+            <div className="bg-surface rounded-none p-5 mb-5 border border-[#e7e9f0]">
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">איך דוח מוצא אותך</p>
               <div className="space-y-1">
                 <FineStep num={1} text="המצלמה / הנציג מנפיק את הדוח על שם הרכב. לא על שמך." />
@@ -1162,13 +1162,13 @@ export default function GuidePage() {
             </SectionIntro>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-              <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+              <div className="bg-green-50 border border-green-200 rounded-none p-4">
                 <p className="text-sm font-bold text-green-800 mb-2">ביטול מעל 48 שעות לפני האיסוף</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   ברוב המקרים ללא עלות, או עם דמי ביטול סמליים בלבד. חלק מהחברות מחזירים את מלוא הסכום ללא שאלות.
                 </p>
               </div>
-              <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+              <div className="bg-orange-50 border border-orange-200 rounded-none p-4">
                 <p className="text-sm font-bold text-orange-800 mb-2">ביטול בתוך 48 שעות לפני האיסוף</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   דמי הביטול גדלים משמעותית. הסכום משתנה לפי חברת ההשכרה, הקטגוריה ומדינת ההשכרה. בדרך כלל בין <strong>30 ל-100 דולר</strong>.
@@ -1176,7 +1176,7 @@ export default function GuidePage() {
               </div>
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-5">
+            <div className="bg-red-50 border border-red-200 rounded-none p-4 mb-5">
               <p className="text-sm font-bold text-red-800 mb-2">No-Show: לא ביטלת ולא הגעת</p>
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
                 אם לא הגעת לאסוף את הרכב ולא ביטלת מראש, בין אם בגלל שינוי תוכנית, מסמך חסר שמנע את האיסוף, או כל סיבה אחרת, חברת ההשכרה תחייב דמי No-Show. הסכום עומד בדרך כלל על <strong>50 עד 200 דולר</strong> ומשתנה לפי חברה וקטגוריה.
@@ -1198,18 +1198,18 @@ export default function GuidePage() {
 
             <div className="space-y-3 mb-6">
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-5">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-5">
                 <p className="text-sm font-bold text-navy mb-3">🔧 תקלה מכנית</p>
                 <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                   <p>
                     הצעד הראשון: <strong className="text-navy">לפנות לשירות הדרכים (Roadside Assistance)</strong> של חברת ההשכרה. הם יעריכו את הבעיה ויתנו הוראות מדויקות לפי הסיטואציה.
                   </p>
                   <div className="space-y-2 text-xs mt-2">
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <div className="bg-blue-50 border border-blue-200 rounded-none p-3">
                       <p className="font-bold text-blue-800 mb-1">אם הרכב מושבת לחלוטין</p>
                       <p className="text-gray-600 leading-relaxed">פנה לשירות הדרכים. הם ישלחו גרר וינחו אותך מה הלאה. אל תנסה להגיע לתחנה בכוחות עצמך. שמור את המיקום שלך ואת פרטי הרכב נגישים.</p>
                     </div>
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <div className="bg-blue-50 border border-blue-200 rounded-none p-3">
                       <p className="font-bold text-blue-800 mb-1">תקלה קלה (פנצ׳ר, שמן, נוזל)</p>
                       <p className="text-gray-600 leading-relaxed">פנה לשירות הדרכים לקבלת הוראות. אם מדובר בנזק שכיסוי משלים מכסה (שמשה, צמיג וכו׳), יש שתי אפשרויות: לתקן עצמאית ולשמור קבלות לצורך החזר, או לתקן דרך שירות הדרכים ולקבל החזר מהכיסוי על מה שחויבת. בכל מקרה, שמור את כל הקבלות.</p>
                     </div>
@@ -1220,7 +1220,7 @@ export default function GuidePage() {
                 </Callout>
               </div>
 
-              <div className="bg-surface border border-gray-200 rounded-xl p-5">
+              <div className="bg-surface border border-[#e7e9f0] rounded-none p-5">
                 <p className="text-sm font-bold text-navy mb-3">💥 תאונה</p>
                 <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                   <p>
@@ -1257,7 +1257,7 @@ export default function GuidePage() {
               הנה הרשימה שתציל אותך מרוב הסיפורים:
             </p>
 
-            <div className="bg-surface rounded-xl border border-gray-200 overflow-hidden mb-8">
+            <div className="bg-surface rounded-none border border-[#e7e9f0] overflow-hidden mb-8">
               {[
                 { icon: "🚗", text: "לא מזמינים רכב ספציפי, מזמינים קטגוריה. הרכב בתמונה הוא דגם מייצג בלבד. לא יכלו לתת את הקטגוריה? מגיע לך שדרוג ללא תשלום." },
                 { icon: "🪪", text: "רישיון ישראלי ורישיון בינלאומי (IDP) פיזיים ובתוקף. דרכון אצלך. כרטיס אשראי על שם הנהג הראשי. כולם עם אותו שם." },
@@ -1275,7 +1275,7 @@ export default function GuidePage() {
                 { icon: "📅", text: "בדוק את מדיניות הביטול וה-No-Show לפני שמאשרים הזמנה. ביטול ב-48 שעות לפני יכול לעלות 30 עד 100 דולר." },
                 { icon: "🚨", text: "שמור את מספר שירות הדרכים בטלפון לפני שיוצאים לדרך. הוא בחוזה ההשכרה או על מדבקה בתוך הרכב." },
               ].map((item, i, arr) => (
-                <div key={i} className={`flex items-start gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
+                <div key={i} className={`flex items-start gap-4 px-5 py-4 ${i < arr.length - 1 ? "border-b border-[#e7e9f0]" : ""}`}>
                   <span className="text-xl flex-shrink-0">{item.icon}</span>
                   <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
                 </div>
@@ -1356,7 +1356,7 @@ export default function GuidePage() {
               <LexiconSection />
             </AccordionItem>
 
-            <div className="p-6 bg-navy rounded-xl text-center mt-10">
+            <div className="p-6 bg-navy rounded-none text-center mt-10">
               <p className="text-white font-bold text-lg mb-2">מי שקרא עד לפה, יודע להזמין נכון.</p>
               <p className="text-slate-300 text-sm mb-3 leading-relaxed">
                 אם הגעת עד כאן, כנראה שהמדריך שווה לך משהו. הדרך הכי טובה לתמוך בתוכן כזה? פשוט תזמין דרך הקישורים שלמטה. אותו מחיר, לפעמים אפילו יותר זול, אותם חברות ההשכרה המוכרות, רק שאני מקבל עמלה קטנה שמאפשרת לי להמשיך לכתוב. עסקה הוגנת.
@@ -1367,7 +1367,7 @@ export default function GuidePage() {
 
           {/* Left gutter disclaimer + CTA */}
           <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24 space-y-4">
-            <div className="p-4 bg-white border border-gray-200 rounded-lg">
+            <div className="p-4 bg-white border border-[#e7e9f0] rounded-none">
               <div className="flex items-center gap-3 mb-3">
                 <Image
                   src="/samuel.avif"
@@ -1386,13 +1386,13 @@ export default function GuidePage() {
               </p>
               <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>
             </div>
-            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-none">
               <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>
               <p className="text-xs text-yellow-900 leading-relaxed">
                 המדריך הזה מבוסס על ניסיון אישי ומקרים מהשטח. הוא מדריך, לא חוזה. כל חברת השכרה קובעת את תנאיה בעצמה. סכומי פיקדון, דרישות ביטוח, גיל מינימום, רשימת מסמכים. כל אלה יכולים להיות שונים ממה שכתוב כאן. תמיד תבדוק את תנאי חברת ההשכרה שלך לפני שנוסעים.
               </p>
             </div>
-            <div className="p-4 bg-surface rounded-lg border border-gray-100">
+            <div className="p-4 bg-surface rounded-none border border-[#e7e9f0]">
               <p className="text-xs text-gray-500 mb-3 leading-relaxed">מוכן להזמין? קרא קודם איפה כדאי.</p>
               <a href="/posts/rental-platforms" className="btn-gold text-xs py-2 px-4 w-full text-center block">איפה להזמין? ←</a>
             </div>

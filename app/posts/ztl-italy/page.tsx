@@ -239,7 +239,7 @@ export default function ZtlItalyPost() {
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-[#e7e9f0] pb-2">
                     תוכן עניינים
                   </p>
                   <nav className="space-y-1">
@@ -255,7 +255,7 @@ export default function ZtlItalyPost() {
                   </nav>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
@@ -353,7 +353,7 @@ export default function ZtlItalyPost() {
               </p>
 
               <div className="grid md:grid-cols-[280px_1fr] gap-6 mb-6 items-start">
-                <div className="bg-gradient-to-b from-gray-900 to-gray-700 rounded-xl p-4 flex items-center justify-center">
+                <div className="bg-gradient-to-b from-gray-900 to-gray-700 rounded-none p-4 flex items-center justify-center">
                   <Image
                     src="/ztl-sign.avif"
                     alt="שלט ZTL Zona Traffico Limitato באיטליה"
@@ -365,7 +365,7 @@ export default function ZtlItalyPost() {
 
                 <div className="space-y-3">
                   {signElements.map((el) => (
-                    <div key={el.letter} className="flex items-start gap-3 border border-gray-100 rounded-lg p-3">
+                    <div key={el.letter} className="flex items-start gap-3 border border-[#e7e9f0] rounded-none p-3">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center">
                         {el.letter}
                       </div>
@@ -394,19 +394,19 @@ export default function ZtlItalyPost() {
               </h2>
 
               <div className="grid md:grid-cols-3 gap-4 mb-6">
-                <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+                <div className="border border-red-200 bg-red-50 rounded-none p-5">
                   <Euro size={20} className="text-red-600 mb-2" />
                   <p className="font-bold text-red-800 text-sm mb-1">הקנס עצמו</p>
                   <p className="text-2xl font-bold text-red-700 mb-1">80-335 €</p>
                   <p className="text-xs text-red-600 leading-relaxed">תלוי בעיר ובסוג העבירה.</p>
                 </div>
-                <div className="border border-amber-200 bg-amber-50 rounded-xl p-5">
+                <div className="border border-amber-200 bg-amber-50 rounded-none p-5">
                   <Euro size={20} className="text-amber-700 mb-2" />
                   <p className="font-bold text-amber-800 text-sm mb-1">עמלת חברת ההשכרה</p>
                   <p className="text-2xl font-bold text-amber-700 mb-1">30-60 €</p>
                   <p className="text-xs text-amber-600 leading-relaxed">"עמלת טיפול" עבור העברת הפרטים שלכם למשטרה.</p>
                 </div>
-                <div className="border border-navy/30 bg-[#f0f4ff] rounded-xl p-5">
+                <div className="border border-navy/30 bg-[#f0f4ff] rounded-none p-5">
                   <AlertTriangle size={20} className="text-navy mb-2" />
                   <p className="font-bold text-navy text-sm mb-1">וזכרו</p>
                   <p className="text-base font-bold text-navy mb-1">כל כניסה = קנס נפרד</p>
@@ -465,7 +465,7 @@ export default function ZtlItalyPost() {
                 {cities.map((city) => (
                   <div
                     key={city.name}
-                    className="border border-gray-100 rounded-xl p-5 bg-white hover:shadow-md transition-shadow"
+                    className="border border-[#e7e9f0] rounded-none p-5 bg-white  transition-shadow"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-xl">{city.icon}</span>
@@ -475,7 +475,7 @@ export default function ZtlItalyPost() {
                       )}
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed mb-3">{city.desc}</p>
-                    <div className="flex items-center gap-1.5 text-xs text-gray-500 border-t border-gray-100 pt-2">
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 border-t border-[#e7e9f0] pt-2">
                       <Clock size={12} />
                       <span>{city.hours}</span>
                     </div>
@@ -491,7 +491,7 @@ export default function ZtlItalyPost() {
                 זה מצב נפוץ: הזמנתם מלון מקסים במרכז ההיסטורי, ורק עכשיו גיליתם שהוא בתוך אזור ZTL. אל פאניקה. יש פתרון, ובחינם.
               </p>
 
-              <div className="border border-green-200 bg-green-50 rounded-xl p-5 mb-6">
+              <div className="border border-green-200 bg-green-50 rounded-none p-5 mb-6">
                 <div className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-green-700 flex-shrink-0 mt-0.5" />
                   <div>
@@ -577,7 +577,7 @@ export default function ZtlItalyPost() {
 
               <div className="space-y-3 mb-10">
                 {tips.map((tip, i) => (
-                  <div key={i} className="flex items-start gap-3 border border-gray-100 rounded-lg p-4">
+                  <div key={i} className="flex items-start gap-3 border border-[#e7e9f0] rounded-none p-4">
                     <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gold text-navy text-xs font-bold flex items-center justify-center">
                       {i + 1}
                     </div>
@@ -597,7 +597,7 @@ export default function ZtlItalyPost() {
                 ה-ZTL באיטליה הוא לא מלכודת תיירים. הוא מערכת אמיתית שנועדה לשמור על ערים בנות מאות שנים. אבל אם לא מכירים את הכללים, קל מאוד ליפול.
               </p>
 
-              <div className="border-r-4 border-gold bg-yellow-50 rounded-sm p-5 mb-10">
+              <div className="border-r-4 border-gold bg-yellow-50 rounded-none p-5 mb-10">
                 <p className="font-bold text-amber-800 mb-3">שלושה דברים לזכור:</p>
                 <ol className="space-y-2">
                   {[
@@ -619,7 +619,7 @@ export default function ZtlItalyPost() {
 
               {/* Mobile-only author + disclaimer */}
               <div className="lg:hidden space-y-4 mb-8">
-                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
@@ -638,7 +638,7 @@ export default function ZtlItalyPost() {
                   </p>
                 </div>
 
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
@@ -647,7 +647,7 @@ export default function ZtlItalyPost() {
               </div>
 
               {/* Final CTA */}
-              <div className="bg-navy rounded-xl p-7 text-center">
+              <div className="bg-navy rounded-none p-7 text-center">
                 <p className="text-white font-bold text-lg mb-2">מוכן להזמין את הרכב הבא שלך באיטליה?</p>
                 <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
                   עכשיו שאתה יודע איך להימנע מקנסות ZTL, השאלה הבאה היא פשוטה: איפה הכי כדאי להזמין? השוואה בין חברות ההשכרה המובילות, לפי מחיר, ביטוח ושירות.
@@ -661,7 +661,7 @@ export default function ZtlItalyPost() {
             {/* LEFT SIDEBAR */}
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-4">
-                <div className="bg-navy rounded-xl p-5">
+                <div className="bg-navy rounded-none p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <p className="text-white font-bold text-sm leading-tight">מוכן להזמין?</p>
                   </div>
@@ -673,14 +673,14 @@ export default function ZtlItalyPost() {
                   </a>
                 </div>
 
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
                   </p>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4">
+                <div className="border border-[#e7e9f0] rounded-none p-4">
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/driving-license-abroad" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
@@ -695,7 +695,7 @@ export default function ZtlItalyPost() {
                   </div>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4 bg-surface">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-surface">
                   <div className="flex items-start gap-2">
                     <ExternalLink size={14} className="text-gray-400 flex-shrink-0 mt-0.5" />
                     <p className="text-xs text-gray-500 leading-relaxed">

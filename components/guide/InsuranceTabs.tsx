@@ -38,7 +38,7 @@ export default function InsuranceTabs() {
             onClick={() => setActive(tab.id)}
             className={`flex-shrink-0 px-4 py-2.5 rounded-t-lg text-sm font-semibold border border-b-0 transition-colors ${
               active === tab.id
-                ? "bg-white border-gray-200 text-navy"
+                ? "bg-white border-[#e7e9f0] text-navy"
                 : "bg-gray-50 border-transparent text-gray-400 hover:text-gray-600"
             }`}
           >
@@ -49,13 +49,13 @@ export default function InsuranceTabs() {
       </div>
 
       {/* Tab content */}
-      <div className="bg-white border border-gray-200 rounded-b-lg rounded-tl-none p-5">
+      <div className="bg-white border border-[#e7e9f0] rounded-b-lg rounded-tl-none p-5">
         {active === "basic" && (
           <div>
             <p className="text-sm text-gray-600 mb-3 leading-relaxed">
               <strong>CDW</strong> (Collision Damage Waiver) מכסה נזקי תאונה. <strong>TP</strong> (Theft Protection) מכסה גניבה. ביחד הם הביטוח הבסיסי שמגיע בכל השכרה. תמיד עם <strong>השתתפות עצמית</strong>: בדרך כלל 300 עד 3,000 יורו. אתה משלם עד לתקרה הזו, גם אם הנזק מכוסה.
             </p>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 mb-4">
+            <div className="bg-blue-50 border border-blue-200 rounded-none px-4 py-3 mb-4">
               <p className="text-xs text-blue-800 leading-relaxed">
                 <strong>בארה״ב</strong> תראה <strong>LDW</strong> (Loss Damage Waiver) במקום CDW+TP. זה לא ביטוח שונה, זה אותו עיקרון עם שם אחד. אותה השתתפות עצמית, אותם חריגים.
               </p>
@@ -89,7 +89,7 @@ export default function InsuranceTabs() {
               </div>
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+            <div className="bg-red-50 border border-red-200 rounded-none p-3">
               <p className="text-xs font-bold text-red-700 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בשום מקרה, עם שום ביטוח או כיסוי</p>
               <ul className="space-y-2">
                 {neverCovered.map(({ item, note }) => (
@@ -108,7 +108,7 @@ export default function InsuranceTabs() {
             <p className="text-sm text-gray-600 mb-4 leading-relaxed">
               <strong>SCDW</strong> (Super CDW) ו-<strong>Super TP</strong> הם שדרוג של הביטוח הבסיסי. אותו כיסוי של CDW ו-TP, אבל <strong>בלי השתתפות עצמית</strong>. במקרה של נזק, תשלם בדרך כלל רק דמי טיפול: 40 עד 60 יורו. הפיקדון עדיין נדרש.
             </p>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-3">
+            <div className="bg-green-50 border border-green-200 rounded-none p-4 mb-3">
               <p className="text-sm font-bold text-green-800 mb-1">ההבדל בפועל</p>
               <div className="grid grid-cols-2 gap-4 text-xs">
                 <div>
@@ -137,14 +137,14 @@ export default function InsuranceTabs() {
             <div className="space-y-2 mb-4">
               <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">סוגי כיסוי משלים</p>
 
-              <div className="border border-gray-200 rounded-lg p-3">
+              <div className="border border-[#e7e9f0] rounded-none p-3">
                 <p className="text-xs font-bold text-navy mb-1">כיסוי השתתפות עצמית בלבד</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   מחזיר את ההשתתפות העצמית של CDW/TP במקרה נזק או גניבה. <strong>עד תקרה שנקבעה בפוליסה.</strong> לא מכסה שמשות, צמיגים, מרכב תחתון ושאר נזקים ייחודיים.
                 </p>
               </div>
 
-              <div className="border border-gray-200 rounded-lg p-3">
+              <div className="border border-[#e7e9f0] rounded-none p-3">
                 <p className="text-xs font-bold text-navy mb-1">כיסוי נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed mb-1.5">
                   מכסה את מה שה-CDW לא מכסה מלכתחילה. <strong>עד תקרה שנקבעה בפוליסה:</strong>
@@ -159,7 +159,7 @@ export default function InsuranceTabs() {
                 </ul>
               </div>
 
-              <div className="border border-green-200 bg-green-50 rounded-lg p-3">
+              <div className="border border-green-200 bg-green-50 rounded-none p-3">
                 <p className="text-xs font-bold text-green-800 mb-1">כיסוי משולב: השתתפות עצמית + נזקים ייחודיים</p>
                 <p className="text-xs text-gray-600 leading-relaxed">
                   משלב את שני הסוגים. מחזיר גם את ההשתתפות העצמית וגם מכסה שמשות, צמיגים, מרכב תחתון ושאר הנזקים. <strong>הכל עד לתקרה שנקבעה בפוליסה.</strong>
@@ -168,7 +168,7 @@ export default function InsuranceTabs() {
             </div>
 
             {/* Never covered */}
-            <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
+            <div className="bg-red-50 border border-red-200 rounded-none p-3 mb-4">
               <p className="text-xs font-bold text-red-700 mb-2 flex items-center gap-1"><XCircle size={12} /> לא מכוסה בשום כיסוי משלים</p>
               <ul className="space-y-1">
                 {neverCovered.map(({ item }) => (
@@ -196,7 +196,7 @@ export default function InsuranceTabs() {
               ))}
             </div>
 
-            <div className="bg-yellow-50 border-r-4 border-gold p-3 rounded-sm">
+            <div className="bg-yellow-50 border-r-4 border-gold p-3 rounded-none">
               <p className="text-xs text-gray-700">
                 <strong>בלי חיוב בפועל, אין מה להחזיר.</strong> בלי מסמכים, אין מה לתבוע. זה לא עניין של רצון טוב.
               </p>

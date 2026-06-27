@@ -67,7 +67,7 @@ function AcrissSection({ title, subtitle, rows, open, onToggle }: {
   open: boolean; onToggle: () => void;
 }) {
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-[#e7e9f0] rounded-none overflow-hidden">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between px-4 py-3 bg-navy text-white hover:bg-navy/90 transition-colors"

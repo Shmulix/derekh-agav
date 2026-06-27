@@ -40,7 +40,7 @@ export default function IDPGallery() {
     <div className="mb-8">
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 mb-6">
+      <div className="flex border-b border-[#e7e9f0] mb-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -65,7 +65,7 @@ export default function IDPGallery() {
               <button
                 key={page.src}
                 onClick={() => setLightbox(page.src)}
-                className="group relative rounded-xl overflow-hidden border border-gray-100 hover:border-navy/30 transition-all hover:shadow-md"
+                className="group relative rounded-none overflow-hidden border border-[#e7e9f0] hover:border-navy/30 transition-all "
               >
                 <Image
                   src={page.src}
@@ -91,7 +91,7 @@ export default function IDPGallery() {
               <button
                 key={page.src}
                 onClick={() => setLightbox(page.src)}
-                className="group relative rounded-xl overflow-hidden border border-gray-100 hover:border-navy/30 transition-all hover:shadow-md"
+                className="group relative rounded-none overflow-hidden border border-[#e7e9f0] hover:border-navy/30 transition-all "
               >
                 <Image
                   src={page.src}
@@ -117,7 +117,7 @@ export default function IDPGallery() {
               <button
                 key={page.src}
                 onClick={() => setLightbox(page.src)}
-                className="group rounded-xl overflow-hidden border border-gray-100 hover:border-navy/30 transition-all hover:shadow-md"
+                className="group rounded-none overflow-hidden border border-[#e7e9f0] hover:border-navy/30 transition-all "
               >
                 <div className="relative">
                   <Image
@@ -148,7 +148,7 @@ export default function IDPGallery() {
               alt="תצוגה מוגדלת"
               width={600}
               height={840}
-              className="w-full h-auto object-contain rounded-xl"
+              className="w-full h-auto object-contain rounded-none"
             />
             <button
               onClick={() => setLightbox(null)}

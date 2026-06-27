@@ -18,27 +18,28 @@
 }
 
 @layer components {
+  /* Encadrés éditoriaux v2 : angles nets, filet d'accent à droite */
   .callout-warning {
-    @apply bg-red-50 border-r-4 border-red-500 p-4 rounded-sm;
+    @apply bg-red-50 border border-red-100 border-r-4 border-r-red-500 p-4 rounded-none;
   }
 
   .callout-tip {
-    @apply bg-yellow-50 border-r-4 border-gold p-4 rounded-sm;
+    @apply bg-[#fffdf3] border border-[#f0e6c0] border-r-4 border-r-gold p-4 rounded-none;
   }
 
   .callout-info {
-    @apply bg-blue-50 border-r-4 border-navy p-4 rounded-sm;
+    @apply bg-[#f7f8fb] border border-[#e7e9f0] border-r-4 border-r-navy p-4 rounded-none;
   }
 
   .btn-primary {
-    @apply bg-navy text-white font-semibold px-6 py-3 rounded-md hover:bg-navy-dark transition-colors duration-200 inline-block;
+    @apply bg-navy text-white font-semibold px-6 py-3 rounded-none hover:bg-navy-dark transition-colors duration-200 inline-block;
   }
 
   .btn-gold {
-    @apply bg-gold text-navy font-bold px-6 py-3 rounded-md hover:bg-gold-dark transition-colors duration-200 inline-block;
+    @apply bg-gold text-navy font-bold px-6 py-3 rounded-none hover:bg-gold-dark transition-colors duration-200 inline-block;
   }
 
   .btn-ghost-gold {
-    @apply border-2 border-gold text-gold font-semibold px-6 py-3 rounded-md hover:bg-gold hover:text-navy transition-colors duration-200 inline-block;
+    @apply border-2 border-gold text-gold font-semibold px-6 py-3 rounded-none hover:bg-gold hover:text-navy transition-colors duration-200 inline-block;
   }
 }

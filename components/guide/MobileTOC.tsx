@@ -86,7 +86,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
               <div className="w-10 h-1 rounded-full bg-gray-200" />
             </div>
             {/* Header */}
-            <div className="bg-navy mx-4 mb-2 rounded-xl px-4 py-2.5 flex items-center justify-between flex-shrink-0">
+            <div className="bg-navy mx-4 mb-2 rounded-none px-4 py-2.5 flex items-center justify-between flex-shrink-0">
               <div>
                 <p className="text-xs font-bold text-gold uppercase tracking-widest">תוכן עניינים</p>
                 {activeId && (
@@ -113,7 +113,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 py-1.5 px-3 rounded-xl transition-all duration-100 ${
+                    className={`flex items-center gap-3 py-1.5 px-3 rounded-none transition-all duration-100 ${
                       isActive
                         ? "bg-navy text-white font-semibold"
                         : "text-gray-600 active:bg-surface"
@@ -132,10 +132,10 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       {/* Floating button */}
       <button
         onClick={open ? () => setOpen(false) : handleOpen}
-        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-full shadow-lg flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
+        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-full  flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"
-            : "bg-white border border-gray-200 text-navy pr-5"
+            : "bg-white border border-[#e7e9f0] text-navy pr-5"
         }`}
         aria-label="תוכן עניינים"
       >

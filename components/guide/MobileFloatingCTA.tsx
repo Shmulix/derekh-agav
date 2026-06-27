@@ -72,7 +72,7 @@ export default function MobileFloatingCTA() {
       {/* Floating button */}
       <button
         onClick={open ? () => setOpen(false) : handleOpen}
-        className={`fixed bottom-4 right-4 z-50 shadow-lg transition-all duration-150 active:scale-95 ${
+        className={`fixed bottom-4 right-4 z-50  transition-all duration-150 active:scale-95 ${
           open
             ? "bg-navy text-white h-10 w-10 rounded-full flex items-center justify-center"
             : "bg-gold text-navy h-10 rounded-full flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"

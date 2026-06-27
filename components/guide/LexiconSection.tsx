@@ -268,8 +268,8 @@ export default function LexiconSection() {
         return (
           <div
             key={term}
-            className={`border rounded-lg overflow-hidden transition-all ${
-              isOpen ? "border-navy/30 shadow-sm" : "border-gray-200"
+            className={`border rounded-none overflow-hidden transition-all ${
+              isOpen ? "border-navy/30 " : "border-[#e7e9f0]"
             }`}
           >
             <button
@@ -286,7 +286,7 @@ export default function LexiconSection() {
               />
             </button>
             {isOpen && (
-              <div className="px-4 pb-4 pt-1 bg-surface border-t border-gray-100">
+              <div className="px-4 pb-4 pt-1 bg-surface border-t border-[#e7e9f0]">
                 <p className="text-xs text-gray-400 italic mb-2">{full}</p>
                 <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
               </div>

@@ -50,10 +50,10 @@ export default function DocTiles() {
             <button
               key={doc.id}
               onClick={() => setActive(doc.id)}
-              className={`text-right rounded-lg p-4 border transition-all ${
+              className={`text-right rounded-none p-4 border transition-all ${
                 isActive
-                  ? "bg-orange-50 border-orange-400 shadow-sm"
-                  : "bg-white border-gray-200 hover:border-gray-300 hover:shadow-sm"
+                  ? "bg-orange-50 border-orange-400 "
+                  : "bg-white border-[#e7e9f0] hover:border-gray-300 "
               }`}
             >
               <div className="flex items-start justify-between mb-3">
@@ -79,7 +79,7 @@ export default function DocTiles() {
       </div>
 
       {/* Active tile detail */}
-      <div className="mt-3 border border-orange-200 rounded-lg bg-orange-50/60 px-5 py-4">
+      <div className="mt-3 border border-orange-200 rounded-none bg-orange-50/60 px-5 py-4">
         <div className="flex gap-3 items-start">
           <span className="text-xl flex-shrink-0">{activeDoc.icon}</span>
           <div>

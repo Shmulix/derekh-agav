@@ -175,7 +175,7 @@ export default function RentalPlatformsPost() {
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-[#e7e9f0] pb-2">
                     תוכן עניינים
                   </p>
                   <nav className="space-y-1">
@@ -191,7 +191,7 @@ export default function RentalPlatformsPost() {
                   </nav>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
@@ -278,7 +278,7 @@ export default function RentalPlatformsPost() {
 
               <div className="space-y-5 mb-8">
                 {platforms.map((p) => (
-                  <div key={p.name} className="border border-gray-200 rounded-xl p-5 bg-white">
+                  <div key={p.name} className="border border-[#e7e9f0] rounded-none p-5 bg-white">
                     <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
                       <div>
                         <p className="font-bold text-navy text-lg leading-tight">{p.name}</p>
@@ -328,7 +328,7 @@ export default function RentalPlatformsPost() {
 
               {/* Mobile: disclaimer */}
               <div className="lg:hidden space-y-4 mb-8">
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך. ההמלצות נכתבות לפי שיקול מקצועי בלבד.
@@ -337,7 +337,7 @@ export default function RentalPlatformsPost() {
               </div>
 
               {/* Final CTA — vers le guide (cette page EST la destination de réservation) */}
-              <div className="bg-navy rounded-xl p-7 text-center">
+              <div className="bg-navy rounded-none p-7 text-center">
                 <p className="text-white font-bold text-lg mb-2">לפני שאתה סוגר, ודא שאתה מוכן לדלפק</p>
                 <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
                   בחירת הפלטפורמה היא חצי מהעבודה. החצי השני זה להגיע לדלפק עם המסמכים הנכונים ובלי הפתעות. המדריך המלא מכסה את הכל.
@@ -352,14 +352,14 @@ export default function RentalPlatformsPost() {
             {/* LEFT SIDEBAR — disclaimer + more articles */}
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-4">
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך. ההמלצות נכתבות לפי שיקול מקצועי בלבד.
                   </p>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4">
+                <div className="border border-[#e7e9f0] rounded-none p-4">
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/driving-license-abroad" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">

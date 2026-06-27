@@ -121,7 +121,7 @@ export default function DrivingLicenseAbroadPost() {
 
                 {/* TOC */}
                 <div>
-                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-[#e7e9f0] pb-2">
                     תוכן עניינים
                   </p>
                   <nav className="space-y-1">
@@ -146,7 +146,7 @@ export default function DrivingLicenseAbroadPost() {
                 </div>
 
                 {/* Author card */}
-                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
@@ -202,7 +202,7 @@ export default function DrivingLicenseAbroadPost() {
             דלפק התחנה מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
           </p>
 
-          <div className="flex items-start gap-4 bg-surface border border-gray-200 rounded-xl p-5 mb-6">
+          <div className="flex items-start gap-4 bg-surface border border-[#e7e9f0] rounded-none p-5 mb-6">
             <div className="flex-shrink-0">
               <Image
                 src="/driving-license.png"
@@ -239,7 +239,7 @@ export default function DrivingLicenseAbroadPost() {
 
           <div className="space-y-4 mb-8">
 
-            <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+            <div className="border border-red-200 bg-red-50 rounded-none p-5">
               <div className="flex items-start gap-3 mb-2">
                 <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                 <p className="font-bold text-red-800">רישיון פג תוקף</p>
@@ -253,7 +253,7 @@ export default function DrivingLicenseAbroadPost() {
               <h3 className="text-base font-bold text-navy mb-2 mt-1">
                 רישיון זמני: האם הוא תקף בחו״ל?
               </h3>
-              <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+              <div className="border border-red-200 bg-red-50 rounded-none p-5">
                 <div className="flex items-start gap-3 mb-2">
                   <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <p className="font-bold text-red-800">לא. הרישיון הזמני לא תקף בחו״ל.</p>
@@ -273,7 +273,7 @@ export default function DrivingLicenseAbroadPost() {
               </div>
             </div>
 
-            <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+            <div className="border border-red-200 bg-red-50 rounded-none p-5">
               <div className="flex items-start gap-3 mb-2">
                 <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                 <p className="font-bold text-red-800">צילום, תמונה בטלפון, סריקה</p>
@@ -284,7 +284,7 @@ export default function DrivingLicenseAbroadPost() {
               </p>
             </div>
 
-            <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+            <div className="border border-red-200 bg-red-50 rounded-none p-5">
               <div className="flex items-start gap-3 mb-2">
                 <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                 <p className="font-bold text-red-800">צילום מאושר / עותק נוטריוני</p>
@@ -294,7 +294,7 @@ export default function DrivingLicenseAbroadPost() {
               </p>
             </div>
 
-            <div className="border border-red-200 bg-red-50 rounded-xl p-5">
+            <div className="border border-red-200 bg-red-50 rounded-none p-5">
               <div className="flex items-start gap-3 mb-2">
                 <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                 <p className="font-bold text-red-800">שם שונה מזה שמופיע בהזמנה</p>
@@ -421,7 +421,7 @@ export default function DrivingLicenseAbroadPost() {
               alt="רישיון נהיגה ישראלי בתקן אירופאי רצו ושמאל"
               width={600}
               height={380}
-              className="rounded-xl w-full object-cover"
+              className="rounded-none w-full object-cover"
             />
             <p className="text-xs text-gray-400 mt-2 text-center">רישיון הנהיגה הישראלי בפורמט EU Standard. כל השדות מסומנים לפי התקן האירופאי.</p>
           </div>
@@ -438,7 +438,7 @@ export default function DrivingLicenseAbroadPost() {
               { field: "3", label: "תאריך לידה" },
               { field: "5", label: "מספר הרישיון" },
             ].map((item) => (
-              <div key={item.field} className="flex items-center gap-2 bg-surface rounded-lg px-3 py-2 text-sm">
+              <div key={item.field} className="flex items-center gap-2 bg-surface rounded-none px-3 py-2 text-sm">
                 <span className="font-mono font-bold text-navy text-xs bg-navy/10 px-1.5 py-0.5 rounded">{item.field}</span>
                 <span className="text-gray-700">{item.label}</span>
               </div>
@@ -478,7 +478,7 @@ export default function DrivingLicenseAbroadPost() {
             בפועל? לא כל דלפק התחנה מבקש. אבל כשמבקשים, ואתה לא מביא? אין רכב. פשוט כך.
           </p>
 
-          <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-xl p-5 mb-6">
+          <div className="flex items-start gap-4 border border-navy/20 bg-[#f0f4ff] rounded-none p-5 mb-6">
             <Image
               src="/icon-idp.png"
               alt="אייקון רישיון בינלאומי IDP"
@@ -497,7 +497,7 @@ export default function DrivingLicenseAbroadPost() {
 
           <Link
             href="/posts/international-driving-permit"
-            className="block bg-navy text-white rounded-xl p-5 hover:bg-navy-dark transition-colors mb-10"
+            className="block bg-navy text-white rounded-none p-5 hover:bg-navy-dark transition-colors mb-10"
           >
             <p className="text-xs font-semibold text-gold mb-1">המאמר הבא</p>
             <p className="font-bold text-base mb-1">איך מוציאים רישיון נהיגה בינלאומי (IDP) בישראל</p>
@@ -511,7 +511,7 @@ export default function DrivingLicenseAbroadPost() {
           <div className="lg:hidden space-y-4 mb-8">
 
             {/* Author card mobile */}
-            <div className="border border-gray-100 rounded-xl p-4 bg-white">
+            <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
               <div className="flex items-center gap-3">
                 <Image
                   src="/samuel.avif"
@@ -531,7 +531,7 @@ export default function DrivingLicenseAbroadPost() {
             </div>
 
             {/* Disclaimer mobile */}
-            <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+            <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
               <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
               <p className="text-xs text-amber-700 leading-relaxed">
                 האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
@@ -541,7 +541,7 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
           {/* Final CTA */}
-          <div className="bg-navy rounded-xl p-7 text-center">
+          <div className="bg-navy rounded-none p-7 text-center">
             <p className="text-white font-bold text-lg mb-2">מוכן לבחור את הרכב הבא שלך?</p>
             <p className="text-slate-300 text-sm mb-4 leading-relaxed max-w-lg mx-auto">
               עכשיו שאתה יודע מה לקחת איתך, השאלה הבאה היא פשוטה: איפה הכי כדאי להזמין? כתבתי השוואה בין חברות ההשכרה המובילות. כולל מחיר, ביטוח ושירות.
@@ -557,7 +557,7 @@ export default function DrivingLicenseAbroadPost() {
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-4">
 
-                <div className="bg-navy rounded-xl p-5">
+                <div className="bg-navy rounded-none p-5">
                   <div className="flex items-center gap-3 mb-3">
                     <p className="text-white font-bold text-sm leading-tight">מוכן להזמין?</p>
                   </div>
@@ -572,14 +572,14 @@ export default function DrivingLicenseAbroadPost() {
                   </a>
                 </div>
 
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
                   </p>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4">
+                <div className="border border-[#e7e9f0] rounded-none p-4">
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">

@@ -9,9 +9,9 @@ export function EbookTile() {
     <a
       href={PDF_HREF}
       download={PDF_NAME}
-      className="block mt-6 rounded-xl bg-navy p-4 hover:bg-navy-dark transition-colors"
+      className="block mt-6 rounded-none bg-navy p-4 hover:bg-navy-dark transition-colors"
     >
-      <div className="w-9 h-9 rounded-lg bg-gold/15 flex items-center justify-center mb-3">
+      <div className="w-9 h-9 rounded-none bg-gold/15 flex items-center justify-center mb-3">
         <BookOpen size={18} className="text-gold" />
       </div>
       <p className="text-white font-bold text-sm leading-snug">המדריך כ-PDF</p>
@@ -28,9 +28,9 @@ export function EbookTile() {
 // Bannière inline (le long du guide, avec parcimonie)
 export function EbookBanner() {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-navy rounded-xl p-5 my-8">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-navy rounded-none p-5 my-8">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-none bg-gold/15 flex items-center justify-center flex-shrink-0">
           <BookOpen size={20} className="text-gold" />
         </div>
         <div>

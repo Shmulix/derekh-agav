@@ -123,7 +123,7 @@ export default function IDPStationsPost() {
               <div className="space-y-5">
 
                 <div>
-                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">
+                  <p className="text-xs font-bold text-navy uppercase tracking-widest mb-4 border-b border-[#e7e9f0] pb-2">
                     תוכן עניינים
                   </p>
                   <nav className="space-y-1">
@@ -145,7 +145,7 @@ export default function IDPStationsPost() {
                   </nav>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4 bg-white">
+                <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
                   <div className="flex items-center gap-3">
                     <Image
                       src="/samuel.avif"
@@ -197,14 +197,14 @@ export default function IDPStationsPost() {
               </div>
 
               {/* What to bring */}
-              <div id="what-to-bring" className="scroll-mt-24 bg-[#f0f4ff] border border-navy/15 rounded-xl p-5 mb-8">
+              <div id="what-to-bring" className="scroll-mt-24 bg-[#f0f4ff] border border-navy/15 rounded-none p-5 mb-8">
                 <p className="font-bold text-navy text-sm mb-4 flex items-center gap-2">
                   <Info size={16} />
                   מה להביא לתחנה
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {whatToBring.map((item) => (
-                    <div key={item.text} className="bg-white rounded-lg p-3 text-center border border-navy/10">
+                    <div key={item.text} className="bg-white rounded-none p-3 text-center border border-navy/10">
                       <div className="text-2xl mb-1">{item.icon}</div>
                       <p className="text-xs text-gray-700 leading-snug">{item.text}</p>
                     </div>
@@ -218,7 +218,7 @@ export default function IDPStationsPost() {
               </div>
 
               {/* High season warning */}
-              <div id="season" className="scroll-mt-24 border border-orange-200 bg-orange-50 rounded-xl p-4 mb-8 flex items-start gap-3">
+              <div id="season" className="scroll-mt-24 border border-orange-200 bg-orange-50 rounded-none p-4 mb-8 flex items-start gap-3">
                 <AlertTriangle size={17} className="text-orange-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-bold text-orange-800 text-sm mb-1">מרץ–יולי: עונת השיא</p>
@@ -229,7 +229,7 @@ export default function IDPStationsPost() {
               </div>
 
               {/* Source note */}
-              <div id="source" className="scroll-mt-24 bg-surface border border-gray-200 rounded-xl p-5 mb-10">
+              <div id="source" className="scroll-mt-24 bg-surface border border-[#e7e9f0] rounded-none p-5 mb-10">
                 <p className="text-sm font-bold text-navy mb-2">על הרשימה הזו</p>
                 <p className="text-sm text-gray-600 leading-relaxed mb-3">
                   הרשימה מבוססת על נתוני{" "}
@@ -258,13 +258,13 @@ export default function IDPStationsPost() {
               <div className="space-y-3 mb-10">
                 <Link
                   href="/posts/international-driving-permit"
-                  className="block border border-gray-200 rounded-xl p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
+                  className="block border border-[#e7e9f0] rounded-none p-4 hover:border-navy/40 hover:bg-[#f0f4ff] transition-colors"
                 >
                   <p className="text-xs text-gray-400 mb-1">→ המאמר הקודם</p>
                   <p className="font-bold text-navy text-sm leading-snug">רישיון נהיגה בינלאומי (IDP): חובה שאף אחד לא מסביר</p>
                   <p className="text-xs text-gray-500 mt-1 leading-snug">למה הרישיון הישראלי לא מספיק לבד, ומה קורה כשלא מביאים IDP</p>
                 </Link>
-                <div className="block bg-navy rounded-xl p-5">
+                <div className="block bg-navy rounded-none p-5">
                   <p className="text-xs text-gold font-semibold mb-1">המאמר הבא ←</p>
                   <p className="font-bold text-white text-base leading-snug mb-1">הדרכון בהשכרת רכב בחו״ל</p>
                   <p className="text-sm text-slate-300 leading-snug">הדרכון נשאר בכספת המלון. הרכב לא יוצא. כל מה שצריך לדעת לפני שזה קורה לך.</p>
@@ -278,7 +278,7 @@ export default function IDPStationsPost() {
             <aside className="hidden lg:block sticky top-24 self-start">
               <div className="space-y-4">
 
-                <div className="bg-navy rounded-xl p-5">
+                <div className="bg-navy rounded-none p-5">
                   <p className="text-white font-bold text-sm leading-tight mb-2">מוכן להזמין?</p>
                   <p className="text-slate-300 text-xs leading-relaxed mb-3">
                     השוואה בין חברות ההשכרה המובילות לפי מחיר, ביטוח ושירות.
@@ -291,14 +291,14 @@ export default function IDPStationsPost() {
                   </a>
                 </div>
 
-                <div className="bg-[#fffbea] border border-gold/30 rounded-xl p-4">
+                <div className="bg-[#fffbea] border border-gold/30 rounded-none p-4">
                   <p className="text-xs font-bold text-amber-800 mb-1">גילוי נאות</p>
                   <p className="text-xs text-amber-700 leading-relaxed">
                     האתר משתמש בקישורי שותפות. הזמנה דרך הקישורים מסייעת להמשך פעילות האתר ללא עלות נוספת עבורך.
                   </p>
                 </div>
 
-                <div className="border border-gray-100 rounded-xl p-4">
+                <div className="border border-[#e7e9f0] rounded-none p-4">
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">

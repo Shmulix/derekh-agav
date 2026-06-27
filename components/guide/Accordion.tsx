@@ -19,7 +19,7 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden mb-3">
+    <div className="border border-[#e7e9f0] mb-3">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-surface transition-colors text-right"
@@ -62,7 +62,7 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
         </div>
       </button>
       {open && (
-        <div className="px-5 pb-5 pt-2 bg-white border-t border-gray-100">
+        <div className="px-5 pb-5 pt-2 bg-white border-t border-[#e7e9f0]">
           {children}
         </div>
       )}

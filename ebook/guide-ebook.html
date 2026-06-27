@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>המדריך המלא להשכרת רכב בחו״ל | דרך אגב</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a2f5e; --navy-dark:#0d1f3c; --gold:#c9a227; --text:#1f2433;
+    --muted:#5b6377; --surface:#f8f9fc; --line:#e6e8ef;
+    --red:#e53e3e; --red-bg:#fff3f3; --gold-bg:#fffbea; --info-bg:#f0f4ff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Heebo',sans-serif; color:var(--text);
+    direction:rtl; text-align:right; line-height:1.7; font-size:11.5pt;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  p{margin:0 0 10px;}
+  strong{color:var(--navy); font-weight:700;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    min-height:235mm; background:var(--navy-dark);
+    color:#fff; display:flex; flex-direction:column; justify-content:center;
+    padding:45mm 20mm; page-break-after:always; position:relative;
+  }
+  .cover::after{content:""; position:absolute; inset:0; border:2px solid rgba(201,162,39,.35); margin:10mm;}
+  .cover .brand{font-size:13pt; font-weight:800; letter-spacing:.5px; color:#fff;}
+  .cover .brand .dot{color:var(--gold);}
+  .cover .kicker{color:var(--gold); font-weight:700; font-size:12pt; margin-top:auto; letter-spacing:1px;}
+  .cover h1{font-size:34pt; font-weight:900; line-height:1.15; margin:10px 0 14px;}
+  .cover .sub{font-size:13pt; color:#cdd5e3; max-width:130mm; line-height:1.6;}
+  .cover .author{margin-top:18px; font-size:11pt; color:#9aa6bd;}
+  .cover .rule{width:60mm; height:3px; background:var(--gold); margin:16px 0;}
+
+  /* ---------- TOC ---------- */
+  .page{padding:0 4mm;}
+  .toc{page-break-after:always; padding-top:6mm;}
+  .toc h2{color:var(--navy); font-size:22pt; font-weight:900; margin:0 0 4px;}
+  .toc .lead{color:var(--muted); margin-bottom:14px;}
+  .toc ol{list-style:none; margin:0; padding:0; counter-reset:ch;}
+  .toc li{display:flex; align-items:baseline; gap:10px; padding:8px 0; border-bottom:1px solid var(--line);}
+  .toc li .n{color:var(--gold); font-weight:800; width:26px; flex-shrink:0;}
+  .toc li .t{color:var(--text); font-weight:500;}
+  .toc li .ico{margin-left:4px;}
+
+  /* ---------- CHAPTERS ---------- */
+  .chapter{page-break-before:always; padding-top:4mm;}
+  .ch-head{border-bottom:3px solid var(--gold); padding-bottom:8px; margin-bottom:14px;}
+  .ch-num{color:var(--gold); font-weight:800; font-size:10pt; letter-spacing:1px;}
+  .ch-title{color:var(--navy); font-size:20pt; font-weight:900; margin:2px 0 0; line-height:1.2;}
+  .intro{color:var(--muted); font-style:italic; border-right:3px solid var(--line); padding-right:12px; margin-bottom:14px;}
+  h3{color:var(--navy); font-size:13pt; font-weight:800; margin:16px 0 6px;}
+
+  .box{border-radius:8px; padding:12px 14px; margin:12px 0; font-size:10.8pt; line-height:1.65;}
+  .warn{background:var(--red-bg); border:1px solid #f6caca; border-right:4px solid var(--red);}
+  .warn .lbl{color:#b91c1c; font-weight:800;}
+  .tip{background:var(--gold-bg); border:1px solid #f0e3b0; border-right:4px solid var(--gold);}
+  .tip .lbl{color:#8a6d1a; font-weight:800;}
+  .info{background:var(--info-bg); border:1px solid #d6e0f7; border-right:4px solid var(--navy);}
+  .info .lbl{color:var(--navy); font-weight:800;}
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin:12px 0; font-size:10.8pt;}
+
+  ul.clean{margin:6px 0 10px; padding-right:18px;}
+  ul.clean li{margin-bottom:5px;}
+  .yes{color:#16794a; font-weight:700;}
+  .no{color:#b91c1c; font-weight:700;}
+
+  .stat-row{display:flex; gap:8px; margin:10px 0;}
+  .stat{flex:1; background:var(--navy); color:#fff; border-radius:8px; padding:10px; text-align:center;}
+  .stat b{display:block; color:var(--gold); font-size:13pt; font-weight:800;}
+  .stat span{font-size:8.5pt; color:#cdd5e3;}
+
+  .lex{display:flex; gap:10px; padding:7px 0; border-bottom:1px solid var(--line);}
+  .lex .term{color:var(--navy); font-weight:800; width:130px; flex-shrink:0;}
+  .lex .def{color:var(--muted); font-size:10.5pt;}
+
+  .checklist{background:var(--surface); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  .checklist .item{display:flex; gap:10px; padding:9px 12px; border-bottom:1px solid var(--line); font-size:10.6pt;}
+  .checklist .item:last-child{border-bottom:none;}
+  .closing{background:var(--navy); color:#fff; border-radius:10px; padding:16px 18px; margin-top:16px; text-align:center;}
+  .closing b{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="cover">
+  <div class="brand">דרך אגב <span class="dot">·</span></div>
+  <div class="kicker">המדריך המלא</div>
+  <h1>להשכרת רכב בחו״ל</h1>
+  <div class="rule"></div>
+  <p class="sub">כל מה שצריך לדעת לפני שמגיעים לדלפק. מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. בסדר הנכון, בשפה פשוטה.</p>
+  <p class="author">כתוב מניסיון אמיתי של יותר מעשר שנים בתחום · סמואל פרץ</p>
+</section>
+
+<!-- ===================== PREFACE ===================== -->
+<section class="page">
+  <div class="chapter" style="page-break-before:avoid;">
+    <div class="ch-head"><div class="ch-num">פתח דבר</div><h2 class="ch-title">לפני שמתחילים</h2></div>
+    <p>לפני כל נסיעה עם רכב שכור, יש שאלות שחייבים לדעת לענות עליהן. רוב האנשים מגלים אותן בדלפק. אתה תגלה אותן כאן.</p>
+    <p>המדריך הזה מכסה את כל מה שצריך לדעת לפני שמשכירים רכב בחו״ל. כל נושא מוסבר בשפה פשוטה, בלי מינוח משפטי, בלי שיווק. כתבתי אותו על סמך יותר מעשר שנים בתחום, בתפקידים של סוכן הזמנות, נציג ומנהל אופרציה, מנהל מוקד, ומנהל שיווק שותפים. ראיתי הכל, ואני יודע בדיוק מה גורם לאנשים להישאר בדלפק בלי רכב.</p>
+    <div class="box info">
+      <span class="lbl">לפני שמתחילים: הכי חשוב</span>
+      <p style="margin-top:6px;">תנאי ההשכרה של חברת ההשכרה שלך. קרא אותם. כולם. המדריך הזה נותן לך את הבסיס, את הלוגיקה, את מה שרוב האנשים לא יודעים. אבל כל חברת השכרה כותבת את החוזה שלה בעצמה: סכום הפיקדון, איזה ביטוח כלול, גיל מינימום, הגבלת קילומטרז׳. כל אלה משתנים מחברה לחברה. תפתח את תנאי ההזמנה שלך, תקרא אותם מההתחלה עד הסוף, ותשתמש במדריך הזה כדי להבין מה שקראת.</p>
+    </div>
+    <p style="font-weight:700;color:var(--navy);">תקרא אותו לפני שאתה נוסע. תחזור אליו כשאתה לא בטוח. הוא כתוב בשבילך.</p>
+  </div>
+</section>
+
+<!-- ===================== TOC ===================== -->
+<section class="page toc">
+  <h2>תוכן העניינים</h2>
+  <p class="lead">18 פרקים. מההתחלה ועד הדלפק.</p>
+  <ol>
+    <li><span class="n">1</span><span class="t"><span class="ico">📋</span> מסמכים נדרשים</span></li>
+    <li><span class="n">2</span><span class="t"><span class="ico">💳</span> פיקדון</span></li>
+    <li><span class="n">3</span><span class="t"><span class="ico">🚗</span> קטגוריית הרכב</span></li>
+    <li><span class="n">4</span><span class="t"><span class="ico">🛡️</span> ביטוח</span></li>
+    <li><span class="n">5</span><span class="t"><span class="ico">🧑</span> גיל הנהג</span></li>
+    <li><span class="n">6</span><span class="t"><span class="ico">📍</span> איסוף והחזרה</span></li>
+    <li><span class="n">7</span><span class="t"><span class="ico">🛣️</span> כבישי אגרה</span></li>
+    <li><span class="n">8</span><span class="t"><span class="ico">🌍</span> חציית גבול</span></li>
+    <li><span class="n">9</span><span class="t"><span class="ico">❄️</span> ציוד חורף</span></li>
+    <li><span class="n">10</span><span class="t"><span class="ico">🧳</span> כיסאות וציוד משלים</span></li>
+    <li><span class="n">11</span><span class="t"><span class="ico">⛽</span> דלק</span></li>
+    <li><span class="n">12</span><span class="t"><span class="ico">🗺️</span> קילומטרז׳</span></li>
+    <li><span class="n">13</span><span class="t"><span class="ico">📨</span> קנסות ודוחות</span></li>
+    <li><span class="n">14</span><span class="t"><span class="ico">📅</span> דמי ביטול ואי הגעה</span></li>
+    <li><span class="n">15</span><span class="t"><span class="ico">🚨</span> תאונה ותקלה מכנית</span></li>
+    <li><span class="n">16</span><span class="t"><span class="ico">✅</span> השורה התחתונה</span></li>
+    <li><span class="n">17</span><span class="t"><span class="ico">❓</span> שאלות נפוצות</span></li>
+    <li><span class="n">18</span><span class="t"><span class="ico">📖</span> מילון מונחים</span></li>
+  </ol>
+</section>
+
+<!-- ===================== 1. DOCUMENTS ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 1</div><h2 class="ch-title">📋 מסמכים נדרשים</h2></div>
+  <p class="intro">כאן אין יצירתיות. יש כללים. חסר מסמך אחד? הדלפק לא ממציא פתרונות. הוא פשוט לא ייתן לך את הרכב.</p>
+  <p>חמישה דברים שצריך להביא:</p>
+  <ul class="clean">
+    <li><strong>רישיון נהיגה ישראלי</strong> פיזי בפלסטיק, בתוקף לאורך כל תקופת ההשכרה.</li>
+    <li><strong>רישיון נהיגה בינלאומי (IDP)</strong> פיזי, בתוקף.</li>
+    <li><strong>כרטיס אשראי בינלאומי</strong> פיזי עם מסגרת פנויה לפיקדון, קוד סודי, ולפחות 6 חודשי תוקף.</li>
+    <li><strong>דרכון</strong> בתוקף.</li>
+    <li><strong>כרטיס עלייה למטוס</strong>: לא תמיד נדרש, אבל יש תחנות שמבקשות (בעיקר בארה״ב ובחלק מאירופה). שמור אותו נגיש.</li>
+  </ul>
+  <div class="box warn">
+    <span class="lbl">כל המסמכים חייבים להיות מונפקים מאותה מדינה, ועל אותו שם.</span>
+    <p style="margin-top:6px;">ישראלי עם רישיון, דרכון וכרטיס אשראי ישראליים? מצוין. דרכון זר, כרטיס על שם אחר, או רישיון ממדינה שלישית? הדלפק רואה חוסר התאמה, ומשם אין ויכוח.</p>
+  </div>
+  <h3>התאמת שמות: הנקודה שישראלים מפספסים</h3>
+  <p>בישראל אנחנו אלופי עולם במשחק עם שמות באנגלית: שם נעורים, קיצור, איות שונה. בחו״ל המערכת לא מבינה "למה התכוונת", והנציג לא מנחש.</p>
+  <ul class="clean">
+    <li><span class="no">✗</span> שם נעורים שונה מהדרכון</li>
+    <li><span class="no">✗</span> קיצור או איות שונה בין ההזמנה לדרכון</li>
+    <li><span class="yes">✓</span> שם זהה לחלוטין בכל המסמכים ובהזמנה</li>
+  </ul>
+  <h3>השם בהזמנה = הנהג</h3>
+  <p>מי שמופיע בהזמנה הוא זה שחייב להציג את כל המסמכים. רוצה שמישהו אחר ינהג? אפשר <strong>נהג נוסף</strong> (נוכח פיזית, עם רישיון ישראלי ובינלאומי, בתוספת תשלום יומית), או <strong>נהג ראשי אחר</strong> (שמו בהזמנה, הכרטיס על שמו, המסמכים שלו). שינוי שם ברגע האחרון יכול לאפס את ההזמנה: המחיר קופץ למחיר היום והזמינות נעלמת.</p>
+  <div class="box tip"><span class="lbl">טיפ</span> את הרישיון הבינלאומי מוציאים בנקודות מורשות של משרד התחבורה. לא לוקח הרבה זמן, לא עולה הרבה. מי שמוותר עליו מהמר.</div>
+</div></section>
+
+<!-- ===================== 2. DEPOSIT ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 2</div><h2 class="ch-title">💳 פיקדון</h2></div>
+  <p class="intro">פיקדון הוא סכום שחברת ההשכרה חוסמת זמנית בכרטיס האשראי בעת איסוף הרכב, כערבון. הוא לא מחויב בפועל, ומשתחרר בסיום ההשכרה אם הכול תקין.</p>
+  <div class="stat-row">
+    <div class="stat"><b>300-3,000€</b><span>סכום נחסם</span></div>
+    <div class="stat"><b>לא חיוב</b><span>חסימת מסגרת</span></div>
+    <div class="stat"><b>משתחרר</b><span>אחרי החזרת הרכב</span></div>
+  </div>
+  <p>הסכום משתנה לפי חברת ההשכרה, מדינה, קטגוריית רכב וסוג ביטוח. ברכבי פרימיום, יותר.</p>
+  <div class="box info"><span class="lbl">חשוב</span> גם עם ביטוח ללא השתתפות עצמית, הפיקדון עדיין נדרש. הוא לא רק לנזקים: גם לדלק חסר, לדמי טיפול על דוחות, ולכל חריגה מהחוזה.</div>
+  <h3>אין מסגרת פנויה בכרטיס?</h3>
+  <p>אין מסגרת בגובה הפיקדון? אין רכב. המערכת לא עובדת אחרת. ברכבי פרימיום, חלק מחברות ההשכרה דורשות שני כרטיסים, שניהם על שם הנהג הראשי. כרטיסי דביט ופרה-פייד בדרך כלל לא מתקבלים.</p>
+</div></section>
+
+<!-- ===================== 3. CATEGORY ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 3</div><h2 class="ch-title">🚗 קטגוריית הרכב</h2></div>
+  <p class="intro">בעולם השכרת הרכב לא מזמינים רכב ספציפי. מזמינים קטגוריה. זה מפתיע הרבה אנשים בדלפק.</p>
+  <p>כל רכב משויך לקטגוריה לפי קוד <strong>ACRISS</strong>, תקן בינלאומי שמתאר את סוג הרכב, גודלו, ההילוכים והמיזוג. הרכב שמוצג בהזמנה הוא <strong>דגם מייצג בלבד</strong>, לא הבטחה. חברת ההשכרה יכולה לתת כל רכב אחר באותה קטגוריה, וזה חוקי.</p>
+  <h3>כשאין את הקטגוריה שהוזמנה</h3>
+  <ul class="clean">
+    <li><strong>שדרוג ללא תשלום:</strong> חברת ההשכרה מחויבת להציע את הקטגוריה הזמינה הבאה מעליה, בלי תוספת. זו חובתה, לא טובה.</li>
+    <li><strong>אין רכב בכלל:</strong> ההזמנה תבוטל ללא דמי ביטול או קנס.</li>
+    <li><strong>פיצוי על הנזק:</strong> נגרמו לך הוצאות (הסדר חלופי, נסיעות, אכסניה)? שמור קבלות, אפשר לתבוע פיצוי, לעיתים דרך הברוקר.</li>
+  </ul>
+  <div class="box info"><span class="lbl">ACRISS</span> הקוד מורכב מ-4 אותיות: קטגוריה, סוג רכב, הילוכים, ודלק/מיזוג. לא חייב לשנן, אבל כדאי לבדוק שהקטגוריה בהזמנה תואמת את מה שציפית.</div>
+</div></section>
+
+<!-- ===================== 4. INSURANCE ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 4</div><h2 class="ch-title">🛡️ ביטוח</h2></div>
+  <p class="intro">הנושא שהכי קל לחשוב שמבינים לפניו, ובדלפק הכי גורם להפתעות. כאן הסבר לכל סוג, כדי שתדע מה קנית לפני שצריך להשתמש בזה.</p>
+  <h3>הכיסויים הבסיסיים</h3>
+  <p><strong>CDW</strong> (נזק לרכב) ו-<strong>TP</strong> (גניבה) הם כיסויים בסיסיים, אך כוללים <strong>השתתפות עצמית</strong> שגובהה משתנה לפי חברת ההשכרה והקטגוריה. <strong>SCDW</strong> ו-<strong>STP</strong> הם אותה הגנה בדיוק, אך <strong>ללא השתתפות עצמית</strong>.</p>
+  <h3>מה לא מכוסה: שתי רמות</h3>
+  <div class="box" style="background:#fff7ed;border:1px solid #fdd9a8;border-right:4px solid #f59e0b;">
+    <span style="color:#b45309;font-weight:800;">⚠️ לא מכוסה בביטוח הבסיסי (לרוב כן בכיסוי משלים)</span>
+    <p style="margin-top:6px;">שמשות ומראות · צמיגים · מרכב תחתון · מצמד ומצבר · אובדן מפתחות. לא תמיד מכוסים גם במשלים. בדוק את התנאים לפני.</p>
+  </div>
+  <div class="box warn">
+    <span class="lbl">🚫 לא מכוסה בשום מקרה, עם שום ביטוח</span>
+    <p style="margin-top:6px;">נהיגה תחת אלכוהול או סמים (ביטול מלא של כל הכיסויים) · נסיעה בשטח לא סלול · נזק לריפודים ולגג · רשלנות מוכחת · אסון טבע. אם קרה, אתה משלם.</p>
+  </div>
+  <div class="box tip"><span class="lbl">טיפ שחוסך כסף</span> לפני שיוצאים מהחניון, בדוק שדוח הנזק משקף את מצב הרכב. שריטה לא מסומנת? תדרוש שיוסיפו. צלם את הרכב מארבעת הצדדים וסרטון קצר, וגם בהחזרה. הצילומים עם חותמת שעה הם הראיה שלך.</div>
+</div></section>
+
+<!-- ===================== 5. DRIVER AGE ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 5</div><h2 class="ch-title">🧑 גיל הנהג</h2></div>
+  <p class="intro">גיל הנהג משפיע על הזמינות, על המחיר, ולפעמים על האפשרות לשכור בכלל. לשני הכיוונים.</p>
+  <div class="stat-row">
+    <div class="stat"><b>21</b><span>גיל מינימום</span></div>
+    <div class="stat"><b>23-25</b><span>נהג צעיר</span></div>
+    <div class="stat"><b>70+</b><span>נהג בכיר</span></div>
+    <div class="stat"><b>80-85</b><span>גיל מקסימום</span></div>
+  </div>
+  <h3>נהג צעיר</h3>
+  <p>ברוב החברות אפשר לשכור מגיל 21, אבל עד גיל מסוים (23 עד 26) מוגדרים כ"נהג צעיר" עם תוספת יומית. בנוסף נדרש <strong>ותק רישיון</strong>: שנה עד שנתיים לרכב רגיל, שלוש ומעלה לרכבים גדולים או יוקרתיים. בדרך כלל זמינים: מיני, קומפקט, אסטייט קטן. בדרך כלל לא: SUV גדול, מיניוואן, פרימיום, קבריולה.</p>
+  <h3>נהג בכיר</h3>
+  <p>פחות נפוץ, אבל קיים בחלק מהחברות. הגבול המקובל הוא גיל 70, עם תוספת יומית והגבלת קטגוריות. גיל מקסימום ברוב החברות: 80 עד 85. תבדוק את המדיניות לפני שמזמינים.</p>
+</div></section>
+
+<!-- ===================== 6. PICKUP ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 6</div><h2 class="ch-title">📍 איסוף והחזרה</h2></div>
+  <p class="intro">לדעת איפה לאסוף, מתי, ואיך להחזיר זה חלק מהתכנון. לגלות את זה בדקה האחרונה זה חלק מהבעיות.</p>
+  <p><strong>סוגי תחנות:</strong> בתוך הטרמינל · מחוץ לשדה עם שאטל חינמי · נציג ממתין בנקודה מוסכמת. תשאל את הנציג בעת האיסוף היכן ואיך להחזיר.</p>
+  <h3>שעת האיסוף</h3>
+  <ul class="clean">
+    <li><strong>גמישות של שעה</strong> לכל כיוון, בכפוף לזמינות. מחוץ לטווח, אין ערובה שהרכב יחכה.</li>
+    <li><strong>איסוף בשדה: תמיד ציין מספר טיסה.</strong> חברת ההשכרה עוקבת אחרי הטיסה ומחכה אם איחרת.</li>
+    <li><span class="no">בלי מספר טיסה</span> חברת ההשכרה לא יודעת אם אתה מאחר, ורשאית לבטל אחרי שעת האיסוף.</li>
+  </ul>
+  <h3>מחוץ לשעות הפעילות</h3>
+  <p><strong>תיבת מפתחות</strong> מאפשרת החזרה בכל שעה (להחזרה בלבד, לא לאיסוף). <strong>שירות After Hours</strong> קיים בתשלום, לא אצל כולם.</p>
+  <div class="box warn"><span class="lbl">שינוי שעה לשעה שמחוץ לפעילות: אין פתרון.</span> אם אין תיבת מפתחות ואין שירות After Hours, השינוי פשוט לא יתאפשר. חייבים להישאר בתוך שעות הפעילות.</div>
+  <h3>דמי החזרה (One-Way Fee)</h3>
+  <p>אוספים בפריז ומחזירים ברומא? אפשרי, זו השכרה חד-כיוונית, ויש לה מחיר (מכמה עשרות עד כמה מאות יורו). לא תמיד מוצג בבירור בהשוואה, גם בין ערים באותה מדינה ייתכן חיוב, ויש חברות שלא מאפשרות One-Way בכלל לחלק מהיעדים.</p>
+</div></section>
+
+<!-- ===================== 7. TOLLS ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 7</div><h2 class="ch-title">🛣️ כבישי אגרה</h2></div>
+  <p class="intro">לא כל כביש מהיר חינמי. חשוב לדעת איזה מנגנון פועל במדינה שאתה נוסע אליה לפני שיוצאים.</p>
+  <h3>💳 תשלום ישיר בכניסה</h3>
+  <p>תחנות גבייה פיזיות, משלמים בכל מעבר. חלקן מקבלות רק מזומן או רק כרטיסים מקומיים. ודא שיש אמצעי תשלום מתאים.</p>
+  <h3>📡 טרנספונדר / אוטו-פס</h3>
+  <p>מכשיר אלקטרוני שמאפשר מעבר אוטומטי. בחלק מהמדינות חברת ההשכרה מציעה אותו בתוספת יומית.</p>
+  <div class="box warn"><span class="lbl">בלי טרנספונדר בנתיב מהיר</span> האגרה תגיע לחברת ההשכרה בדיעבד, ותחויב על האגרה <strong>ועוד דמי טיפול</strong> (כמה עשרות יורו לכל מעבר).</div>
+  <h3>🪟 ויניט (Vignette): תו תקופתי</h3>
+  <p>מדינות מסוימות גובות לפי תקופה (שבוע/חודש/שנה), כמדבקה או רישום דיגיטלי. כששוכרים במדינה שדורשת ויניט, הוא בדרך כלל כלול (תבדוק). כשנוסעים אליה ממדינה אחרת, האחריות עליך: לא שילמת, קנס. ניתן לרכוש דיגיטלית באתר הרשמי לפני הנסיעה.</p>
+  <div class="box warn"><span class="lbl">🚫 ZTL באיטליה</span> ערים רבות (רומא, פירנצה, בולוניה) מפעילות אזורי כניסה מוגבלת בשליטת מצלמות. נכנסת בלי אישור? הקנס מגיע בדיעבד בתוספת דמי טיפול. בדוק אם קיים ZTL בעיר ומה שעות הפעילות.</div>
+</div></section>
+
+<!-- ===================== 8. CROSS-BORDER ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 8</div><h2 class="ch-title">🌍 חציית גבול</h2></div>
+  <p class="intro">נסיעה עם רכב שכור למדינה אחרת היא לא עניין שמסדרים בדרך. צריך להצהיר עליו בהזמנה.</p>
+  <p>ברוב החוזים, <strong>נסיעה מחוץ למדינת ההשכרה אסורה ללא אישור מראש בכתב</strong>. מי שנוסע בלי אישור ונגרם נזק עלול למצוא את עצמו ללא כיסוי ביטוחי כלל.</p>
+  <p>הדבר הנכון: <strong>להצהיר על הנסיעה כבר בשלב ההזמנה</strong>. ברוב אתרי ההשוואה יש שדה ייעודי. אם אין, פנה ישירות לחברת ההשכרה וקבל אישור בכתב. ייתכן תשלום נוסף עבור ביטוח חציית גבול.</p>
+  <div class="box tip"><span class="lbl">טיפ</span> לא כל הרכבים מורשים ליציאה. כשמסמנים את מדינות היעד בהזמנה, התוצאות מסוננות אוטומטית לרכבים מורשים בלבד.</div>
+  <div class="box info"><span class="lbl">שלושה דברים לסדר מראש</span> להצהיר בהזמנה, לאשר כיסוי ביטוחי בכתב, ולבדוק אם נדרש ויניט במדינות שאתה עובר בהן.</div>
+</div></section>
+
+<!-- ===================== 9. WINTER ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 9</div><h2 class="ch-title">❄️ ציוד חורף</h2></div>
+  <p class="intro">במדינות ואזורים רבים באירופה, נסיעה בחורף ללא ציוד מתאים היא עבירה. לא המלצה. חוק.</p>
+  <h3>סוגי ציוד</h3>
+  <ul class="clean">
+    <li><strong>צמיגי חורף ייעודיים:</strong> לקור, רטוב, שלג קל וקרח דק. לא לשלג עמוק.</li>
+    <li><strong>צמיגים רב-עונתיים (3PMSF):</strong> עומדים בתקן החורפי האירופי (סמל הפתית). מתאימים לקור, גשם ושלג קל.</li>
+    <li><strong>שרשראות / גרביוני שלג:</strong> לשלג עמוק או קרח. חלק מהמדינות מחייבות לשאת אותם ברכב גם בלי התקנה בפועל.</li>
+  </ul>
+  <h3>החוק מול הבטיחות</h3>
+  <p>יש מדינות שמחייבות צמיגי חורף בכל רחבי המדינה (אוסטריה, פינלנד, נורווגיה), אחרות רק באזורים ספציפיים (צרפת, איטליה: אלפים, אזורי הרים). אבל גם איפה שהחוק מסתפק בצמיגים: על כביש מושלג או קפוא, <strong>בלי שרשראות לא תוכל לנסוע</strong>. לאזור סקי או כביש הררי בחורף, שרשראות הן ציוד חובה בטיחותי גם אם החוק לא מחייב.</p>
+  <div class="box info"><span class="lbl">חשוב</span> כששוכרים במדינה עם חובה, רק הציוד שהחוק מחייב כלול (לא בהכרח שניהם), ולא תמיד במחיר. ציוד נוסף יש להזמין מראש. כששוכרים במדינה בלי חובה ונוסעים לאזור הררי, האחריות עליך לחלוטין: הזמן מראש דרך חברת ההשכרה (בתחנות שמשרתות יעדי חורף) או רכוש בדרך.</div>
+</div></section>
+
+<!-- ===================== 10. EXTRAS ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 10</div><h2 class="ch-title">🧳 כיסאות וציוד משלים</h2></div>
+  <p class="intro">כיסאות בטיחות, GPS וציוד חורף ניתן להזמין מראש או לבקש בעת האיסוף לפי זמינות. התשלום תמיד מתבצע במקום, בקבלת הרכב.</p>
+  <h3>כיסאות בטיחות</h3>
+  <ul class="clean">
+    <li><strong>👶 Infant Seat:</strong> עד כ-13 ק"ג (עד גיל שנה), פונה לאחור. לא כל התחנות מציעות כיסא לתינוקות מתחת לגיל שנה. אשר זמינות מראש.</li>
+    <li><strong>🐣 Baby Seat:</strong> כ-9 עד 18 ק"ג (9 חודשים עד 4 שנים).</li>
+    <li><strong>🧒 Child Seat:</strong> כ-15 עד 36 ק"ג (3 עד 10 שנים), עם חגורת הרכב.</li>
+    <li><strong>🪑 Booster:</strong> מעל כ-22 ק"ג (גיל 6 ומעלה), מושב הגבהה.</li>
+  </ul>
+  <div class="box info"><span class="lbl">חשוב</span> תמיד בדוק תאימות לפי <strong>משקל</strong> הילד, לא רק לפי גיל. כיסא לא תואם הוא לא כיסא בטוח.</div>
+  <h3>ציוד נוסף</h3>
+  <p><strong>🎿 גגון סקי / תיבת גג</strong> לאתרי סקי או מטען גדול. <strong>🗺️ GPS</strong>: חלק מהרכבים עם ניווט מובנה, אחרת אפשר לשכור מכשיר (רוב הנוסעים משתמשים בנייד). הזמן מראש ואשר זמינות.</p>
+  <div class="box tip"><span class="lbl">טיפ</span> מזמינים מראש? זמינות גבוהה יותר, מחיר זהה. בעונות שיא הציוד עלול להיגמר, במיוחד כיסאות לתינוקות צעירים.</div>
+</div></section>
+
+<!-- ===================== 11. FUEL ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 11</div><h2 class="ch-title">⛽ דלק</h2></div>
+  <p class="intro">כולם חושבים שהם מבינים דלק. "ממלאים, מחזירים, יאללה". ואז מגיע החיוב. בוא נעשה סדר.</p>
+  <ul class="clean">
+    <li><strong>מלא למלא (Full to Full):</strong> הכי נפוץ והכי צודק. מקבל מלא, מחזיר מלא.</li>
+    <li><strong>דלק משולם מראש (Prepaid):</strong> משלמים מראש, מחזירים ריק. פחות משתלם לרוב.</li>
+    <li><strong>אחד לאחד (Same to Same):</strong> מקבל עם X, מחזיר עם X. נדיר.</li>
+  </ul>
+  <div class="box warn"><span class="lbl">"כמעט מלא" זה לא מלא.</span> קו אחד חסר? מבחינת חברת ההשכרה זה לא עומד בתנאים. אין בדלק מושג של "בערך".</div>
+  <div class="box tip"><span class="lbl">טיפ</span> בקבלה: ודא שהנציג רשם את מפלס הדלק בפועל, וצלם את לוח המחוונים. בהחזרה: מלא קרוב לנקודת ההחזרה, שמור קבלה, וצלם שוב את הדשבורד. חותמת השעה היא הראיה שלך.</div>
+</div></section>
+
+<!-- ===================== 12. MILEAGE ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 12</div><h2 class="ch-title">🗺️ קילומטרז׳</h2></div>
+  <p class="intro">הנחת המוצא של רוב האנשים: "ברור שהק״מ חופשי". ברוב המקרים נכון. אבל רוב זה לא כולם.</p>
+  <ul class="clean">
+    <li><strong>ק״מ חופשי (Unlimited):</strong> כמה שרוצים, בלי ספירה. חייב להיות כתוב <strong>במפורש</strong> בתנאים. לא כתוב? לא קיים.</li>
+    <li><strong>ק״מ מוגבל (Limited):</strong> מכסה יומית או לכל התקופה. כל ק״מ מעבר מחויב בנפרד. מה שנראה זול בהתחלה יכול להיות יקר בסוף.</li>
+  </ul>
+  <div class="box tip"><span class="lbl">טיפ</span> לפני שמאשרים הזמנה, בדוק את מדיניות הק״מ. שורה אחת בתנאים, שווה את הדקה.</div>
+</div></section>
+
+<!-- ===================== 13. FINES ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 13</div><h2 class="ch-title">📨 קנסות ודוחות</h2></div>
+  <p class="intro">אף אחד לא יוצא לחו״ל כדי לקבל דוח. אבל דוחות לא שואלים מה התוכניות שלך, והם לא מגיעים תמיד מיד.</p>
+  <h3>איך דוח מוצא אותך</h3>
+  <ul class="clean">
+    <li>המצלמה או הנציג מנפיק את הדוח על שם הרכב, לא על שמך.</li>
+    <li>חברת ההשכרה מקבלת את הדוח, מזהה מי נהג, ומעבירה את פרטיך לרשות.</li>
+    <li>חברת ההשכרה גובה <strong>דמי טיפול אדמיניסטרטיביים (20 עד 50 יורו)</strong>, גם אם אתה מתכנן לערער.</li>
+    <li>הקנס עצמו מגיע ישירות ממך לרשות המקומית.</li>
+  </ul>
+  <p>מצלמות מהירות, ZTL, נתיבי תחבורה ציבורית וחניה אסורה מצולמים אוטומטית. הדוח מגיע בדואר, לפעמים חודשים אחרי שחזרת.</p>
+  <div class="box tip"><span class="lbl">טיפ</span> קיבלת דוח? בדוק אם יש הנחה לתשלום מוקדם. בהרבה מדינות זה 30 עד 50 אחוז פחות. מי שמחכה, משלם יותר.</div>
+</div></section>
+
+<!-- ===================== 14. CANCELLATION ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 14</div><h2 class="ch-title">📅 דמי ביטול ואי הגעה</h2></div>
+  <p class="intro">מדיניות הביטול משתנה לפי חברת ההשכרה, הקטגוריה והזמן שנותר עד האיסוף. תבדוק לפני שמאשרים.</p>
+  <ul class="clean">
+    <li><strong>ביטול מעל 48 שעות לפני:</strong> לרוב ללא עלות, או דמי ביטול סמליים. חלק מהחברות מחזירים את מלוא הסכום.</li>
+    <li><strong>ביטול בתוך 48 שעות:</strong> דמי הביטול גדלים, בדרך כלל 30 עד 100 דולר.</li>
+    <li><strong>No-Show (לא ביטלת ולא הגעת):</strong> חיוב של 50 עד 200 דולר. גם אם הסיבה מחוץ לשליטתך, החיוב מבוסס על התנאים שאישרת.</li>
+  </ul>
+  <div class="box tip"><span class="lbl">טיפ</span> בדוק את מדיניות הביטול וה-No-Show לפני שמאשרים. שורה אחת שיכולה לחסוך עד 200 דולר.</div>
+</div></section>
+
+<!-- ===================== 15. EMERGENCY ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 15</div><h2 class="ch-title">🚨 תאונה ותקלה מכנית</h2></div>
+  <p class="intro">שני מצבים שאף אחד לא מתכנן אליהם. כדאי לדעת מה עושים לפני שיוצאים לדרך.</p>
+  <h3>🔧 תקלה מכנית</h3>
+  <p>הצעד הראשון: <strong>לפנות לשירות הדרכים (Roadside Assistance)</strong> של חברת ההשכרה. הם יעריכו ויתנו הוראות. רכב מושבת לחלוטין? הם ישלחו גרר, אל תנסה להגיע בכוחות עצמך. תקלה קלה (פנצ׳ר, נוזל)? פנה לקבלת הוראות, ושמור קבלות לצורך החזר.</p>
+  <div class="box warn"><span class="lbl">חשוב</span> אם הרכב נגרר, חברת ההשכרה לא תמיד מחויבת לספק רכב חלופי. בדרך כלל יש החלפה, אבל לא בהתחייבות. תמיד שאל ישירות.</div>
+  <h3>💥 תאונה</h3>
+  <ul class="clean">
+    <li><strong>משטרה:</strong> דוח תאונה רשמי (Police Report / Constat). בלעדיו חברת ההשכרה עלולה לסרב לכיסוי.</li>
+    <li><strong>חברת ההשכרה / שירות הדרכים:</strong> פנה לקבלת הוראות (גרר, רכב חלופי, או המשך נסיעה).</li>
+    <li><strong>תיעוד:</strong> צלם נזקים, מיקום הרכבים, ופרטי הצד השני. לא להסכים לפשרות במזומן בשטח.</li>
+  </ul>
+  <div class="box info"><span class="lbl">לפני שיוצאים</span> מספר שירות הדרכים נמצא בחוזה או על מדבקה בתוך הרכב. שמור אותו בטלפון.</div>
+</div></section>
+
+<!-- ===================== 16. SUMMARY ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 16</div><h2 class="ch-title">✅ השורה התחתונה</h2></div>
+  <p class="intro">השכרת רכב היא לא מוקש. היא רק לא סולחת. מי שמגיע מוכן נוסע רגוע. הנה הרשימה שתציל אותך מרוב הסיפורים.</p>
+  <div class="checklist">
+    <div class="item">🚗 מזמינים קטגוריה, לא רכב. לא יכלו לתת? מגיע שדרוג ללא תשלום.</div>
+    <div class="item">🪪 רישיון ישראלי ובינלאומי פיזיים ובתוקף, דרכון, כרטיס אשראי על שם הנהג. כולם אותו שם.</div>
+    <div class="item">💳 פיקדון נחסם על הכרטיס. ודא מסגרת פנויה. דביט ופרה-פייד לא מתקבלים.</div>
+    <div class="item">📍 בדוק מראש מיקום, שעות פעילות, ותיבת מפתחות או שירות After Hours לפי הצורך.</div>
+    <div class="item">🕐 איסוף בשדה? ציין מספר טיסה. בלעדיו חברת ההשכרה לא חייבת לחכות.</div>
+    <div class="item">🛡️ קרא את הביטוח לפני. CDW עם השתתפות עצמית זה לא SCDW.</div>
+    <div class="item">📋 בדוק את דוח הנזק בקבלה. צלם את הרכב מארבעת הצדדים ואת הדשבורד, לפני ובהחזרה.</div>
+    <div class="item">⛽ Full to Full: מקבל מלא, מחזיר מלא. צלם דשבורד ושמור קבלת דלק.</div>
+    <div class="item">🗺️ בדוק מדיניות קילומטרז׳. ק״מ חופשי חייב להיות כתוב במפורש.</div>
+    <div class="item">📨 קיבלת דוח? טפל מהר, לרוב יש הנחה לתשלום מוקדם.</div>
+    <div class="item">🛣️ חוצה גבול או נוסע למדינה עם ויניט? בדוק. נכנס לאיטליה? למד מה זה ZTL.</div>
+    <div class="item">👶 צריך כיסא ילדים? הזמן מראש. אל תניח שיהיה זמין בתחנה.</div>
+    <div class="item">📅 בדוק ביטול ו-No-Show לפני שמאשרים.</div>
+    <div class="item">🚨 שמור את מספר שירות הדרכים בטלפון לפני שיוצאים לדרך.</div>
+  </div>
+  <div class="closing">
+    <p style="font-size:14pt;font-weight:800;margin:0 0 6px;">עכשיו אתה יודע.</p>
+    <p style="margin:0;color:#cdd5e3;">השאלה הבאה פשוטה: <b>איפה הכי כדאי להזמין?</b> את ההשוואה המלאה בין הפלטפורמות תמצא באתר דרך אגב.</p>
+  </div>
+</div></section>
+
+<!-- ===================== 17. FAQ ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 17</div><h2 class="ch-title">❓ שאלות נפוצות</h2></div>
+  <p class="intro">התשובות לשאלות שחוזרות שוב ושוב. לפני שמזמינים, ולפני שמגיעים לדלפק.</p>
+  <h3>מה המסמכים שחייבים?</h3>
+  <p>רישיון ישראלי פיזי, רישיון בינלאומי (IDP) פיזי, כרטיס אשראי בינלאומי עם מסגרת פנויה וקוד סודי, דרכון בתוקף, ולפעמים כרטיס עלייה למטוס. כולם על אותו שם, וכולם מאותה מדינה.</p>
+  <h3>האם צריך רישיון בינלאומי (IDP)?</h3>
+  <p>כן. הרישיון הישראלי הוא מסמך מקומי. ה-IDP מאשר את הזכות לנהוג מחוץ למדינה. לא כל תחנה בודקת, אבל כשמבקשים ואין, הרכב לא יינתן. לוקחים את שניהם, תמיד.</p>
+  <h3>מה ההבדל בין CDW/TP ל-SCDW/STP?</h3>
+  <p>CDW ו-TP בסיסיים, עם השתתפות עצמית. SCDW ו-STP הם אותה הגנה בדיוק, אך ללא השתתפות עצמית.</p>
+  <h3>מותר לנסוע מארץ לארץ?</h3>
+  <p>כן, אבל רק עם אישור בכתב, הצהרה על מדינות היעד בהזמנה, וביטוח חציית גבול. לא כל המדינות והקטגוריות מורשות. נסיעה ללא אישור עלולה לבטל את כל הביטוח.</p>
+  <h3>מה קורה אם מחזירים באיחור?</h3>
+  <p>לרוב יש זמן חסד לפני חיוב נוסף. מעבר לכך, חיוב יום נוסף לפי התעריף היומי, ולפעמים קנס.</p>
+  <h3>מתי ציוד חורף הוא חובה?</h3>
+  <p>צמיגי חורף חובה חוקית באוסטריה, שוויץ, סקנדינביה ועוד. בגרמניה, צרפת ואיטליה: בתנאי שלג או קרח. ברוב ההשכרות החורפיות באירופה הרכב כבר מצויד.</p>
+</div></section>
+
+<!-- ===================== 18. LEXICON ===================== -->
+<section class="page"><div class="chapter">
+  <div class="ch-head"><div class="ch-num">פרק 18</div><h2 class="ch-title">📖 מילון מונחים</h2></div>
+  <p class="intro">כל המונחים באנגלית שתיתקל בהם בהזמנה, בחוזה, או בדלפק.</p>
+  <div class="lex"><span class="term">ACRISS</span><span class="def">קוד בן 4 אותיות שמגדיר את קטגוריית הרכב: סוג, גודל, הילוכים ומיזוג.</span></div>
+  <div class="lex"><span class="term">CDW</span><span class="def">Collision Damage Waiver: כיסוי בסיסי לנזק לרכב, עם השתתפות עצמית.</span></div>
+  <div class="lex"><span class="term">TP</span><span class="def">Theft Protection: כיסוי בסיסי לגניבה, עם השתתפות עצמית.</span></div>
+  <div class="lex"><span class="term">SCDW / STP</span><span class="def">Super CDW / Super TP: אותה הגנה בדיוק, אך ללא השתתפות עצמית.</span></div>
+  <div class="lex"><span class="term">IDP</span><span class="def">International Driving Permit: רישיון נהיגה בינלאומי שמלווה את הרישיון המקומי.</span></div>
+  <div class="lex"><span class="term">Deductible</span><span class="def">השתתפות עצמית: הסכום שבאחריותך במקרה נזק, עד התקרה שבחוזה.</span></div>
+  <div class="lex"><span class="term">One-Way Fee</span><span class="def">דמי החזרה: תוספת על איסוף בתחנה אחת והחזרה באחרת.</span></div>
+  <div class="lex"><span class="term">Vignette</span><span class="def">ויניט: תו אגרה תקופתי (שבוע/חודש/שנה) שנרכש מראש.</span></div>
+  <div class="lex"><span class="term">Toll Pass</span><span class="def">מכשיר לתשלום אוטומטי בכבישי אגרה ממוחשבים.</span></div>
+  <div class="lex"><span class="term">ZTL</span><span class="def">Zona a Traffico Limitato: אזורי כניסה מוגבלת במרכזי ערים באיטליה.</span></div>
+  <div class="lex"><span class="term">Cross Border</span><span class="def">ביטוח ואישור לחציית גבול, שיש להצהיר עליהם בהזמנה.</span></div>
+  <div class="lex"><span class="term">No-Show</span><span class="def">אי הגעה לאיסוף בלי ביטול מראש: גורר חיוב.</span></div>
+  <div class="lex"><span class="term">Full to Full</span><span class="def">מדיניות דלק: מקבל מלא, מחזיר מלא. הנפוצה והצודקת.</span></div>
+  <div class="lex"><span class="term">Unlimited Mileage</span><span class="def">ק״מ חופשי, חייב להיות כתוב במפורש בתנאים.</span></div>
+  <div class="lex"><span class="term">Grace Period</span><span class="def">זמן חסד באיחור החזרה לפני שמתחיל חיוב נוסף.</span></div>
+  <div class="lex"><span class="term">Roadside Assist.</span><span class="def">שירות הדרכים של חברת ההשכרה לתקלות ולתאונות.</span></div>
+  <div class="lex"><span class="term">3PMSF</span><span class="def">סמל הפתית: תקן חורפי אירופי לצמיגים רב-עונתיים.</span></div>
+  <div class="closing">
+    <p style="font-size:13pt;font-weight:800;margin:0 0 6px;">דרך אגב</p>
+    <p style="margin:0;color:#cdd5e3;">כי מי שיודע, לא מחכה לדלפק. · derekh-agav.vercel.app</p>
+  </div>
+</div></section>
+
+</body>
+</html>

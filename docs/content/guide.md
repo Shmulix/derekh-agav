@@ -29,6 +29,17 @@
 
 ---
 
+## Version PDF ebook
+
+Le guide existe aussi en **PDF ebook** : `public/guide-ebook.pdf` (servi sur `/guide-ebook.pdf`).
+Source : `ebook/guide-ebook.html` (HTML autonome, charte navy/gold, Heebo, RTL, 18 chapitres).
+Proposé en téléchargement sur `/guide` (tuile dans la gouttière + 2 bannières inline via `components/guide/EbookCTA.tsx`).
+
+⚠️ Le PDF n'est PAS auto-synchronisé : si le contenu du guide change de façon substantielle, mettre à jour `ebook/guide-ebook.html` puis régénérer :
+```bash
+node ~/.claude/skills/html-to-pdf/scripts/html-to-pdf.js "ebook/guide-ebook.html" "public/guide-ebook.pdf" --rtl --format=A4 --margin=12mm --wait=2500 --header='<span></span>' --footer='...page number...'
+```
+
 ## Règle à maintenir : logique d'exclusion d'assurance (`InsuranceTabs`)
 
 - **Catégorie orange** (icône `AlertCircle`) : « לא מכוסה בדרך הביטוח הבסיסי ». NON couvert par l'assurance de base, mais couvrable via une assurance complémentaire.

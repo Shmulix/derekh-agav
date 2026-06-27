@@ -16,6 +16,7 @@ import BackToTop from "@/components/guide/BackToTop";
 import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import Reveal from "@/components/Reveal";
+import { EbookTile, EbookBanner } from "@/components/guide/EbookCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -301,6 +302,7 @@ export default function GuidePage() {
           <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24">
             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">תוכן עניינים</p>
             <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
+            <EbookTile />
           </aside>
 
           {/* Main content */}
@@ -829,6 +831,8 @@ export default function GuidePage() {
             </AccordionItem>
 
             {/* ─── 7. TOLLS ─────────────────────────────────────── */}
+            <EbookBanner />
+
             <SectionTitle id="tolls" icon="🛣️">כבישי אגרה</SectionTitle>
             <SectionIntro>
               לא כל כביש מהיר חינמי. חלק מהמדינות גובות תשלום ישיר בכניסה לכביש, חלק דורשות מכשיר אלקטרוני ברכב, וחלק פועלות עם תו תקופתי שנרכש מראש. חשוב לדעת איזה מנגנון פועל במדינה שאתה נוסע אליה לפני שיוצאים לדרך.
@@ -1277,6 +1281,8 @@ export default function GuidePage() {
             </div>
 
             {/* ─── FAQ ──────────────────────────────────────────── */}
+            <EbookBanner />
+
             <SectionTitle id="faq" icon="❓">שאלות נפוצות</SectionTitle>
             <SectionIntro>
               התשובות לשאלות שחוזרות שוב ושוב. לפני שמזמינים, ולפני שמגיעים לדלפק.

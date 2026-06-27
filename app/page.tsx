@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FileText, Globe, Link2, Target, AlertTriangle, Map, MessageCircle, ChevronLeft, Clock, Shield, CreditCard, User, Fuel, Route, Mail, CheckCircle } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import HeroSearch from "@/components/HeroSearch";
-import Testimonials from "@/components/Testimonials";
+import { ArrowLeft } from "lucide-react";
+import HeaderV2 from "@/components/v2/HeaderV2";
+import FooterV2 from "@/components/v2/FooterV2";
+import LaneDash from "@/components/v2/LaneDash";
 import Reveal from "@/components/Reveal";
+import HeroSearch from "@/components/HeroSearch";
+import TestimonialsV2 from "@/components/v2/TestimonialsV2";
 import { latestPosts, postHref } from "@/lib/posts";
 import type { Metadata } from "next";
 
@@ -25,18 +26,29 @@ export const metadata: Metadata = {
   },
 };
 
-const guideTopics = [
-  { icon: FileText, label: "מסמכים נדרשים", href: "/guide#documents" },
-  { icon: Shield, label: "ביטוח וכיסויים", href: "/guide#insurance" },
-  { icon: CreditCard, label: "אשראי ופיקדון", href: "/guide#deposit" },
-  { icon: User, label: "נהג צעיר", href: "/guide#young-driver" },
-  { icon: Fuel, label: "דלק", href: "/guide#fuel" },
-  { icon: Route, label: "קילומטרז׳", href: "/guide#mileage" },
-  { icon: Mail, label: "קנסות ודוחות", href: "/guide#fines" },
-  { icon: CheckCircle, label: "השורה התחתונה", href: "/guide#summary" },
+const mono = "[font-family:var(--font-mono-v2)]";
+
+const guideIndex = [
+  { n: "01", label: "מסמכים נדרשים", href: "/guide#documents" },
+  { n: "02", label: "פיקדון", href: "/guide#deposit" },
+  { n: "04", label: "ביטוח וכיסויים", href: "/guide#insurance" },
+  { n: "05", label: "גיל הנהג", href: "/guide#young-driver" },
+  { n: "11", label: "דלק", href: "/guide#fuel" },
+  { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
 ];
 
-const posts = latestPosts(3);
+const pillars = [
+  { title: "מידע, לא מכירות", text: "האתר לא מנסה למכור לך כלום. הוא פה כדי שתגיע לדלפק עם ידע, לא עם הפתעות." },
+  { title: "כל הנושאים", text: "ממסמכים לביטוח, מדלק לקנסות. כל מה שצריך לדעת לפני, במהלך ואחרי ההשכרה." },
+  { title: "בלי ניגוד עניינים", text: "הקישורים הם שותפויות עמלה, אבל ההמלצות נשארות עצמאיות ומקצועיות. תמיד." },
+];
+
+const reasons = [
+  { title: "מניסיון אמיתי", text: "לא עוד מאמר של מי שמעולם לא עמד מול לקוח בדלפק." },
+  { title: "במה שמפספסים", text: "כל נקודה היא דבר שראיתי אנשים נופלים עליו. לפחות פעם אחת." },
+  { title: "כל היעדים", text: "לא מדריך גנרי. מידע שרלוונטי לישראלים שנוסעים לחו״ל." },
+  { title: "בגובה העיניים", text: "בלי מונחים מסובכים, בלי שפה שיווקית. רק מה שצריך לדעת." },
+];
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
@@ -62,338 +74,229 @@ const websiteJsonLd = {
 };
 
 export default function HomePage() {
+  const posts = latestPosts(3);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <Header />
+      <HeaderV2 />
       <main>
-        {/* ─── HERO ─────────────────────────────────────────────── */}
-        <section className="relative bg-navy-dark min-h-[580px] flex items-center">
-          {/* Hero background image */}
-          <Image
-            src="/hero-bg.avif"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          {/* Navy gradient overlay — keeps readability while letting image show through */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/90 via-navy/80 to-[#0a1628]/85" />
 
-          <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-20 text-center">
-            {/* Badge */}
-            <Reveal y={12} className="inline-block mb-5">
-              <span className="border border-gold text-gold text-xs font-semibold px-4 py-1.5 rounded">
-                המדריך העצמאי הישראלי מספר 1
-              </span>
+        {/* ───────────── HERO ───────────── */}
+        <section className="relative z-20 bg-[#0b1730]">
+          <div className="absolute inset-0 overflow-hidden">
+            <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-[0.18]" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730] via-[#0b1730]/85 to-[#0e1f3e]/70" />
+
+          <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-44 md:pb-28">
+            <Reveal y={14}>
+              <p className="text-gold text-xs font-bold tracking-[0.25em] mb-7">המדריך העצמאי הישראלי</p>
             </Reveal>
-
-            {/* H1 */}
-            <Reveal delay={80} y={14}>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
-                תדע הכל לפני שתגיע לדלפק
+            <Reveal y={16} delay={80}>
+              <h1 className="text-white font-black tracking-[-0.035em] leading-[0.95] text-[clamp(2.6rem,8vw,5.5rem)] max-w-4xl">
+                תדע הכל לפני<br />שתגיע לדלפק.
               </h1>
             </Reveal>
-
-            {/* Subtitle */}
-            <Reveal delay={160} y={14}>
-              <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.
+            <Reveal delay={160}><LaneDash className="mt-8 max-w-[200px]" /></Reveal>
+            <Reveal y={14} delay={220}>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed mt-8 max-w-2xl">
+                המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים, מהצד השני של הדלפק.
               </p>
             </Reveal>
 
-            {/* Search */}
-            <Reveal delay={240} y={14} className="mb-8">
+            <div className="relative z-30 mt-9 max-w-xl">
               <HeroSearch />
-            </Reveal>
+            </div>
 
-            {/* CTAs */}
-            <Reveal delay={320} y={14}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/guide" className="btn-primary text-base px-8 py-3">
-                  המדריך המלא ←
+            <Reveal y={14} delay={360}>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center">
+                  קרא את המדריך ←
                 </Link>
-                <a href="/posts/rental-platforms" className="btn-ghost-gold text-base px-8 py-3">
-                  איפה הכי כדאי להזמין? השוואה מלאה ←
+                <a href="/posts/rental-platforms" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
+                  איפה הכי כדאי להזמין?
                 </a>
               </div>
             </Reveal>
-          </div>
-        </section>
 
-        {/* ─── ABOUT THE SITE ───────────────────────────────────── */}
-        <section className="bg-surface py-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <Reveal>
-              <h2 className="text-3xl font-bold text-navy text-center mb-12">על מה האתר הזה</h2>
-            </Reveal>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: FileText,
-                  title: "מידע אמין, לא מכירות",
-                  text: "האתר הזה לא מנסה למכור לך שום דבר. הוא פה כדי שתגיע לדלפק עם ידע, ולא עם הפתעות.",
-                },
-                {
-                  icon: Globe,
-                  title: "השכרת רכב בחו״ל: כל הנושאים",
-                  text: "ממסמכים לביטוח, מדלק לקנסות. כל מה שצריך לדעת לפני, במהלך ואחרי ההשכרה.",
-                },
-                {
-                  icon: Link2,
-                  title: "המלצות בלי ניגוד עניינים",
-                  text: "הקישורים באתר הם שותפויות עמלה, אבל ההמלצות נשארות עצמאיות ומקצועיות. תמיד.",
-                },
-              ].map((item, i) => (
-                <Reveal key={i} delay={i * 90}>
-                  <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-100 h-full hover:shadow-md transition-shadow duration-200">
-                    <item.icon size={32} className="text-gold mb-4" />
-                    <h3 className="text-lg font-bold text-navy mb-3">{item.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+            <Reveal delay={440}>
+              <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4">
+                {[
+                  { v: "10+", l: "שנות ניסיון" },
+                  { v: "1000s", l: "הזמנות שטופלו" },
+                  { v: "18", l: "פרקים במדריך" },
+                ].map((s) => (
+                  <div key={s.l} className="flex items-baseline gap-2.5">
+                    <span className={`text-2xl md:text-3xl font-bold text-gold ${mono}`}>{s.v}</span>
+                    <span className="text-slate-400 text-sm">{s.l}</span>
                   </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── WHO AM I ─────────────────────────────────────────── */}
-        <section className="bg-white py-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Right: avatar + title */}
-              <Reveal>
-                <div className="flex flex-col items-center md:items-start gap-4">
-                  <div className="w-24 h-24 rounded-full bg-navy flex items-center justify-center">
-                    <span className="text-2xl font-extrabold text-gold">א.מ</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-navy">אנונימי מקצועי</p>
-                    <p className="text-sm text-gray-500">מומחה השכרת רכב בינלאומית</p>
-                  </div>
-
-                  {/* Trust badges */}
-                  <div className="flex flex-wrap gap-3 mt-2">
-                    {["10+ שנות ניסיון", "אלפי הזמנות מטופלות", "ידע מהשטח, לא מהאינטרנט"].map((badge) => (
-                      <span key={badge} className="bg-navy text-white text-xs font-semibold px-3 py-1.5 rounded">
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Left: text */}
-              <Reveal delay={120}>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-navy mb-5 leading-snug">
-                    עשר שנים מאחורי הדלפק.<br className="hidden md:block" /> עכשיו אני בצד שלך.
-                  </h2>
-                  <div className="space-y-3 text-gray-700 leading-relaxed">
-                    <p>
-                      עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי.
-                      התחלתי כסוכן הזמנות, עברתי לניהול תפעול, ניהול מוקד, ובסוף הגעתי לשיווק שותפים.
-                    </p>
-                    <p>
-                      כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.
-                    </p>
-                    <p className="font-medium text-navy">
-                      האתר הזה הוא הדבר שהייתי רוצה שיהיה קיים כשהלקוחות שלי שאלו אותי ״אז מה לעשות?״
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── WHY THIS CONTENT ─────────────────────────────────── */}
-        <section className="bg-navy py-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <Reveal>
-              <h2 className="text-3xl font-bold text-white text-center mb-3">
-                המידע הזה לא בא מגוגל. הוא בא מהשטח.
-              </h2>
-              <p className="text-slate-400 text-center mb-12 text-base">ארבעה דברים שהופכים את המדריך הזה לשונה</p>
-            </Reveal>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  icon: Target,
-                  title: "כתוב מניסיון אמיתי",
-                  text: "לא עוד מאמר שנכתב על ידי מי שמעולם לא עמד מול לקוח בדלפק.",
-                },
-                {
-                  icon: AlertTriangle,
-                  title: "מתמקד במה שאנשים מפספסים",
-                  text: "כל נקודה במדריך היא דבר שראיתי אנשים נופלים עליו. לפחות פעם אחת.",
-                },
-                {
-                  icon: Map,
-                  title: "מכסה את כל חברות ההשכרה והמדינות",
-                  text: "לא מדריך גנרי. מידע שרלוונטי לישראלים שנוסעים לחו״ל.",
-                },
-                {
-                  icon: MessageCircle,
-                  title: "כתוב בעברית, בגובה העיניים",
-                  text: "בלי מונחים מסובכים, בלי שפה שיווקית. רק מה שצריך לדעת.",
-                },
-              ].map((item, i) => (
-                <Reveal key={i} delay={i * 90}>
-                  <div className="bg-navy-light/30 rounded-lg p-6 border border-white/10 h-full hover:bg-navy-light/40 hover:-translate-y-0.5 transition-all duration-200">
-                    <item.icon size={28} className="text-gold mb-4" />
-                    <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── THE GUIDE ────────────────────────────────────────── */}
-        <section className="bg-surface py-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Right: text + topics */}
-              <Reveal>
-                <div>
-                  <span className="inline-block text-xs font-bold text-gold bg-yellow-50 border border-gold px-3 py-1 rounded mb-4">
-                    הנכס המרכזי של האתר
-                  </span>
-                  <h2 className="text-3xl font-bold text-navy mb-3 leading-snug">
-                    המדריך המלא להשכרת רכב בחו״ל
-                  </h2>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
-                    כל הנושאים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {guideTopics.map((topic) => (
-                      <Link
-                        key={topic.label}
-                        href={topic.href}
-                        className="flex items-center gap-2 bg-white rounded-md px-4 py-3 border border-gray-100 hover:border-navy hover:shadow-sm transition-all duration-150 group"
-                      >
-                        <topic.icon size={16} className="text-gold flex-shrink-0" />
-                        <span className="text-sm font-medium text-text-main group-hover:text-navy">{topic.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <Link href="/guide" className="btn-primary inline-flex items-center gap-2">
-                    קרא את המדריך המלא ←
-                  </Link>
-                </div>
-              </Reveal>
-
-              {/* Left: decorative card */}
-              <Reveal delay={150} className="hidden md:flex items-center justify-center">
-                <div className="bg-navy rounded-xl p-8 w-80 shadow-xl">
-                  <div className="space-y-3">
-                    {guideTopics.map((topic, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                          <topic.icon size={12} className="text-gold" />
-                        </div>
-                        <span className="text-white text-sm">{topic.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── LATEST POSTS ─────────────────────────────────────── */}
-        <section className="bg-white py-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <Reveal>
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-navy mb-2">מאמרים ומדריכים נוספים</h2>
-                <p className="text-gray-500">טיפים, השוואות ומידע עדכני על השכרת רכב</p>
+                ))}
               </div>
             </Reveal>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {posts.map((post, i) => (
-                <Reveal key={post.title} delay={i * 90}>
-                  <article
-                    className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col h-full"
-                  >
-                    {post.image && (
-                      <div className="relative h-44 overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover object-center"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                        <span className={`absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded ${post.tagColor}`}>
-                          {post.tag}
-                        </span>
-                      </div>
-                    )}
-                    <div className="p-6 flex-1 flex flex-col">
-                      {!post.image && (
-                        <span className={`inline-block text-xs font-bold px-2 py-1 rounded mb-4 w-fit ${post.tagColor}`}>
-                          {post.tag}
-                        </span>
-                      )}
-                      <h3 className="text-navy font-bold text-lg mb-3 leading-snug">{post.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">{post.excerpt}</p>
-                    </div>
-                    <div className="px-6 pb-5 flex items-center justify-between border-t border-gray-50 pt-4">
-                      <span className="text-gray-400 text-xs flex items-center gap-1">
-                        <Clock size={12} /> {post.readTime}
-                      </span>
-                      <Link href={postHref(post)} className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors">
-                        קרא ←
-                      </Link>
-                    </div>
-                  </article>
+        {/* ───────────── PILLARS ───────────── */}
+        <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <Reveal>
+            <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>About</p>
+            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 max-w-2xl leading-tight">
+              מידע. בלי מכירות.
+            </h2>
+            <LaneDash className="mt-6 max-w-[140px]" />
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-px bg-[#e7e9f0] border border-[#e7e9f0] mt-14">
+            {pillars.map((p, i) => (
+              <Reveal key={p.title} delay={i * 90} className="bg-white">
+                <div className="h-full p-8 md:p-10">
+                  <span className="inline-block w-7 h-[3px] bg-gold mb-6" />
+                  <h3 className="text-xl font-bold text-navy mb-3">{p.title}</h3>
+                  <p className="text-[#5b6377] leading-relaxed">{p.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* ───────────── AUTHOR ───────────── */}
+        <section className="bg-[#f7f8fb] border-y border-[#e7e9f0]">
+          <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-[1.1fr_1fr] gap-14 items-center">
+            <Reveal>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Author</p>
+              <p className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-[1.1] mt-4">
+                עשר שנים מאחורי הדלפק.
+                <span className="block text-gold">עכשיו אני בצד שלך.</span>
+              </p>
+              <p className={`mt-7 text-xs tracking-[0.15em] text-[#5b6377] ${mono}`}>סמואל פרץ · INTL. CAR RENTAL EXPERT</p>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="space-y-4 text-[#3a4255] leading-relaxed text-base md:text-lg border-r-2 border-gold pr-6">
+                <p>עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי: סוכן הזמנות, ניהול אופרציה, ניהול מוקד, ובסוף שיווק שותפים.</p>
+                <p>כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.</p>
+                <p className="text-navy font-semibold">האתר הזה הוא מה שהייתי רוצה שיהיה קיים כשהלקוחות שלי שאלו אותי ״אז מה לעשות?״</p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ───────────── METHOD (dark) ───────────── */}
+        <section className="bg-[#0e1a30]">
+          <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <Reveal>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Why this</p>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mt-3 max-w-3xl leading-tight">
+                המידע הזה לא בא מגוגל. הוא בא מהשטח.
+              </h2>
+            </Reveal>
+            <div className="grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10 mt-14">
+              {reasons.map((r, i) => (
+                <Reveal key={r.title} delay={i * 80} className="bg-[#0e1a30]">
+                  <div className="h-full p-8 md:p-10">
+                    <span className="inline-block w-7 h-[3px] bg-gold mb-5" />
+                    <h3 className="text-lg font-bold text-white mb-2">{r.title}</h3>
+                    <p className="text-slate-400 leading-relaxed text-sm">{r.text}</p>
+                  </div>
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ───────────── THE GUIDE ───────────── */}
+        <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <div className="grid md:grid-cols-[1fr_1.1fr] gap-14 items-center">
+            <Reveal>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Field Manual</p>
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
+                המדריך המלא להשכרת רכב בחו״ל
+              </h2>
+              <p className="text-[#5b6377] leading-relaxed text-lg mt-6 max-w-md">
+                18 פרקים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
+              </p>
+              <Link href="/guide" className="inline-flex items-center gap-2 bg-navy text-white text-sm font-bold px-7 py-3.5 rounded-none hover:bg-[#0e1a30] transition-colors mt-8">
+                לכל 18 הפרקים <ArrowLeft size={16} />
+              </Link>
+            </Reveal>
 
             <Reveal delay={120}>
-              <div className="text-center">
-                <Link href="/posts" className="text-navy font-semibold text-sm hover:text-gold transition-colors">
-                  כל המאמרים ←
+              <div className="border border-[#e7e9f0]">
+                {guideIndex.map((t, i) => (
+                  <Link
+                    key={t.label}
+                    href={t.href}
+                    className={`group flex items-center gap-5 px-6 py-4 hover:bg-[#f7f8fb] transition-colors ${i < guideIndex.length - 1 ? "border-b border-[#e7e9f0]" : ""}`}
+                  >
+                    <span className={`text-sm font-semibold text-gold ${mono}`}>{t.n}</span>
+                    <span className="flex-1 text-navy font-medium group-hover:text-gold transition-colors">{t.label}</span>
+                    <ArrowLeft size={15} className="text-[#9aa3b5] group-hover:text-gold group-hover:-translate-x-1 transition-all" />
+                  </Link>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ───────────── JOURNAL ───────────── */}
+        <section className="bg-[#f7f8fb] border-t border-[#e7e9f0]">
+          <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <Reveal>
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Journal</p>
+                  <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3">מאמרים אחרונים</h2>
+                </div>
+                <Link href="/posts" className="hidden sm:inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-gold transition-colors">
+                  כל המאמרים <ArrowLeft size={15} />
                 </Link>
               </div>
             </Reveal>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-14">
+              {posts.map((post, i) => (
+                <Reveal key={post.title} delay={i * 90}>
+                  <Link href={postHref(post)} className="group block bg-white border border-[#e7e9f0] hover:border-navy transition-colors h-full">
+                    {post.image && (
+                      <div className="relative h-44 overflow-hidden">
+                        <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <p className="text-[11px] tracking-wide text-[#9aa3b5] font-medium">{post.tag} · {post.readTime}</p>
+                      <h3 className="text-navy font-bold text-lg leading-snug mt-2 group-hover:text-gold transition-colors">{post.title}</h3>
+                      <LaneDash className="mt-4 max-w-0 group-hover:max-w-[60px] transition-all duration-500" />
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ─── TESTIMONIALS ─────────────────────────────────────── */}
-        <Testimonials />
+        {/* ───────────── TESTIMONIALS ───────────── */}
+        <TestimonialsV2 />
 
-        {/* ─── FINAL CTA ────────────────────────────────────────── */}
-        <section className="bg-navy py-16 border-t-4 border-gold">
-          <Reveal>
-            <div className="max-w-2xl mx-auto px-6 text-center">
-              <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
-              <p className="text-slate-300 mb-8 leading-relaxed">
+        {/* ───────────── FINAL CTA ───────────── */}
+        <section className="bg-[#0b1730]">
+          <LaneDash />
+          <div className="max-w-3xl mx-auto px-6 py-24 md:py-28 text-center">
+            <Reveal>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">מוכן להשכיר רכב?</h2>
+              <p className="text-slate-300 text-lg mt-5 leading-relaxed">
                 עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
               </p>
-              <a href="/posts/rental-platforms" className="btn-gold text-base px-10 py-3">
-                איפה הכי כדאי להזמין? השוואה מלאה ←
+              <a href="/posts/rental-platforms" className="inline-block bg-gold text-navy text-base font-bold px-10 py-4 rounded-none hover:bg-[#b8941f] transition-colors mt-9">
+                השוואה מלאה ←
               </a>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </section>
       </main>
-
-      <Footer />
+      <FooterV2 />
     </>
   );
 }

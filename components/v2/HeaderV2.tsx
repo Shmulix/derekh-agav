@@ -6,9 +6,9 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const nav = [
-  { href: "/v2", label: "דף הבית" },
+  { href: "/", label: "דף הבית" },
   { href: "/guide", label: "המדריך" },
-  { href: "/v2/posts", label: "מאמרים" },
+  { href: "/posts", label: "מאמרים" },
 ];
 
 export default function HeaderV2() {
@@ -30,9 +30,10 @@ export default function HeaderV2() {
         onLight ? "bg-white/95 backdrop-blur-sm border-b border-[#e7e9f0]" : "bg-transparent"
       }`}
     >
+      {!onLight && <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-transparent" />}
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/v2" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.svg"
             alt="דרך אגב"

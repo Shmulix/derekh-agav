@@ -16,6 +16,7 @@ import BackToTop from "@/components/guide/BackToTop";
 import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import Reveal from "@/components/Reveal";
+import LaneDash from "@/components/v2/LaneDash";
 import { EbookTile, EbookBanner } from "@/components/guide/EbookCTA";
 import type { Metadata } from "next";
 
@@ -162,11 +163,12 @@ const tocItems = [
 
 function SectionTitle({ id, icon, children }: { id: string; icon: string; children: React.ReactNode }) {
   return (
-    <Reveal y={14} className="mt-16 mb-2">
-      <h2 id={id} className="text-2xl font-bold text-navy scroll-mt-24 flex items-center gap-3">
-        <span className="text-2xl">{icon}</span>
+    <Reveal y={14} className="mt-20 mb-3">
+      <h2 id={id} className="text-3xl md:text-4xl font-black text-navy tracking-tight scroll-mt-24 flex items-center gap-3">
+        <span className="text-2xl md:text-3xl">{icon}</span>
         {children}
       </h2>
+      <LaneDash className="mt-3 max-w-[120px]" />
     </Reveal>
   );
 }
@@ -265,7 +267,7 @@ export default function GuidePage() {
       <Header />
 
       {/* Guide Hero */}
-      <div className="relative bg-navy py-14 overflow-hidden">
+      <div className="relative bg-navy pt-28 pb-14 overflow-hidden">
         <Image
           src="/hero-bg-banner.avif"
           alt=""

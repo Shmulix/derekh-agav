@@ -23,9 +23,9 @@ export default function FooterV2() {
           <div>
             <p className="text-[11px] font-semibold tracking-[0.18em] text-slate-500 uppercase mb-4 [font-family:var(--font-mono-v2)]">Navigate</p>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/v2" className="hover:text-white transition-colors">דף הבית</Link></li>
+              <li><Link href="/" className="hover:text-white transition-colors">דף הבית</Link></li>
               <li><Link href="/guide" className="hover:text-white transition-colors">המדריך המלא</Link></li>
-              <li><Link href="/v2/posts" className="hover:text-white transition-colors">מאמרים</Link></li>
+              <li><Link href="/posts" className="hover:text-white transition-colors">מאמרים</Link></li>
               <li><a href="/posts/rental-platforms" className="hover:text-white transition-colors">איפה להזמין</a></li>
             </ul>
           </div>

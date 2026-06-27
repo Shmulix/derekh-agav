@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { List, X, FileText, Receipt, Package, AlertTriangle, CalendarX } from "lucide-react";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
 import {
@@ -38,7 +38,25 @@ interface TocItem {
 export default function MobileTOC({ items }: { items: TocItem[] }) {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
-  const shrunk = useScrollCollapse();
+  const collapsedByScroll = useScrollCollapse();
+  const [touched, setTouched] = useState(false);
+  const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shrunk = collapsedByScroll && !touched;
+
+  // Le scroll re-réduit (oublie le toucher).
+  useEffect(() => {
+    const reset = () => setTouched(false);
+    window.addEventListener("scroll", reset, { passive: true });
+    return () => window.removeEventListener("scroll", reset);
+  }, []);
+
+  // Toucher un bouton réduit le ré-agrandit, sans clic.
+  const reveal = () => {
+    if (!shrunk) return;
+    setTouched(true);
+    if (touchTimer.current) clearTimeout(touchTimer.current);
+    touchTimer.current = setTimeout(() => setTouched(false), 2500);
+  };
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -141,6 +159,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       <div className="fixed bottom-[4.7rem] right-4 z-50 animate-fab-pop" style={{ animationDelay: "650ms" }}>
         <button
           onClick={onFab}
+          onPointerDown={reveal}
           className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
             open ? "bg-navy text-white w-11" : "bg-white border border-[#e7e9f0] text-navy ps-3.5 pe-3.5"
           }`}

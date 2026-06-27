@@ -1,13 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { booking } from "@/lib/site-config";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
 
 export default function MobileFloatingCTA() {
   const [open, setOpen] = useState(false);
-  const shrunk = useScrollCollapse();
+  const collapsedByScroll = useScrollCollapse();
+  const [touched, setTouched] = useState(false);
+  const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shrunk = collapsedByScroll && !touched;
+
+  // Le scroll re-réduit (oublie le toucher).
+  useEffect(() => {
+    const reset = () => setTouched(false);
+    window.addEventListener("scroll", reset, { passive: true });
+    return () => window.removeEventListener("scroll", reset);
+  }, []);
+
+  // Toucher un bouton réduit le ré-agrandit, sans clic.
+  const reveal = () => {
+    if (!shrunk) return;
+    setTouched(true);
+    if (touchTimer.current) clearTimeout(touchTimer.current);
+    touchTimer.current = setTimeout(() => setTouched(false), 2500);
+  };
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -85,6 +103,7 @@ export default function MobileFloatingCTA() {
       <div className="fixed bottom-4 right-4 z-50 animate-fab-pop" style={{ animationDelay: "750ms" }}>
         <button
           onClick={onFab}
+          onPointerDown={reveal}
           className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
             open ? "bg-navy text-white w-11" : "bg-gold text-navy ps-3.5 pe-3.5 hover:bg-gold/90"
           }`}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LaneDash from "./LaneDash";
 
 export default function FooterV2() {
@@ -9,9 +10,8 @@ export default function FooterV2() {
         <div className="grid md:grid-cols-[1.5fr_1fr_1fr] gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-xl font-extrabold tracking-tight text-white">דרך אגב</span>
-              <span className="inline-block w-5 h-[3px] bg-gold" />
+            <div className="mb-5">
+              <Image src="/logo.svg" alt="דרך אגב" width={132} height={42} className="brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
               המדריך העצמאי הישראלי להשכרת רכב בחו״ל. כתוב מניסיון אמיתי, לא מגוגל.

@@ -42,8 +42,10 @@ export default function V2Home() {
       <main>
 
         {/* ───────────── HERO ───────────── */}
-        <section className="relative bg-[#0b1730] overflow-hidden">
-          <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-[0.18]" />
+        <section className="relative z-20 bg-[#0b1730]">
+          <div className="absolute inset-0 overflow-hidden">
+            <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-[0.18]" />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730] via-[#0b1730]/85 to-[#0e1f3e]/70" />
 
           <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-44 md:pb-28">
@@ -62,9 +64,9 @@ export default function V2Home() {
               </p>
             </Reveal>
 
-            <Reveal y={14} delay={300} className="mt-9 max-w-xl">
+            <div className="relative z-30 mt-9 max-w-xl">
               <HeroSearch />
-            </Reveal>
+            </div>
 
             <Reveal y={14} delay={360}>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">

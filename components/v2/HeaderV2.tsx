@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const nav = [
@@ -30,12 +31,16 @@ export default function HeaderV2() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Wordmark */}
-        <Link href="/v2" className="flex items-center gap-2 group">
-          <span className={`text-lg font-extrabold tracking-tight transition-colors ${onLight ? "text-navy" : "text-white"}`}>
-            דרך אגב
-          </span>
-          <span className="inline-block w-5 h-[3px] bg-gold" />
+        {/* Logo */}
+        <Link href="/v2" className="flex items-center">
+          <Image
+            src="/logo.svg"
+            alt="דרך אגב"
+            width={116}
+            height={38}
+            priority
+            className={`transition-[filter] duration-300 ${onLight ? "" : "brightness-0 invert"}`}
+          />
         </Link>
 
         {/* Desktop nav */}

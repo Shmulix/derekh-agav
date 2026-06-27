@@ -14,7 +14,7 @@ export const ANONYMOUS_MODE = true;
 export const author = {
   name: ANONYMOUS_MODE ? "מומחה דרך אגב" : "סמואל פרץ",
   title: "מומחה השכרת רכב בינלאומית",
-  image: ANONYMOUS_MODE ? "/avatar-anon.png" : "/samuel.avif",
+  image: ANONYMOUS_MODE ? "/avatar-anon.avif" : "/samuel.avif",
   initials: ANONYMOUS_MODE ? "דא" : "ס",
   // Affiche le récit personnel détaillé (carrière) dans le guide.
   showStory: !ANONYMOUS_MODE,

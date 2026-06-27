@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import { booking } from "@/lib/site-config";
+import { useScrollCollapse } from "@/components/useScrollCollapse";
 
 export default function MobileFloatingCTA() {
   const [open, setOpen] = useState(false);
+  const collapsed = useScrollCollapse();
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -74,24 +76,27 @@ export default function MobileFloatingCTA() {
       )}
 
       {/* Floating button */}
-      <button
-        onClick={open ? () => setOpen(false) : handleOpen}
-        className={`fixed bottom-4 right-4 z-50  transition-all duration-150 active:scale-95 ${
-          open
-            ? "bg-navy text-white h-10 w-10 rounded-xl flex items-center justify-center"
-            : "bg-gold text-navy h-10 rounded-xl flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"
-        }`}
-        aria-label="איפה הכי כדאי להזמין?"
-      >
-        {open ? (
-          <X size={16} />
-        ) : (
-          <>
-            <span>{booking.download ? "הורד את המדריך" : "איפה להזמין?"}</span>
-            <ArrowLeft size={14} />
-          </>
-        )}
-      </button>
+      <div className="fixed bottom-4 right-4 z-50 animate-fab-pop">
+        <button
+          onClick={open ? () => setOpen(false) : handleOpen}
+          style={collapsed && !open ? { transform: "translateX(72%)" } : undefined}
+          className={`transition-all duration-300 active:scale-95 ${
+            open
+              ? "bg-navy text-white h-10 w-10 rounded-xl flex items-center justify-center"
+              : "bg-gold text-navy h-10 rounded-xl flex items-center gap-2 px-4 font-bold text-sm hover:bg-gold/90"
+          }`}
+          aria-label="איפה הכי כדאי להזמין?"
+        >
+          {open ? (
+            <X size={16} />
+          ) : (
+            <>
+              <span>{booking.download ? "הורד את המדריך" : "איפה להזמין?"}</span>
+              <ArrowLeft size={14} />
+            </>
+          )}
+        </button>
+      </div>
     </div>
   );
 }

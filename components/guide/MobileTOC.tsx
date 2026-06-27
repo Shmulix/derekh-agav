@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { List, X, FileText, Receipt, Package, AlertTriangle, CalendarX } from "lucide-react";
+import { useScrollCollapse } from "@/components/useScrollCollapse";
 import {
   BookOpen, Car, CreditCard, MapPin, Globe, Shield, User,
   Fuel, Route, Mail, CheckCircle, BookMarked, Snowflake, MessageCircle,
@@ -37,6 +38,7 @@ interface TocItem {
 export default function MobileTOC({ items }: { items: TocItem[] }) {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const collapsed = useScrollCollapse();
 
   useEffect(() => {
     const handler = () => setOpen(false);
@@ -130,9 +132,11 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       )}
 
       {/* Floating button */}
+      <div className="fixed bottom-[4.5rem] right-4 z-50 animate-fab-pop">
       <button
         onClick={open ? () => setOpen(false) : handleOpen}
-        className={`fixed bottom-[4.5rem] right-4 z-50 h-12 rounded-xl flex items-center gap-2 px-4 transition-all duration-150 active:scale-95 ${
+        style={collapsed && !open ? { transform: "translateX(72%)" } : undefined}
+        className={`h-12 rounded-xl flex items-center gap-2 px-4 transition-all duration-300 active:scale-95 ${
           open
             ? "bg-navy text-white w-12 justify-center"
             : "bg-white border border-[#e7e9f0] text-navy pr-5"
@@ -155,6 +159,7 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
           </>
         )}
       </button>
+      </div>
     </div>
   );
 }

@@ -15,6 +15,7 @@ import TableOfContents from "@/components/guide/TableOfContents";
 import BackToTop from "@/components/guide/BackToTop";
 import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
+import Reveal from "@/components/Reveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -160,10 +161,12 @@ const tocItems = [
 
 function SectionTitle({ id, icon, children }: { id: string; icon: string; children: React.ReactNode }) {
   return (
-    <h2 id={id} className="text-2xl font-bold text-navy mt-16 mb-2 scroll-mt-24 flex items-center gap-3">
-      <span className="text-2xl">{icon}</span>
-      {children}
-    </h2>
+    <Reveal y={14} className="mt-16 mb-2">
+      <h2 id={id} className="text-2xl font-bold text-navy scroll-mt-24 flex items-center gap-3">
+        <span className="text-2xl">{icon}</span>
+        {children}
+      </h2>
+    </Reveal>
   );
 }
 
@@ -272,14 +275,22 @@ export default function GuidePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/90 via-navy/80 to-[#0a1628]/85" />
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <p className="text-gold text-sm font-semibold mb-2">המדריך המלא</p>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
-            המדריך המלא להשכרת רכב בחו״ל
-          </h1>
-          <p className="text-slate-300 leading-relaxed max-w-2xl mb-3">
-            מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. כל מה שצריך לדעת, בסדר הנכון.
-          </p>
-          <p className="text-slate-500 text-xs">⏱ זמן קריאה משוער: כ-15 דקות</p>
+          <Reveal y={12}>
+            <p className="text-gold text-sm font-semibold mb-2">המדריך המלא</p>
+          </Reveal>
+          <Reveal y={12} delay={80}>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+              המדריך המלא להשכרת רכב בחו״ל
+            </h1>
+          </Reveal>
+          <Reveal y={12} delay={160}>
+            <p className="text-slate-300 leading-relaxed max-w-2xl mb-3">
+              מסמכים, ביטוח, פיקדון, דלק, קנסות ועוד. כל מה שצריך לדעת, בסדר הנכון.
+            </p>
+          </Reveal>
+          <Reveal y={12} delay={240}>
+            <p className="text-slate-500 text-xs">⏱ זמן קריאה משוער: כ-15 דקות</p>
+          </Reveal>
         </div>
       </div>
 

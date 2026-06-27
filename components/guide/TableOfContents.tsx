@@ -67,13 +67,13 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`flex items-center gap-2 text-[13px] py-[5px] px-2.5 rounded transition-all duration-150 ${
+            className={`group flex items-center gap-2.5 text-[13px] py-2 pr-3 border-r-2 transition-all duration-150 ${
               isActive
-                ? "bg-navy text-white font-semibold"
-                : "text-gray-500 hover:text-navy hover:bg-surface"
+                ? "border-r-gold text-navy font-bold bg-[#f7f8fb]"
+                : "border-r-transparent text-[#5b6377] hover:text-navy hover:border-r-[#e7e9f0]"
             }`}
           >
-            <Icon size={12} className="flex-shrink-0 text-gold" />
+            <Icon size={12} className={`flex-shrink-0 ${isActive ? "text-gold" : "text-[#9aa3b5] group-hover:text-gold"}`} />
             {item.label}
           </a>
         );

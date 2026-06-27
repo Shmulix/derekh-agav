@@ -302,7 +302,8 @@ export default function GuidePage() {
 
           {/* Sticky TOC desktop */}
           <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-24">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">תוכן עניינים</p>
+            <p className="text-[11px] font-bold tracking-[0.15em] text-gold mb-2">תוכן עניינים</p>
+            <LaneDash className="mb-3 max-w-[90px]" />
             <TableOfContents items={tocItems.map(({ id, label }) => ({ id, label }))} />
             <EbookTile />
           </aside>

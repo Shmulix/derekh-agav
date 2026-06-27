@@ -113,13 +113,13 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 py-1.5 px-3 rounded-none transition-all duration-100 ${
+                    className={`flex items-center gap-3 py-2 px-3 border-r-2 transition-all duration-100 ${
                       isActive
-                        ? "bg-navy text-white font-semibold"
-                        : "text-gray-600 active:bg-surface"
+                        ? "border-r-gold text-navy font-bold bg-[#f7f8fb]"
+                        : "border-r-transparent text-[#5b6377] active:bg-[#f7f8fb]"
                     }`}
                   >
-                    <Icon size={14} className={`flex-shrink-0 ${isActive ? "text-gold" : "text-gold/70"}`} />
+                    <Icon size={14} className={`flex-shrink-0 ${isActive ? "text-gold" : "text-[#9aa3b5]"}`} />
                     <span className="text-sm">{item.label}</span>
                   </a>
                 );

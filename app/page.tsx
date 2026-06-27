@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSearch from "@/components/HeroSearch";
 import Testimonials from "@/components/Testimonials";
+import Reveal from "@/components/Reveal";
 import { latestPosts, postHref } from "@/lib/posts";
 import type { Metadata } from "next";
 
@@ -85,43 +86,51 @@ export default function HomePage() {
 
           <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-20 text-center">
             {/* Badge */}
-            <div className="inline-block mb-5">
+            <Reveal y={12} className="inline-block mb-5">
               <span className="border border-gold text-gold text-xs font-semibold px-4 py-1.5 rounded">
                 המדריך העצמאי הישראלי מספר 1
               </span>
-            </div>
+            </Reveal>
 
             {/* H1 */}
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
-              תדע הכל לפני שתגיע לדלפק
-            </h1>
+            <Reveal delay={80} y={14}>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
+                תדע הכל לפני שתגיע לדלפק
+              </h1>
+            </Reveal>
 
             {/* Subtitle */}
-            <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.
-            </p>
+            <Reveal delay={160} y={14}>
+              <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים.
+              </p>
+            </Reveal>
 
             {/* Search */}
-            <div className="mb-8">
+            <Reveal delay={240} y={14} className="mb-8">
               <HeroSearch />
-            </div>
+            </Reveal>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/guide" className="btn-primary text-base px-8 py-3">
-                המדריך המלא ←
-              </Link>
-              <a href="/posts/rental-platforms" className="btn-ghost-gold text-base px-8 py-3">
-                איפה הכי כדאי להזמין? השוואה מלאה ←
-              </a>
-            </div>
+            <Reveal delay={320} y={14}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/guide" className="btn-primary text-base px-8 py-3">
+                  המדריך המלא ←
+                </Link>
+                <a href="/posts/rental-platforms" className="btn-ghost-gold text-base px-8 py-3">
+                  איפה הכי כדאי להזמין? השוואה מלאה ←
+                </a>
+              </div>
+            </Reveal>
           </div>
         </section>
 
         {/* ─── ABOUT THE SITE ───────────────────────────────────── */}
         <section className="bg-surface py-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-navy text-center mb-12">על מה האתר הזה</h2>
+            <Reveal>
+              <h2 className="text-3xl font-bold text-navy text-center mb-12">על מה האתר הזה</h2>
+            </Reveal>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -141,11 +150,13 @@ export default function HomePage() {
                   text: "הקישורים באתר הם שותפויות עמלה, אבל ההמלצות נשארות עצמאיות ומקצועיות. תמיד.",
                 },
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
-                  <item.icon size={32} className="text-gold mb-4" />
-                  <h3 className="text-lg font-bold text-navy mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
-                </div>
+                <Reveal key={i} delay={i * 90}>
+                  <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-100 h-full hover:shadow-md transition-shadow duration-200">
+                    <item.icon size={32} className="text-gold mb-4" />
+                    <h3 className="text-lg font-bold text-navy mb-3">{item.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -156,43 +167,47 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Right: avatar + title */}
-              <div className="flex flex-col items-center md:items-start gap-4">
-                <div className="w-24 h-24 rounded-full bg-navy flex items-center justify-center">
-                  <span className="text-2xl font-extrabold text-gold">א.מ</span>
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-navy">אנונימי מקצועי</p>
-                  <p className="text-sm text-gray-500">מומחה השכרת רכב בינלאומית</p>
-                </div>
+              <Reveal>
+                <div className="flex flex-col items-center md:items-start gap-4">
+                  <div className="w-24 h-24 rounded-full bg-navy flex items-center justify-center">
+                    <span className="text-2xl font-extrabold text-gold">א.מ</span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-navy">אנונימי מקצועי</p>
+                    <p className="text-sm text-gray-500">מומחה השכרת רכב בינלאומית</p>
+                  </div>
 
-                {/* Trust badges */}
-                <div className="flex flex-wrap gap-3 mt-2">
-                  {["10+ שנות ניסיון", "אלפי הזמנות מטופלות", "ידע מהשטח, לא מהאינטרנט"].map((badge) => (
-                    <span key={badge} className="bg-navy text-white text-xs font-semibold px-3 py-1.5 rounded">
-                      {badge}
-                    </span>
-                  ))}
+                  {/* Trust badges */}
+                  <div className="flex flex-wrap gap-3 mt-2">
+                    {["10+ שנות ניסיון", "אלפי הזמנות מטופלות", "ידע מהשטח, לא מהאינטרנט"].map((badge) => (
+                      <span key={badge} className="bg-navy text-white text-xs font-semibold px-3 py-1.5 rounded">
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Left: text */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-navy mb-5 leading-snug">
-                  עשר שנים מאחורי הדלפק.<br className="hidden md:block" /> עכשיו אני בצד שלך.
-                </h2>
-                <div className="space-y-3 text-gray-700 leading-relaxed">
-                  <p>
-                    עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי.
-                    התחלתי כסוכן הזמנות, עברתי לניהול תפעול, ניהול מוקד, ובסוף הגעתי לשיווק שותפים.
-                  </p>
-                  <p>
-                    כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.
-                  </p>
-                  <p className="font-medium text-navy">
-                    האתר הזה הוא הדבר שהייתי רוצה שיהיה קיים כשהלקוחות שלי שאלו אותי ״אז מה לעשות?״
-                  </p>
+              <Reveal delay={120}>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-navy mb-5 leading-snug">
+                    עשר שנים מאחורי הדלפק.<br className="hidden md:block" /> עכשיו אני בצד שלך.
+                  </h2>
+                  <div className="space-y-3 text-gray-700 leading-relaxed">
+                    <p>
+                      עבדתי מעל עשר שנים בתחום השכרת הרכב הבינלאומי.
+                      התחלתי כסוכן הזמנות, עברתי לניהול תפעול, ניהול מוקד, ובסוף הגעתי לשיווק שותפים.
+                    </p>
+                    <p>
+                      כלומר, הבנתי בדיוק מה עובד, מה לא, ולמה אנשים נופלים על אותם דברים שוב ושוב.
+                    </p>
+                    <p className="font-medium text-navy">
+                      האתר הזה הוא הדבר שהייתי רוצה שיהיה קיים כשהלקוחות שלי שאלו אותי ״אז מה לעשות?״
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -200,10 +215,12 @@ export default function HomePage() {
         {/* ─── WHY THIS CONTENT ─────────────────────────────────── */}
         <section className="bg-navy py-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-white text-center mb-3">
-              המידע הזה לא בא מגוגל. הוא בא מהשטח.
-            </h2>
-            <p className="text-slate-400 text-center mb-12 text-base">ארבעה דברים שהופכים את המדריך הזה לשונה</p>
+            <Reveal>
+              <h2 className="text-3xl font-bold text-white text-center mb-3">
+                המידע הזה לא בא מגוגל. הוא בא מהשטח.
+              </h2>
+              <p className="text-slate-400 text-center mb-12 text-base">ארבעה דברים שהופכים את המדריך הזה לשונה</p>
+            </Reveal>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -228,11 +245,13 @@ export default function HomePage() {
                   text: "בלי מונחים מסובכים, בלי שפה שיווקית. רק מה שצריך לדעת.",
                 },
               ].map((item, i) => (
-                <div key={i} className="bg-navy-light/30 rounded-lg p-6 border border-white/10">
-                  <item.icon size={28} className="text-gold mb-4" />
-                  <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
-                </div>
+                <Reveal key={i} delay={i * 90}>
+                  <div className="bg-navy-light/30 rounded-lg p-6 border border-white/10 h-full hover:bg-navy-light/40 hover:-translate-y-0.5 transition-all duration-200">
+                    <item.icon size={28} className="text-gold mb-4" />
+                    <h3 className="text-white font-bold mb-2 text-base">{item.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -243,37 +262,39 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Right: text + topics */}
-              <div>
-                <span className="inline-block text-xs font-bold text-gold bg-yellow-50 border border-gold px-3 py-1 rounded mb-4">
-                  הנכס המרכזי של האתר
-                </span>
-                <h2 className="text-3xl font-bold text-navy mb-3 leading-snug">
-                  המדריך המלא להשכרת רכב בחו״ל
-                </h2>
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                  כל הנושאים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
-                </p>
+              <Reveal>
+                <div>
+                  <span className="inline-block text-xs font-bold text-gold bg-yellow-50 border border-gold px-3 py-1 rounded mb-4">
+                    הנכס המרכזי של האתר
+                  </span>
+                  <h2 className="text-3xl font-bold text-navy mb-3 leading-snug">
+                    המדריך המלא להשכרת רכב בחו״ל
+                  </h2>
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    כל הנושאים, בסדר הנכון, עם כל מה שצריך לדעת. לפני שמגיעים לדלפק.
+                  </p>
 
-                <div className="grid grid-cols-2 gap-3 mb-8">
-                  {guideTopics.map((topic) => (
-                    <Link
-                      key={topic.label}
-                      href={topic.href}
-                      className="flex items-center gap-2 bg-white rounded-md px-4 py-3 border border-gray-100 hover:border-navy hover:shadow-sm transition-all duration-150 group"
-                    >
-                      <topic.icon size={16} className="text-gold flex-shrink-0" />
-                      <span className="text-sm font-medium text-text-main group-hover:text-navy">{topic.label}</span>
-                    </Link>
-                  ))}
+                  <div className="grid grid-cols-2 gap-3 mb-8">
+                    {guideTopics.map((topic) => (
+                      <Link
+                        key={topic.label}
+                        href={topic.href}
+                        className="flex items-center gap-2 bg-white rounded-md px-4 py-3 border border-gray-100 hover:border-navy hover:shadow-sm transition-all duration-150 group"
+                      >
+                        <topic.icon size={16} className="text-gold flex-shrink-0" />
+                        <span className="text-sm font-medium text-text-main group-hover:text-navy">{topic.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <Link href="/guide" className="btn-primary inline-flex items-center gap-2">
+                    קרא את המדריך המלא ←
+                  </Link>
                 </div>
-
-                <Link href="/guide" className="btn-primary inline-flex items-center gap-2">
-                  קרא את המדריך המלא ←
-                </Link>
-              </div>
+              </Reveal>
 
               {/* Left: decorative card */}
-              <div className="hidden md:flex items-center justify-center">
+              <Reveal delay={150} className="hidden md:flex items-center justify-center">
                 <div className="bg-navy rounded-xl p-8 w-80 shadow-xl">
                   <div className="space-y-3">
                     {guideTopics.map((topic, i) => (
@@ -286,7 +307,7 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -294,57 +315,62 @@ export default function HomePage() {
         {/* ─── LATEST POSTS ─────────────────────────────────────── */}
         <section className="bg-white py-20">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-navy mb-2">מאמרים ומדריכים נוספים</h2>
-              <p className="text-gray-500">טיפים, השוואות ומידע עדכני על השכרת רכב</p>
-            </div>
+            <Reveal>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-navy mb-2">מאמרים ומדריכים נוספים</h2>
+                <p className="text-gray-500">טיפים, השוואות ומידע עדכני על השכרת רכב</p>
+              </div>
+            </Reveal>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {posts.map((post) => (
-                <article
-                  key={post.title}
-                  className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col"
-                >
-                  {post.image && (
-                    <div className="relative h-44 overflow-hidden">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                      <span className={`absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded ${post.tagColor}`}>
-                        {post.tag}
-                      </span>
-                    </div>
-                  )}
-                  <div className="p-6 flex-1 flex flex-col">
-                    {!post.image && (
-                      <span className={`inline-block text-xs font-bold px-2 py-1 rounded mb-4 w-fit ${post.tagColor}`}>
-                        {post.tag}
-                      </span>
+              {posts.map((post, i) => (
+                <Reveal key={post.title} delay={i * 90}>
+                  <article
+                    className="bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden flex flex-col h-full"
+                  >
+                    {post.image && (
+                      <div className="relative h-44 overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        <span className={`absolute top-3 right-3 text-xs font-bold px-2 py-1 rounded ${post.tagColor}`}>
+                          {post.tag}
+                        </span>
+                      </div>
                     )}
-                    <h3 className="text-navy font-bold text-lg mb-3 leading-snug">{post.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">{post.excerpt}</p>
-                  </div>
-                  <div className="px-6 pb-5 flex items-center justify-between border-t border-gray-50 pt-4">
-                    <span className="text-gray-400 text-xs flex items-center gap-1">
-                      <Clock size={12} /> {post.readTime}
-                    </span>
-                    <Link href={postHref(post)} className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors">
-                      קרא ←
-                    </Link>
-                  </div>
-                </article>
+                    <div className="p-6 flex-1 flex flex-col">
+                      {!post.image && (
+                        <span className={`inline-block text-xs font-bold px-2 py-1 rounded mb-4 w-fit ${post.tagColor}`}>
+                          {post.tag}
+                        </span>
+                      )}
+                      <h3 className="text-navy font-bold text-lg mb-3 leading-snug">{post.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3">{post.excerpt}</p>
+                    </div>
+                    <div className="px-6 pb-5 flex items-center justify-between border-t border-gray-50 pt-4">
+                      <span className="text-gray-400 text-xs flex items-center gap-1">
+                        <Clock size={12} /> {post.readTime}
+                      </span>
+                      <Link href={postHref(post)} className="text-gold font-semibold text-sm hover:text-gold-dark transition-colors">
+                        קרא ←
+                      </Link>
+                    </div>
+                  </article>
+                </Reveal>
               ))}
             </div>
 
-            <div className="text-center">
-              <Link href="/posts" className="text-navy font-semibold text-sm hover:text-gold transition-colors">
-                כל המאמרים ←
-              </Link>
-            </div>
+            <Reveal delay={120}>
+              <div className="text-center">
+                <Link href="/posts" className="text-navy font-semibold text-sm hover:text-gold transition-colors">
+                  כל המאמרים ←
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -353,15 +379,17 @@ export default function HomePage() {
 
         {/* ─── FINAL CTA ────────────────────────────────────────── */}
         <section className="bg-navy py-16 border-t-4 border-gold">
-          <div className="max-w-2xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
-            <p className="text-slate-300 mb-8 leading-relaxed">
-              עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
-            </p>
-            <a href="/posts/rental-platforms" className="btn-gold text-base px-10 py-3">
-              איפה הכי כדאי להזמין? השוואה מלאה ←
-            </a>
-          </div>
+          <Reveal>
+            <div className="max-w-2xl mx-auto px-6 text-center">
+              <h2 className="text-3xl font-bold text-white mb-3">מוכן להשכיר רכב?</h2>
+              <p className="text-slate-300 mb-8 leading-relaxed">
+                עכשיו שאתה מוכן, תקרא איפה הכי כדאי להזמין ואיזו פלטפורמה מתאימה לך.
+              </p>
+              <a href="/posts/rental-platforms" className="btn-gold text-base px-10 py-3">
+                איפה הכי כדאי להזמין? השוואה מלאה ←
+              </a>
+            </div>
+          </Reveal>
         </section>
       </main>
 

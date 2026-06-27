@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 type Testimonial = {
   text: string;
@@ -52,34 +53,35 @@ export default function Testimonials() {
   return (
     <section className="bg-surface py-20" aria-labelledby="testimonials-heading">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="text-xs font-bold text-gold uppercase tracking-widest">המלצות</span>
-          <h2 id="testimonials-heading" className="text-3xl font-bold text-navy mt-3 mb-2">
-            מה אומרים מי שכבר עמדו בדלפק
-          </h2>
-          <p className="text-gray-500">סיפורים של אנשים שהגיעו מוכנים, ולא הופתעו</p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold text-gold uppercase tracking-widest">המלצות</span>
+            <h2 id="testimonials-heading" className="text-3xl font-bold text-navy mt-3 mb-2">
+              מה אומרים מי שכבר עמדו בדלפק
+            </h2>
+            <p className="text-gray-500">סיפורים של אנשים שהגיעו מוכנים, ולא הופתעו</p>
+          </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200 p-7 flex flex-col"
-            >
-              <Quote size={24} className="text-gold/60 mb-4 flex-shrink-0" aria-hidden="true" />
-              <blockquote className="text-gray-700 text-sm leading-relaxed flex-1">
-                {t.text}
-              </blockquote>
-              <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-gray-100">
-                <div className="w-11 h-11 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
-                  <span className="text-gold font-bold text-sm">{t.initials}</span>
-                </div>
-                <div>
-                  <p className="font-bold text-navy text-sm leading-tight">{t.name}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{t.role}</p>
-                </div>
-              </figcaption>
-            </figure>
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 90}>
+              <figure className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 p-7 flex flex-col h-full">
+                <Quote size={24} className="text-gold/60 mb-4 flex-shrink-0" aria-hidden="true" />
+                <blockquote className="text-gray-700 text-sm leading-relaxed flex-1">
+                  {t.text}
+                </blockquote>
+                <figcaption className="flex items-center gap-3 mt-6 pt-5 border-t border-gray-100">
+                  <div className="w-11 h-11 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
+                    <span className="text-gold font-bold text-sm">{t.initials}</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-navy text-sm leading-tight">{t.name}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{t.role}</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

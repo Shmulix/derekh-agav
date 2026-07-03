@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo, JetBrains_Mono } from "next/font/google";
+import { INDEXING_ENABLED, SITE_URL } from "@/lib/site-config";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -12,18 +13,24 @@ const heebo = Heebo({
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-v2", display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://derekh-agav.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "דרך אגב | המדריך להשכרת רכב בחו״ל",
     template: "%s | דרך אגב",
   },
   description:
     "המדריך המקיף להשכרת רכב בחו״ל לישראלים. מסמכים, ביטוח, פיקדון, דלק וקנסות. כתוב מניסיון אמיתי של יותר מעשר שנים בתחום.",
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
-  },
+  // Piloté par INDEXING_ENABLED (site-mode.mjs) : noindex tant que le site
+  // n'est pas officiellement lancé.
+  ...(INDEXING_ENABLED
+    ? {}
+    : {
+        robots: {
+          index: false,
+          follow: false,
+          googleBot: { index: false, follow: false },
+        },
+      }),
   openGraph: {
     siteName: "דרך אגב",
     locale: "he_IL",

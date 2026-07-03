@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 import MobileTOC from "@/components/guide/MobileTOC";
 import type { Metadata } from "next";
 import { author } from "@/lib/site-config";
+import { buildArticleJsonLd } from "@/lib/article-jsonld";
+import AuthorByline from "@/components/posts/AuthorByline";
+import ArticleBreadcrumb from "@/components/posts/ArticleBreadcrumb";
 import { CheckCircle, AlertTriangle, ExternalLink, ChevronLeft } from "lucide-react";
 
 // NOTE (placeholder) : contenu éditorial SIMULÉ en attendant les vraies affiliations.
@@ -99,28 +102,15 @@ export const metadata: Metadata = {
   },
 };
 
-const articleJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+const articleJsonLd = buildArticleJsonLd({
+  slug: "rental-platforms",
   headline: "איפה הכי כדאי להזמין רכב שכור? השוואת הפלטפורמות",
   description:
     "השוואה בין פלטפורמות ההזמנה המובילות לפי איכות השירות: ביטול, ביטוח, תמיכה ושקיפות מחיר.",
-  image: "https://derekh-agav.vercel.app/hero-bg.avif",
+  image: "/hero-bg.avif",
   datePublished: "2026-06-27",
-  dateModified: "2026-06-27", // update this on every edit
-  author: {
-    "@type": "Person",
-    name: author.name,
-    url: "https://derekh-agav.vercel.app/about",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "דרך אגב",
-    url: "https://derekh-agav.vercel.app",
-  },
-  inLanguage: "he",
-  url: "https://derekh-agav.vercel.app/posts/rental-platforms",
-};
+  dateModified: "2026-07-03", // update this on every edit
+});
 
 export default function RentalPlatformsPost() {
   return (
@@ -193,22 +183,7 @@ export default function RentalPlatformsPost() {
                 </div>
 
                 <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={author.image}
-                      alt={author.name}
-                      width={44}
-                      height={44}
-                      className="rounded-full border-2 border-gold/40 flex-shrink-0"
-                    />
-                    <div>
-                      <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
-                      <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 leading-relaxed mt-3">
-                    ההשוואה מבוססת על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי. ממליץ לאמת תנאים קריטיים מול הפלטפורמה וחברת ההשכרה לפני שסוגרים.
-                  </p>
+                  <AuthorByline note="ההשוואה מבוססת על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי. ממליץ לאמת תנאים קריטיים מול הפלטפורמה וחברת ההשכרה לפני שסוגרים." />
                 </div>
               </div>
             </aside>
@@ -217,13 +192,7 @@ export default function RentalPlatformsPost() {
             <article className="min-w-0">
 
               {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
-                <Link href="/" className="hover:text-navy">דרך אגב</Link>
-                <ChevronLeft size={12} />
-                <Link href="/posts" className="hover:text-navy">מאמרים</Link>
-                <ChevronLeft size={12} />
-                <span className="text-gray-600">איפה הכי כדאי להזמין</span>
-              </nav>
+              <ArticleBreadcrumb title="איפה הכי כדאי להזמין" />
 
               {/* Intro */}
               <p className="text-lg text-gray-800 leading-relaxed mb-5">

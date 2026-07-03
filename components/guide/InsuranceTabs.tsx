@@ -31,15 +31,18 @@ export default function InsuranceTabs() {
   return (
     <div className="my-6">
       {/* Tab buttons */}
-      <div className="flex gap-2 mb-0 overflow-x-auto pb-0">
+      <div className="flex gap-2 mb-0 overflow-x-auto pb-0" role="tablist" aria-label="סוגי ביטוח וכיסויים">
         {tabs.map((tab) => (
           <button
             key={tab.id}
+            role="tab"
+            aria-selected={active === tab.id}
+            aria-controls={`insurance-panel-${tab.id}`}
             onClick={() => setActive(tab.id)}
             className={`flex-shrink-0 px-4 py-2.5 rounded-t-lg text-sm font-semibold border border-b-0 transition-colors ${
               active === tab.id
                 ? "bg-white border-[#e7e9f0] text-navy"
-                : "bg-gray-50 border-transparent text-gray-400 hover:text-gray-600"
+                : "bg-gray-50 border-transparent text-gray-500 hover:text-gray-700"
             }`}
           >
             <span className="block text-xs font-bold">{tab.label}</span>
@@ -49,7 +52,7 @@ export default function InsuranceTabs() {
       </div>
 
       {/* Tab content */}
-      <div className="bg-white border border-[#e7e9f0] rounded-b-lg rounded-tl-none p-5">
+      <div id={`insurance-panel-${active}`} role="tabpanel" className="bg-white border border-[#e7e9f0] rounded-b-lg rounded-tl-none p-5">
         {active === "basic" && (
           <div>
             <p className="text-sm text-gray-600 mb-3 leading-relaxed">
@@ -74,7 +77,7 @@ export default function InsuranceTabs() {
               </div>
               <div>
                 <p className="text-xs font-bold text-orange-600 mb-1 flex items-center gap-1"><AlertCircle size={12} /> לא מכוסה בדרך הביטוח הבסיסי</p>
-                <p className="text-xs text-gray-400 mb-2 leading-relaxed">בדרך כלל מכוסה דרך כיסויים משלימים</p>
+                <p className="text-xs text-gray-500 mb-2 leading-relaxed">בדרך כלל מכוסה דרך כיסויים משלימים</p>
                 <ul className="space-y-2">
                   {notCovered.map(({ item, note }) => (
                     <li key={item} className="text-xs text-gray-600">
@@ -82,7 +85,7 @@ export default function InsuranceTabs() {
                         <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
                         <span className="font-medium">{item}</span>
                       </span>
-                      <span className="text-gray-400 text-xs pr-3">{note}</span>
+                      <span className="text-gray-500 text-xs pr-3">{note}</span>
                     </li>
                   ))}
                 </ul>
@@ -95,7 +98,7 @@ export default function InsuranceTabs() {
                 {neverCovered.map(({ item, note }) => (
                   <li key={item} className="text-xs text-gray-700">
                     <span className="font-semibold">{item}</span>
-                    <span className="text-gray-400"> ({note})</span>
+                    <span className="text-gray-500"> ({note})</span>
                   </li>
                 ))}
               </ul>

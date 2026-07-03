@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { List, X, FileText, Receipt, Package, AlertTriangle, CalendarX } from "lucide-react";
 import { useScrollCollapse } from "@/components/useScrollCollapse";
+import { useSheetDialog } from "@/components/useSheetDialog";
 import {
   BookOpen, Car, CreditCard, MapPin, Globe, Shield, User,
   Fuel, Route, Mail, CheckCircle, BookMarked, Snowflake, MessageCircle,
@@ -42,6 +43,14 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
   const [touched, setTouched] = useState(false);
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const shrunk = collapsedByScroll && !touched;
+  const { sheetRef, triggerRef } = useSheetDialog(open, () => setOpen(false));
+
+  // Nettoie le timer de "toucher" au démontage.
+  useEffect(() => {
+    return () => {
+      if (touchTimer.current) clearTimeout(touchTimer.current);
+    };
+  }, []);
 
   // Le scroll re-réduit (oublie le toucher).
   useEffect(() => {
@@ -106,7 +115,15 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
             onClick={() => setOpen(false)}
           />
           {/* Bottom sheet */}
-          <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-2xl shadow-2xl animate-sheet-up flex flex-col" style={{maxHeight: "95vh"}}>
+          <div
+            ref={sheetRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="תוכן עניינים"
+            tabIndex={-1}
+            className="fixed bottom-0 left-0 right-0 z-[60] bg-white rounded-t-2xl shadow-2xl animate-sheet-up flex flex-col outline-none"
+            style={{maxHeight: "95vh"}}
+          >
             {/* Drag handle */}
             <div className="flex justify-center pt-2 pb-1 flex-shrink-0">
               <div className="w-10 h-1 rounded-full bg-gray-200" />
@@ -158,12 +175,14 @@ export default function MobileTOC({ items }: { items: TocItem[] }) {
       {/* Floating button */}
       <div className="fixed bottom-[4.7rem] right-4 z-50 animate-fab-pop" style={{ animationDelay: "650ms" }}>
         <button
+          ref={triggerRef}
           onClick={onFab}
           onPointerDown={reveal}
           className={`h-11 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300 ease-out active:scale-95 shadow-lg shadow-black/10 ${
             open ? "bg-navy text-white w-11" : "bg-white border border-[#e7e9f0] text-navy ps-3.5 pe-3.5"
           }`}
           aria-label="תוכן עניינים"
+          aria-expanded={open}
         >
           {open ? (
             <X size={18} />

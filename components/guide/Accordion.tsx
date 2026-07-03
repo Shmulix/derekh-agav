@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
@@ -17,11 +17,14 @@ interface AccordionProps {
 
 export function AccordionItem({ title, icon, defaultOpen = false, children, headerImage, headerName, headerSubtitle, expandLabel }: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
+  const contentId = useId();
 
   return (
     <div className="border border-[#e7e9f0] mb-3">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={contentId}
         className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-surface transition-colors text-right"
       >
         <div className="flex items-center gap-3">
@@ -62,7 +65,7 @@ export function AccordionItem({ title, icon, defaultOpen = false, children, head
         </div>
       </button>
       {open && (
-        <div className="px-5 pb-5 pt-2 bg-white border-t border-[#e7e9f0]">
+        <div id={contentId} className="px-5 pb-5 pt-2 bg-white border-t border-[#e7e9f0]">
           {children}
         </div>
       )}

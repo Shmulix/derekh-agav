@@ -1,14 +1,15 @@
 // ──────────────────────────────────────────────────────────────
-//  MODE ANONYME (backend only)
-//  Interrupteur unique. Modifiable UNIQUEMENT ici (via Claude Code).
-//  Jamais exposé au front, pas d'interface admin.
-//
-//  true  = anonymise tout (nom/photo/récit de Samuel remplacés par une
-//          identité générique) ET remplace tous les CTA d'affiliation
-//          (« où réserver ») par le téléchargement du PDF.
-//  false = comportement normal, rien ne change.
+//  Les interrupteurs (ANONYMOUS_MODE, INDEXING_ENABLED) vivent dans
+//  site-mode.mjs à la racine : source unique lue aussi par next.config.mjs
+//  (redirections de /samuel.avif et /guide-ebook.pdf en mode anonyme).
+//  Pour changer de mode : éditer site-mode.mjs, npm run build, /deploy-site.
 // ──────────────────────────────────────────────────────────────
-export const ANONYMOUS_MODE = true;
+import { ANONYMOUS_MODE, INDEXING_ENABLED } from "@/site-mode.mjs";
+
+export { ANONYMOUS_MODE, INDEXING_ENABLED };
+
+// URL canonique du site (une seule définition pour metadata + JSON-LD).
+export const SITE_URL = "https://derekh-agav.vercel.app";
 
 // Identité de l'auteur selon le mode.
 export const author = {
@@ -45,8 +46,8 @@ export const authorIntro = ANONYMOUS_MODE
 
 // Auteur pour le JSON-LD : Personne nommée (normal) ou Organisation (anonyme).
 export const authorJsonLd = ANONYMOUS_MODE
-  ? { "@type": "Organization", name: "דרך אגב", url: "https://derekh-agav.vercel.app" }
-  : { "@type": "Person", name: "סמואל פרץ", url: "https://derekh-agav.vercel.app/about" };
+  ? { "@type": "Organization", name: "דרך אגב", url: SITE_URL }
+  : { "@type": "Person", name: "סמואל פרץ", url: SITE_URL };
 
 // PDF du guide servi selon le mode (anonyme = version sans identité, même style v2).
 export const pdfHref = ANONYMOUS_MODE ? "/guide-ebook-anon.pdf" : "/guide-ebook.pdf";

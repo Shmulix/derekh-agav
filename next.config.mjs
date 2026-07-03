@@ -1,3 +1,5 @@
+import { ANONYMOUS_MODE } from "./site-mode.mjs";
+
 /** @type {import('next').NextConfig} */
 
 // Headers de securite appliques a toutes les routes.
@@ -45,6 +47,16 @@ const nextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+    ];
+  },
+  // En mode anonyme, les fichiers qui revelent l'identite de l'auteur ne
+  // doivent pas etre servis, meme en URL directe. Les redirects passent
+  // AVANT les fichiers statiques de public/.
+  async redirects() {
+    if (!ANONYMOUS_MODE) return [];
+    return [
+      { source: "/samuel.avif", destination: "/avatar-anon.avif", permanent: false },
+      { source: "/guide-ebook.pdf", destination: "/guide-ebook-anon.pdf", permanent: false },
     ];
   },
 };

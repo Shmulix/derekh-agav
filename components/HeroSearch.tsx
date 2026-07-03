@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Search, BookOpen, Newspaper, Hash } from "lucide-react";
 import Fuse, { FuseResult } from "fuse.js";
 import Link from "next/link";
@@ -133,7 +134,29 @@ export default function HeroSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResultWithSnippet[]>([]);
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  // Navigation clavier dans les résultats (pattern combobox WAI-ARIA).
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!open || results.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIndex((i) => (i + 1) % results.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((i) => (i <= 0 ? results.length - 1 : i - 1));
+    } else if (e.key === "Enter" && activeIndex >= 0) {
+      e.preventDefault();
+      const target = results[activeIndex];
+      setOpen(false);
+      setQuery("");
+      router.push(target.href);
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
 
   useEffect(() => {
     const trimmed = query.trim();
@@ -162,6 +185,7 @@ export default function HeroSearch() {
     const enriched = validated.map((h) => ({ ...h.item, snippet: extractSnippet(h) ?? undefined }));
     setResults(enriched);
     setOpen(enriched.length > 0);
+    setActiveIndex(-1);
   }, [query]);
 
   useEffect(() => {
@@ -181,7 +205,14 @@ export default function HeroSearch() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={onKeyDown}
           placeholder="חפש נושא... למשל: ביטוח, פיקדון, ציוד חורף"
+          aria-label="חיפוש נושא באתר"
+          role="combobox"
+          aria-expanded={open}
+          aria-controls="hero-search-listbox"
+          aria-autocomplete="list"
+          aria-activedescendant={activeIndex >= 0 ? `hero-search-option-${activeIndex}` : undefined}
           className="flex-1 px-5 py-3 text-text-main text-base outline-none bg-transparent placeholder:text-gray-400"
           dir="rtl"
         />
@@ -191,7 +222,12 @@ export default function HeroSearch() {
       </div>
 
       {open && (
-        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden max-h-[70vh] overflow-y-auto text-right">
+        <div
+          id="hero-search-listbox"
+          role="listbox"
+          aria-label="תוצאות חיפוש"
+          className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden max-h-[70vh] overflow-y-auto text-right"
+        >
           {results.map((item, i) => {
             const isMain = item.type === "guide-main";
             const isSection = item.type === "guide-section";
@@ -200,14 +236,17 @@ export default function HeroSearch() {
 
             return (
               <Link
-                key={i}
+                key={item.href}
+                id={`hero-search-option-${i}`}
+                role="option"
+                aria-selected={i === activeIndex}
                 href={item.href}
                 onClick={() => { setOpen(false); setQuery(""); }}
                 className={`flex gap-3 px-5 py-3 transition-colors border-b border-gray-50 last:border-0 group ${
                   hasSnippet ? "items-start" : "items-center"
                 } ${
                   isMain ? "bg-gold/5 hover:bg-gold/10" : "hover:bg-surface"
-                }`}
+                } ${i === activeIndex ? "bg-surface" : ""}`}
               >
                 <div className={`flex-shrink-0 text-gray-400 group-hover:text-navy transition-colors ${
                   hasSnippet ? "mt-1" : ""

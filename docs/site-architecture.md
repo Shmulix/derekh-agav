@@ -1,7 +1,7 @@
 # Architecture du site - דרך אגב
 
 > Fichier d'état VIVANT. À mettre à jour à chaque ajout/suppression/renommage de page, route ou composant.
-> Dernière mise à jour : 2026-06-27 (scan live + code local).
+> Dernière mise à jour : 2026-07-03 (audit sécurité + qualité complet, refactor).
 
 Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/derekh-agav (`master`)
 
@@ -17,34 +17,57 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 | `/posts/ztl-italy` | `app/posts/ztl-italy/page.tsx` | ✅ En ligne | Post ZTL Italie |
 | `/posts/driving-license-abroad` | `app/posts/driving-license-abroad/page.tsx` | ✅ En ligne | Permis israélien à l'étranger |
 | `/posts/international-driving-permit` | `app/posts/international-driving-permit/page.tsx` | ✅ En ligne | Permis international (IDP) |
-| `/posts/idp-stations` | `app/posts/idp-stations/page.tsx` | ✅ En ligne | 66 stations IDP, outil de recherche |
-| `/posts/rental-platforms` | `app/posts/rental-platforms/page.tsx` | ✅ En ligne (placeholder) | Comparatif éditorial simulé. Cible de tous les CTAs. Liens plateformes = sites officiels, à remplacer par les liens d'affiliation. Pas dans `posts.ts` (hors archive). |
-| `/about` | (à créer) | ❌ 404 | Lien « אודות » présent dans la nav (`Header.tsx`) mais page inexistante. |
-| `/redesign` | `app/redesign/page.tsx` | 🧪 Preview (noindex) | TEST de refonte de la home (bento + trust & authority, charte navy/gold). Isolé, ne remplace pas `/`. Réutilise Header/Footer/HeroSearch. À supprimer ou promouvoir selon décision. |
+| `/posts/idp-stations` | `app/posts/idp-stations/page.tsx` | ✅ En ligne | 66 stations IDP (données dans `lib/data/idp-locations.ts`) |
+| `/posts/rental-platforms` | `app/posts/rental-platforms/page.tsx` | ✅ En ligne (placeholder) | Comparatif éditorial simulé. Cible des CTAs en mode normal. Volontairement hors registre `lib/posts.ts` (pas dans l'archive). |
+| 404 | `app/not-found.tsx` | ✅ | Page 404 hébreu RTL, charte navy/gold |
+| erreur | `app/error.tsx` | ✅ | Error boundary générique avec bouton retry |
+| `/robots.txt` | `app/robots.ts` | ✅ | Piloté par `INDEXING_ENABLED` (site-mode.mjs). Actuellement : Disallow all. |
+| `/sitemap.xml` | `app/sitemap.ts` | ✅ | Généré depuis `lib/posts.ts`. Prêt pour le lancement SEO. |
+| favicon | `app/icon.svg` + `app/apple-icon.png` | ✅ | Carré navy, point gold + tirets de route |
 
 Pas de route dynamique `[slug]` : chaque post est une page `.tsx` autonome (pas de MDX).
 
 ---
 
+## Interrupteurs (backend only) : `site-mode.mjs` (racine)
+
+Source de vérité UNIQUE, lue par `next.config.mjs` ET `lib/site-config.ts` (qui la ré-exporte).
+
+- `ANONYMOUS_MODE` (actuellement **true**) : identité générique partout, CTA -> PDF anonyme, et **redirections** `/samuel.avif` -> `/avatar-anon.avif`, `/guide-ebook.pdf` -> `/guide-ebook-anon.pdf` (les fichiers d'identité ne sont plus servables en URL directe).
+- `INDEXING_ENABLED` (actuellement **false**) : noindex metadata + robots Disallow. Passer à true au lancement SEO (active robots Allow + déclare le sitemap).
+
+## Sécurité (next.config.mjs)
+
+Headers sur toutes les routes : CSP stricte (`default-src 'self'`, `frame-ancestors 'none'`), HSTS 2 ans, X-Content-Type-Options, X-Frame-Options DENY, Referrer-Policy, Permissions-Policy. `poweredByHeader: false`. Next.js épinglé >= 14.2.35 (correctifs critiques).
+
+---
+
 ## Composants
 
-**Globaux** : `Header.tsx` (nav + CTA gold vers `/posts/rental-platforms`), `Footer.tsx` (liens + disclaimer affiliation + copyright), `HeroSearch.tsx` (recherche Fuse.js : indexe les 19 sections du guide + posts publiés).
+**Globaux** : `Header.tsx` / `Footer.tsx` (guide + pages posts), `HeaderV2.tsx` / `FooterV2.tsx` (home + archive `/posts`) : deux systèmes coexistent depuis la refonte v2, candidats à unification. `HeroSearch.tsx` (recherche Fuse.js, pattern combobox accessible + navigation clavier), `Reveal.tsx`, `AuthorAvatar.tsx`, `BookingCTA.tsx`, `v2/TestimonialsV2.tsx`, `v2/LaneDash.tsx`.
 
-**Guide** (`components/guide/`) : `Accordion`, `TableOfContents`, `MobileTOC` (bottom-[4.5rem]), `MobileFloatingCTA` (pill gold bottom-4 right-4, z-50 / panel z-[60]), `BackToTop`, `InsuranceTabs` (logique exclusion orange/rouge), `DocTiles`, `AcrissTable`, `LexiconSection`.
+**Hooks partagés** : `useScrollCollapse.ts` (repli FAB par position), `useSheetDialog.ts` (dialog accessible : Escape, focus trap, retour focus).
 
-**Posts** (`components/posts/`) : `IDPLocations` (recherche des 66 stations, utilisé par `idp-stations`), `IDPGallery` (galerie de traductions du permis, utilisé par `international-driving-permit`).
+**Guide** (`components/guide/`) : `Accordion` (aria-expanded), `TableOfContents`, `MobileTOC` + `MobileFloatingCTA` (bottom-sheets `role="dialog"`), `BackToTop`, `InsuranceTabs` (roles tabs), `DocTiles`, `AcrissTable`, `LexiconSection`, `EbookCTA`.
+
+**Posts** (`components/posts/`) : `IDPLocations` (recherche stations, data dans `lib/data/`), `IDPGallery` (galerie + lightbox dialog), `ArticleBreadcrumb` (fil d'Ariane commun), `AuthorByline` (carte auteur commune).
+
+**Lib** : `site-config.ts` (identité/CTA selon mode + `SITE_URL`), `posts.ts` (registre), `article-jsonld.ts` (`buildArticleJsonLd`, JSON-LD Article partagé, auteur suit le mode anonyme), `data/idp-locations.ts` (66 stations).
+
+Supprimés (2026-07-03) : `components/Testimonials.tsx` (mort), `public/exemple-idp.png`, `public/intro.mp3` (orphelins), `public/robots.txt` (remplacé par `app/robots.ts`).
 
 ---
 
 ## Stack technique (résumé)
 
-Next.js 14.2.5 (App Router) · TypeScript · Tailwind CSS · police Heebo (`next/font/google`) · Lucide React (icônes) · Fuse.js (recherche) · next/image + AVIF (sharp) · SEO via `next/metadata` + `articleJsonLd` par post. Pas de shadcn/ui, pas de MDX. Détails dans le CLAUDE.md (TECH STACK).
+Next.js 14.2.35 (App Router) · TypeScript strict · Tailwind CSS · Heebo (`next/font/google`) · Lucide React · Fuse.js · next/image + AVIF (sharp) · SEO via `next/metadata` + `buildArticleJsonLd` par post. Pas de shadcn/ui, pas de MDX. Détails dans le CLAUDE.md (TECH STACK).
 
 ---
 
-## ⚠️ Problèmes connus
+## ⚠️ Problèmes connus / à faire
 
-1. ~~`/posts/rental-platforms` = 404~~ RÉSOLU (2026-06-27) : page placeholder en ligne (contenu simulé). Reste à remplacer les liens plateformes par les vrais liens d'affiliation.
-2. **`/about` = 404** : lien cassé dans la nav.
-3. **Site en `noindex`** : `app/layout.tsx` a `robots: { index: false, follow: false }`. Google ne référence rien. À retirer au lancement SEO.
-4. **Écart live / local** : déploiement live du 2026-05-21 (~37 j). Local en avance (intro ZTL réécrite, .gitignore, centralisation posts) non déployé.
+1. **Site en `noindex`** (voulu, pré-lancement) : flipper `INDEXING_ENABLED` dans `site-mode.mjs` au lancement SEO.
+2. `rental-platforms` : liens plateformes = sites officiels, à remplacer par les vrais liens d'affiliation.
+3. Duplication restante des **heros d'article** (5 posts) : candidat à un composant `ArticleHero` (non fait, risque visuel vs bénéfice).
+4. Double Header/Footer v1/v2 : à unifier quand la refonte v2 sera généralisée.
+5. `logo.svg` pèse 130 KB (probablement raster embarqué) : à optimiser.

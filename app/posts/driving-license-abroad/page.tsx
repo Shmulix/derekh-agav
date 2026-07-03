@@ -6,6 +6,9 @@ import MobileTOC from "@/components/guide/MobileTOC";
 import MobileFloatingCTA from "@/components/guide/MobileFloatingCTA";
 import type { Metadata } from "next";
 import { author, booking } from "@/lib/site-config";
+import { buildArticleJsonLd } from "@/lib/article-jsonld";
+import AuthorByline from "@/components/posts/AuthorByline";
+import ArticleBreadcrumb from "@/components/posts/ArticleBreadcrumb";
 import { AlertTriangle, XCircle, CheckCircle, ExternalLink, ChevronLeft } from "lucide-react";
 
 const mobileTocItems = [
@@ -42,28 +45,15 @@ export const metadata: Metadata = {
   },
 };
 
-const articleJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+const articleJsonLd = buildArticleJsonLd({
+  slug: "driving-license-abroad",
   headline: "רישיון נהיגה ישראלי להשכרת רכב בחו״ל: מה שחייבים לדעת",
   description:
     "הרישיון הישראלי בהשכרת רכב בחו״ל: מה מתקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.",
-  image: "https://derekh-agav.vercel.app/israeli-driving-license.avif",
+  image: "/israeli-driving-license.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-04-28",
-  author: {
-    "@type": "Person",
-    name: author.name,
-    url: "https://derekh-agav.vercel.app/about",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "דרך אגב",
-    url: "https://derekh-agav.vercel.app",
-  },
-  inLanguage: "he",
-  url: "https://derekh-agav.vercel.app/posts/driving-license-abroad",
-};
+  dateModified: "2026-07-03", // update this on every edit
+});
 
 export default function DrivingLicenseAbroadPost() {
   return (
@@ -148,22 +138,7 @@ export default function DrivingLicenseAbroadPost() {
 
                 {/* Author card */}
                 <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={author.image}
-                      alt={author.name}
-                      width={44}
-                      height={44}
-                      className="rounded-full border-2 border-gold/40 flex-shrink-0"
-                    />
-                    <div>
-                      <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
-                      <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 leading-relaxed mt-3">
-                    המידע באתר מבוסס על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי או ממשלתי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה.
-                  </p>
+                  <AuthorByline note="המידע באתר מבוסס על ניסיון אישי של מעל עשר שנים בתחום השכרת הרכב. אינני גוף רשמי או ממשלתי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה." />
                 </div>
 
               </div>
@@ -173,13 +148,7 @@ export default function DrivingLicenseAbroadPost() {
             <article className="min-w-0">
 
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
-            <Link href="/" className="hover:text-navy">דרך אגב</Link>
-            <ChevronLeft size={12} />
-            <Link href="/posts" className="hover:text-navy">מאמרים</Link>
-            <ChevronLeft size={12} />
-            <span className="text-gray-600">רישיון נהיגה ישראלי בחו״ל</span>
-          </nav>
+          <ArticleBreadcrumb title="רישיון נהיגה ישראלי בחו״ל" />
 
           {/* Intro */}
           <p className="text-lg text-gray-800 leading-relaxed mb-5">
@@ -513,22 +482,7 @@ export default function DrivingLicenseAbroadPost() {
 
             {/* Author card mobile */}
             <div className="border border-[#e7e9f0] rounded-none p-4 bg-white">
-              <div className="flex items-center gap-3">
-                <Image
-                  src={author.image}
-                  alt={author.name}
-                  width={44}
-                  height={44}
-                  className="rounded-full border-2 border-gold/40 flex-shrink-0"
-                />
-                <div>
-                  <p className="font-bold text-navy text-sm leading-tight">{author.name}</p>
-                  <p className="text-xs text-gold font-semibold mt-0.5">10+ שנות ניסיון בתחום</p>
-                </div>
-              </div>
-              <p className="text-xs text-gray-500 leading-relaxed mt-3">
-                המידע מבוסס על ניסיון אישי של מעל עשר שנים. אינני גוף רשמי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה.
-              </p>
+              <AuthorByline note="המידע מבוסס על ניסיון אישי של מעל עשר שנים. אינני גוף רשמי. ממליץ לאמת פרטים קריטיים מול חברת ההשכרה לפני הנסיעה." />
             </div>
 
             {/* Disclaimer mobile */}

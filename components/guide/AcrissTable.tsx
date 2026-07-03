@@ -70,6 +70,7 @@ function AcrissSection({ title, subtitle, rows, open, onToggle }: {
     <div className="border border-[#e7e9f0] rounded-none overflow-hidden">
       <button
         onClick={onToggle}
+        aria-expanded={open}
         className="w-full flex items-center justify-between px-4 py-3 bg-navy text-white hover:bg-navy/90 transition-colors"
       >
         <div className="flex items-center gap-2">
@@ -88,7 +89,7 @@ function AcrissSection({ title, subtitle, rows, open, onToggle }: {
             <tr>
               <th className="text-right px-3 py-2 font-bold text-gray-500 w-12">קוד</th>
               <th className="text-right px-3 py-2 font-bold text-gray-500">עברית</th>
-              <th className="text-right px-3 py-2 font-bold text-gray-500 text-gray-400">English</th>
+              <th className="text-right px-3 py-2 font-bold text-gray-500">English</th>
             </tr>
           </thead>
           <tbody>
@@ -96,7 +97,7 @@ function AcrissSection({ title, subtitle, rows, open, onToggle }: {
               <tr key={code} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                 <td className="px-3 py-1.5 font-bold text-navy">{code}</td>
                 <td className="px-3 py-1.5 text-gray-700">{he}</td>
-                <td className="px-3 py-1.5 text-gray-400">{en}</td>
+                <td className="px-3 py-1.5 text-gray-500">{en}</td>
               </tr>
             ))}
           </tbody>

@@ -274,6 +274,7 @@ export default function LexiconSection() {
           >
             <button
               onClick={() => setOpenTerm(isOpen ? null : term)}
+              aria-expanded={isOpen}
               className="w-full flex items-center justify-between px-4 py-3 bg-white hover:bg-surface transition-colors text-right"
             >
               <div className="flex flex-col items-start min-w-0">
@@ -287,7 +288,7 @@ export default function LexiconSection() {
             </button>
             {isOpen && (
               <div className="px-4 pb-4 pt-1 bg-surface border-t border-[#e7e9f0]">
-                <p className="text-xs text-gray-400 italic mb-2">{full}</p>
+                <p className="text-xs text-gray-500 italic mb-2">{full}</p>
                 <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
               </div>
             )}

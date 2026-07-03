@@ -50,6 +50,7 @@ export default function DocTiles() {
             <button
               key={doc.id}
               onClick={() => setActive(doc.id)}
+              aria-pressed={isActive}
               className={`text-right rounded-none p-4 border transition-all ${
                 isActive
                   ? "bg-orange-50 border-orange-400 "

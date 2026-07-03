@@ -348,20 +348,20 @@ export default function GuidePage() {
               </p>
 
               {/* Career timeline */}
-              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: "/samuel.avif", alt: "סמואל פרץ" }} headerName="סמואל פרץ" headerSubtitle="מומחה השכרת רכב בינלאומית · 10 שנות ניסיון" expandLabel="קרא עוד">
+              <AccordionItem title="הדרך שעשיתי, ולמה היא רלוונטית בשבילך" icon="🪪" headerImage={{ src: author.image, alt: author.name }} headerName={author.name} headerSubtitle="מומחה השכרת רכב בינלאומית · 10 שנות ניסיון" expandLabel="קרא עוד">
               <div className="bg-surface rounded-none p-1 mb-2">
                 <div className="hidden lg:flex items-center gap-4 mb-6">
                   <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gold">
                     <Image
-                      src="/samuel.avif"
-                      alt="מומחה השכרת רכב"
+                      src={author.image}
+                      alt={author.name}
                       fill
                       className="object-cover object-top"
                       sizes="64px"
                     />
                   </div>
                   <div>
-                    <p className="font-bold text-navy text-base">סמואל פרץ</p>
+                    <p className="font-bold text-navy text-base">{author.name}</p>
                     <p className="text-xs text-gray-500 mt-0.5">מומחה השכרת רכב בינלאומית · 10 שנות ניסיון</p>
                   </div>
                 </div>
@@ -988,12 +988,6 @@ export default function GuidePage() {
               </div>
             </div>
 
-            <Callout type="tip">
-              <Link href="/posts/winter-equipment" className="font-semibold underline underline-offset-2 hover:opacity-75">
-                טבלת חובות ציוד חורף לפי מדינה: המדריך המלא ←
-              </Link>
-            </Callout>
-
             {/* ─── EXTRAS / PRE-BOOK ITEMS ──────────────────────── */}
             <SectionTitle id="extras" icon="🧳">כיסאות וציוד משלים</SectionTitle>
             <SectionIntro>
@@ -1385,7 +1379,7 @@ export default function GuidePage() {
               <p className="text-xs text-gray-600 leading-relaxed mb-3">
                 {authorIntro.sidebar}
               </p>
-              {author.showStory && <a href="/about" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>}
+              {author.showStory && <a href="#intro" className="text-xs text-navy font-semibold hover:underline">קרא עלי ←</a>}
             </div>
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-none">
               <p className="text-xs font-bold text-yellow-800 mb-2">⚠️ שים לב</p>

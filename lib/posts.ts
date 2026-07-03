@@ -120,7 +120,7 @@ const rawPosts: Omit<Post, "date">[] = [
   },
 ];
 
-export const posts: Post[] = rawPosts.map((p) => ({
+const posts: Post[] = rawPosts.map((p) => ({
   ...p,
   date: p.published ? hebrewMonthYear(p.publishedAt) : "בקרוב",
 }));

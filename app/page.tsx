@@ -73,9 +73,9 @@ const websiteJsonLd = {
   ],
 };
 
-// Art direction du hero : image desktop (voiture au tiers gauche, bien visible)
-// et image mobile (cadrée à gauche) distinctes, via <picture> pour que chaque
-// appareil ne télécharge QUE la sienne.
+// Art direction du hero : même scène déclinée en deux cadrages, desktop 16:9
+// (voiture au tiers gauche) et mobile 9:16 (voiture dans le tiers bas), via
+// <picture> pour que chaque appareil ne télécharge QUE la sienne.
 function HeroBackground() {
   const common = { alt: "", fill: true as const, sizes: "100vw", priority: true };
   const {
@@ -83,7 +83,7 @@ function HeroBackground() {
   } = getImageProps({ ...common, src: "/hero-bg-desktop.avif" });
   const {
     props: { srcSet: mobileSrcSet, ...imgProps },
-  } = getImageProps({ ...common, src: "/hero-bg.avif" });
+  } = getImageProps({ ...common, src: "/hero-bg-mobile.avif" });
 
   return (
     <picture>
@@ -92,7 +92,7 @@ function HeroBackground() {
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <img
         {...imgProps}
-        className="object-cover object-left md:object-center opacity-[0.5]"
+        className="object-cover object-bottom md:object-center opacity-[0.5]"
       />
     </picture>
   );

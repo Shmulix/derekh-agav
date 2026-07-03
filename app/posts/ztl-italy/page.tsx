@@ -194,7 +194,7 @@ export default function ZtlItalyPost() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c]/90 via-navy/65 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f3c]/75 via-navy/35 to-transparent" />
           <div className="absolute bottom-0 right-0 left-0 px-6 pb-8 max-w-4xl mx-auto">
             <span className="inline-block bg-gold text-navy text-xs font-bold px-3 py-1 rounded mb-3">
               יעד . איטליה

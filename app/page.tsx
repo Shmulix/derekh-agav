@@ -88,9 +88,9 @@ export default function HomePage() {
         {/* ───────────── HERO ───────────── */}
         <section className="relative z-20 bg-[#0b1730]">
           <div className="absolute inset-0 overflow-hidden">
-            <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-[0.18]" />
+            <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center opacity-[0.32]" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730] via-[#0b1730]/85 to-[#0e1f3e]/70" />
+          <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730]/90 via-[#0b1730]/70 to-[#0e1f3e]/55" />
 
           <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-44 md:pb-28">
             <Reveal y={14}>

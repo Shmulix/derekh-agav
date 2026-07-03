@@ -279,7 +279,7 @@ export default function GuidePage() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/90 via-navy/80 to-[#0a1628]/85" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1f3c]/80 via-navy/60 to-[#0a1628]/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <Reveal y={12}>
             <p className="text-gold text-sm font-semibold mb-2">המדריך המלא</p>

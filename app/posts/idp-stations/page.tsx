@@ -42,7 +42,7 @@ const articleJsonLd = buildArticleJsonLd({
     "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לאפריל 2026.",
   image: "/idp-counter.avif",
   datePublished: "2026-04-27",
-  dateModified: "2026-07-03", // update this on every edit
+  dateModified: "2026-07-04", // update this on every edit
 });
 
 const mobileTocItems = [
@@ -153,7 +153,7 @@ export default function IDPStationsPost() {
               {/* Intro */}
               <div id="intro" className="scroll-mt-24 mb-10">
                 <p className="text-gray-700 text-base leading-relaxed mb-4">
-                  משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. לא צריך לתאם פגישה מראש, לא צריך לשלוח בקשות, לא צריך לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
+                  משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. בלי תיאום תור מראש ובלי לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
                 </p>
                 <p className="text-gray-700 text-base leading-relaxed mb-4">
                   למטה תמצא את כל 66 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לאפריל 2026.
@@ -161,9 +161,9 @@ export default function IDPStationsPost() {
                 <p className="text-gray-700 text-base leading-relaxed">
                   אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
                   <a href="/posts/international-driving-permit" className="text-navy font-semibold underline underline-offset-2 hover:opacity-75">
-                    המאמר שלנו על הרישיון נהיגה הבינלאומי
+                    המאמר שלנו על רישיון הנהיגה הבינלאומי
                   </a>
-                  . הקיצור: בלי רישיון בינלאומי אתה עלול להיפסל מהרכב בדלפק, גם אם הרישיון הישראלי שלך בתוקף מושלם.
+                  . הקיצור: בלי רישיון בינלאומי אתה עלול לצאת מהדלפק בלי רכב, גם אם הרישיון הישראלי שלך בתוקף.
                 </p>
               </div>
 
@@ -194,7 +194,7 @@ export default function IDPStationsPost() {
                 <div>
                   <p className="font-bold text-orange-800 text-sm mb-1">מרץ–יולי: עונת השיא</p>
                   <p className="text-sm text-orange-700 leading-relaxed">
-                    לפני קיץ, תחנות ההנפקה עמוסות. תורים יכולים להתארך. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
+                    לפני הקיץ, תחנות ההנפקה עמוסות. התורים מתארכים. אל תשאיר את זה לשבוע האחרון לפני הטיסה.
                   </p>
                 </div>
               </div>
@@ -273,7 +273,7 @@ export default function IDPStationsPost() {
                   <p className="text-xs font-bold text-navy mb-2">מאמרים נוספים</p>
                   <div className="space-y-2">
                     <a href="/posts/international-driving-permit" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
-                      המאמר שלנו על הרישיון נהיגה הבינלאומי ←
+                      המאמר שלנו על רישיון הנהיגה הבינלאומי ←
                     </a>
                     <a href="/posts/driving-license-abroad" className="block text-xs text-gray-600 hover:text-navy transition-colors leading-snug">
                       רישיון ישראלי בחו״ל ←

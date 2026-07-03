@@ -5,7 +5,7 @@ const mono = "[font-family:var(--font-mono-v2)]";
 
 // Témoignages d'EXEMPLE (placeholder). À remplacer par de vrais avis avant lancement.
 const items = [
-  { text: "הגעתי לדלפק ברומא עם הרישיון הבינלאומי שאף אחד לא אמר לי שצריך. המדריך חסך לי את היום.", name: "דנה ל.", role: "טיול באיטליה", initials: "ד" },
+  { text: "הגעתי לדלפק ברומא עם הרישיון הבינלאומי שאף אחד לא אמר לי שצריך. המדריך הציל לי את היום.", name: "דנה ל.", role: "טיול באיטליה", initials: "ד" },
   { text: "חשבתי ש-CDW זה כיסוי מלא. אחרי שקראתי כאן לקחתי SCDW. שבוע אחרי שרטתי את הרכב ויצאתי בלי לשלם שקל.", name: "יואב מ.", role: "השכרה ביוון", initials: "י" },
   { text: "ZTL באיטליה. לא ידעתי מה זה. בזכות הכתבה נמנעתי משלושה קנסות בפירנצה.", name: "נטע ב.", role: "חופשה בטוסקנה", initials: "נ" },
 ];

@@ -52,7 +52,7 @@ const articleJsonLd = buildArticleJsonLd({
     "הרישיון הישראלי בהשכרת רכב בחו״ל: מה מתקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.",
   image: "/israeli-driving-license.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-07-03", // update this on every edit
+  dateModified: "2026-07-04", // update this on every edit
 });
 
 export default function DrivingLicenseAbroadPost() {
@@ -169,7 +169,7 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון הישראלי: המסמך שפותח הכל
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            דלפק התחנה מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. הוא הבסיס שממנו הכל מתחיל. בלעדיו, שום דבר לא מתקדם.
+            דלפק התחנה מתחיל בהזמנה. אחרי זה הוא מבקש את המסמכים. והמסמך הראשון שהוא מחפש? הרישיון הישראלי. בלעדיו שום דבר לא מתקדם.
           </p>
 
           <div className="flex items-start gap-4 bg-surface border border-[#e7e9f0] rounded-none p-5 mb-6">
@@ -204,7 +204,7 @@ export default function DrivingLicenseAbroadPost() {
             מה דלפק התחנה לא מקבל: רשימת הטעויות שחוזרות שוב ושוב
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-5">
-            כל אחד מהמקרים הבאים מסתיים באותה תוצאה מאכזבת. אף מנהל בדלפק התחנה לא יעזור, אין "הפעם נוותר לך", אין כרטיס נאמנות שפותח דלתות. התוצאה חד-משמעית ומיידית: פשוט לא תקבל את הרכב.
+            כל אחד מהמקרים הבאים נגמר אותו דבר: לא תקבל את הרכב. אף מנהל בדלפק התחנה לא יעזור, ואין "הפעם נוותר לך".
           </p>
 
           <div className="space-y-4 mb-8">
@@ -229,7 +229,7 @@ export default function DrivingLicenseAbroadPost() {
                   <p className="font-bold text-red-800">לא. הרישיון הזמני לא תקף בחו״ל.</p>
                 </div>
                 <p className="text-sm text-red-700 leading-relaxed">
-                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל, דלפק התחנה מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
+                  קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל. דלפק התחנה מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
                 </p>
                 <a
                   href="https://www.gov.il/he/pages/fast_license"
@@ -250,7 +250,7 @@ export default function DrivingLicenseAbroadPost() {
               </div>
               <p className="text-sm text-red-700 leading-relaxed">
                 Apple Wallet? לא. תמונה בטלפון? לא. PDF? בטח שלא.
-                דלפק התחנה סורק את הפלסטיק הפיזי ומוודא שהוא אמיתי. אין תחליף לכרטיס עצמו, בכל פורמט דיגיטלי שתבחר.
+                דלפק התחנה סורק את הפלסטיק הפיזי ומוודא שהוא אמיתי. אין תחליף לכרטיס עצמו.
               </p>
             </div>
 
@@ -296,10 +296,10 @@ export default function DrivingLicenseAbroadPost() {
             למה הכללים כאלה קשיחים
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-3">
-            לפני כל שאלה של הגיון או נוחות, יש עובדה פשוטה: בלי רישיון, אסור לנהוג. זה לא בירוקרטיה ולא גחמה של חברת ההשכרה, זה אותו עיקרון שבגללו אתה לא עולה על טיסה בלי דרכון תקף. תנאי יסוד, בלי חריגים.
+            נתחיל מהעובדה הפשוטה: בלי רישיון, אסור לנהוג. זו לא בירוקרטיה. זה אותו עיקרון שבגללו אתה לא עולה על טיסה בלי דרכון תקף. תנאי יסוד, בלי חריגים.
           </p>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            ויש שלוש סיבות ממש ספציפיות למה הם לא יכולים לוותר על זה:
+            ולמה הם לא יכולים לוותר על זה? שלוש סיבות:
           </p>
           <div className="space-y-3 mb-8">
             {[
@@ -353,7 +353,7 @@ export default function DrivingLicenseAbroadPost() {
             רישיון שפג שבוע לפני הנסיעה? בר-פתרון. מגלה ביום הטיסה? זה כבר לחץ אחר לגמרי.
           </p>
           <p className="text-sm text-gray-500 leading-relaxed mb-4">
-            שים לב: אם צריך תמונה חדשה, בוחרים אופן הפצה רק ביממה שאחרי הצילום, לא מיד אחרי התשלום, תכנן את לוח הזמנים בהתאם ואל תשאיר את זה לרגע האחרון.
+            שים לב: אם צריך תמונה חדשה, בוחרים אופן הפצה רק ביממה שאחרי הצילום, לא מיד אחרי התשלום. תכנן את לוח הזמנים בהתאם.
           </p>
           <div className="flex flex-wrap gap-3 mb-8">
             <a
@@ -388,7 +388,7 @@ export default function DrivingLicenseAbroadPost() {
           <div className="mb-5">
             <Image
               src="/RISHUY_driving_licence.avif"
-              alt="רישיון נהיגה ישראלי בתקן אירופאי רצו ושמאל"
+              alt="רישיון נהיגה ישראלי בתקן אירופאי"
               width={600}
               height={380}
               className="rounded-none w-full object-cover"

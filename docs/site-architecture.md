@@ -44,7 +44,7 @@ Headers sur toutes les routes : CSP stricte (`default-src 'self'`, `frame-ancest
 
 ## Composants
 
-**Globaux** : `Header.tsx` / `Footer.tsx` (guide + pages posts), `HeaderV2.tsx` / `FooterV2.tsx` (home + archive `/posts`) : deux systèmes coexistent depuis la refonte v2, candidats à unification. `HeroSearch.tsx` (recherche Fuse.js, pattern combobox accessible + navigation clavier), `Reveal.tsx`, `AuthorAvatar.tsx`, `BookingCTA.tsx`, `v2/TestimonialsV2.tsx`, `v2/LaneDash.tsx`.
+**Globaux** : `Header.tsx` / `Footer.tsx` ré-exportent `v2/HeaderV2` / `v2/FooterV2` (un seul système réel ; la home et `/posts` importent les V2 directement, les autres pages via le ré-export). `HeroSearch.tsx` (recherche Fuse.js, pattern combobox accessible + navigation clavier), `Reveal.tsx`, `AuthorAvatar.tsx`, `BookingCTA.tsx`, `v2/TestimonialsV2.tsx`, `v2/LaneDash.tsx`.
 
 **Hooks partagés** : `useScrollCollapse.ts` (repli FAB par position), `useSheetDialog.ts` (dialog accessible : Escape, focus trap, retour focus).
 
@@ -69,5 +69,4 @@ Next.js 14.2.35 (App Router) · TypeScript strict · Tailwind CSS · Heebo (`nex
 1. **Site en `noindex`** (voulu, pré-lancement) : flipper `INDEXING_ENABLED` dans `site-mode.mjs` au lancement SEO.
 2. `rental-platforms` : liens plateformes = sites officiels, à remplacer par les vrais liens d'affiliation.
 3. Duplication restante des **heros d'article** (5 posts) : candidat à un composant `ArticleHero` (non fait, risque visuel vs bénéfice).
-4. Double Header/Footer v1/v2 : à unifier quand la refonte v2 sera généralisée.
-5. `logo.svg` pèse 130 KB (probablement raster embarqué) : à optimiser.
+4. `logo.svg` pèse 130 KB (probablement raster embarqué) : à optimiser.

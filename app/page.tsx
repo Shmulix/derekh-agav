@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { ArrowLeft } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
@@ -73,6 +73,31 @@ const websiteJsonLd = {
   ],
 };
 
+// Art direction du hero : image desktop (voiture au tiers gauche, bien visible)
+// et image mobile (cadrée à gauche) distinctes, via <picture> pour que chaque
+// appareil ne télécharge QUE la sienne.
+function HeroBackground() {
+  const common = { alt: "", fill: true as const, sizes: "100vw", priority: true };
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({ ...common, src: "/hero-bg-desktop.avif" });
+  const {
+    props: { srcSet: mobileSrcSet, ...imgProps },
+  } = getImageProps({ ...common, src: "/hero-bg.avif" });
+
+  return (
+    <picture>
+      <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
+      <source media="(max-width: 767px)" srcSet={mobileSrcSet} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <img
+        {...imgProps}
+        className="object-cover object-left md:object-center opacity-[0.5]"
+      />
+    </picture>
+  );
+}
+
 export default function HomePage() {
   const posts = latestPosts(3);
 
@@ -88,7 +113,7 @@ export default function HomePage() {
         {/* ───────────── HERO ───────────── */}
         <section className="relative z-20 bg-[#0b1730]">
           <div className="absolute inset-0 overflow-hidden">
-            <Image src="/hero-bg.avif" alt="" fill priority sizes="100vw" className="object-cover object-center max-md:object-left opacity-[0.5]" />
+            <HeroBackground />
           </div>
           <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730]/90 via-[#0b1730]/70 to-[#0e1f3e]/55" />
 

@@ -221,6 +221,10 @@ To check whether the LIVE site matches local code: compare the latest production
 deployment age (`npx vercel ls derekh-agav`) against recent local commits (`git log`).
 If local is ahead, run `/deploy-site` to sync.
 
+### MANDATORY: Before every deployment — admin-sync
+
+AVANT chaque `/deploy-site` (donc après chaque modification du site), invoquer le skill **`admin-sync`** (`.claude/skills/admin-sync/`) : il détecte si le changement rend obsolète la doc technique de l'admin (`lib/admin-docs/sections/`) ou l'analytics runtime (`VALID_PATH`, `pageLabel`), et applique la mise à jour DANS LE MÊME déploiement. Étapes : `node .claude/skills/admin-sync/scripts/detect-changes.mjs` → juger → éditer si nécessaire → valider (greps interdits + build). Aucun impact = une ligne "Admin sync : aucun impact" et on déploie.
+
 ### MANDATORY: After every modification — NO EXCEPTIONS
 
 Use the **`/deploy-site` skill** after every single code change, no matter how small.

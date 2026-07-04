@@ -54,6 +54,7 @@ export default function AdminNav({
 
   const links = [
     { href: "/admin", title: "לוח בקרה", icon: "dashboard", active: pathname === "/admin" },
+    { href: "/admin/docs", title: "כל הפרקים", icon: "book-open", active: pathname === "/admin/docs" },
     ...items.map((item) => ({
       href: `/admin/docs/${item.slug}`,
       title: item.title,

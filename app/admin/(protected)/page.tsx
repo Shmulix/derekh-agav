@@ -1,10 +1,9 @@
-// Dashboard admin : etat live du site + acces aux 14 sections de la doc.
+// Hub de l'admin : etat live du site + acces aux deux espaces (תיעוד, אנליטיקס).
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, BarChart3, BookOpenText, ExternalLink } from "lucide-react";
 import { requireSession } from "@/lib/admin/auth";
 import { docSections } from "@/lib/admin-docs";
-import { sectionIcon } from "@/components/admin/icons";
 import Callout from "@/components/admin/Callout";
 import { ANONYMOUS_MODE, INDEXING_ENABLED, SITE_URL } from "@/lib/site-config";
 
@@ -23,100 +22,100 @@ function ModeBadge({ on, labelOn, labelOff }: { on: boolean; labelOn: string; la
   );
 }
 
-export default async function AdminDashboardPage() {
+export default async function AdminHubPage() {
   await requireSession(); // verrou n°3 : chaque page reverifie
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-navy sm:text-3xl">תיעוד טכני: דרך אגב</h1>
-        <p className="mt-2 max-w-2xl leading-relaxed text-text-main/70">
-          כל מה שצריך לדעת כדי לתחזק, לפתח או לקבל לידיים את האתר. מהמודל העסקי ועד פקודת
-          הפריסה האחרונה. 14 פרקים, מ־א׳ ועד ת׳.
-        </p>
-      </div>
-
-      <Callout
-        variant="danger"
-        title="אזור מאובטח"
-        text="הגישה לכאן מוגנת בסיסמה ובחתימת session. אין לקשר לאזור הזה משום עמוד ציבורי, והוא חסום לחלוטין בפני מנועי חיפוש."
-      />
-
-      {/* Etat live du site : lu directement depuis site-mode.mjs a chaque rendu */}
-      <section aria-labelledby="live-state">
-        <h2 id="live-state" className="mb-3 text-lg font-bold text-navy">
-          מצב האתר עכשיו
-        </h2>
-        <div className="grid gap-px overflow-hidden rounded-xl border border-navy/10 bg-navy/10 sm:grid-cols-2">
-          <div className="bg-white p-4">
-            <p className="text-xs font-medium text-text-main/60">כתובת חיה</p>
-            <a
-              href={SITE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              dir="ltr"
-              className="mt-1 inline-flex items-center gap-1.5 break-all text-sm font-bold text-navy hover:text-gold"
-            >
-              {SITE_URL}
-              <ExternalLink aria-hidden className="h-3.5 w-3.5 shrink-0" />
-            </a>
-          </div>
-          <div className="bg-white p-4">
-            <p className="text-xs font-medium text-text-main/60">ריפוזיטורי</p>
-            <p dir="ltr" className="mt-1 break-all text-sm font-bold text-navy">
-              github.com/Shmulix/derekh-agav
-            </p>
-          </div>
-          <div className="bg-white p-4">
-            <p className="mb-1.5 text-xs font-medium text-text-main/60">מצב אנונימי (ANONYMOUS_MODE)</p>
-            <ModeBadge on={ANONYMOUS_MODE} labelOn="פעיל: זהות הכותב מוסתרת" labelOff="כבוי: זהות מלאה מוצגת" />
-          </div>
-          <div className="bg-white p-4">
-            <p className="mb-1.5 text-xs font-medium text-text-main/60">אינדוקס בגוגל (INDEXING_ENABLED)</p>
-            <ModeBadge on={!INDEXING_ENABLED} labelOn="חסום: noindex פעיל, טרם הושק" labelOff="פתוח: האתר גלוי למנועי חיפוש" />
-          </div>
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6">
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-2xl font-bold text-navy sm:text-3xl">לוח הבקרה של דרך אגב</h1>
+          <p className="mt-2 max-w-2xl leading-relaxed text-text-main/70">
+            הכול במקום אחד: התיעוד הטכני המלא של האתר, והנתונים על מי שמבקר בו.
+          </p>
         </div>
-      </section>
 
-      {/* Cartes des 14 sections */}
-      <section aria-labelledby="doc-sections">
-        <h2 id="doc-sections" className="mb-3 text-lg font-bold text-navy">
-          פרקי התיעוד
-        </h2>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {docSections.map((section, index) => {
-            const Icon = sectionIcon(section.icon);
-            return (
-              <Link
-                key={section.slug}
-                href={`/admin/docs/${section.slug}`}
-                className="group flex items-start gap-3.5 rounded-xl border border-navy/10 bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+        {/* Les deux espaces */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/admin/docs"
+            className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+          >
+            <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold">
+              <BookOpenText aria-hidden className="h-6 w-6" />
+            </span>
+            <span className="text-lg font-bold text-navy group-hover:text-[#8a6d0f]">תיעוד טכני</span>
+            <span className="mt-1.5 text-sm leading-relaxed text-text-main/60">
+              {docSections.length} פרקים, מ־א׳ ועד ת׳: ארכיטקטורה, תוכן, אבטחה, פריסה
+              וצ׳קליסט מסירה. הכול אינטראקטיבי ובעברית.
+            </span>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-navy group-hover:text-gold">
+              לתיעוד
+              <ArrowLeft aria-hidden className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/admin/analytics"
+            className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+          >
+            <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold">
+              <BarChart3 aria-hidden className="h-6 w-6" />
+            </span>
+            <span className="text-lg font-bold text-navy group-hover:text-[#8a6d0f]">אנליטיקס</span>
+            <span className="mt-1.5 text-sm leading-relaxed text-text-main/60">
+              צפיות, מבקרים ייחודיים, עמודים מובילים, מקורות תנועה ומובייל מול דסקטופ.
+              בלי עוגיות ובלי מעקב אישי.
+            </span>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-navy group-hover:text-gold">
+              לנתונים
+              <ArrowLeft aria-hidden className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+            </span>
+          </Link>
+        </div>
+
+        {/* Etat live du site : lu directement depuis site-mode.mjs a chaque rendu */}
+        <section aria-labelledby="live-state">
+          <h2 id="live-state" className="mb-3 text-lg font-bold text-navy">
+            מצב האתר עכשיו
+          </h2>
+          <div className="grid gap-px overflow-hidden rounded-xl border border-navy/10 bg-navy/10 sm:grid-cols-2">
+            <div className="bg-white p-4">
+              <p className="text-xs font-medium text-text-main/60">כתובת חיה</p>
+              <a
+                href={SITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                dir="ltr"
+                className="mt-1 inline-flex items-center gap-1.5 break-all text-sm font-bold text-navy hover:text-gold"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy/[0.06] text-navy transition-colors group-hover:bg-gold/15 group-hover:text-[#8a6d0f]">
-                  <Icon aria-hidden className="h-5 w-5" />
-                </span>
-                <span className="min-w-0">
-                  <span className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold text-text-main/40">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="truncate text-sm font-bold text-navy group-hover:text-[#8a6d0f]">
-                      {section.title}
-                    </span>
-                  </span>
-                  <span className="mt-1 block text-xs leading-relaxed text-text-main/60">
-                    {section.subtitle}
-                  </span>
-                </span>
-                <ArrowLeft
-                  aria-hidden
-                  className="mr-auto mt-1 h-4 w-4 shrink-0 text-navy/20 transition-transform group-hover:-translate-x-0.5 group-hover:text-gold"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-    </div>
+                {SITE_URL}
+                <ExternalLink aria-hidden className="h-3.5 w-3.5 shrink-0" />
+              </a>
+            </div>
+            <div className="bg-white p-4">
+              <p className="text-xs font-medium text-text-main/60">ריפוזיטורי</p>
+              <p dir="ltr" className="mt-1 break-all text-sm font-bold text-navy">
+                github.com/Shmulix/derekh-agav
+              </p>
+            </div>
+            <div className="bg-white p-4">
+              <p className="mb-1.5 text-xs font-medium text-text-main/60">מצב אנונימי (ANONYMOUS_MODE)</p>
+              <ModeBadge on={ANONYMOUS_MODE} labelOn="פעיל: זהות הכותב מוסתרת" labelOff="כבוי: זהות מלאה מוצגת" />
+            </div>
+            <div className="bg-white p-4">
+              <p className="mb-1.5 text-xs font-medium text-text-main/60">אינדוקס בגוגל (INDEXING_ENABLED)</p>
+              <ModeBadge on={!INDEXING_ENABLED} labelOn="חסום: noindex פעיל, טרם הושק" labelOff="פתוח: האתר גלוי למנועי חיפוש" />
+            </div>
+          </div>
+        </section>
+
+        <Callout
+          variant="danger"
+          title="אזור מאובטח"
+          text="הגישה לכאן מוגנת בסיסמה ובחתימת session. אין לקשר לאזור הזה משום עמוד ציבורי, והוא חסום לחלוטין בפני מנועי חיפוש."
+        />
+      </div>
+    </main>
   );
 }

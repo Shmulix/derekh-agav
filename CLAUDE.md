@@ -16,6 +16,7 @@ Le site héberge une zone `/admin` protégée par mot de passe : une **documenta
 3. **`/admin` reste noindex même après le lancement** : `app/robots.ts` doit garder `Disallow: /admin` dans les deux branches, et jamais l'ajouter à `app/sitemap.ts`.
 4. **Secrets** : `ADMIN_PASSWORD_HASH` (format `scrypt:N:r:p:sel:hash`) et `ADMIN_SESSION_SECRET`, en env vars uniquement (jamais dans le repo). Ne JAMAIS logger mot de passe / hash / jeton. Rotation via `scripts/admin-hash-password.mjs`.
 5. Les pages `/admin` sont dynamiques (`force-dynamic`) : ne jamais ajouter de `generateStaticParams` sous `/admin`.
+6. **Analytics maison sans cookies** : beacon public → `/api/hit` → Neon (`derekh-agav-analytics`), dashboard sur `/admin/analytics`. Ne JAMAIS y ajouter de cookies, d'identifiant persistant ou de stockage d'IP (c'est ce qui dispense le site de bannière cookies). Env vars : `DATABASE_URL` + `ANALYTICS_SALT`.
 
 ---
 

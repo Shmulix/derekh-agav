@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Heebo, JetBrains_Mono } from "next/font/google";
 import { INDEXING_ENABLED, SITE_URL } from "@/lib/site-config";
+import AnalyticsBeacon from "@/components/AnalyticsBeacon";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -59,6 +60,8 @@ export default function RootLayout({
       <body className={`${heebo.variable} ${mono.variable} font-heebo antialiased text-text-main bg-white overflow-x-hidden`}>
         {/* Accessibilité (IS 5568 / WCAG) : anneau de focus visible au clavier, tout le site */}
         <style>{`a:focus-visible,button:focus-visible{outline:2px solid #c9a227;outline-offset:3px}`}</style>
+        {/* Analytics maison sans cookies (voir app/api/hit) : n'émet rien sur /admin */}
+        <AnalyticsBeacon />
         {children}
       </body>
     </html>

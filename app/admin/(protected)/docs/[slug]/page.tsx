@@ -35,6 +35,10 @@ export default async function AdminDocPage({ params }: { params: { slug: string 
             לוח בקרה
           </Link>
           <span aria-hidden>/</span>
+          <Link href="/admin/docs" className="hover:text-navy">
+            תיעוד טכני
+          </Link>
+          <span aria-hidden>/</span>
           <span className="font-medium text-navy">{section.title}</span>
         </nav>
         <div className="flex items-start gap-4">

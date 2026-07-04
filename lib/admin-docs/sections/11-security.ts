@@ -53,8 +53,10 @@ export const securitySection: DocSection = {
       rows: [
         ["`ADMIN_PASSWORD_HASH`", "hash של סיסמת האדמין (scrypt). לא הסיסמה עצמה", "Vercel (שלוש הסביבות) + .env.local"],
         ["`ADMIN_SESSION_SECRET`", "מפתח חתימת ה־sessions, 64 בייטים", "Vercel (שלוש הסביבות) + .env.local"],
+        ["`DATABASE_URL`", "חיבור למסד האנליטיקס (Neon Postgres, פרויקט derekh-agav-analytics)", "Vercel (שלוש הסביבות) + .env.local"],
+        ["`ANALYTICS_SALT`", "מלח לגיבוב המבקר היומי באנליטיקס. בלעדיו אין איסוף", "Vercel (שלוש הסביבות) + .env.local"],
       ],
-      caption: "אם אחד המשתנים חסר, האדמין ננעל לחלוטין (fail-closed). הוא לעולם לא נפתח בטעות.",
+      caption: "אם משתנה אדמין חסר, האדמין ננעל לחלוטין (fail-closed). אם משתנה אנליטיקס חסר, האיסוף פשוט כבוי.",
     },
     { type: "heading", id: "rotation", text: "החלפת סיסמה (rotation)" },
     {

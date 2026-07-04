@@ -1,7 +1,7 @@
 # Architecture du site - דרך אגב
 
 > Fichier d'état VIVANT. À mettre à jour à chaque ajout/suppression/renommage de page, route ou composant.
-> Dernière mise à jour : 2026-07-04 (ajout de l'espace /admin sécurisé + documentation technique interactive).
+> Dernière mise à jour : 2026-07-04 (admin restructuré en hub : doc + analytics maison sans cookies).
 
 Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/derekh-agav (`master`)
 
@@ -25,8 +25,11 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 | `/sitemap.xml` | `app/sitemap.ts` | ✅ | Généré depuis `lib/posts.ts`. Prêt pour le lancement SEO. |
 | favicon | `app/icon.svg` + `app/apple-icon.png` | ✅ | Carré navy, point gold + tirets de route |
 | `/admin/login` | `app/admin/login/page.tsx` | 🔒 Public | Page de connexion admin. Aucun contenu doc. noindex. |
-| `/admin` | `app/admin/(protected)/page.tsx` | 🔒 Protégé | Dashboard : état live du site + 14 cartes de doc |
+| `/admin` | `app/admin/(protected)/page.tsx` | 🔒 Protégé | HUB : cartes תיעוד + אנליטיקס, état live du site |
+| `/admin/docs` | `app/admin/(protected)/docs/page.tsx` | 🔒 Protégé | Index de la doc (14 cartes). Layout sidebar : `docs/layout.tsx` |
 | `/admin/docs/[slug]` | `app/admin/(protected)/docs/[slug]/page.tsx` | 🔒 Protégé | Rendu d'une section de doc (14 sections) |
+| `/admin/analytics` | `app/admin/(protected)/analytics/page.tsx` | 🔒 Protégé | Dashboard analytics (lit Neon) |
+| `/api/hit` | `app/api/hit/route.ts` | Public (edge) | Collecte analytics sans cookies. Filtre bots, valide les paths, ne stocke pas d'IP |
 
 Pas de route dynamique `[slug]` côté public : chaque post est une page `.tsx` autonome (pas de MDX). Le seul `[slug]` du site est `/admin/docs/[slug]` (protégé, jamais prérendu).
 
@@ -52,6 +55,16 @@ Zone d'administration protégée qui héberge une **documentation technique inte
 **Contenu** : `lib/admin-docs/sections/01-overview.ts` … `14-launch-checklist.ts` + `lib/admin-docs/types.ts` (modèle de blocs) + `lib/admin-docs/index.ts` (registre, recherche). Composants UI : `components/admin/*` (BlockRenderer serveur + blocs, DocSearch/CopyButton/ColorPalette/AdminAccordion/ChecklistBlock clients). Rotation du mot de passe : `scripts/admin-hash-password.mjs`.
 
 **⚠️ Aucun lien vers /admin depuis le site public.** L'URL n'est référencée nulle part.
+
+## Analytics maison sans cookies (2026-07-04)
+
+Mesure d'audience auto-hébergée, conforme à la règle "pas de bannière cookies" : **aucun cookie, aucun identifiant persistant, aucune IP stockée**. Le "visiteur unique" est un hash HMAC journalier (IP + UA + jour + `ANALYTICS_SALT`) qui change chaque jour : pas de suivi inter-jours possible.
+
+- **Collecte** : `components/AnalyticsBeacon.tsx` (monté dans `app/layout.tsx`, n'émet jamais sur /admin) → POST `/api/hit` (edge). Validation stricte des paths publics, filtre bots, referrer réduit au hostname externe. Réponse toujours 204.
+- **Stockage** : Neon Postgres, projet `derekh-agav-analytics` (ID `wandering-resonance-48421106`), table `pageviews` (day en fuseau Asia/Jerusalem). Pas de colonne pays (audience israélienne, décision Samuel).
+- **Dashboard** : `/admin/analytics` (protégé) : aujourd'hui/7j/30j (vues + uniques), courbe 30 jours, top pages, mobile vs desktop, sources de trafic. Rendu serveur, zéro dépendance de chart.
+- **Env vars** : `DATABASE_URL` + `ANALYTICS_SALT` (local + Vercel 3 environnements). Absents → collecte inactive et dashboard en mode "non configuré" (fail-safe, jamais d'erreur publique).
+- **Dépendance ajoutée** : `@neondatabase/serverless` (driver HTTP léger, edge-compatible). Seule exception au "zéro dépendance" de l'admin, justifiée.
 
 ---
 

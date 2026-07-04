@@ -47,6 +47,16 @@ const nextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      // Zone admin : jamais indexee, jamais mise en cache. Le middleware pose
+      // aussi ces headers (Next peut ecraser Cache-Control sur les routes
+      // dynamiques) : double couche voulue.
+      {
+        source: "/admin/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          { key: "Cache-Control", value: "no-store, max-age=0" },
+        ],
+      },
     ];
   },
   // En mode anonyme, les fichiers qui revelent l'identite de l'auteur ne

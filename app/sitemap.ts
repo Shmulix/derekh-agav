@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/site-config";
 
 // Sitemap prêt pour le lancement SEO. Tant que le site est en noindex
 // (INDEXING_ENABLED = false), il existe mais n'est déclaré nulle part.
+// REGLE PERMANENTE : ne JAMAIS ajouter de route /admin ici.
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: SITE_URL, changeFrequency: "weekly", priority: 1 },

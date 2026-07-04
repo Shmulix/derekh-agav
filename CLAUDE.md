@@ -7,6 +7,18 @@ Expert-written content (10+ years industry experience). Maximum trust, zero fluf
 
 ---
 
+## ESPACE /admin SÉCURISÉ (RÈGLES PERMANENTES, MANDATORY)
+
+Le site héberge une zone `/admin` protégée par mot de passe : une **documentation technique interactive en hébreu** (14 sections, pour une passation du projet). Détails complets dans `docs/site-architecture.md`. Règles à ne JAMAIS violer :
+
+1. **Aucun lien vers `/admin` depuis le site public.** L'URL n'est référencée nulle part (ni nav, ni footer, ni sitemap).
+2. **Anti-fuite statique** : le contenu de la doc (`lib/admin-docs/**`) est importé UNIQUEMENT par des Server Components. JAMAIS par un fichier `"use client"` (sinon il part dans les chunks JS publics de `/_next/static`). Les composants clients de `components/admin/` reçoivent tout par **props**.
+3. **`/admin` reste noindex même après le lancement** : `app/robots.ts` doit garder `Disallow: /admin` dans les deux branches, et jamais l'ajouter à `app/sitemap.ts`.
+4. **Secrets** : `ADMIN_PASSWORD_HASH` (format `scrypt:N:r:p:sel:hash`) et `ADMIN_SESSION_SECRET`, en env vars uniquement (jamais dans le repo). Ne JAMAIS logger mot de passe / hash / jeton. Rotation via `scripts/admin-hash-password.mjs`.
+5. Les pages `/admin` sont dynamiques (`force-dynamic`) : ne jamais ajouter de `generateStaticParams` sous `/admin`.
+
+---
+
 ## BRAND IDENTITY & TONE OF VOICE
 
 ### Site Name

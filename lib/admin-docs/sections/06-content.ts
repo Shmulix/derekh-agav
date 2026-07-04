@@ -1,0 +1,81 @@
+import type { DocSection } from "../types";
+
+export const contentSection: DocSection = {
+  slug: "content",
+  title: "מלאי התוכן: המדריך והפוסטים",
+  subtitle: "מה קיים, מה בטיוטה, ואילו כללי תוכן חייבים להישמר.",
+  icon: "book-open",
+  blocks: [
+    { type: "heading", id: "guide", text: "המדריך: 19 סקציות" },
+    {
+      type: "paragraph",
+      text: "המדריך המלא חי בקובץ אחד: `app/guide/page.tsx`. כל סקציה עם עוגן (id) קבוע שמשמש את תוכן העניינים ואת חיפוש האתר. סדר הסקציות:",
+    },
+    {
+      type: "table",
+      headers: ["#", "עוגן", "נושא"],
+      rows: [
+        ["1", "`intro`", "פתיחה: מי כותב ולמה לסמוך עליו"],
+        ["2", "`documents`", "מסמכים נדרשים (רישיון, IDP, דרכון, אשראי)"],
+        ["3", "`deposit`", "פיקדון: איך הוא באמת עובד"],
+        ["4", "`category`", "קטגוריות רכב וקודי ACRISS"],
+        ["5", "`insurance`", "ביטוח: CDW, SCDW, כיסוי משלים"],
+        ["6", "`young-driver`", "גיל הנהג: צעיר ומבוגר"],
+        ["7", "`pickup`", "איסוף והחזרה, כולל אחרי שעות"],
+        ["8", "`tolls`", "כבישי אגרה, טרנספונדרים, ZTL"],
+        ["9", "`crossborder`", "חציית גבול עם רכב שכור"],
+        ["10", "`winter`", "ציוד חורף לפי מדינה"],
+        ["11", "`extras`", "כיסאות ילדים וציוד משלים"],
+        ["12", "`fuel`", "מדיניות דלק על כל סוגיה"],
+        ["13", "`mileage`", "קילומטרז׳: מוגבל מול חופשי"],
+        ["14", "`fines`", "קנסות ודוחות"],
+        ["15", "`cancellation`", "דמי ביטול ואי הגעה"],
+        ["16", "`emergency`", "תאונה ותקלה: שלושת הצעדים"],
+        ["17", "`summary`", "השורה התחתונה"],
+        ["18", "`faq`", "שאלות נפוצות"],
+        ["19", "`lexicon`", "מילון מונחים"],
+      ],
+    },
+    {
+      type: "callout",
+      variant: "danger",
+      title: "כלל הכתום והאדום (ביטוח)",
+      text: "בקומפוננטת `InsuranceTabs` יש שתי קטגוריות של החרגות שאסור לבלבל ביניהן: **כתום** (אייקון AlertCircle): לא מכוסה בביטוח הבסיסי אבל ניתן לכיסוי בביטוח משלים. **אדום** (אייקון XCircle): לא מכוסה בשום מקרה, עם שום ביטוח. הכתום ניתן להצלה, האדום לעולם לא. כל עריכה של סקציית הביטוח חייבת לשמור על ההבחנה הזאת.",
+    },
+    { type: "heading", id: "posts", text: "הפוסטים: רישום מרכזי" },
+    {
+      type: "paragraph",
+      text: "**מקור אמת יחיד**: `lib/posts.ts`. כל פוסט רשום שם עם slug, כותרת, תקציר, תגית, תמונה ותאריך. עמוד הארכיון, עמוד הבית, ה־sitemap והחיפוש נבנים מהרשימה הזאת. פוסט שלא רשום שם לא קיים מבחינת האתר.",
+    },
+    {
+      type: "table",
+      headers: ["Slug", "נושא", "סטטוס"],
+      rows: [
+        ["`ztl-italy`", "אזורי ZTL באיטליה", "פורסם (מאי 2026)"],
+        ["`driving-license-abroad`", "רישיון ישראלי בחו״ל", "פורסם (אפריל 2026)"],
+        ["`international-driving-permit`", "רישיון בינלאומי (IDP)", "פורסם (אפריל 2026)"],
+        ["`idp-stations`", "66 תחנות הנפקת IDP עם חיפוש", "פורסם (אפריל 2026)"],
+        ["`cdw-vs-scdw`", "השוואת ביטוחים", "טיוטה (published: false)"],
+        ["`usa-car-rental`", "השכרה בארה״ב", "טיוטה (published: false)"],
+        ["`7-mistakes`", "7 טעויות נפוצות", "טיוטה (published: false)"],
+      ],
+      caption: "עמוד rental-platforms הוא עמוד המרה, לא מאמר: הוא בכוונה לא ברשימה הזאת.",
+    },
+    { type: "heading", id: "post-anatomy", text: "אנטומיה של פוסט" },
+    {
+      type: "paragraph",
+      text: "כל פוסט הוא תיקייה `app/posts/<slug>/page.tsx` שמכילה: metadata מלא, JSON-LD דרך `buildArticleJsonLd` מ־`lib/article-jsonld.ts`, פירורי לחם (`ArticleBreadcrumb`), שורת כותב (`AuthorByline`), ותוכן בקומפוננטות React. אין markdown.",
+    },
+    {
+      type: "callout",
+      variant: "danger",
+      title: "חובה בכל עריכת פוסט",
+      text: "לעדכן את השדה `dateModified` באובייקט ה־JSON-LD בראש הקובץ לתאריך של היום (פורמט YYYY-MM-DD). זה כלל קשיח מ־CLAUDE.md.",
+    },
+    { type: "heading", id: "ebook", text: "ה־PDF של המדריך" },
+    {
+      type: "paragraph",
+      text: "המדריך קיים גם כ־ebook להורדה: `public/guide-ebook.pdf` (וגרסה אנונימית `guide-ebook-anon.pdf`). המקור: `ebook/guide-ebook.html`. **ה־PDF לא מתעדכן אוטומטית**: אחרי שינוי מהותי בתוכן המדריך צריך לעדכן את ה־HTML ולייצר מחדש. נכון להיום (יולי 2026) ה־PDF מפגר אחרי סבב התיקונים האחרון של הטקסטים באתר וממתין לרענון.",
+    },
+  ],
+};

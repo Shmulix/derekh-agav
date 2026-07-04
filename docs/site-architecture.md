@@ -1,7 +1,7 @@
 # Architecture du site - דרך אגב
 
 > Fichier d'état VIVANT. À mettre à jour à chaque ajout/suppression/renommage de page, route ou composant.
-> Dernière mise à jour : 2026-07-03 (audit sécurité + qualité complet, refactor).
+> Dernière mise à jour : 2026-07-04 (ajout de l'espace /admin sécurisé + documentation technique interactive).
 
 Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/derekh-agav (`master`)
 
@@ -24,8 +24,34 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 | `/robots.txt` | `app/robots.ts` | ✅ | Piloté par `INDEXING_ENABLED` (site-mode.mjs). Actuellement : Disallow all. |
 | `/sitemap.xml` | `app/sitemap.ts` | ✅ | Généré depuis `lib/posts.ts`. Prêt pour le lancement SEO. |
 | favicon | `app/icon.svg` + `app/apple-icon.png` | ✅ | Carré navy, point gold + tirets de route |
+| `/admin/login` | `app/admin/login/page.tsx` | 🔒 Public | Page de connexion admin. Aucun contenu doc. noindex. |
+| `/admin` | `app/admin/(protected)/page.tsx` | 🔒 Protégé | Dashboard : état live du site + 14 cartes de doc |
+| `/admin/docs/[slug]` | `app/admin/(protected)/docs/[slug]/page.tsx` | 🔒 Protégé | Rendu d'une section de doc (14 sections) |
 
-Pas de route dynamique `[slug]` : chaque post est une page `.tsx` autonome (pas de MDX).
+Pas de route dynamique `[slug]` côté public : chaque post est une page `.tsx` autonome (pas de MDX). Le seul `[slug]` du site est `/admin/docs/[slug]` (protégé, jamais prérendu).
+
+---
+
+## Espace /admin sécurisé + documentation technique (2026-07-04)
+
+Zone d'administration protégée qui héberge une **documentation technique interactive en hébreu** (14 sections, pensée pour une passation du projet de A à Z). Rien sous `/admin` n'est accessible sans authentification.
+
+**Trois verrous indépendants** (défense en profondeur) :
+1. `middleware.ts` (Edge, matcher `/admin/:path*`) : vérifie la session, redirige vers login sinon, pose `X-Robots-Tag: noindex` + `Cache-Control: no-store`.
+2. `app/admin/(protected)/layout.tsx` : `requireSession()` côté serveur + `export const dynamic = "force-dynamic"`.
+3. Chaque page protégée refait `requireSession()`.
+
+**Crypto (zéro dépendance nouvelle)** : session = jeton maison `v1.<payload>.<HMAC-SHA256>` signé/vérifié via Web Crypto (`lib/admin/session.ts`, compatible Edge + Node). Mot de passe = scrypt via node:crypto (`lib/admin/auth.ts`, importé uniquement par la Server Action de login). Cookie `__Secure-admin_session` (HttpOnly, Secure, SameSite=Strict, Path=/admin, 12h). Throttle best-effort `lib/admin/throttle.ts`.
+
+**Secrets (env vars, jamais dans le repo)** : `ADMIN_PASSWORD_HASH` (format `scrypt:N:r:p:sel:hash`, séparateur `:` car dotenv mange les segments `$`) et `ADMIN_SESSION_SECRET` (64 octets). Définis en local (`.env.local`, gitignored) et sur Vercel (production + preview + development). Fail-closed : var manquante = admin verrouillé.
+
+**Règle anti-fuite (critique)** : `lib/admin-docs/**` (contenu de la doc) importé UNIQUEMENT par des Server Components. Jamais par un fichier `"use client"` (sinon le contenu partirait dans les chunks JS publics). Les composants clients reçoivent tout par props. Vérifié au build : 0 sentinelle hébreu dans `.next/static`, routes `/admin` toutes dynamiques (ƒ).
+
+**robots/sitemap** : `/admin` en Disallow dans les DEUX branches de `app/robots.ts` (le flip de lancement n'ouvre jamais l'admin) ; jamais dans `app/sitemap.ts`.
+
+**Contenu** : `lib/admin-docs/sections/01-overview.ts` … `14-launch-checklist.ts` + `lib/admin-docs/types.ts` (modèle de blocs) + `lib/admin-docs/index.ts` (registre, recherche). Composants UI : `components/admin/*` (BlockRenderer serveur + blocs, DocSearch/CopyButton/ColorPalette/AdminAccordion/ChecklistBlock clients). Rotation du mot de passe : `scripts/admin-hash-password.mjs`.
+
+**⚠️ Aucun lien vers /admin depuis le site public.** L'URL n'est référencée nulle part.
 
 ---
 

@@ -55,6 +55,8 @@ export const securitySection: DocSection = {
         ["`ADMIN_SESSION_SECRET`", "מפתח חתימת ה־sessions, 64 בייטים", "Vercel (שלוש הסביבות) + .env.local"],
         ["`DATABASE_URL`", "חיבור למסד האנליטיקס (Neon Postgres, פרויקט derekh-agav-analytics)", "Vercel (שלוש הסביבות) + .env.local"],
         ["`ANALYTICS_SALT`", "מלח לגיבוב המבקר היומי באנליטיקס. בלעדיו אין איסוף", "Vercel (שלוש הסביבות) + .env.local"],
+        ["`VERCEL_TOKEN`", "טוקן API של Vercel. משמש רק את כפתור החלפת המצב האנונימי (עדכון משתנה + פריסה)", "Vercel (שלוש הסביבות) + .env.local"],
+        ["`NEXT_PUBLIC_ANONYMOUS_MODE`", "דגל המצב האנונימי. לא סוד (מוטמע בקוד הציבורי בזמן בנייה)", "Vercel (שלוש הסביבות) + .env.local"],
       ],
       caption: "אם משתנה אדמין חסר, האדמין ננעל לחלוטין (fail-closed). אם משתנה אנליטיקס חסר, האיסוף פשוט כבוי.",
     },

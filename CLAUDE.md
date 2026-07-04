@@ -177,10 +177,10 @@ L'état détaillé du guide (19 sections) et de chaque post vit dans `docs/conte
 
 ---
 
-## MODE ANONYME (backend only)
+## MODE ANONYME
 
-Interrupteur centralisé dans `lib/site-config.ts` : `export const ANONYMOUS_MODE = false | true`.
-Modifiable UNIQUEMENT via Claude Code (pas d'UI admin, pas exposé au front).
+Interrupteur : variable d'environnement `NEXT_PUBLIC_ANONYMOUS_MODE` ("true"/"false"), lue par `site-mode.mjs` (fallback true si absente), inlinée AU BUILD. Ré-exportée par `lib/site-config.ts`.
+Deux façons de basculer : **le bouton dans l'admin** (`/admin`, met à jour Vercel + redéploie via l'API avec `VERCEL_TOKEN`) ou à la main (modifier la variable sur Vercel + `.env.local` puis `npx vercel --prod`). Un changement sans redéploiement n'a AUCUN effet.
 
 Quand `true` :
 - L'identité de l'auteur (nom « סמואל פרץ », photo `/samuel.avif`, récit de carrière dans le guide) est remplacée par une identité générique (`מומחה דרך אגב`, avatar `/avatar-anon.png`, récit masqué).
@@ -189,7 +189,7 @@ Quand `true` :
 
 Quand `false` : comportement normal, rien ne change.
 
-Tout passe par `lib/site-config.ts` (`author`, `authorJsonLd`, `booking`) + les composants `components/BookingCTA.tsx` et `components/AuthorAvatar.tsx`. Pour activer/désactiver : changer le booléen, `npm run build`, `/deploy-site`.
+Tout passe par `lib/site-config.ts` (`author`, `authorJsonLd`, `booking`) + les composants `components/BookingCTA.tsx` et `components/AuthorAvatar.tsx`. Pour activer/désactiver : le bouton dans l'admin, ou la variable d'environnement + redéploiement (voir plus haut).
 
 ---
 

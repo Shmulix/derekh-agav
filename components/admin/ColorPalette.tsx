@@ -36,7 +36,7 @@ export default function ColorPalette({ colors }: { colors: PaletteColor[] }) {
           type="button"
           onClick={() => copy(color.hex)}
           title="לחיצה מעתיקה את הקוד"
-          className="group overflow-hidden rounded-xl border border-navy/10 text-right transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          className="group overflow-hidden rounded-none border border-[#e7e9f0] text-right transition-colors hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         >
           <div
             className="flex h-16 items-center justify-center text-sm font-bold"

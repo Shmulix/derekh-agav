@@ -1,7 +1,7 @@
 # Architecture du site - דרך אגב
 
 > Fichier d'état VIVANT. À mettre à jour à chaque ajout/suppression/renommage de page, route ou composant.
-> Dernière mise à jour : 2026-07-04 (admin restructuré en hub : doc + analytics maison sans cookies).
+> Dernière mise à jour : 2026-07-04 (admin au design v2, login pro avec logo, events PDF/CTA, toggle mode anonyme depuis l'admin).
 
 Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/derekh-agav (`master`)
 
@@ -65,6 +65,15 @@ Mesure d'audience auto-hébergée, conforme à la règle "pas de bannière cooki
 - **Dashboard** : `/admin/analytics` (protégé) : aujourd'hui/7j/30j (vues + uniques), courbe 30 jours, top pages, mobile vs desktop, sources de trafic. Rendu serveur, zéro dépendance de chart.
 - **Env vars** : `DATABASE_URL` + `ANALYTICS_SALT` (local + Vercel 3 environnements). Absents → collecte inactive et dashboard en mode "non configuré" (fail-safe, jamais d'erreur publique).
 - **Dépendance ajoutée** : `@neondatabase/serverless` (driver HTTP léger, edge-compatible). Seule exception au "zéro dépendance" de l'admin, justifiée.
+- **Événements de conversion** (2026-07-04) : table `events` (type `pdf` | `cta`, page, device, hash journalier). Le beacon écoute les clics délégués : lien contenant `guide-ebook`/`.pdf` → `pdf` ; lien `=== booking.href` → `cta`. Cartes "Conversions" sur `/admin/analytics`. En mode anonyme le CTA EST le PDF : comptés comme `pdf` (précédence).
+
+## Toggle mode anonyme depuis l'admin (2026-07-04)
+
+`NEXT_PUBLIC_ANONYMOUS_MODE` (env var, inlinée au build, fallback true) remplace le booléen codé en dur de `site-mode.mjs`. Le hub `/admin` a un bouton de bascule (`components/admin/AnonymousModeToggle.tsx`, confirmation 2 clics) → server action `toggleAnonymousMode()` dans `app/admin/(protected)/actions.ts` : revérifie la session, PATCH la variable sur les 3 environnements via l'API Vercel (`VERCEL_TOKEN`), puis POST `/v13/deployments` (gitSource GitHub repoId 1195524489, ref master) pour redéployer. Le changement est effectif après le build (~2 min). `INDEXING_ENABLED` reste géré dans le code, volontairement (pas de bouton pour l'indexation).
+
+## Design admin = design v2 du site (2026-07-04)
+
+L'admin suit le langage de la refonte publique : coins carrés (`rounded-none`), bordures `#e7e9f0`, fonds `#f7f8fb`, navy foncé `#0e1a30`, grilles éditoriales `gap-px`, micro-labels mono uppercase `tracking-[0.18em]`, LaneDash sous la topbar, logo `/logo.svg` inversé (`brightness-0 invert`) sur fond sombre. Login : fond navy, logo, carte blanche avec LaneDash. Callouts admin = mêmes classes que les Callout du guide public (bg-red-50/yellow-50/blue-50, filet droit 4px).
 
 ---
 

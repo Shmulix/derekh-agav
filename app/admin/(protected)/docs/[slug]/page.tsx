@@ -42,15 +42,15 @@ export default async function AdminDocPage({ params }: { params: { slug: string 
           <span className="font-medium text-navy">{section.title}</span>
         </nav>
         <div className="flex items-start gap-4">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy text-gold">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center bg-navy text-gold">
             <Icon aria-hidden className="h-6 w-6" />
           </span>
           <div>
-            <p className="text-xs font-bold text-text-main/40">
-              פרק {String(index + 1).padStart(2, "0")} מתוך {docSections.length}
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 [font-family:var(--font-mono-v2)]">
+              {String(index + 1).padStart(2, "0")} / {docSections.length}
             </p>
-            <h1 className="mt-0.5 text-2xl font-bold text-navy sm:text-3xl">{section.title}</h1>
-            <p className="mt-1.5 leading-relaxed text-text-main/70">{section.subtitle}</p>
+            <h1 className="mt-0.5 text-2xl font-extrabold text-navy sm:text-3xl">{section.title}</h1>
+            <p className="mt-1.5 leading-relaxed text-[#3a4255]">{section.subtitle}</p>
           </div>
         </div>
       </header>
@@ -58,9 +58,9 @@ export default async function AdminDocPage({ params }: { params: { slug: string 
       {headings.length > 1 ? (
         <nav
           aria-label="תוכן הפרק"
-          className="rounded-xl border border-navy/10 bg-white p-4"
+          className="border border-[#e7e9f0] bg-white p-4"
         >
-          <p className="mb-2 text-xs font-bold text-text-main/50">בפרק הזה</p>
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400 [font-family:var(--font-mono-v2)]">בפרק הזה</p>
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {headings.map((heading) => (
               <li key={heading.id}>
@@ -78,11 +78,11 @@ export default async function AdminDocPage({ params }: { params: { slug: string 
 
       <BlockRenderer blocks={section.blocks} />
 
-      <footer className="grid gap-3 border-t border-navy/10 pt-6 sm:grid-cols-2">
+      <footer className="grid gap-3 border-t border-[#e7e9f0] pt-6 sm:grid-cols-2">
         {prev ? (
           <Link
             href={`/admin/docs/${prev.slug}`}
-            className="group flex items-center gap-3 rounded-xl border border-navy/10 bg-white p-4 transition-colors hover:border-gold"
+            className="group flex items-center gap-3 border border-[#e7e9f0] bg-white p-4 transition-colors hover:border-navy"
           >
             <ArrowRight aria-hidden className="h-4 w-4 shrink-0 text-navy/30 group-hover:text-gold" />
             <span className="min-w-0">
@@ -96,7 +96,7 @@ export default async function AdminDocPage({ params }: { params: { slug: string 
         {next ? (
           <Link
             href={`/admin/docs/${next.slug}`}
-            className="group flex items-center justify-end gap-3 rounded-xl border border-navy/10 bg-white p-4 text-left transition-colors hover:border-gold"
+            className="group flex items-center justify-end gap-3 border border-[#e7e9f0] bg-white p-4 text-left transition-colors hover:border-navy"
           >
             <span className="min-w-0">
               <span className="block text-[11px] text-text-main/50">הפרק הבא</span>

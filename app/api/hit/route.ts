@@ -49,11 +49,31 @@ export async function POST(req: NextRequest) {
     const userAgent = req.headers.get("user-agent") ?? "";
     if (!userAgent || isBot(userAgent)) return done;
 
-    const body = (await req.json().catch(() => null)) as { path?: unknown; ref?: unknown } | null;
+    const body = (await req.json().catch(() => null)) as {
+      path?: unknown;
+      ref?: unknown;
+      event?: unknown;
+    } | null;
     const path = typeof body?.path === "string" ? body.path : "";
     if (!VALID_PATH.test(path)) return done;
 
-    // Referrer externe uniquement (hostname seul, pas d'URL complete).
+    const device = /Mobi|Android|iPhone/i.test(userAgent) ? "mobile" : "desktop";
+    const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim() || "unknown";
+    // Jour en fuseau israelien, coherent avec la colonne day des tables.
+    const day = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jerusalem" }).format(new Date());
+    const visitorHash = await dailyVisitorHash(ip, userAgent, day);
+
+    // Evenement de conversion (telechargement PDF / clic CTA) : table events.
+    if (typeof body?.event === "string") {
+      if (body.event !== "pdf" && body.event !== "cta") return done;
+      await sql`
+        INSERT INTO events (type, page, device, visitor_hash, day)
+        VALUES (${body.event}, ${path}, ${device}, ${visitorHash}, ${day})
+      `;
+      return done;
+    }
+
+    // Vue de page : referrer externe uniquement (hostname seul).
     let referrer = "";
     if (typeof body?.ref === "string" && body.ref) {
       try {
@@ -63,12 +83,6 @@ export async function POST(req: NextRequest) {
         // referrer illisible : ignore
       }
     }
-
-    const device = /Mobi|Android|iPhone/i.test(userAgent) ? "mobile" : "desktop";
-    const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0]?.trim() || "unknown";
-    // Jour en fuseau israelien, coherent avec la colonne day de la table.
-    const day = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jerusalem" }).format(new Date());
-    const visitorHash = await dailyVisitorHash(ip, userAgent, day);
 
     await sql`
       INSERT INTO pageviews (path, referrer, device, visitor_hash, day)

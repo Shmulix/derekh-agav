@@ -13,7 +13,7 @@ export default function CodeBlock({
 }) {
   return (
     <figure>
-      <div className="overflow-hidden rounded-xl bg-[#0d1f3c]">
+      <div className="overflow-hidden rounded-none bg-[#0e1a30]">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-2" dir="ltr">
           <span className="font-mono text-xs text-gold" style={{ fontFamily: "var(--font-mono-v2), monospace" }}>
             {filename ?? ""}

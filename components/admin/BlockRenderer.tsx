@@ -68,10 +68,10 @@ function renderBlock(block: DocBlock, key: number) {
       return <FileTreeBlock key={key} root={block.root} nodes={block.nodes} />;
     case "keyValue":
       return (
-        <dl key={key} className="grid gap-px overflow-hidden rounded-xl border border-navy/10 bg-navy/10 sm:grid-cols-2">
+        <dl key={key} className="grid gap-px border border-[#e7e9f0] bg-[#e7e9f0] sm:grid-cols-2">
           {block.pairs.map((pair) => (
             <div key={pair.key} className="bg-white p-4">
-              <dt className="text-xs font-medium text-text-main/60">{pair.key}</dt>
+              <dt className="text-xs font-medium text-[#3a4255]">{pair.key}</dt>
               <dd dir="auto" className="mt-1 break-all text-sm font-bold text-navy">
                 {renderInline(pair.value)}
               </dd>

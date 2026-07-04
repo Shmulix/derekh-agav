@@ -16,18 +16,20 @@ export default function AdminDocsLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex flex-1">
       {/* Sidebar (droite en RTL), desktop uniquement */}
-      <aside className="sticky top-[57px] hidden h-[calc(100vh-57px)] w-72 shrink-0 flex-col overflow-y-auto bg-[#0d1f3c] p-4 lg:flex">
+      <aside className="sticky top-[63px] hidden h-[calc(100vh-63px)] w-72 shrink-0 flex-col overflow-y-auto bg-[#0e1a30] p-4 lg:flex">
         <AdminNav items={navItems} variant="sidebar" />
-        <p className="mt-auto px-3 pb-2 pt-6 text-[11px] leading-relaxed text-white/30">
+        <p className="mt-auto px-3 pb-2 pt-6 text-[11px] leading-relaxed text-slate-500">
           תיעוד טכני פנימי. אין לקשר לאזור הזה מהאתר הציבורי.
         </p>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Barre outils doc : recherche + nav mobile */}
-        <div className="sticky top-[57px] z-30 border-t border-white/10 bg-[#0d1f3c] shadow-md">
+        <div className="sticky top-[63px] z-30 border-t border-white/10 bg-[#0e1a30]">
           <div className="flex items-center justify-between gap-3 px-4 py-2 sm:px-6">
-            <span className="text-sm font-bold text-white/80">תיעוד טכני</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 [font-family:var(--font-mono-v2)]">
+              Docs
+            </span>
             <DocSearch entries={searchIndex} />
           </div>
           <div className="border-t border-white/10 lg:hidden">

@@ -21,35 +21,35 @@ export default async function AdminDocsIndexPage() {
           <span aria-hidden>/</span>
           <span className="font-medium text-navy">תיעוד טכני</span>
         </nav>
-        <h1 className="text-2xl font-bold text-navy sm:text-3xl">תיעוד טכני: דרך אגב</h1>
-        <p className="mt-2 max-w-2xl leading-relaxed text-text-main/70">
+        <h1 className="text-2xl font-extrabold text-navy sm:text-3xl">תיעוד טכני: דרך אגב</h1>
+        <p className="mt-2 max-w-2xl leading-relaxed text-[#3a4255]">
           כל מה שצריך לדעת כדי לתחזק, לפתח או לקבל לידיים את האתר. מהמודל העסקי ועד פקודת
           הפריסה האחרונה. {docSections.length} פרקים, מ־א׳ ועד ת׳.
         </p>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid gap-px border border-[#e7e9f0] bg-[#e7e9f0] sm:grid-cols-2">
         {docSections.map((section, index) => {
           const Icon = sectionIcon(section.icon);
           return (
             <Link
               key={section.slug}
               href={`/admin/docs/${section.slug}`}
-              className="group flex items-start gap-3.5 rounded-xl border border-navy/10 bg-white p-4 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold"
+              className="group flex items-start gap-3.5 bg-white p-5 transition-colors hover:bg-[#f7f8fb] focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gold"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy/[0.06] text-navy transition-colors group-hover:bg-gold/15 group-hover:text-[#8a6d0f]">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#f7f8fb] text-navy transition-colors group-hover:bg-navy group-hover:text-gold">
                 <Icon aria-hidden className="h-5 w-5" />
               </span>
               <span className="min-w-0">
                 <span className="flex items-center gap-2">
-                  <span className="text-[11px] font-bold text-text-main/40">
+                  <span className="text-[11px] font-bold text-gray-400 [font-family:var(--font-mono-v2)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="truncate text-sm font-bold text-navy group-hover:text-[#8a6d0f]">
+                  <span className="truncate text-sm font-bold text-navy">
                     {section.title}
                   </span>
                 </span>
-                <span className="mt-1 block text-xs leading-relaxed text-text-main/60">
+                <span className="mt-1 block text-xs leading-relaxed text-[#3a4255]">
                   {section.subtitle}
                 </span>
               </span>

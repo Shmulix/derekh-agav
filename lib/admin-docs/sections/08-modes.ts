@@ -8,14 +8,14 @@ export const modesSection: DocSection = {
   blocks: [
     {
       type: "paragraph",
-      text: "כל מצבי האתר חיים בקובץ יחיד בשורש הפרויקט: `site-mode.mjs`. גם `next.config.mjs` וגם `lib/site-config.ts` קוראים ממנו, כך שאין סכנה של חוסר סנכרון. אין ממשק ניהול לדגלים: משנים אותם בקוד בלבד, בכוונה.",
+      text: "כל מצבי האתר חיים בקובץ יחיד בשורש הפרויקט: `site-mode.mjs`. גם `next.config.mjs` וגם `lib/site-config.ts` קוראים ממנו, כך שאין סכנה של חוסר סנכרון. המצב האנונימי נשלט מהמשתנה `NEXT_PUBLIC_ANONYMOUS_MODE` (ויש לו כפתור החלפה בלוח הבקרה). האינדוקס נשאר בקוד בלבד, בכוונה.",
     },
     {
       type: "code",
       language: "ts",
       filename: "site-mode.mjs",
-      code: "export const ANONYMOUS_MODE = true;    // זהות הכותב מוסתרת\nexport const INDEXING_ENABLED = false;  // האתר חסום למנועי חיפוש",
-      caption: "המצב נכון ליולי 2026. לוח הבקרה של האדמין מציג תמיד את הערכים החיים.",
+      code: "// נקרא מהמשתנה NEXT_PUBLIC_ANONYMOUS_MODE, ברירת מחדל: אנונימי\nexport const ANONYMOUS_MODE =\n  process.env.NEXT_PUBLIC_ANONYMOUS_MODE\n    ? process.env.NEXT_PUBLIC_ANONYMOUS_MODE === \"true\"\n    : true;\nexport const INDEXING_ENABLED = false;  // האתר חסום למנועי חיפוש",
+      caption: "לוח הבקרה של האדמין מציג תמיד את הערכים של הפריסה הנוכחית.",
     },
     { type: "heading", id: "anonymous", text: "ANONYMOUS_MODE: מה קורה כשהוא דולק" },
     {
@@ -53,10 +53,14 @@ export const modesSection: DocSection = {
     },
     { type: "heading", id: "flip", text: "נוהל שינוי מצב, צעד אחר צעד" },
     {
+      type: "paragraph",
+      text: "**מצב אנונימי, הדרך הקלה:** הכפתור בלוח הבקרה של האדמין. הוא מעדכן את המשתנה ב־Vercel ומפעיל פריסה חדשה אוטומטית (כ־2 דקות). הדגל מוטמע בקוד בזמן הבנייה, ולכן חובה שתהיה פריסה: אין שינוי מיידי, וזה מכוון.",
+    },
+    {
       type: "code",
       language: "bash",
       filename: "terminal",
-      code: "# 1. לערוך את site-mode.mjs (לשנות את הדגל הרצוי)\n# 2. לוודא שהבנייה עוברת\nnpm run build\n# 3. לפרוס\nnpx vercel --prod\n# 4. לוודא בפרודקשן: לוח הבקרה של האדמין מציג את המצב החדש,\n#    ו־view-source של עמוד הבית מראה את ה־robots הנכון",
+      code: "# מצב אנונימי ידנית (אם הכפתור לא זמין):\n# 1. לעדכן את NEXT_PUBLIC_ANONYMOUS_MODE ב־Vercel (שלוש הסביבות) וב־.env.local\n# 2. לפרוס\nnpx vercel --prod\n\n# אינדוקס (INDEXING_ENABLED): לערוך את site-mode.mjs בקוד, ואז\nnpm run build\nnpx vercel --prod\n# לוודא בפרודקשן: לוח הבקרה מציג את המצב החדש,\n# ו־view-source של עמוד הבית מראה את ה־robots הנכון",
     },
     {
       type: "paragraph",

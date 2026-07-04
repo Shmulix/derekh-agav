@@ -47,7 +47,7 @@ export default function ChecklistBlock({
   const done = checked.filter(Boolean).length;
 
   return (
-    <div className="rounded-xl border border-navy/10 bg-white p-4">
+    <div className="rounded-none border border-[#e7e9f0] bg-white p-4">
       <p className="mb-3 text-xs font-medium text-text-main/60" aria-live="polite">
         {done} מתוך {items.length} הושלמו
       </p>

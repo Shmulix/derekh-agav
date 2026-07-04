@@ -37,7 +37,7 @@ function TreeNode({ node, depth }: { node: FileNode; depth: number }) {
 
 export default function FileTreeBlock({ root, nodes }: { root: string; nodes: FileNode[] }) {
   return (
-    <div className="overflow-x-auto rounded-xl bg-[#0d1f3c] p-4">
+    <div className="overflow-x-auto rounded-none bg-[#0e1a30] p-4">
       <p
         dir="ltr"
         className="mb-2 px-2 font-mono text-[13px] font-bold text-gold"

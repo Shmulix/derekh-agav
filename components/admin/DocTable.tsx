@@ -13,7 +13,7 @@ export default function DocTable({
 }) {
   return (
     <figure>
-      <div className="overflow-x-auto rounded-xl border border-navy/10">
+      <div className="overflow-x-auto rounded-none border border-[#e7e9f0]">
         <table className="w-full min-w-[560px] border-collapse text-sm">
           <thead>
             <tr className="bg-navy text-white">
@@ -26,7 +26,7 @@ export default function DocTable({
           </thead>
           <tbody>
             {rows.map((row, rowIndex) => (
-              <tr key={rowIndex} className={rowIndex % 2 === 1 ? "bg-surface" : "bg-white"}>
+              <tr key={rowIndex} className={rowIndex % 2 === 1 ? "bg-[#f7f8fb]" : "bg-white"}>
                 {row.map((cell, cellIndex) => (
                   <td key={cellIndex} className="px-4 py-2.5 align-top leading-relaxed text-text-main">
                     {renderInline(cell)}

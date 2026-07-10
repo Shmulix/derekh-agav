@@ -2,7 +2,7 @@
 
 > Fichier d'état VIVANT. Sommaire du contenu (guide + posts).
 > À mettre à jour à chaque création ou modification substantielle d'un post ou d'une section du guide.
-> Dernière mise à jour : 2026-06-27.
+> Dernière mise à jour : 2026-07-10.
 
 Détail par élément dans les fichiers de ce dossier (`guide.md`, `post-*.md`).
 
@@ -22,6 +22,7 @@ Détail par élément dans les fichiers de ce dossier (`guide.md`, `post-*.md`).
 | `driving-license-abroad` | רישיון נהיגה ישראלי בחו״ל | מסמכים | 2026-04-09 | [post-driving-license-abroad.md](post-driving-license-abroad.md) |
 | `international-driving-permit` | רישיון נהיגה בינלאומי (IDP) | מסמכים | 2026-04-09 | [post-international-driving-permit.md](post-international-driving-permit.md) |
 | `idp-stations` | איפה מנפיקים IDP בישראל | מסמכים | 2026-04-27 | [post-idp-stations.md](post-idp-stations.md) |
+| `usa-toll-pass` | אגרות כביש בארה״ב עם רכב שכור | יעדים | 2026-07-10 | [post-usa-toll-pass.md](post-usa-toll-pass.md) |
 
 ## Posts en brouillon (dans `lib/posts.ts`, `published:false`, AUCUNE page, affichés « בקרוב »)
 

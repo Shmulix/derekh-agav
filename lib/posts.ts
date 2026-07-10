@@ -107,6 +107,18 @@ const rawPosts: Omit<Post, "date">[] = [
     published: false,
   },
   {
+    slug: "usa-toll-pass",
+    title: "אגרות כביש בארה״ב עם רכב שכור: איך זה עובד וכמה זה עולה",
+    excerpt:
+      "בארה״ב אין קופות אגרה: מצלמה מצלמת את הלוחית וחברת ההשכרה מחייבת שבועות אחר כך, כולל עמלה. איך המערכת עובדת ואיך נמנעים מהפתעות בכרטיס האשראי.",
+    tag: "יעדים",
+    tagColor: "bg-[#2563eb] text-white",
+    readTime: "7 דק׳ קריאה",
+    image: "/usa-toll-pass-hero.avif",
+    publishedAt: "2026-07-10",
+    published: true,
+  },
+  {
     slug: "7-mistakes",
     title: "7 טעויות שכולם עושים כשמשכירים רכב בחו״ל",
     excerpt:

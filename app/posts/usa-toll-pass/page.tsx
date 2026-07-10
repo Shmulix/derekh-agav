@@ -14,20 +14,19 @@ import {
   XCircle,
   CheckCircle,
   ExternalLink,
-  Camera,
-  MapPin,
-  Clock,
-  CreditCard,
+  GitCompare,
+  Receipt,
+  Scale,
 } from "lucide-react";
 
 const mobileTocItems = [
-  { id: "what-is-aet", label: "מה זה בדיוק אגרה אלקטרונית?" },
-  { id: "where", label: "איפה זה קיים בפועל?" },
+  { id: "old-vs-new", label: "העולם הישן מול העולם החדש" },
+  { id: "where", label: "איפה זה מחכה לכם" },
   { id: "systems", label: "E-ZPass, SunPass, FasTrak" },
-  { id: "rental-programs", label: "איך חברות ההשכרה גובות" },
-  { id: "no-pass", label: "עברתם אגרה בלי להירשם?" },
-  { id: "alternatives", label: "האלטרנטיבה: הטרנספונדר שלכם" },
-  { id: "tips", label: "טיפים לפני שיוצאים לדרך" },
+  { id: "rental-programs", label: "מי גובה בפועל" },
+  { id: "mock-invoice", label: "ככה נראה החיוב" },
+  { id: "decide", label: "מה מתאים לכם" },
+  { id: "checklist", label: "לפני ואחרי הנסיעה" },
 ];
 
 export const metadata: Metadata = {
@@ -64,71 +63,67 @@ const articleJsonLd = buildArticleJsonLd({
   dateModified: "2026-07-10", // update this on every edit
 });
 
+const locations = [
+  {
+    emoji: "🌉",
+    name: "ניו יורק וניו ג'רזי",
+    desc: "כל מעברי רשות הנמלים סגורים למזומן: גשר ג'ורג' וושינגטון, מנהרת לינקולן, מנהרת הולנד.",
+  },
+  {
+    emoji: "🌴",
+    name: "פלורידה",
+    desc: "רוב כבישי האגרה סביב אורלנדו ומיאמי אלקטרוניים בלבד.",
+  },
+  {
+    emoji: "🌉",
+    name: "קליפורניה",
+    desc: "גשרי מפרץ סן פרנסיסקו וכבישי אגרה מרכזיים, אותה שיטה בדיוק.",
+  },
+  {
+    emoji: "🛣️",
+    name: "טקסס ואילינוי",
+    desc: "אותו עיקרון, עם מערכות אזוריות משלהן.",
+  },
+];
+
 const systems = [
   {
     name: "E-ZPass",
-    coverage: "כ-20 מדינות: מניו אינגלנד במזרח, דרך פלורידה (בזכות SunPass PRO), ועד מינסוטה במערב.",
-    note: "הרשת הכי נפוצה בארה״ב, אבל היא לא מכסה את קליפורניה או טקסס.",
+    coverage: "כ-20 מדינות: מניו אינגלנד ועד מינסוטה, דרך פלורידה בזכות SunPass PRO.",
+    gap: "לא מכסה קליפורניה או טקסס.",
   },
   {
     name: "SunPass / SunPass PRO",
-    coverage: "פלורידה, פלוס ג'ורג'יה, קרוליינה הצפונית וטקסס, ועוד כל מדינות ה-E-ZPass.",
-    note: "נכון ל-2026, הכיסוי הרחב ביותר מכל מדבקת אגרה בודדת בארה״ב.",
+    coverage: "פלורידה, ג'ורג'יה, קרוליינה הצפונית, טקסס, ועוד כל מדינות ה-E-ZPass.",
+    gap: "הכיסוי הרחב ביותר נכון ל-2026, אבל עדיין לא כל הארץ.",
   },
   {
     name: "FasTrak",
     coverage: "קליפורניה בלבד.",
-    note: "חוק פרטיות מדינתי חסם עד היום חיבור לרשתות אחרות. תיקון חקיקה מתקדם ב-2026 ועשוי לשנות את זה.",
+    gap: "חוק פרטיות מדינתי חוסם חיבור לרשתות אחרות. תיקון חקיקה עשוי לשנות את זה.",
   },
   {
     name: "TxTag / TollTag",
-    coverage: "טקסס, פלוס אוקלהומה וקנזס במועדון נפרד משלהן.",
-    note: "לא תואם ל-E-ZPass. אם שוכרים רכב בטקסס, זה המידע הרלוונטי.",
+    coverage: "טקסס, אוקלהומה וקנזס, במועדון נפרד משלהן.",
+    gap: "לא תואם ל-E-ZPass בכלל.",
   },
 ];
 
 const rentalPrograms = [
   {
     company: "Hertz . PlatePass",
-    payPerUse: "האגרה המלאה + 9.99$ לכל יום שנעשה בו שימוש (בפלורידה, ג'ורג'יה וטקסס: 5.95$ בלבד).",
-    flat: "אופציית \"הכל כלול\": 27.99$ ליום קבוע, עד תקרה של 139.95$ לשבוע, גם אם לא נגעתם בכביש אגרה.",
+    payPerUse: "אגרה מלאה + 9.99$ ליום שימוש (5.95$ בפלורידה, ג'ורג'יה וטקסס)",
+    flat: "27.99$ ליום קבוע, עד 139.95$ לשבוע",
   },
   {
     company: "Avis / Budget . e-Toll",
-    payPerUse: "6.95$ לכל יום שנעשה בו שימוש, עד תקרה של 34.95$ לכל תקופת ההשכרה (עד 30 יום).",
-    flat: "e-Toll Unlimited: 10.99$-25.99$ ליום קבוע (תלוי בסניף האיסוף), עד 54.95$-181.93$ לשבוע.",
+    payPerUse: "6.95$ ליום שימוש, עד 34.95$ לתקופת ההשכרה",
+    flat: "10.99$-25.99$ ליום קבוע, עד 54.95$-181.93$ לשבוע",
   },
   {
-    company: "Enterprise / National / Alamo . TollPass",
-    payPerUse: "4.95$-5.35$ לכל יום שימוש (עמלת \"TCC\") בתוספת האגרה עצמה, עד תקרה של 34.65$ לכל ההשכרה.",
-    flat: "בצפון מזרח: שכירת טרנספונדר תמורת 3.95$ ליום, עד 19.75$. אין חיוב כלל בימים שלא נסעתם בכביש אגרה.",
-  },
-];
-
-const tips = [
-  {
-    title: "תכננו לפי מספר הנסיעות, לא לפי הרגש.",
-    text: "מתכננים לנסוע כל יום על כביש אגרה? אולי המסלול הקבוע (\"הכל כלול\") באמת ישתלם. יוצאים פעם או פעמיים בכל הנסיעה? התשלום לפי שימוש כמעט תמיד זול יותר.",
-  },
-  {
-    title: "הביאו טרנספונדר נייד משלכם.",
-    text: "מכשירים כמו Uni או SunPass PRO עולים כ-15$ בקנייה חד פעמית, עובדים בעשרות מדינות, ומדביקים לשמשה בתוך שתי דקות. הם עוקפים לגמרי את עמלת היום של חברת ההשכרה.",
-  },
-  {
-    title: "רשמו את לוחית הרכב השכור לחשבון האישי שלכם.",
-    text: "אם כבר יש לכם חשבון FasTrak, E-ZPass או דומה: אפשר להוסיף את מספר הרכב השכור לתקופת ההשכרה בלבד, ולשלם את התעריף הרגיל בלי שום מעורבות של חברת ההשכרה.",
-  },
-  {
-    title: "בדקו את חלון התשלום הישיר.",
-    text: "רשויות אגרה רבות נותנות ימים בודדים לשלם ישירות באתר שלהן, בלי לערב את חברת ההשכרה בכלל, לפני שהחיוב עובר אליה.",
-  },
-  {
-    title: "אל תתעלמו מאגרה גם אם לא נרשמתם לשום דבר.",
-    text: "המצלמה מצלמת בכל מקרה, נרשמתם או לא. ההתעלמות לא מבטלת את החיוב: היא רק מוסיפה חודשיים של המתנה עד שהוא מגיע.",
-  },
-  {
-    title: "בדקו את דוח כרטיס האשראי גם אחרי שחזרתם הביתה.",
-    text: "חיובי אגרה מרכב שכור יכולים לצוץ גם שישה עד שמונה שבועות אחרי סוף ההשכרה. תסמנו תזכורת ליומן.",
+    company: "Enterprise / National / Alamo",
+    payPerUse: "4.95$-5.35$ ליום שימוש + האגרה, עד 34.65$ לתקופה",
+    flat: "טרנספונדר בצפון מזרח: 3.95$ ליום, עד 19.75$",
   },
 ];
 
@@ -159,7 +154,7 @@ export default function UsaTollPassPost() {
               אגרות כביש בארה״ב עם רכב שכור: איך זה עובד וכמה זה עולה
             </h1>
             <p className="text-slate-300 text-sm md:text-base mt-2 max-w-2xl">
-              בלי קופות, בלי מחסומים, בלי שום סימן שקרה משהו. רק מצלמה, וכרטיס אשראי שמתחייב שבועות אחר כך.
+              מצלמה אחת, כמה מערכות שלא מדברות ביניהן, וחיוב שמגיע כשכבר שכחתם מהנסיעה.
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
@@ -214,145 +209,155 @@ export default function UsaTollPassPost() {
 
               {/* Intro */}
               <p className="text-lg text-gray-800 leading-relaxed mb-5">
-                אתם נוסעים מניו יורק לניו ג'רזי דרך מנהרת לינקולן. אין קופה, אין מחסום, אין אף שוטר שעוצר אתכם. אתם ממשיכים בנסיעה כאילו לא קרה כלום. שבועיים אחרי שהחזרתם את הרכב, מגיע חיוב בכרטיס האשראי. אגרה, פלוס עמלה על האגרה.
+                שאלה פשוטה לפני שמתחילים: מה קורה כשעוברים תחת מצלמת אגרה בלי לשלם? בישראל וגם באירופה יש לזה תשובה מוכרת. בארה״ב זו בדיוק אותה תשובה, רק שאף אחד לא טורח להזכיר לכם את זה בדלפק ההשכרה.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                מכירים את כביש 6 בארץ? ככה זה עובד, בערך. רק שבארה״ב זה לא כביש אחד: זו שיטת התשלום הרגילה בעשרות כבישים, גשרים ומנהרות, בעשרות מדינות, עם כמה מערכות שכלל לא מדברות אחת עם השנייה.
+                והמיתוס שכדאי לשבור מיד: "בארה״ב זה כמו באירופה, יש עמדת תשלום, שמים מטבע, ממשיכים". לא. ברוב הכבישים המרכזיים אין שום עמדה. יש רק מצלמה מעל הכביש, ולוחית רישוי שהיא הכתובת היחידה שהמערכת מכירה.
               </p>
               <p className="text-base text-gray-700 leading-relaxed mb-8">
-                ואני אומר את זה בלי דרמה. זו לא מלכודת, זו פשוט שיטה שונה מזו שהכרתם באירופה או בארץ. השאלה היחידה היא אם אתם מכירים את הכללים לפני שאתם נכנסים לרכב, או אחרי שהחיוב כבר בכרטיס.
+                נסעתם פעם בכביש 6? אתם כבר מכירים את העיקרון. ההבדל האמריקאי: לא מערכת אחת, אלא כמה, פזורות בעשרות מדינות, שלא תמיד מדברות אחת עם השנייה. וזה בדיוק מה שהופך את זה למבלבל, לא הרעיון עצמו.
               </p>
 
-              <div className="callout-warning mb-10">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-red-800 mb-1">נתון שכדאי לדעת</p>
-                    <p className="text-sm text-red-700 leading-relaxed">
-                      חיובי אגרה מרכב שכור בארה״ב מגיעים בממוצע 4 עד 8 שבועות אחרי סוף ההשכרה, כולל עמלת טיפול מחברת ההשכרה שיכולה להיות גבוהה מהאגרה עצמה.
-                    </p>
-                  </div>
+              {/* Section 1 . Old vs new world compare */}
+              <h2 id="old-vs-new" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                העולם הישן מול העולם החדש
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="border border-[#e7e9f0] rounded-none p-5 bg-white">
+                  <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">מה שהכרתם</p>
+                  <p className="font-bold text-navy text-base mb-2">עמדת תשלום פיזית</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    עוצרים, משלמים במזומן או בכרטיס, המחסום נפתח. אם אין כסף, לא עוברים. פשוט וברור.
+                  </p>
                 </div>
-              </div>
-
-              {/* Section 1 . What is AET */}
-              <h2 id="what-is-aet" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                מה זה בדיוק אגרה אלקטרונית (AET)?
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                AET, קיצור של <strong>All-Electronic Tolling</strong>, זו שיטת אגרה בלי שום קופה פיזית. מצלמה מעל הכביש קוראת את לוחית הרישוי שלכם ברגע שאתם עוברים מתחתיה. אם יש לכם טרנספונדר פעיל ברכב, המערכת מזהה אותו ומחייבת את החשבון המקושר. אם אין טרנספונדר, או שהוא לא נקלט: המצלמה פשוט מצלמת את הלוחית, והחיוב ממשיך לרוץ בלעדיו.
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed mb-8">
-                כשמדובר ברכב שכור, הלוחית רשומה על שם חברת ההשכרה. אז זה מה שקורה: רשות האגרה שולחת את החשבון לחברת ההשכרה, וזו מעבירה אותו אליכם, בתוספת עמלה משלה.
-              </p>
-
-              {/* Section 2 . Where */}
-              <h2 id="where" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                איפה זה קיים בפועל?
-              </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                כמעט בכל מדינה מרכזית לתיירות יש היום קטעי כביש, גשרים או מנהרות במעבר חשמלי בלבד, בלי אופציה לשלם במזומן בכלל:
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  "ניו יורק וניו ג'רזי: כל מעברי רשות הנמלים (Port Authority) סגורים לתשלום מזומן, כולל גשר ג'ורג' וושינגטון, מנהרת לינקולן ומנהרת הולנד.",
-                  "פלורידה: רוב כבישי האגרה סביב אורלנדו ומיאמי הם אלקטרוניים בלבד.",
-                  "קליפורניה: גשרי מפרץ סן פרנסיסקו וכבישי אגרה מרכזיים פועלים באותה שיטה.",
-                  "טקסס ואילינוי: אותו עיקרון, עם מערכות מקומיות משלהם.",
-                ].map((line, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center">
-                      {i + 1}
-                    </div>
-                    <p className="text-sm text-gray-700 leading-relaxed pt-0.5">{line}</p>
-                  </div>
-                ))}
+                <div className="border border-navy/30 bg-[#f0f4ff] rounded-none p-5">
+                  <p className="text-xs font-bold text-navy/70 uppercase tracking-wide mb-2">מה שמחכה לכם</p>
+                  <p className="font-bold text-navy text-base mb-2">זיהוי לוחית ברשת</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    אין עצירה, אין מחסום, אין הזדמנות לשלם במקום. המצלמה מזהה, והחיוב רץ בלי קשר אם שמתם לב או לא.
+                  </p>
+                </div>
               </div>
               <div className="callout-info mb-10">
                 <div className="flex items-start gap-3">
-                  <Camera size={18} className="text-navy flex-shrink-0 mt-0.5" />
+                  <GitCompare size={18} className="text-navy flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-navy text-sm mb-1">הנקודה החשובה</p>
+                    <p className="font-bold text-navy text-sm mb-1">מה זה אומר עבורכם</p>
                     <p className="text-sm text-gray-700 leading-relaxed">
-                      לא צריך לתכנן מסלול מיוחד כדי "להיתקל" באגרה. אם אתם נוסעים בין ערים גדולות, עוברים גשר או מנהרה מרכזית, סביר שתעברו לפחות כביש אגרה אחד בלי לשים לב.
+                      אין רגע שבו אתם יכולים "לתקן" את המצב בשטח. כל החלטה (להירשם, להביא טרנספונדר, לשלם ישירות) חייבת להתקבל לפני שמתניעים, לא ליד המחסום, כי מחסום כזה פשוט לא קיים.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Section 3 . Regional systems */}
+              {/* Section 2 . Where */}
+              <h2 id="where" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                איפה זה מחכה לכם
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-4">
+                לא צריך לתכנן מסלול חריג כדי להיתקל בזה. אם היעד הוא אחת מהערים הגדולות, סביר שתעברו לפחות כביש אגרה אחד בלי לשים לב:
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3 mb-10">
+                {locations.map((loc) => (
+                  <div key={loc.name} className="flex items-start gap-3 border border-[#e7e9f0] rounded-none p-3 bg-white">
+                    <span className="text-xl flex-shrink-0">{loc.emoji}</span>
+                    <div>
+                      <p className="font-bold text-navy text-sm">{loc.name}</p>
+                      <p className="text-xs text-gray-600 leading-relaxed mt-0.5">{loc.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Section 3 . Regional systems (real table) */}
               <h2 id="systems" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
                 E-ZPass, SunPass, FasTrak: המערכות האזוריות
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-6">
                 בניגוד לישראל, אין בארה״ב מדבקת אגרה אחת שעובדת בכל המדינה. יש כמה רשתות אזוריות, וחלקן לא מדברות אחת עם השנייה בכלל:
               </p>
-              <div className="grid md:grid-cols-2 gap-4 mb-10">
-                {systems.map((s) => (
-                  <div key={s.name} className="border border-[#e7e9f0] rounded-none p-5 bg-white">
-                    <p className="font-bold text-navy text-base mb-2">{s.name}</p>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-3">{s.coverage}</p>
-                    <div className="flex items-start gap-1.5 text-xs text-gray-500 border-t border-[#e7e9f0] pt-2">
-                      <ExternalLink size={12} className="flex-shrink-0 mt-0.5" />
-                      <span>{s.note}</span>
-                    </div>
-                  </div>
-                ))}
+              <div className="overflow-x-auto mb-10 border border-[#e7e9f0]">
+                <table className="w-full text-sm text-right border-collapse">
+                  <thead>
+                    <tr className="bg-[#f8f9fc] border-b border-[#e7e9f0]">
+                      <th className="p-3 font-bold text-navy">מערכת</th>
+                      <th className="p-3 font-bold text-navy">כיסוי</th>
+                      <th className="p-3 font-bold text-navy">מה חשוב לדעת</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {systems.map((s, i) => (
+                      <tr key={s.name} className={i % 2 === 1 ? "bg-[#f8f9fc]/50" : ""}>
+                        <td className="p-3 font-bold text-navy align-top whitespace-nowrap">{s.name}</td>
+                        <td className="p-3 text-gray-700 align-top">{s.coverage}</td>
+                        <td className="p-3 text-gray-600 align-top">{s.gap}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
 
-              {/* Section 4 . Rental company programs */}
+              {/* Section 4 . Rental company programs (real table) */}
               <h2 id="rental-programs" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                איך חברות ההשכרה גובות על זה
+                מי גובה בפועל: חברות ההשכרה
               </h2>
               <p className="text-base text-gray-700 leading-relaxed mb-6">
-                כל חברת השכרה גדולה מריצה תוכנית אגרה משלה, בדרך כלל עם שתי אופציות: תשלום לפי שימוש בפועל, או תעריף יומי קבוע שכולל הכול. הנה המספרים הרלוונטיים נכון ל-2026:
+                כל חברת השכרה גדולה מריצה תוכנית אגרה משלה, עם שתי אופציות קבועות: תשלום לפי שימוש בפועל, או תעריף יומי שכולל הכול. המספרים הרלוונטיים נכון ל-2026:
               </p>
-              <div className="space-y-4 mb-6">
-                {rentalPrograms.map((p) => (
-                  <div key={p.company} className="border border-[#e7e9f0] rounded-none p-5 bg-white">
-                    <p className="font-bold text-navy text-base mb-3">{p.company}</p>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      <div className="bg-[#f0f4ff] rounded-none p-3">
-                        <p className="text-xs font-bold text-navy mb-1">תשלום לפי שימוש</p>
-                        <p className="text-sm text-gray-700 leading-relaxed">{p.payPerUse}</p>
-                      </div>
-                      <div className="bg-[#fffbea] rounded-none p-3">
-                        <p className="text-xs font-bold text-amber-800 mb-1">תעריף קבוע / הכל כלול</p>
-                        <p className="text-sm text-gray-700 leading-relaxed">{p.flat}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="overflow-x-auto mb-6 border border-[#e7e9f0]">
+                <table className="w-full text-sm text-right border-collapse">
+                  <thead>
+                    <tr className="bg-[#f8f9fc] border-b border-[#e7e9f0]">
+                      <th className="p-3 font-bold text-navy">חברה</th>
+                      <th className="p-3 font-bold text-navy">תשלום לפי שימוש</th>
+                      <th className="p-3 font-bold text-navy">תעריף קבוע</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rentalPrograms.map((p, i) => (
+                      <tr key={p.company} className={i % 2 === 1 ? "bg-[#f8f9fc]/50" : ""}>
+                        <td className="p-3 font-bold text-navy align-top whitespace-nowrap">{p.company}</td>
+                        <td className="p-3 text-gray-700 align-top">{p.payPerUse}</td>
+                        <td className="p-3 text-gray-700 align-top">{p.flat}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
               <div className="callout-tip mb-10">
                 <p className="text-sm font-bold text-amber-800 mb-1">טיפ מניסיון</p>
                 <p className="text-sm text-amber-700 leading-relaxed">
-                  ברוב התוכניות האלה, אם לא השתמשתם בשום כביש אגרה באותו יום, לא מחייבים אתכם על אותו יום. חוץ מהתעריף ה"קבוע" (Unlimited), שגובה בין אם השתמשתם ובין אם לא.
+                  ברוב התוכניות האלה, יום שבו לא נגעתם בכביש אגרה הוא יום חינם. חוץ מהתעריף הקבוע, שגובה גם ביום שבו לא ראיתם אגרה אחת.
                 </p>
               </div>
 
-              {/* Section 5 . No pass */}
-              <h2 id="no-pass" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                לא נרשמתם לשום תוכנית, ובכל זאת עברתם אגרה? הנה מה שקורה
+              {/* Section 5 . Mock invoice */}
+              <h2 id="mock-invoice" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                לא נרשמתם לשום דבר? ככה נראה החיוב שמחכה לכם
               </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                כאן הנקודה שכמעט אף אחד לא מסביר בדלפק: המצלמה לא בודקת אם נרשמתם. היא פשוט מצלמת את הלוחית. אם עברתם כביש אגרה בלי טרנספונדר, החיוב ירוץ בדיוק כמו של מי שכן נרשם, רק בתוספת עמלת "טיפול מנהלי" שנוספת אוטומטית.
+              <p className="text-base text-gray-700 leading-relaxed mb-6">
+                כאן הנקודה שכמעט אף אחד לא מסביר בדלפק: המצלמה לא בודקת אם נרשמתם לתוכנית כלשהי. היא מצלמת, רשות האגרה שולחת את החשבון לחברת ההשכרה, וזו מעבירה אותו אליכם עם עמלה מתווספת. משהו כזה, כ-4 עד 8 שבועות אחרי שכבר החזרתם את הרכב:
               </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  "המצלמה מצלמת את הלוחית ברגע המעבר.",
-                  "רשות האגרה שולחת חשבון לחברת ההשכרה, הבעלים הרשומים של הרכב.",
-                  "חברת ההשכרה מזהה מי שכר את הרכב באותו תאריך, ומחייבת את כרטיס האשראי שלכם.",
-                  "לחיוב מתווספת עמלת טיפול, שיכולה להיות גבוהה יותר מהאגרה עצמה.",
-                  "כל זה קורה בממוצע 4 עד 8 שבועות אחרי שהחזרתם את הרכב, לפעמים אחרי שכבר חזרתם לישראל.",
-                ].map((step, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-navy text-white text-xs font-bold flex items-center justify-center">
-                      {i + 1}
-                    </div>
-                    <p className="text-sm text-gray-700 leading-relaxed pt-0.5">{step}</p>
+              <div className="border-2 border-dashed border-gray-300 rounded-none p-6 bg-[#f8f9fc] max-w-md mx-auto mb-6">
+                <div className="flex items-center gap-2 justify-center mb-4">
+                  <Receipt size={16} className="text-gray-400" />
+                  <p className="text-xs text-gray-500 tracking-wide">חיוב לדוגמה, לא אמיתי</p>
+                </div>
+                <div className="space-y-2 text-sm text-gray-800 font-mono">
+                  <div className="flex justify-between">
+                    <span>אגרה: גשר ג'ורג' וושינגטון</span>
+                    <span>1.50$</span>
                   </div>
-                ))}
+                  <div className="flex justify-between">
+                    <span>עמלת טיפול מנהלי (חברת ההשכרה)</span>
+                    <span>9.99$</span>
+                  </div>
+                  <div className="border-t border-dashed border-gray-300 my-2" />
+                  <div className="flex justify-between font-bold text-navy">
+                    <span>סה״כ לחיוב בכרטיס האשראי</span>
+                    <span>11.49$</span>
+                  </div>
+                </div>
               </div>
               <div className="callout-warning mb-10">
                 <div className="flex items-start gap-3">
@@ -360,86 +365,89 @@ export default function UsaTollPassPost() {
                   <div>
                     <p className="font-bold text-red-800 mb-1">חשוב</p>
                     <p className="text-sm text-red-700 leading-relaxed">
-                      זה לא תרחיש נדיר. ברוב הכבישים והגשרים החשמליים בארה״ב, מי שלא נרשם מראש עדיין מחויב אוטומטית. ההתעלמות מהאגרה לא חוסכת ממנה, היא רק דוחה את החיוב לרגע פחות נוח.
+                      זה לא תרחיש נדיר, זה ברירת המחדל. ההתעלמות מאגרה לא מבטלת אותה, היא רק דוחה את הרגע הפחות נוח לכרטיס האשראי שלכם.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Section 6 . Alternatives */}
-              <h2 id="alternatives" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                האלטרנטיבה: הטרנספונדר האישי שלכם
+              {/* Section 6 . Decision helper */}
+              <h2 id="decide" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                מה מתאים לכם: לשלם לפי שימוש או להביא פתרון משלכם?
               </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-5">
-                יש דרך לעקוף את עמלת היום של חברת ההשכרה כמעט לגמרי, והיא לא מסובכת כמו שזה נשמע.
+              <p className="text-base text-gray-700 leading-relaxed mb-6">
+                אין תשובה אחת נכונה לכולם. זה תלוי במסלול שלכם, לא בהרגשה:
               </p>
-              <div className="space-y-4 mb-6">
-                <div className="callout-info">
-                  <div className="flex items-start gap-2">
-                    <CreditCard size={16} className="text-navy flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-navy text-sm mb-1">1. טרנספונדר נייד אישי</p>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        מכשירים כמו Uni או SunPass PRO נמכרים תמורת כ-15$, מדביקים לשמשה הקדמית עם וואקום, ועובדים בעשרות מדינות. הם מחליפים לגמרי את הצורך בתוכנית האגרה של חברת ההשכרה: אתם משלמים את התעריף הרגיל, בלי שום עמלה יומית נוספת.
-                      </p>
-                    </div>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="border border-[#e7e9f0] rounded-none p-5 bg-white">
+                  <p className="font-bold text-navy text-base mb-2">נסיעה קצרה, כביש אגרה אחד או שניים</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    התשלום לפי שימוש של חברת ההשכרה כמעט תמיד יוצא זול יותר מטרנספונדר אישי או מתעריף קבוע. אין טעם להתאמץ בשביל אגרה אחת.
+                  </p>
                 </div>
-                <div className="callout-info">
-                  <div className="flex items-start gap-2">
-                    <MapPin size={16} className="text-navy flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-navy text-sm mb-1">2. רישום זמני לחשבון קיים</p>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        כבר יש לכם חשבון FasTrak, E-ZPass או דומה מנסיעה קודמת? ברוב המערכות אפשר להוסיף את מספר הלוחית של הרכב השכור לתקופת ההשכרה בלבד, ולשלם ישירות דרך החשבון שלכם.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="callout-info">
-                  <div className="flex items-start gap-2">
-                    <Clock size={16} className="text-navy flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-navy text-sm mb-1">3. תשלום ישיר באתר רשות האגרה</p>
-                      <p className="text-sm text-gray-700 leading-relaxed">
-                        לרוב רשויות האגרה יש חלון זמן קצר לתשלום ישיר באתר שלהן, לפני שהחיוב בכלל מגיע לחברת ההשכרה. זה משתנה מרשות לרשות, אז שווה לבדוק את זה מראש אם יודעים בדיוק באילו כבישים תיסעו.
-                      </p>
-                    </div>
-                  </div>
+                <div className="border border-navy/30 bg-[#f0f4ff] rounded-none p-5">
+                  <p className="font-bold text-navy text-base mb-2">מסלול ארוך, כמה מדינות, נסיעה יומיומית באגרה</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    כאן טרנספונדר נייד אישי (Uni או SunPass PRO, כ-15$ בקנייה חד פעמית) או תעריף קבוע ישתלמו יותר מהחיוב היומי של חברת ההשכרה.
+                  </p>
                 </div>
               </div>
               <div className="callout-tip mb-10">
-                <p className="text-sm font-bold text-amber-800 mb-1">טיפ מניסיון</p>
-                <p className="text-sm text-amber-700 leading-relaxed">
-                  אם בחרתם להביא טרנספונדר משלכם, ודאו מול דלפק ההשכרה שהמכשיר המובנה ברכב מנוטרל או מכובה. שני טרנספונדרים פעילים באותו רכב יכולים לגרום לחיוב כפול על אותה אגרה.
-                </p>
+                <div className="flex items-start gap-2">
+                  <Scale size={16} className="text-amber-700 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-bold text-amber-800 text-sm mb-1">כבר יש לכם חשבון אגרה מנסיעה קודמת?</p>
+                    <p className="text-sm text-amber-700 leading-relaxed">
+                      ברוב מערכות ה-FasTrak וה-E-ZPass אפשר להוסיף את מספר הלוחית של הרכב השכור לחשבון הקיים שלכם, לתקופת ההשכרה בלבד, ולשלם ישירות בלי מעורבות של חברת ההשכרה. ודאו רק שהמכשיר המובנה ברכב מנוטרל, שלא תחויבו פעמיים על אותה אגרה.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Section 7 . Tips */}
-              <h2 id="tips" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                טיפים מעשיים לפני שיוצאים לדרך
+              {/* Section 7 . Before/after checklist */}
+              <h2 id="checklist" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
+                לפני שיוצאים לדרך, ואחרי שחוזרים הביתה
               </h2>
-              <div className="space-y-3 mb-10">
-                {tips.map((tip, i) => (
-                  <div key={i} className="flex items-start gap-3 border border-[#e7e9f0] rounded-none p-4">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-gold text-navy text-xs font-bold flex items-center justify-center">
-                      {i + 1}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-bold text-navy text-sm mb-1">{tip.title}</p>
-                      <p className="text-sm text-gray-600 leading-relaxed">{tip.text}</p>
-                    </div>
+              <div className="grid md:grid-cols-2 gap-4 mb-10">
+                <div className="border border-[#e7e9f0] rounded-none p-5 bg-white">
+                  <p className="font-bold text-navy text-sm mb-3">לפני שיוצאים לדרך</p>
+                  <div className="space-y-2.5">
+                    {[
+                      "החליטו מראש: תשלום לפי שימוש, טרנספונדר אישי, או תעריף קבוע.",
+                      "אם מביאים טרנספונדר משלכם: ודאו שהמכשיר המובנה ברכב מנוטרל.",
+                      "בדקו את המסמכים: רישיון ישראלי לבד לא תמיד מספיק.",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <CheckCircle size={15} className="text-navy flex-shrink-0 mt-0.5" />
+                        <p className="text-sm text-gray-700 leading-relaxed">{item}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div className="border border-gold/30 bg-[#fffbea] rounded-none p-5">
+                  <p className="font-bold text-amber-800 text-sm mb-3">אחרי שחזרתם הביתה</p>
+                  <div className="space-y-2.5">
+                    {[
+                      "בדקו את דוח כרטיס האשראי גם חודשיים אחרי הנסיעה, לא רק ביום ההחזרה.",
+                      "מצאתם חיוב מוזר? בקשו מחברת ההשכרה את פירוט האגרה, לא רק את הסכום הכולל.",
+                      "חלון תשלום ישיר אצל רשות האגרה כבר עבר? זה לא אומר שהחיוב יעלם, רק שהוא יגיע דרך חברת ההשכרה.",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <CheckCircle size={15} className="text-amber-700 flex-shrink-0 mt-0.5" />
+                        <p className="text-sm text-gray-700 leading-relaxed">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="callout-warning mb-10">
                 <div className="flex items-start gap-3">
                   <XCircle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-red-800 mb-1">לפני שיוצאים לדרך</p>
+                    <p className="font-bold text-red-800 mb-1">לפני שממשיכים לדבר על הדרך</p>
                     <p className="text-sm text-red-700 leading-relaxed">
-                      וודאו קודם שהמסמכים שלכם בסדר: רישיון ישראלי לבד לא תמיד מספיק. המדריך המלא על{" "}
+                      וודאו שהמסמכים שלכם בסדר, לא רק שיטת התשלום. המדריך המלא על{" "}
                       <Link href="/posts/international-driving-permit" className="underline hover:text-red-800">
                         רישיון נהיגה בינלאומי (IDP)
                       </Link>{" "}
@@ -451,28 +459,18 @@ export default function UsaTollPassPost() {
 
               {/* Conclusion */}
               <h2 className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
-                בואו נסכם את זה.
+                אז מה, בעצם, כדאי לזכור?
               </h2>
-              <p className="text-base text-gray-700 leading-relaxed mb-4">
-                האגרה האלקטרונית בארה״ב היא לא מלכודת, היא פשוט שיטה אחרת. הבעיה היחידה היא שאף אחד לא מסביר אותה לפני שמקבלים את המפתחות, ואז החיוב מגיע בשקט, שבועות אחרי שכבר שכחתם מהנסיעה.
+              <p className="text-base text-gray-700 leading-relaxed mb-5">
+                חזרנו לשאלה שפתחנו איתה: מה קורה כשעוברים תחת מצלמת אגרה בלי לשלם? עכשיו אתם יודעים את התשובה, וזה כבר חצי מהעבודה.
               </p>
-              <div className="border-r-4 border-gold bg-yellow-50 rounded-none p-5 mb-10">
-                <p className="font-bold text-amber-800 mb-3">שלושה דברים לזכור:</p>
-                <ol className="space-y-2">
-                  {[
-                    "בדקו מראש אם המסלול שלכם עובר בגשר, מנהרה או כביש אגרה חשמלי.",
-                    "החליטו לפני ההשכרה: תשלום לפי שימוש, טרנספונדר אישי, או תעריף קבוע.",
-                    "בדקו את דוח כרטיס האשראי גם חודשיים אחרי הנסיעה, לא רק ביום ההחזרה.",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-amber-800">
-                      <span className="font-bold flex-shrink-0 w-5">{i + 1}.</span>
-                      <span className="leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+              <blockquote className="border-r-4 border-gold pr-4 py-1 mb-8">
+                <p className="text-lg text-navy font-semibold leading-relaxed italic">
+                  המצלמה לא שואלת אם נרשמתם. היא רק שואלת מה מספר הלוחית.
+                </p>
+              </blockquote>
               <p className="text-base text-gray-700 leading-relaxed mb-10">
-                שלושה כללים פשוטים, ואף חיוב לא יפתיע אתכם באמצע החופש הבא. סעו בבטחה.
+                תחליטו לפני שמתניעים, לא ליד המחסום שלא קיים. ותבדקו את דוח האשראי גם חודשיים אחרי שכבר שכחתם מהחופש. סעו בבטחה.
               </p>
 
               {/* Mobile-only author + disclaimer */}

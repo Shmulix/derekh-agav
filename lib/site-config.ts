@@ -13,10 +13,10 @@ export const SITE_URL = "https://derekh-agav.vercel.app";
 
 // Identité de l'auteur selon le mode.
 export const author = {
-  name: ANONYMOUS_MODE ? "מומחה דרך אגב" : "סמואל פרץ",
+  name: ANONYMOUS_MODE ? "גרשון" : "סמואל פרץ",
   title: "מומחה השכרת רכב בינלאומית",
   image: ANONYMOUS_MODE ? "/avatar-anon.avif" : "/samuel.avif",
-  initials: ANONYMOUS_MODE ? "דא" : "ס",
+  initials: ANONYMOUS_MODE ? "ג" : "ס",
   // Affiche le récit personnel détaillé (carrière) dans le guide.
   showStory: !ANONYMOUS_MODE,
 } as const;

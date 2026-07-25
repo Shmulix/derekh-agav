@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
-import ProblemTimeline, { type TimelineStep } from "@/components/v2/ProblemTimeline";
+import RentalJourney, { type JourneyStep } from "@/components/v2/RentalJourney";
 import ParallaxBackdrop from "@/components/v2/ParallaxBackdrop";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
@@ -41,74 +41,55 @@ const guideIndex = [
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
 ];
 
-// Section "Interest" du parcours AIDA, en trois temps : le fil de la journée
-// jusqu'au comptoir (journey), les cas réels (scenarios), puis la réponse
-// (answers). Textes volontairement courts : une ligne chacun.
-const journey: TimelineStep[] = [
-  { icon: "booking", title: "הזמנת", text: "מחיר טוב, אישור במייל. הכל סגור." },
-  { icon: "landing", title: "נחתת", text: "מזוודות, ילדים, ושעה נסיעה עד המלון." },
-  { icon: "counter", title: "הדלפק", text: "שתי דקות. חמישה מסמכים. תור מאחורייך." },
-  { icon: "alert", title: "הרגע", text: "דבר אחד חסר. ומכאן זה מתגלגל.", alert: true },
-];
-
-// Cas réels, du plus brutal au plus insidieux. Chacun renvoie au chapitre ou à
-// l'article qui traite le sujet : le problème et sa réponse au même endroit.
-const scenarios = [
+// Le parcours de location en cinq étapes. Chacune oppose le cas concret qui
+// fait tomber les gens et la réponse que le site apporte, avec le lien vers le
+// chapitre ou l'article qui la développe.
+const journey: JourneyStep[] = [
   {
-    tag: "אין רכב",
-    tone: "danger" as const,
-    title: "הכרטיס על שם בן הזוג",
-    text: "הכרטיס חייב להיות על שם הנהג הראשי. אחרת לא מוסרים מפתחות.",
+    n: "01",
+    title: "ההזמנה",
+    problem:
+      "בוחרים את המחיר הזול ביותר ומגלים אחר כך שהפיקדון תופס 1,200 אירו, שהמיכל צריך לחזור מלא, ושהקטגוריה לא בולעת שתי מזוודות.",
+    solution:
+      "איך קוראים תנאי הזמנה לפני שמשלמים: פיקדון, מדיניות דלק, קילומטראז׳ וקוד הקטגוריה שאומר מה באמת מקבלים.",
+    href: "/guide#deposit",
+  },
+  {
+    n: "02",
+    title: "המסמכים",
+    problem:
+      "רישיון שפג לפני שבוע, כרטיס אשראי על שם בן הזוג, בלי רישיון בינלאומי. הדלפק לא מתפשר, וההזמנה לא מוחזרת.",
+    solution:
+      "רשימת המסמכים המדויקת לפי מדינה, ואיפה מוציאים רישיון בינלאומי בישראל בעשר דקות.",
     href: "/guide#documents",
   },
   {
-    tag: "אין רכב",
-    tone: "danger" as const,
-    title: "הרישיון פג לפני שבוע",
-    text: "גילית את זה בדלפק, אחרי חמש שעות טיסה. אין החזר על ההזמנה.",
-    href: "/guide#documents",
-  },
-  {
-    tag: "קנס",
-    tone: "warn" as const,
-    title: "בלי רישיון בינלאומי",
-    text: "באיטליה, ביוון ובספרד הוא מסמך חובה. בלעדיו: סירוב בדלפק או קנס בדרך.",
-    href: "/posts/international-driving-permit",
-  },
-  {
-    tag: "עלות",
-    tone: "cost" as const,
-    title: "CDW שנשמע כמו כיסוי מלא",
-    text: "שריטה בדלת, והשתתפות עצמית של מאות אירו יורדת מהפיקדון.",
+    n: "03",
+    title: "הדלפק",
+    problem:
+      "אחרי טיסה ארוכה, עם תור מאחורייך, מוכרים לך כיסוי משלים ושדרוג. אתה חותם בלי לקרוא מה נשאר בחוץ.",
+    solution:
+      "מה זה CDW ו־SCDW באמת, מה אף פעם לא מכוסה, ומה עונים כשמנסים למכור לך עוד שכבה.",
     href: "/guide#insurance",
   },
   {
-    tag: "קנס",
-    tone: "warn" as const,
-    title: "נסעת דרך מרכז פירנצה",
-    text: "מצלמת ZTL צילמה את הלוחית. הקנסות נוחתים חודשים אחרי החופשה.",
-    href: "/posts/ztl-italy",
+    n: "04",
+    title: "הכביש",
+    problem:
+      "נכנסת ל־ZTL בפירנצה, פספסת מדבקת אגרה באוסטריה, חצית גבול בלי אישור. הקנסות נוחתים חודשים אחרי החופשה.",
+    solution:
+      "אגרות, ZTL, חציית גבול וציוד חורף: מה חוקי ואיפה, לפני שאתה מתיישב מאחורי ההגה.",
+    href: "/guide#tolls",
   },
   {
-    tag: "עלות",
-    tone: "cost" as const,
-    title: "החזרת עם שלושה רבעי מיכל",
-    text: "התחנה מתדלקת במקומך, בתעריף שלה, ועוד דמי טיפול מלמעלה.",
-    href: "/guide#fuel",
+    n: "05",
+    title: "ההחזרה",
+    problem:
+      "החזרת עם מיכל לא מלא, אחרי שעות הפעילות, בלי לצלם כלום. החיוב על נזק שלא עשית מגיע חודש אחרי.",
+    solution:
+      "איך מחזירים רכב בלי להשאיר פתח: תדלוק, שעות התחנה, מה לצלם ומה לשמור.",
+    href: "/guide#pickup",
   },
-];
-
-const toneClass = {
-  danger: "text-[#ff8a8a] border-[#ff8a8a]/45",
-  warn: "text-[#f0b34a] border-[#f0b34a]/45",
-  cost: "text-[#e0b84a] border-[#e0b84a]/45",
-};
-
-// Ce que le site met entre les mains du lecteur, dans l'ordre du voyage.
-const answers = [
-  { when: "לפני ההזמנה", what: "מה לבדוק לפני שמשלמים" },
-  { when: "לפני הטיסה", what: "מה חייב להיות בתיק" },
-  { when: "בדלפק", what: "על מה חותמים, ועל מה לא" },
 ];
 
 const reasons = [
@@ -236,95 +217,53 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────────── THE PROBLEM (AIDA : Interest) ─────────────
-            Trois temps qui s'enchaînent : la promesse du voyage et son point de
-            bascule, les cas réels, puis la réponse. */}
-        <section className="max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-20 md:pb-24">
-          <Reveal>
-            <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Problem</p>
-            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight max-w-3xl">
-              רכב בחו״ל זה החופש הכי גדול.
-              <span className="block text-gold">עד שדבר אחד לא בסדר.</span>
-            </h2>
-            <LaneDash className="mt-6 max-w-[140px]" />
-            <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7 max-w-2xl">
-              הזמנת, נחתת, הגעת לדלפק. שם, בשתי דקות, נקבע אם החופשה מתחילה או נתקעת.
-            </p>
-          </Reveal>
-
-          {/* Le fil : la route se trace, les quatre temps de la journée s'allument */}
-          <ProblemTimeline steps={journey} />
-        </section>
-
-        {/* ───────────── CAS RÉELS (fond photo en parallaxe) ───────────── */}
-        <section className="relative bg-[#0b1730] overflow-hidden">
-          <ParallaxBackdrop src="/counter-night.avif" opacity={0.85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/75 via-[#0b1730]/60 to-[#0b1730]/92" />
-
-          <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-28">
+        {/* ───────────── LE PARCOURS (AIDA : Interest + Desire) ─────────────
+            Une seule timeline, centrée : à chaque étape de la location, ce qui
+            déraille quand on arrive sans savoir, et la réponse du site en face. */}
+        <section className="bg-[#f8f9fc] border-y border-[#e7e9f0]">
+          <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
             <Reveal>
-              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Real cases</p>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mt-3 leading-tight">
-                זה לא תיאורטי.
-                <span className="block text-gold">כל אחד מהמקרים האלה קורה כל יום.</span>
-              </h2>
+              <div className="text-center max-w-2xl mx-auto">
+                <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Journey</p>
+                <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
+                  רכב בחו״ל זה החופש הכי גדול.
+                  <span className="block text-gold">עד שדבר אחד לא בסדר.</span>
+                </h2>
+                <LaneDash className="mt-7 max-w-[140px] mx-auto" />
+                <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
+                  חמישה שלבים, מההזמנה ועד ההחזרה. בכל אחד מהם יש מה שמפיל אנשים, ומה שצריך לדעת כדי לעבור אותו רגוע.
+                </p>
+              </div>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 mt-14">
-              {scenarios.map((s, i) => (
-                <Reveal key={s.title} delay={i * 70} className="bg-[#0b1730]/85">
-                  <Link href={s.href} className="group h-full flex flex-col p-7 md:p-8 hover:bg-[#132441]/85 transition-colors">
-                    <span className={`self-start text-[11px] font-bold border px-2.5 py-1 ${toneClass[s.tone]} ${mono}`}>
-                      {s.tag}
-                    </span>
-                    <h3 className="text-white text-xl font-bold mt-5 leading-snug group-hover:text-gold transition-colors">{s.title}</h3>
-                    <p className="text-slate-300 leading-relaxed text-[15px] mt-2.5">{s.text}</p>
-                    <span className="mt-auto pt-6 inline-flex items-center gap-2 text-gold text-sm font-semibold">
-                      מה עושים <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                    </span>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
+            <RentalJourney steps={journey} />
           </div>
         </section>
 
-        {/* ───────────── LA RÉPONSE ───────────── */}
-        <section className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Answer</p>
-              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
-                לכל אחד מהם יש כאן תשובה.
+        {/* ───────────── L'ESPRIT TRANQUILLE (fond photo en parallaxe) ───────────── */}
+        <section className="relative bg-[#0b1730] overflow-hidden">
+          <ParallaxBackdrop src="/counter-night.avif" opacity={0.85} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/78 via-[#0b1730]/62 to-[#0b1730]/92" />
+
+          <div className="relative max-w-3xl mx-auto px-6 py-24 md:py-28 text-center">
+            <Reveal>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Ready</p>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mt-3 leading-tight">
+                אותה חופשה. רק בלי ההפתעות.
               </h2>
-              <p className="text-[#3a4255] text-lg leading-relaxed mt-6">
-                האתר הזה נבנה בשביל שלב אחד: שתגיע לדלפק מוכן. מה לוקחים, מה בודקים, על מה חותמים, ומה עונים כשמנסים למכור לך משהו.
+              <p className="text-slate-200 text-lg leading-relaxed mt-6">
+                כל מה שכתוב כאן קיים בשביל דבר אחד: שתגיע לדלפק, תקבל את המפתחות, ותיסע. בלי לגלות שום דבר בדרך הקשה.
               </p>
-            </div>
-          </Reveal>
-
-          <div className="grid md:grid-cols-3 gap-px bg-[#e7e9f0] border border-[#e7e9f0] mt-12">
-            {answers.map((a, i) => (
-              <Reveal key={a.when} delay={i * 80} className="bg-white">
-                <div className="h-full p-7 md:p-8">
-                  <span className="inline-block w-7 h-[3px] bg-gold mb-5" />
-                  <p className={`text-[12px] font-bold text-gold ${mono}`}>{a.when}</p>
-                  <p className="text-navy text-lg font-bold mt-2 leading-snug">{a.what}</p>
-                </div>
-              </Reveal>
-            ))}
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-9 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center w-full sm:w-auto">
+                  קרא את המדריך ←
+                </Link>
+                <Link href="/posts" className="text-white text-base font-semibold hover:text-gold transition-colors inline-flex items-center gap-2">
+                  או תתחיל ממאמר <ArrowLeft size={15} />
+                </Link>
+              </div>
+            </Reveal>
           </div>
-
-          <Reveal delay={120}>
-            <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-              <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center w-full sm:w-auto">
-                קרא את המדריך ←
-              </Link>
-              <Link href="/posts" className="text-navy text-base font-semibold hover:text-gold transition-colors inline-flex items-center gap-2">
-                או תתחיל ממאמר <ArrowLeft size={15} />
-              </Link>
-            </div>
-          </Reveal>
         </section>
 
         {/* ───────────── AUTHOR ───────────── */}

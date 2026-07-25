@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image, { getImageProps } from "next/image";
-import { ArrowLeft, ChevronDown } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
 import ProblemTimeline, { type TimelineStep } from "@/components/v2/ProblemTimeline";
+import ParallaxBackdrop from "@/components/v2/ParallaxBackdrop";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
@@ -40,9 +41,9 @@ const guideIndex = [
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
 ];
 
-// Section "Interest" du parcours AIDA. Elle raconte une seule histoire en deux
-// temps : le fil de la journée jusqu'au comptoir (journey), puis les trois
-// issues possibles (outcomes). Textes volontairement courts : une ligne chacun.
+// Section "Interest" du parcours AIDA, en trois temps : le fil de la journée
+// jusqu'au comptoir (journey), les cas réels (scenarios), puis la réponse
+// (answers). Textes volontairement courts : une ligne chacun.
 const journey: TimelineStep[] = [
   { icon: "booking", title: "הזמנת", text: "מחיר טוב, אישור במייל. הכל סגור." },
   { icon: "landing", title: "נחתת", text: "מזוודות, ילדים, ושעה נסיעה עד המלון." },
@@ -50,12 +51,64 @@ const journey: TimelineStep[] = [
   { icon: "alert", title: "הרגע", text: "דבר אחד חסר. ומכאן זה מתגלגל.", alert: true },
 ];
 
-// La gravité monte sur trois axes en même temps (le libellé, la couleur et la
-// longueur du filet), jamais par la couleur seule.
-const outcomes = [
-  { n: "01", level: "במקרה הטוב", title: "משלם יותר", text: "ביטוח בלחץ של תור, שדרוג מיותר, פיקדון שתופס את כל המסגרת.", bar: "bg-gold w-7" },
-  { n: "02", level: "במקרה הפחות טוב", title: "משלם אחר כך", text: "כיסוי שנשמע מלא, וחיוב שנוחת חודשיים אחרי שחזרת.", bar: "bg-[#e0a03a] w-12" },
-  { n: "03", level: "במקרה הרע", title: "לא מקבל רכב", text: "מסמך אחד חסר. אין החזר, אין רכב, אין תוכנית ב׳.", bar: "bg-[#e05252] w-20" },
+// Cas réels, du plus brutal au plus insidieux. Chacun renvoie au chapitre ou à
+// l'article qui traite le sujet : le problème et sa réponse au même endroit.
+const scenarios = [
+  {
+    tag: "אין רכב",
+    tone: "danger" as const,
+    title: "הכרטיס על שם בן הזוג",
+    text: "הכרטיס חייב להיות על שם הנהג הראשי. אחרת לא מוסרים מפתחות.",
+    href: "/guide#documents",
+  },
+  {
+    tag: "אין רכב",
+    tone: "danger" as const,
+    title: "הרישיון פג לפני שבוע",
+    text: "גילית את זה בדלפק, אחרי חמש שעות טיסה. אין החזר על ההזמנה.",
+    href: "/guide#documents",
+  },
+  {
+    tag: "קנס",
+    tone: "warn" as const,
+    title: "בלי רישיון בינלאומי",
+    text: "באיטליה, ביוון ובספרד הוא מסמך חובה. בלעדיו: סירוב בדלפק או קנס בדרך.",
+    href: "/posts/international-driving-permit",
+  },
+  {
+    tag: "עלות",
+    tone: "cost" as const,
+    title: "CDW שנשמע כמו כיסוי מלא",
+    text: "שריטה בדלת, והשתתפות עצמית של מאות אירו יורדת מהפיקדון.",
+    href: "/guide#insurance",
+  },
+  {
+    tag: "קנס",
+    tone: "warn" as const,
+    title: "נסעת דרך מרכז פירנצה",
+    text: "מצלמת ZTL צילמה את הלוחית. הקנסות נוחתים חודשים אחרי החופשה.",
+    href: "/posts/ztl-italy",
+  },
+  {
+    tag: "עלות",
+    tone: "cost" as const,
+    title: "החזרת עם שלושה רבעי מיכל",
+    text: "התחנה מתדלקת במקומך, בתעריף שלה, ועוד דמי טיפול מלמעלה.",
+    href: "/guide#fuel",
+  },
+];
+
+const toneClass = {
+  danger: "text-[#ff8a8a] border-[#ff8a8a]/45",
+  warn: "text-[#f0b34a] border-[#f0b34a]/45",
+  cost: "text-[#e0b84a] border-[#e0b84a]/45",
+};
+
+// Ce que le site met entre les mains du lecteur, dans l'ordre du voyage.
+const answers = [
+  { when: "לפני ההזמנה", what: "מה לבדוק לפני שמשלמים" },
+  { when: "לפני הטיסה", what: "מה חייב להיות בתיק" },
+  { when: "בדלפק", what: "על מה חותמים, ועל מה לא" },
 ];
 
 const reasons = [
@@ -183,47 +236,93 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────────── THE PROBLEM (AIDA : Interest) ───────────── */}
-        <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+        {/* ───────────── THE PROBLEM (AIDA : Interest) ─────────────
+            Trois temps qui s'enchaînent : la promesse du voyage et son point de
+            bascule, les cas réels, puis la réponse. */}
+        <section className="max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-20 md:pb-24">
           <Reveal>
             <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Problem</p>
-            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
-              הכל הולך חלק.
-              <span className="block text-gold">עד הדלפק.</span>
+            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight max-w-3xl">
+              רכב בחו״ל זה החופש הכי גדול.
+              <span className="block text-gold">עד שדבר אחד לא בסדר.</span>
             </h2>
             <LaneDash className="mt-6 max-w-[140px]" />
-            <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7 max-w-xl">
-              שם, בשתי דקות, נקבע אם אתה נוסע או מחפש מונית.
+            <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7 max-w-2xl">
+              הזמנת, נחתת, הגעת לדלפק. שם, בשתי דקות, נקבע אם החופשה מתחילה או נתקעת.
             </p>
           </Reveal>
 
           {/* Le fil : la route se trace, les quatre temps de la journée s'allument */}
           <ProblemTimeline steps={journey} />
+        </section>
 
-          {/* Les trois issues, du moins grave au plus grave */}
-          <Reveal delay={80}>
-            <div className="mt-16 grid md:grid-cols-3 gap-px bg-[#24314f]">
-              {outcomes.map((o) => (
-                <div key={o.n} className="bg-[#0e1a30] p-8 md:p-9">
-                  <span className={`block h-[3px] mb-6 ${o.bar}`} />
-                  <p className="flex items-baseline gap-3">
-                    <span className={`text-sm font-bold text-gold ${mono}`}>{o.n}</span>
-                    <span className="text-[13px] font-semibold tracking-wide text-slate-400">{o.level}</span>
-                  </p>
-                  <h3 className="text-xl font-bold text-white mt-2 mb-2.5">{o.title}</h3>
-                  <p className="text-slate-300 leading-relaxed text-[15px]">{o.text}</p>
-                </div>
+        {/* ───────────── CAS RÉELS (fond photo en parallaxe) ───────────── */}
+        <section className="relative bg-[#0b1730] overflow-hidden">
+          <ParallaxBackdrop src="/counter-night.avif" opacity={0.85} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/75 via-[#0b1730]/60 to-[#0b1730]/92" />
+
+          <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-28">
+            <Reveal>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Real cases</p>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mt-3 leading-tight">
+                זה לא תיאורטי.
+                <span className="block text-gold">כל אחד מהמקרים האלה קורה כל יום.</span>
+              </h2>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 mt-14">
+              {scenarios.map((s, i) => (
+                <Reveal key={s.title} delay={i * 70} className="bg-[#0b1730]/85">
+                  <Link href={s.href} className="group h-full flex flex-col p-7 md:p-8 hover:bg-[#132441]/85 transition-colors">
+                    <span className={`self-start text-[11px] font-bold border px-2.5 py-1 ${toneClass[s.tone]} ${mono}`}>
+                      {s.tag}
+                    </span>
+                    <h3 className="text-white text-xl font-bold mt-5 leading-snug group-hover:text-gold transition-colors">{s.title}</h3>
+                    <p className="text-slate-300 leading-relaxed text-[15px] mt-2.5">{s.text}</p>
+                    <span className="mt-auto pt-6 inline-flex items-center gap-2 text-gold text-sm font-semibold">
+                      מה עושים <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
+                </Reveal>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────── LA RÉPONSE ───────────── */}
+        <section className="max-w-6xl mx-auto px-6 py-24 md:py-28">
+          <Reveal>
+            <div className="max-w-2xl">
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Answer</p>
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
+                לכל אחד מהם יש כאן תשובה.
+              </h2>
+              <p className="text-[#3a4255] text-lg leading-relaxed mt-6">
+                האתר הזה נבנה בשביל שלב אחד: שתגיע לדלפק מוכן. מה לוקחים, מה בודקים, על מה חותמים, ומה עונים כשמנסים למכור לך משהו.
+              </p>
             </div>
           </Reveal>
 
-          {/* Amorce : la réponse arrive juste en dessous */}
+          <div className="grid md:grid-cols-3 gap-px bg-[#e7e9f0] border border-[#e7e9f0] mt-12">
+            {answers.map((a, i) => (
+              <Reveal key={a.when} delay={i * 80} className="bg-white">
+                <div className="h-full p-7 md:p-8">
+                  <span className="inline-block w-7 h-[3px] bg-gold mb-5" />
+                  <p className={`text-[12px] font-bold text-gold ${mono}`}>{a.when}</p>
+                  <p className="text-navy text-lg font-bold mt-2 leading-snug">{a.what}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
           <Reveal delay={120}>
-            <div className="mt-14 flex flex-col items-center text-center">
-              <p className="text-navy text-xl md:text-2xl font-bold tracking-tight max-w-lg leading-snug">
-                שלושתם נמנעים באותה דרך. לדעת מראש מה קורה שם.
-              </p>
-              <ChevronDown size={24} className="text-gold mt-6 animate-nudge-down" aria-hidden="true" />
+            <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
+              <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center w-full sm:w-auto">
+                קרא את המדריך ←
+              </Link>
+              <Link href="/posts" className="text-navy text-base font-semibold hover:text-gold transition-colors inline-flex items-center gap-2">
+                או תתחיל ממאמר <ArrowLeft size={15} />
+              </Link>
             </div>
           </Reveal>
         </section>

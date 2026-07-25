@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CalendarCheck, PlaneLanding, ClipboardList, TriangleAlert } from "lucide-react";
+import { CalendarCheck, PlaneLanding, ClipboardList, TriangleAlert, Car } from "lucide-react";
 
 // Le fil conducteur de la section problème : la route (motif LaneDash) se trace
 // d'une étape à la suivante, de droite à gauche, et chaque temps de la journée
@@ -57,9 +57,29 @@ export default function ProblemTimeline({ steps }: { steps: TimelineStep[] }) {
     return () => obs.disconnect();
   }, []);
 
+  // Point d'arrêt de la voiture : juste à droite de la dernière pastille.
+  // En RTL, chaque pastille est collée au bord droit de sa colonne de grille,
+  // d'où le calcul à partir de la largeur de colonne (gap desktop = 24px).
+  const cols = steps.length;
+  const carStop = `calc(${100 - 100 / cols}% + ${((24 * (cols - 1)) / cols - 38).toFixed(1)}px)`;
+
   return (
     <div ref={ref} className="mt-14">
-      <ol className="grid gap-9 md:grid-cols-4 md:gap-6">
+      <ol className="relative grid gap-9 md:grid-cols-4 md:gap-6">
+        {/* La voiture parcourt la route pendant que les segments se tracent et
+            s'arrête juste avant le dernier temps : elle n'atteint jamais le
+            moment où ça bascule. */}
+        <span
+          aria-hidden="true"
+          className="hidden md:block absolute top-[14px] z-10 text-navy"
+          style={{
+            right: animate && !on ? "0.875rem" : carStop,
+            transition: animate ? "right 2600ms cubic-bezier(0.33,0,0.2,1) 260ms" : undefined,
+          }}
+        >
+          <Car size={28} strokeWidth={1.75} />
+        </span>
+
         {steps.map((s, i) => {
           const Icon = ICONS[s.icon];
           const stepDelay = 200 + i * 150;

@@ -40,6 +40,7 @@ export const imagesSection: DocSection = {
         ["`hero-bg-desktop.avif`", "הירו דסקטופ", "1920x1080, רכב שטח בשליש השמאלי, צד ימין פנוי לטקסט"],
         ["`hero-bg-mobile.avif`", "הירו מובייל", "1080x1920 (9:16), הרכב בשליש התחתון, למעלה פנוי"],
         ["`hero-bg.avif`", "תמונת OG בלבד", "כבר לא משמשת כרקע"],
+        ["`counter-night.avif`", "רקע מקטע המקרים", "1600x900, טרמינל בלילה, מוגשת ב־ParallaxBackdrop באטימות נמוכה מתחת לשכבת כחול"],
       ],
       caption: "ההגשה נעשית עם picture + getImageProps בקומפוננטת HeroBackground שבעמוד הבית: כל מכשיר מוריד רק את התמונה שלו.",
     },

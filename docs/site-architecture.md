@@ -11,7 +11,7 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 
 | Route | Fichier | Statut | Notes |
 |---|---|---|---|
-| `/` | `app/page.tsx` | ✅ En ligne | Home construite sur AIDA. **A** = hero (recherche Fuse.js + CTAs), verrouillé sur une hauteur d'écran (`min-h-[100svh]`, contenu centré, rythmes et taille du h1 en `clamp()` indexé sur `vh`). **I** = section "The Problem" : escalade des conséquences au comptoir en 3 niveaux (`stakes`, gravité portée par le libellé + la couleur + la longueur du filet, jamais par la couleur seule) puis bloc navy de bascule vers le guide et les articles. Suivent auteur, méthode, guide, journal, avis, CTA final. |
+| `/` | `app/page.tsx` | ✅ En ligne | Home construite sur AIDA. **A** = hero (recherche Fuse.js + CTAs), verrouillé sur une hauteur d'écran (`min-h-[100svh]`, contenu centré, rythmes et taille du h1 en `clamp()` indexé sur `vh`). **I** = section "The Problem" : fil narratif en 4 temps (`journey` + `components/v2/ProblemTimeline.tsx`, route pointillée qui se trace au scroll, dernier segment rouge), puis les 3 issues sur bloc navy (`outcomes`, gravité portée par le libellé + la couleur + la longueur du filet, jamais par la couleur seule), puis une amorce vers la suite (chevron `animate-nudge-down`). Suivent auteur, méthode, guide, journal, avis, CTA final. |
 | `/guide` | `app/guide/page.tsx` | ✅ En ligne | Guide complet, 19 sections (voir `docs/content/guide.md`) |
 | `/posts` | `app/posts/page.tsx` | ✅ En ligne | Archive des articles, grille 3/2/1 col |
 | `/posts/ztl-italy` | `app/posts/ztl-italy/page.tsx` | ✅ En ligne | Post ZTL Italie |

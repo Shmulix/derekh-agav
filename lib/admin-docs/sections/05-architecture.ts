@@ -91,6 +91,7 @@ export const architectureSection: DocSection = {
                 ["`v2/HeaderV2.tsx`", "ההדר האמיתי: ניווט, תפריט מובייל, CTA קצר"],
                 ["`v2/FooterV2.tsx`", "פוטר עם גילוי נאות אפילייט"],
                 ["`v2/LaneDash.tsx`", "קו מקווקו זהוב, חתימת המותג"],
+                ["`v2/ProblemTimeline.tsx`", "ציר הבעיה בעמוד הבית: הכביש נמתח משלב לשלב, אופקי בדסקטופ ואנכי במובייל"],
                 ["`Header.tsx` / `Footer.tsx`", "קבצי re-export לתאימות. לא לגעת"],
               ],
             },

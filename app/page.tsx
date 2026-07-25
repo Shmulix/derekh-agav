@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image, { getImageProps } from "next/image";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
+import ProblemTimeline, { type TimelineStep } from "@/components/v2/ProblemTimeline";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
@@ -39,34 +40,22 @@ const guideIndex = [
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
 ];
 
-// Section "Interest" du parcours AIDA : l'escalade des conséquences au comptoir.
-// La gravité monte sur trois axes en même temps (le libellé, la couleur du filet
-// et sa longueur), jamais par la couleur seule.
-const stakes = [
-  {
-    n: "01",
-    level: "במקרה הטוב",
-    title: "אתה משלם יותר",
-    text: "ביטוח שנמכר לך בדלפק כשמאחוריך תור, קטגוריה שלא ביקשת, פיקדון שתופס לך את כל מסגרת האשראי לשבוע. יוצא עם רכב, אבל עם חשבון אחר לגמרי מזה שהזמנת.",
-    bar: "bg-gold w-7",
-    num: "text-gold",
-  },
-  {
-    n: "02",
-    level: "במקרה הפחות טוב",
-    title: "אתה משלם אחר כך",
-    text: "חתמת על כיסוי שנשמע מלא, ובפועל לא מכסה שריטה, צמיג או שמשה. החיוב נוחת חודשיים אחרי שחזרת: השתתפות עצמית, קנס מצלמה, דמי טיפול. אין למי לחזור בטענות.",
-    bar: "bg-[#d97706] w-12",
-    num: "text-[#b45309]",
-  },
-  {
-    n: "03",
-    level: "במקרה הרע",
-    title: "אתה לא מקבל רכב",
-    text: "רישיון שפג לפני שבוע, כרטיס אשראי על שם בן הזוג, אין רישיון בינלאומי. ההזמנה לא מוחזרת, והחופשה מתחילה בחיפוש מונית באולם הנוסעים.",
-    bar: "bg-[#c53030] w-20",
-    num: "text-[#c53030]",
-  },
+// Section "Interest" du parcours AIDA. Elle raconte une seule histoire en deux
+// temps : le fil de la journée jusqu'au comptoir (journey), puis les trois
+// issues possibles (outcomes). Textes volontairement courts : une ligne chacun.
+const journey: TimelineStep[] = [
+  { icon: "booking", title: "הזמנת", text: "מחיר טוב, אישור במייל. הכל סגור." },
+  { icon: "landing", title: "נחתת", text: "מזוודות, ילדים, ושעה נסיעה עד המלון." },
+  { icon: "counter", title: "הדלפק", text: "שתי דקות. חמישה מסמכים. תור מאחורייך." },
+  { icon: "alert", title: "הרגע", text: "דבר אחד חסר. ומכאן זה מתגלגל.", alert: true },
+];
+
+// La gravité monte sur trois axes en même temps (le libellé, la couleur et la
+// longueur du filet), jamais par la couleur seule.
+const outcomes = [
+  { n: "01", level: "במקרה הטוב", title: "משלם יותר", text: "ביטוח בלחץ של תור, שדרוג מיותר, פיקדון שתופס את כל המסגרת.", bar: "bg-gold w-7" },
+  { n: "02", level: "במקרה הפחות טוב", title: "משלם אחר כך", text: "כיסוי שנשמע מלא, וחיוב שנוחת חודשיים אחרי שחזרת.", bar: "bg-[#e0a03a] w-12" },
+  { n: "03", level: "במקרה הרע", title: "לא מקבל רכב", text: "מסמך אחד חסר. אין החזר, אין רכב, אין תוכנית ב׳.", bar: "bg-[#e05252] w-20" },
 ];
 
 const reasons = [
@@ -198,54 +187,43 @@ export default function HomePage() {
         <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
           <Reveal>
             <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Problem</p>
-            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 max-w-3xl leading-tight">
-              להזמין רכב זה החלק הקל.
-              <span className="block text-gold">הדלפק זה החלק שמפיל אנשים.</span>
+            <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
+              הכל הולך חלק.
+              <span className="block text-gold">עד הדלפק.</span>
             </h2>
             <LaneDash className="mt-6 max-w-[140px]" />
-            <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-8 max-w-2xl">
-              הזמנת, שילמת, תכננת מסלול לשבוע. ואז אתה מגיע לדלפק, והפקיד עובר על ארבעה חמישה דברים בשתי דקות. אם אחד מהם לא בסדר, אתה לא יוצא משם עם רכב. אף אחד לא עושה לך דווקא. ככה זה עובד.
+            <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7 max-w-xl">
+              שם, בשתי דקות, נקבע אם אתה נוסע או מחפש מונית.
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-px bg-[#e7e9f0] border border-[#e7e9f0] mt-14">
-            {stakes.map((s, i) => (
-              <Reveal key={s.n} delay={i * 90} className="bg-white">
-                <div className="h-full p-8 md:p-10">
-                  <span className={`block h-[3px] mb-6 ${s.bar}`} />
-                  <p className="flex items-baseline gap-3">
-                    <span className={`text-sm font-bold ${s.num} ${mono}`}>{s.n}</span>
-                    <span className="text-[13px] font-semibold tracking-wide text-[#5b6377]">{s.level}</span>
-                  </p>
-                  <h3 className="text-xl font-bold text-navy mt-2 mb-3">{s.title}</h3>
-                  <p className="text-[#5b6377] leading-relaxed">{s.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          {/* Le fil : la route se trace, les quatre temps de la journée s'allument */}
+          <ProblemTimeline steps={journey} />
 
-          {/* Bascule problème → réponse : le guide et les articles */}
+          {/* Les trois issues, du moins grave au plus grave */}
+          <Reveal delay={80}>
+            <div className="mt-16 grid md:grid-cols-3 gap-px bg-[#24314f]">
+              {outcomes.map((o) => (
+                <div key={o.n} className="bg-[#0e1a30] p-8 md:p-9">
+                  <span className={`block h-[3px] mb-6 ${o.bar}`} />
+                  <p className="flex items-baseline gap-3">
+                    <span className={`text-sm font-bold text-gold ${mono}`}>{o.n}</span>
+                    <span className="text-[13px] font-semibold tracking-wide text-slate-400">{o.level}</span>
+                  </p>
+                  <h3 className="text-xl font-bold text-white mt-2 mb-2.5">{o.title}</h3>
+                  <p className="text-slate-300 leading-relaxed text-[15px]">{o.text}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Amorce : la réponse arrive juste en dessous */}
           <Reveal delay={120}>
-            <div className="bg-[#0e1a30] p-8 md:p-12 grid md:grid-cols-[1.15fr_1fr] gap-8 md:gap-12 items-center">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight">
-                  בשביל זה האתר הזה קיים.
-                </h3>
-                <p className="text-slate-300 leading-relaxed mt-5">
-                  לא כדי למכור לך ביטוח ולא כדי להשוות מחירים. כדי שתגיע לדלפק ותדע בדיוק מה מגישים לך, על מה אתה חותם, ומה עונים כשמנסים למכור לך שדרוג. מדריך אחד עם 18 פרקים לפי הסדר, ומאמרים לנושאים שדורשים עומק.
-                </p>
-                <p className="text-slate-400 text-sm leading-relaxed mt-5">
-                  הקישורים באתר הם שותפויות עמלה. ההמלצות נשארות עצמאיות. תמיד.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
-                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center">
-                  קרא את המדריך ←
-                </Link>
-                <Link href="/posts" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
-                  כל המאמרים ←
-                </Link>
-              </div>
+            <div className="mt-14 flex flex-col items-center text-center">
+              <p className="text-navy text-xl md:text-2xl font-bold tracking-tight max-w-lg leading-snug">
+                שלושתם נמנעים באותה דרך. לדעת מראש מה קורה שם.
+              </p>
+              <ChevronDown size={24} className="text-gold mt-6 animate-nudge-down" aria-hidden="true" />
             </div>
           </Reveal>
         </section>

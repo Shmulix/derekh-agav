@@ -5,6 +5,7 @@ import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
 import ParallaxBackdrop from "@/components/v2/ParallaxBackdrop";
+import FactIcon, { type FactIconName } from "@/components/v2/FactIcon";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
@@ -38,6 +39,36 @@ const guideIndex = [
   { n: "05", label: "גיל הנהג", href: "/guide#young-driver" },
   { n: "11", label: "דלק", href: "/guide#fuel" },
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
+];
+
+// Les règles du métier qu'un voyageur ne peut pas deviner. Chacune est un
+// mécanisme, pas une anecdote : c'est ce qui rend le domaine impitoyable.
+const facts: { icon: FactIconName; title: string; text: string }[] = [
+  {
+    icon: "deposit",
+    title: "הפיקדון לא יורד מהחשבון. הוא ננעל בו.",
+    text: "התחנה תופסת סכום במסגרת האשראי שלך לכל תקופת ההשכרה, ולפעמים שבועיים אחריה. אם המסגרת לא מספיקה, אין רכב. גם אם יש לך כסף בעובר ושב.",
+  },
+  {
+    icon: "shield",
+    title: "CDW הוא לא ביטוח מלא. זו הגבלת אחריות.",
+    text: "נשארת עם השתתפות עצמית שיכולה להגיע לאלפי אירו. ״כלול בהזמנה״ לא אומר ״מכוסה במאה אחוז״, וזה ההבדל היקר ביותר בתחום.",
+  },
+  {
+    icon: "glass",
+    title: "צמיגים, שמשות, גג ותחתית כמעט תמיד מחוץ לכיסוי.",
+    text: "אלה בדיוק החלקים שנפגעים הכי הרבה בכביש. גם עם הכיסוי המורחב, ברוב החוזים הם מוחרגים במפורש.",
+  },
+  {
+    icon: "card",
+    title: "הכרטיס חייב להיות של הנהג הראשי.",
+    text: "כרטיס דביט, כרטיס נטען או כרטיס על שם בן הזוג לא מתקבלים ברוב התחנות. אין כרטיס מתאים, אין מפתחות, וההזמנה לא מוחזרת.",
+  },
+  {
+    icon: "wheel",
+    title: "נהג שלא רשום בחוזה מבטל את הכיסוי.",
+    text: "אם מי שנהג ברגע התאונה לא מופיע בחוזה, הביטוח לא חל. גם אם זו בת הזוג, וגם אם התחלפתם רק לחצי שעה.",
+  },
 ];
 
 const reasons = [
@@ -166,41 +197,28 @@ export default function HomePage() {
         </section>
 
         {/* ───────────── POURQUOI CE SITE EXISTE ─────────────
-            Récit chronologique, épuré et centré, en trois moments : le voyage
-            préparé au détail près, l'angle mort de la location, puis la nuit où
-            ça se paie. Aucune grille, aucun jalon : du texte, de l'air, une image. */}
+            Quatre mouvements : le domaine ne pardonne pas, la nuit où ça se
+            paie, les cinq règles que personne ne connaît, et le vide
+            d'information qui a donné naissance au site. */}
         <section className="bg-white">
           <div className="max-w-3xl mx-auto px-6 py-28 md:py-36 text-center">
             <Reveal>
               <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Why this site</p>
               <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-4">
-                אתה יודע לתכנן טיול.
+                השכרת רכב היא תחום
+                <span className="block text-gold mt-1">לא סלחני.</span>
               </h2>
-              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
-                טיסות חודשים מראש. מלון לפי ביקורות. מסלול לפי שעות, כולל איפה אוכלים ביום שלישי בערב ואיפה חונים ליד המוזיאון.
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-8">
+                אתה מתכנן טיול חודשים מראש. טיסות, מלונות, מסלול לפי שעות. את הרכב משאירים ל״יהיה בסדר״, כי כבר נהגת אלפי פעמים.
               </p>
-            </Reveal>
-
-            <Reveal delay={120}>
-              <p className={`mt-10 text-[13px] tracking-wide text-[#9aa3b5] ${mono}`}>
-                טיסות · מלונות · מסלולים · מסעדות · חניות
-              </p>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <LaneDash className="mt-16 max-w-[120px] mx-auto" />
-              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-16">
-                ואז מגיעים לרכב.
-                <span className="block text-gold mt-1">ופתאום ״יהיה בסדר״.</span>
-              </h2>
-              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
-                כי נהגת אלפי פעמים, כי כבר שכרת פעם רכב, כי מה כבר יכול לקרות בדלפק. זאת בדיוק הנקודה שבה נופלים, ודווקא האנשים שתכננו הכי טוב את כל השאר.
+              <p className="text-navy text-lg md:text-xl leading-relaxed font-semibold mt-5">
+                אבל בדלפק לא בודקים כמה שנים אתה נוהג. בודקים מסמכים, כרטיס ותנאים. פרט אחד לא במקום, ואתה לא נוסע.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* La nuit où ça se paie : image plein cadre en parallaxe, texte au centre */}
+        {/* Le pire des cas, en une image */}
         <section className="relative bg-[#0b1730] overflow-hidden">
           <ParallaxBackdrop src="/night-arrival.avif" opacity={0.9} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/70 via-[#0b1730]/80 to-[#0b1730]/92" />
@@ -216,31 +234,60 @@ export default function HomePage() {
                 בדלפק לא מתווכחים. אין רכב, אין החזר על ההזמנה, ואין מוניות שיאספו ארבעה אנשים עם מזוודות בשעה הזאת. המלון במרחק שעה נסיעה, והטיול שתכננת חודשים מתחיל בטלפונים.
               </p>
             </Reveal>
+          </div>
+        </section>
 
-            <Reveal delay={140}>
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-300">
-                <span>רישיון שפג לפני שבוע</span>
-                <span aria-hidden="true" className="hidden sm:inline text-gold">·</span>
-                <span>בלי רישיון בינלאומי באיטליה</span>
-                <span aria-hidden="true" className="hidden sm:inline text-gold">·</span>
-                <span>פיקדון שתופס את כל המסגרת</span>
+        {/* Les règles que personne ne connaît avant de tomber dessus */}
+        <section className="bg-[#f8f9fc] border-y border-[#e7e9f0]">
+          <div className="max-w-3xl mx-auto px-6 py-28 md:py-36">
+            <Reveal>
+              <div className="text-center">
+                <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The rules</p>
+                <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-4">
+                  חמישה דברים שלא כתובים
+                  <span className="block text-gold mt-1">בשובר ההזמנה.</span>
+                </h2>
+                <p className="text-[#3a4255] text-lg leading-relaxed mt-7 max-w-xl mx-auto">
+                  אף אחד לא נולד עם הידע הזה, ואף אחד לא טורח להסביר אותו לפני שמגיעים לדלפק.
+                </p>
               </div>
-              <p className="text-slate-400 mt-8">
-                כל אחד מהם מספיק כדי שלא תצא משם עם רכב. וזה קורה כל לילה, בכל שדה תעופה.
+            </Reveal>
+
+            <div className="mt-16 divide-y divide-[#e0e4ee]">
+              {facts.map((f, i) => (
+                <Reveal key={f.title} delay={i * 90}>
+                  <div className="flex items-start gap-5 md:gap-7 py-7 first:pt-0">
+                    <FactIcon name={f.icon} className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-gold mt-0.5" />
+                    <div>
+                      <h3 className="text-navy text-lg md:text-xl font-bold leading-snug">{f.title}</h3>
+                      <p className="text-[#5b6377] leading-relaxed mt-2">{f.text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={120}>
+              <p className="text-center text-[#5b6377] mt-12">
+                וזה חמישה מתוך הרבה יותר. כל אחד מהם עולה כסף, זמן, או את הרכב עצמו.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* La réponse : pourquoi le site existe */}
+        {/* Le vide d'information, et la raison d'être du site */}
         <section className="bg-white">
           <div className="max-w-2xl mx-auto px-6 py-28 md:py-36 text-center">
             <Reveal>
               <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight">
-                בשביל זה האתר הזה קיים.
+                והבעיה השנייה:
+                <span className="block text-gold mt-1">אין איפה ללמוד את זה.</span>
               </h2>
-              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
-                כדי שהחלק הזה של הטיול יהיה מתוכנן כמו כל השאר. מה לבדוק לפני שמזמינים, מה חייב להיות בתיק, ומה עונים כשמנסים למכור לך משהו בדלפק. הכל במקום אחד, כתוב על ידי מי שעמד בצד השני של הדלפק.
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-8">
+                חברות ההשכרה לא מסבירות, הן מוכרות. אתרי ההשוואה משווים מחיר, לא תנאים. בפורומים כל אחד עונה משהו אחר. ואת החוזה קוראים אחרי שכבר חתמו עליו.
+              </p>
+              <p className="text-navy text-lg md:text-xl leading-relaxed font-semibold mt-6">
+                לכן בניתי את המקום הזה. כל מה שחייבים לדעת לפני שמגיעים לדלפק, מרוכז במקום אחד ובשפה של בן אדם.
               </p>
               <LaneDash className="mt-10 max-w-[120px] mx-auto" />
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

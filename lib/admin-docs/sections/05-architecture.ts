@@ -92,6 +92,7 @@ export const architectureSection: DocSection = {
                 ["`v2/FooterV2.tsx`", "פוטר עם גילוי נאות אפילייט"],
                 ["`v2/LaneDash.tsx`", "קו מקווקו זהוב, חתימת המותג"],
                 ["`v2/ParallaxBackdrop.tsx`", "רקע תמונה בפרלקס (requestAnimationFrame), מכובה ב־prefers-reduced-motion"],
+                ["`v2/FactIcon.tsx`", "סט אייקונים מצוירים לאתר (SVG, 5 צורות) עם אנימציית קו שנמתח בכניסה למסך. הקיפרפריימים ב־globals.css"],
                 ["`Header.tsx` / `Footer.tsx`", "קבצי re-export לתאימות. לא לגעת"],
               ],
             },

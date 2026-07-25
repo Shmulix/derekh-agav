@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
-import RentalJourney, { type JourneyStep } from "@/components/v2/RentalJourney";
 import ParallaxBackdrop from "@/components/v2/ParallaxBackdrop";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
@@ -39,57 +38,6 @@ const guideIndex = [
   { n: "05", label: "גיל הנהג", href: "/guide#young-driver" },
   { n: "11", label: "דלק", href: "/guide#fuel" },
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
-];
-
-// Le parcours de location en cinq étapes. Chacune oppose le cas concret qui
-// fait tomber les gens et la réponse que le site apporte, avec le lien vers le
-// chapitre ou l'article qui la développe.
-const journey: JourneyStep[] = [
-  {
-    n: "01",
-    title: "ההזמנה",
-    problem:
-      "בוחרים את המחיר הזול ביותר ומגלים אחר כך שהפיקדון תופס 1,200 אירו, שהמיכל צריך לחזור מלא, ושהקטגוריה לא בולעת שתי מזוודות.",
-    solution:
-      "איך קוראים תנאי הזמנה לפני שמשלמים: פיקדון, מדיניות דלק, קילומטראז׳ וקוד הקטגוריה שאומר מה באמת מקבלים.",
-    href: "/guide#deposit",
-  },
-  {
-    n: "02",
-    title: "המסמכים",
-    problem:
-      "רישיון שפג לפני שבוע, כרטיס אשראי על שם בן הזוג, בלי רישיון בינלאומי. הדלפק לא מתפשר, וההזמנה לא מוחזרת.",
-    solution:
-      "רשימת המסמכים המדויקת לפי מדינה, ואיפה מוציאים רישיון בינלאומי בישראל בעשר דקות.",
-    href: "/guide#documents",
-  },
-  {
-    n: "03",
-    title: "הדלפק",
-    problem:
-      "אחרי טיסה ארוכה, עם תור מאחורייך, מוכרים לך כיסוי משלים ושדרוג. אתה חותם בלי לקרוא מה נשאר בחוץ.",
-    solution:
-      "מה זה CDW ו־SCDW באמת, מה אף פעם לא מכוסה, ומה עונים כשמנסים למכור לך עוד שכבה.",
-    href: "/guide#insurance",
-  },
-  {
-    n: "04",
-    title: "הכביש",
-    problem:
-      "נכנסת ל־ZTL בפירנצה, פספסת מדבקת אגרה באוסטריה, חצית גבול בלי אישור. הקנסות נוחתים חודשים אחרי החופשה.",
-    solution:
-      "אגרות, ZTL, חציית גבול וציוד חורף: מה חוקי ואיפה, לפני שאתה מתיישב מאחורי ההגה.",
-    href: "/guide#tolls",
-  },
-  {
-    n: "05",
-    title: "ההחזרה",
-    problem:
-      "החזרת עם מיכל לא מלא, אחרי שעות הפעילות, בלי לצלם כלום. החיוב על נזק שלא עשית מגיע חודש אחרי.",
-    solution:
-      "איך מחזירים רכב בלי להשאיר פתח: תדלוק, שעות התחנה, מה לצלם ומה לשמור.",
-    href: "/guide#pickup",
-  },
 ];
 
 const reasons = [
@@ -217,48 +165,89 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────────── LE PARCOURS (AIDA : Interest + Desire) ─────────────
-            Une seule timeline, centrée : à chaque étape de la location, ce qui
-            déraille quand on arrive sans savoir, et la réponse du site en face. */}
-        <section className="bg-[#f8f9fc] border-y border-[#e7e9f0]">
-          <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
+        {/* ───────────── POURQUOI CE SITE EXISTE ─────────────
+            Récit chronologique, épuré et centré, en trois moments : le voyage
+            préparé au détail près, l'angle mort de la location, puis la nuit où
+            ça se paie. Aucune grille, aucun jalon : du texte, de l'air, une image. */}
+        <section className="bg-white">
+          <div className="max-w-3xl mx-auto px-6 py-28 md:py-36 text-center">
             <Reveal>
-              <div className="text-center max-w-2xl mx-auto">
-                <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The Journey</p>
-                <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight mt-3 leading-tight">
-                  רכב בחו״ל זה החופש הכי גדול.
-                  <span className="block text-gold">עד שדבר אחד לא בסדר.</span>
-                </h2>
-                <LaneDash className="mt-7 max-w-[140px] mx-auto" />
-                <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
-                  חמישה שלבים, מההזמנה ועד ההחזרה. בכל אחד מהם יש מה שמפיל אנשים, ומה שצריך לדעת כדי לעבור אותו רגוע.
-                </p>
-              </div>
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Why this site</p>
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-4">
+                אתה יודע לתכנן טיול.
+              </h2>
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
+                טיסות חודשים מראש. מלון לפי ביקורות. מסלול לפי שעות, כולל איפה אוכלים ביום שלישי בערב ואיפה חונים ליד המוזיאון.
+              </p>
             </Reveal>
 
-            <RentalJourney steps={journey} />
+            <Reveal delay={120}>
+              <p className={`mt-10 text-[13px] tracking-wide text-[#9aa3b5] ${mono}`}>
+                טיסות · מלונות · מסלולים · מסעדות · חניות
+              </p>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <LaneDash className="mt-16 max-w-[120px] mx-auto" />
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-16">
+                ואז מגיעים לרכב.
+                <span className="block text-gold mt-1">ופתאום ״יהיה בסדר״.</span>
+              </h2>
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
+                כי נהגת אלפי פעמים, כי כבר שכרת פעם רכב, כי מה כבר יכול לקרות בדלפק. זאת בדיוק הנקודה שבה נופלים, ודווקא האנשים שתכננו הכי טוב את כל השאר.
+              </p>
+            </Reveal>
           </div>
         </section>
 
-        {/* ───────────── L'ESPRIT TRANQUILLE (fond photo en parallaxe) ───────────── */}
+        {/* La nuit où ça se paie : image plein cadre en parallaxe, texte au centre */}
         <section className="relative bg-[#0b1730] overflow-hidden">
-          <ParallaxBackdrop src="/counter-night.avif" opacity={0.85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/78 via-[#0b1730]/62 to-[#0b1730]/92" />
+          <ParallaxBackdrop src="/night-arrival.avif" opacity={0.9} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/70 via-[#0b1730]/80 to-[#0b1730]/92" />
 
-          <div className="relative max-w-3xl mx-auto px-6 py-24 md:py-28 text-center">
+          <div className="relative max-w-3xl mx-auto px-6 py-28 md:py-40 text-center">
             <Reveal>
-              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>Ready</p>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mt-3 leading-tight">
-                אותה חופשה. רק בלי ההפתעות.
+              <p className={`text-xl md:text-2xl tracking-[0.3em] text-gold font-bold ${mono}`}>23:40</p>
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mt-5">
+                נחתת. שני ילדים, ארבע מזוודות.
+                <span className="block text-gold mt-1">והכרטיס לא על שמך.</span>
               </h2>
-              <p className="text-slate-200 text-lg leading-relaxed mt-6">
-                כל מה שכתוב כאן קיים בשביל דבר אחד: שתגיע לדלפק, תקבל את המפתחות, ותיסע. בלי לגלות שום דבר בדרך הקשה.
+              <p className="text-slate-200 text-lg md:text-xl leading-relaxed mt-7">
+                בדלפק לא מתווכחים. אין רכב, אין החזר על ההזמנה, ואין מוניות שיאספו ארבעה אנשים עם מזוודות בשעה הזאת. המלון במרחק שעה נסיעה, והטיול שתכננת חודשים מתחיל בטלפונים.
               </p>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-slate-300">
+                <span>רישיון שפג לפני שבוע</span>
+                <span aria-hidden="true" className="hidden sm:inline text-gold">·</span>
+                <span>בלי רישיון בינלאומי באיטליה</span>
+                <span aria-hidden="true" className="hidden sm:inline text-gold">·</span>
+                <span>פיקדון שתופס את כל המסגרת</span>
+              </div>
+              <p className="text-slate-400 mt-8">
+                כל אחד מהם מספיק כדי שלא תצא משם עם רכב. וזה קורה כל לילה, בכל שדה תעופה.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* La réponse : pourquoi le site existe */}
+        <section className="bg-white">
+          <div className="max-w-2xl mx-auto px-6 py-28 md:py-36 text-center">
+            <Reveal>
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight">
+                בשביל זה האתר הזה קיים.
+              </h2>
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-7">
+                כדי שהחלק הזה של הטיול יהיה מתוכנן כמו כל השאר. מה לבדוק לפני שמזמינים, מה חייב להיות בתיק, ומה עונים כשמנסים למכור לך משהו בדלפק. הכל במקום אחד, כתוב על ידי מי שעמד בצד השני של הדלפק.
+              </p>
+              <LaneDash className="mt-10 max-w-[120px] mx-auto" />
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/guide" className="bg-gold text-navy text-base font-bold px-9 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center w-full sm:w-auto">
                   קרא את המדריך ←
                 </Link>
-                <Link href="/posts" className="text-white text-base font-semibold hover:text-gold transition-colors inline-flex items-center gap-2">
+                <Link href="/posts" className="text-navy text-base font-semibold hover:text-gold transition-colors inline-flex items-center gap-2">
                   או תתחיל ממאמר <ArrowLeft size={15} />
                 </Link>
               </div>

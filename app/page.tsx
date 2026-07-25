@@ -110,53 +110,58 @@ export default function HomePage() {
       <HeaderV2 />
       <main>
 
-        {/* ───────────── HERO ───────────── */}
-        <section className="relative z-20 bg-[#0b1730]">
+        {/* ───────────── HERO ─────────────
+            Hauteur verrouillée sur une hauteur d'écran (100svh, la mesure qui
+            ignore les barres mobiles rétractables). Tous les rythmes verticaux
+            et la taille du titre sont en clamp() indexé sur vh : le bloc se
+            comprime au lieu de déborder. Le min-h (et non h) reste un filet de
+            sécurité pour les écrans extrêmement bas (paysage mobile). */}
+        <section className="relative z-20 bg-[#0b1730] min-h-[100svh] flex items-center">
           <div className="absolute inset-0 overflow-hidden">
             <HeroBackground />
           </div>
           <div className="absolute inset-0 bg-gradient-to-bl from-[#0b1730]/90 via-[#0b1730]/70 to-[#0e1f3e]/55" />
 
-          <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-44 md:pb-28">
+          <div className="relative w-full max-w-6xl mx-auto px-6 pt-[clamp(5rem,11vh,8.5rem)] pb-[clamp(2.5rem,6vh,4.5rem)]">
             <Reveal y={14}>
-              <p className="text-gold text-xs font-bold tracking-[0.25em] mb-7">המדריך העצמאי הישראלי</p>
+              <p className="text-gold text-xs font-bold tracking-[0.25em] mb-[clamp(0.75rem,2.2vh,1.75rem)]">המדריך העצמאי הישראלי</p>
             </Reveal>
             <Reveal y={16} delay={80}>
-              <h1 className="text-white font-black tracking-[-0.035em] leading-[0.95] text-[clamp(2.6rem,8vw,5.5rem)] max-w-4xl">
+              <h1 className="text-white font-black tracking-[-0.035em] leading-[0.95] text-[clamp(2.1rem,min(8vw,7.6vh),5.5rem)] max-w-4xl">
                 תדע הכל לפני<br />שתגיע לדלפק.
               </h1>
             </Reveal>
-            <Reveal delay={160}><LaneDash className="mt-8 max-w-[200px]" /></Reveal>
+            <Reveal delay={160}><LaneDash className="mt-[clamp(1rem,2.4vh,2rem)] max-w-[200px]" /></Reveal>
             <Reveal y={14} delay={220}>
-              <p className="text-slate-300 text-lg md:text-xl leading-relaxed mt-8 max-w-2xl">
+              <p className="text-slate-300 text-[clamp(0.95rem,1.9vh,1.25rem)] leading-relaxed mt-[clamp(1rem,2.6vh,2rem)] max-w-2xl">
                 המדריך המקיף ביותר להשכרת רכב בחו״ל. כתוב על ידי מי שעבד בתחום יותר מעשר שנים, מהצד השני של הדלפק.
               </p>
             </Reveal>
 
-            <div className="relative z-30 mt-9 max-w-xl">
+            <div className="relative z-30 mt-[clamp(1.25rem,2.8vh,2.25rem)] max-w-xl">
               <HeroSearch />
             </div>
 
             <Reveal y={14} delay={360}>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-3.5 rounded-none hover:bg-[#b8941f] transition-colors text-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-[clamp(1rem,2.4vh,2rem)]">
+                <Link href="/guide" className="bg-gold text-navy text-base font-bold px-8 py-[clamp(0.7rem,1.5vh,0.875rem)] rounded-none hover:bg-[#b8941f] transition-colors text-center">
                   קרא את המדריך ←
                 </Link>
-                <BookingCTA anon="long" className="border border-white/30 text-white text-base font-semibold px-8 py-3.5 rounded-none hover:bg-white/10 transition-colors text-center">
+                <BookingCTA anon="long" className="border border-white/30 text-white text-base font-semibold px-8 py-[clamp(0.7rem,1.5vh,0.875rem)] rounded-none hover:bg-white/10 transition-colors text-center">
                   איפה הכי כדאי להזמין?
                 </BookingCTA>
               </div>
             </Reveal>
 
             <Reveal delay={440}>
-              <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4">
+              <div className="mt-[clamp(1.5rem,4.5vh,4rem)] flex flex-wrap items-center gap-x-10 gap-y-3">
                 {[
                   { v: "10+", l: "שנות ניסיון" },
                   { v: "1000s", l: "הזמנות שטופלו" },
                   { v: "18", l: "פרקים במדריך" },
                 ].map((s) => (
                   <div key={s.l} className="flex items-baseline gap-2.5">
-                    <span className={`text-2xl md:text-3xl font-bold text-gold ${mono}`}>{s.v}</span>
+                    <span className={`text-[clamp(1.25rem,2.6vh,1.875rem)] font-bold text-gold ${mono}`}>{s.v}</span>
                     <span className="text-slate-400 text-sm">{s.l}</span>
                   </div>
                 ))}

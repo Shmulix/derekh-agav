@@ -11,7 +11,7 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 
 | Route | Fichier | Statut | Notes |
 |---|---|---|---|
-| `/` | `app/page.tsx` | ✅ En ligne | Home : hero + recherche Fuse.js + sections + 3 derniers posts |
+| `/` | `app/page.tsx` | ✅ En ligne | Home : hero + recherche Fuse.js + sections + 3 derniers posts. Hero verrouillé sur une hauteur d'écran (`min-h-[100svh]`, contenu centré, rythmes et taille du h1 en `clamp()` indexé sur `vh` pour ne jamais déborder). |
 | `/guide` | `app/guide/page.tsx` | ✅ En ligne | Guide complet, 19 sections (voir `docs/content/guide.md`) |
 | `/posts` | `app/posts/page.tsx` | ✅ En ligne | Archive des articles, grille 3/2/1 col |
 | `/posts/ztl-italy` | `app/posts/ztl-italy/page.tsx` | ✅ En ligne | Post ZTL Italie |

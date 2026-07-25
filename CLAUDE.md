@@ -199,6 +199,18 @@ The site is live on Vercel: **https://derekh-agav.vercel.app**
 GitHub repo: **https://github.com/Shmulix/derekh-agav**
 Branch: **master**
 
+### ⚠️ AGENT VPS — le repo a un deuxième contributeur
+
+Un agent Claude tourne 24/7 sur le VPS Hetzner (topic Telegram « site ») avec un clone du
+repo et une deploy key en écriture (`claude-vps-derekh`). Il peut pousser sur `master`
+(publication de posts validée par Samuel). Conséquences ici, en local :
+
+1. **Toujours `git pull --rebase origin master` avant de commencer à travailler** — le
+   VPS a peut-être publié entre-temps.
+2. **Toujours pousser après chaque modification** (le `/deploy-site` le fait déjà) : le
+   VPS ne voit QUE ce qui est sur GitHub. Un travail local non poussé est invisible pour lui.
+3. Le pilotage de l'agent VPS se fait depuis `C:\Users\sampe\Desktop\claude-telegram-vps`.
+
 ### VERCEL ACCESS — already authenticated, no need to search
 
 The Vercel CLI is logged in as user **`shmulix`**, team **`samuels-projects-963d06d6`**.
@@ -288,6 +300,18 @@ Sources de vérité à consulter en continu, dans cet ordre : **CLAUDE.md** (ce 
 ## SESSION STARTUP — MANDATORY
 
 Au début de chaque nouvelle session (pas `-c` continue), faire dans cet ordre :
+
+0. **Se mettre à jour depuis GitHub (OBLIGATOIRE, en premier)** — l'agent VPS publie
+   peut-être sur `master` pendant que ce PC est fermé :
+```bash
+git fetch origin
+git status -sb        # y a-t-il du travail local non commité ?
+git pull --rebase origin master
+```
+   - Si le pull rapporte des nouveautés : signaler à l'utilisateur ce qui a changé
+     (`git log --oneline ORIG_HEAD..HEAD`).
+   - Si conflit de rebase ou travail local non commité qui bloque : NE PAS forcer,
+     montrer la situation à l'utilisateur et décider avec lui.
 
 1. **Vérifier si Claude Code est à jour**
 ```bash

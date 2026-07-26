@@ -71,6 +71,33 @@ const facts: { icon: FactIconName; title: string; text: string }[] = [
   },
 ];
 
+// Quatre malentendus concrets et fréquents, ancrés dans le guide (documents,
+// catégorie ACRISS, extras). Suite directe de la section précédente
+// ("Why this site"), sans nouvelle mise en scène : le pont vers "les cinq
+// règles" et la section de légitimité du site.
+const scenarios = [
+  {
+    icon: "🪪",
+    assumption: "חשבת שרישיון זמני מספיק?",
+    reality: "רישיון נהיגה זמני מודפס לא מוכר בשום דלפק בעולם. בלי הפלסטיק המקורי בתוקף, אין רכב. גם אם הרישיון הקבוע כבר בדרך אליך בדואר.",
+  },
+  {
+    icon: "🚗",
+    assumption: "חשבת שהזמנת בדיוק את הרכב שראית בתמונה?",
+    reality: "בהשכרת רכב מזמינים קטגוריה, לא דגם ספציפי. קיבלת רכב אחר לגמרי מזה שבאתר, אבל באותה קטגוריה? זה חוקי לחלוטין.",
+  },
+  {
+    icon: "🧳",
+    assumption: "חשבת שכל המזוודות פשוט ייכנסו?",
+    reality: "אותה קטגוריה יכולה לכלול דגמים עם תא מטען בגודל שונה. משפחה עם שתי מזוודות גדולות ועגלת תינוק יכולה למצוא את עצמה דוחסת ציוד על המושב האחורי.",
+  },
+  {
+    icon: "👶",
+    assumption: "חשבת שכיסא הבטיחות פשוט יחכה לך?",
+    reality: "כיסא לתינוק לא תמיד זמין בכל תחנה, והתשלום עליו תמיד במקום, לא בהזמנה מראש. מי שלא מאשר זמינות מול חברת ההשכרה מראש, מהמר.",
+  },
+];
+
 const reasons = [
   { title: "מניסיון אמיתי", text: "לא עוד מאמר של מי שמעולם לא עמד מול לקוח בדלפק." },
   { title: "במה שמפספסים", text: "כל נקודה היא דבר שראיתי אנשים נופלים עליו. לפחות פעם אחת." },
@@ -221,20 +248,43 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Le pire des cas, en une image */}
+        {/* Suite directe de "Why this site" : quatre malentendus concrets,
+            pont vers "les cinq règles" puis la légitimité du site */}
         <section className="relative bg-[#0b1730] overflow-hidden">
           <ParallaxBackdrop src="/night-arrival.avif" opacity={0.9} />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0b1730]/70 via-[#0b1730]/80 to-[#0b1730]/92" />
 
-          <div className="relative max-w-3xl mx-auto px-6 py-28 md:py-40 text-center">
+          <div className="relative max-w-3xl mx-auto px-6 py-28 md:py-40">
             <Reveal>
-              <p className={`text-xl md:text-2xl tracking-[0.3em] text-gold font-bold ${mono}`}>23:40</p>
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mt-5">
-                נחתת. שני ילדים, ארבע מזוודות.
-                <span className="block text-gold mt-1">והכרטיס לא על שמך.</span>
-              </h2>
-              <p className="text-slate-200 text-lg md:text-xl leading-relaxed mt-7">
-                בדלפק לא מתווכחים. אין רכב, אין החזר על ההזמנה, ואין מוניות שיאספו ארבעה אנשים עם מזוודות בשעה הזאת. המלון במרחק שעה נסיעה, והטיול שתכננת חודשים מתחיל בטלפונים.
+              <div className="text-center">
+                <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>In practice</p>
+                <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight mt-4">
+                  ארבעה דברים קטנים
+                  <span className="block text-gold mt-1">שהופכים לזה.</span>
+                </h2>
+                <p className="text-slate-200 text-lg md:text-xl leading-relaxed mt-7 max-w-xl mx-auto">
+                  וזה לא מליצה. הנה ארבע דוגמאות אמיתיות, מהסוג שחוזר על עצמו בדלפק שוב ושוב:
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 gap-4 mt-12">
+              {scenarios.map((s, i) => (
+                <Reveal key={s.assumption} delay={i * 90}>
+                  <div className="h-full bg-white/5 border border-white/10 rounded-none p-5">
+                    <div className="flex items-start gap-3 mb-2">
+                      <span className="text-xl flex-shrink-0">{s.icon}</span>
+                      <p className="text-gold font-bold text-base leading-snug">{s.assumption}</p>
+                    </div>
+                    <p className="text-slate-300 text-sm leading-relaxed">{s.reality}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={4 * 90}>
+              <p className="text-center text-slate-200 text-lg md:text-xl leading-relaxed font-semibold mt-12">
+                וזה עוד לפני שדיברנו על מה שבאמת עולה כסף: הפיקדון, הביטוח, והחוזה עצמו.
               </p>
             </Reveal>
           </div>

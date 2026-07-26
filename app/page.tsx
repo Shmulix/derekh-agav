@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 import HeaderV2 from "@/components/v2/HeaderV2";
 import FooterV2 from "@/components/v2/FooterV2";
 import LaneDash from "@/components/v2/LaneDash";
-import FactIcon, { type FactIconName } from "@/components/v2/FactIcon";
 import Reveal from "@/components/Reveal";
 import HeroSearch from "@/components/HeroSearch";
 import TestimonialsV2 from "@/components/v2/TestimonialsV2";
@@ -38,36 +37,6 @@ const guideIndex = [
   { n: "05", label: "גיל הנהג", href: "/guide#young-driver" },
   { n: "11", label: "דלק", href: "/guide#fuel" },
   { n: "13", label: "קנסות ודוחות", href: "/guide#fines" },
-];
-
-// Les règles du métier qu'un voyageur ne peut pas deviner. Chacune est un
-// mécanisme, pas une anecdote : c'est ce qui rend le domaine impitoyable.
-const facts: { icon: FactIconName; title: string; text: string }[] = [
-  {
-    icon: "deposit",
-    title: "הפיקדון לא יורד מהחשבון. הוא ננעל בו.",
-    text: "התחנה תופסת סכום במסגרת האשראי שלך לכל תקופת ההשכרה, ולפעמים שבועיים אחריה. אם המסגרת לא מספיקה, אין רכב. גם אם יש לך כסף בעובר ושב.",
-  },
-  {
-    icon: "shield",
-    title: "CDW הוא לא ביטוח מלא. זו הגבלת אחריות.",
-    text: "נשארת עם השתתפות עצמית שיכולה להגיע לאלפי אירו. ״כלול בהזמנה״ לא אומר ״מכוסה במאה אחוז״, וזה ההבדל היקר ביותר בתחום.",
-  },
-  {
-    icon: "glass",
-    title: "צמיגים, שמשות, גג ותחתית כמעט תמיד מחוץ לכיסוי.",
-    text: "אלה בדיוק החלקים שנפגעים הכי הרבה בכביש. גם עם הכיסוי המורחב, ברוב החוזים הם מוחרגים במפורש.",
-  },
-  {
-    icon: "card",
-    title: "הכרטיס חייב להיות של הנהג הראשי.",
-    text: "כרטיס דביט, כרטיס נטען או כרטיס על שם בן הזוג לא מתקבלים ברוב התחנות. אין כרטיס מתאים, אין מפתחות, וההזמנה לא מוחזרת.",
-  },
-  {
-    icon: "wheel",
-    title: "נהג שלא רשום בחוזה מבטל את הכיסוי.",
-    text: "אם מי שנהג ברגע התאונה לא מופיע בחוזה, הביטוח לא חל. גם אם זו בת הזוג, וגם אם התחלפתם רק לחצי שעה.",
-  },
 ];
 
 const reasons = [
@@ -220,39 +189,24 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Les règles que personne ne connaît avant de tomber dessus */}
+        {/* Le probleme, explique en general avec deux exemples integres
+            (pas une liste de tuiles) */}
         <section className="bg-[#f8f9fc] border-y border-[#e7e9f0]">
-          <div className="max-w-3xl mx-auto px-6 py-28 md:py-36">
+          <div className="max-w-3xl mx-auto px-6 py-28 md:py-36 text-center">
             <Reveal>
-              <div className="text-center">
-                <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The rules</p>
-                <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-4">
-                  חמישה דברים שלא כתובים
-                  <span className="block text-gold mt-1">בשובר ההזמנה.</span>
-                </h2>
-                <p className="text-[#3a4255] text-lg leading-relaxed mt-7 max-w-xl mx-auto">
-                  אף אחד לא נולד עם הידע הזה, ואף אחד לא טורח להסביר אותו לפני שמגיעים לדלפק.
-                </p>
-              </div>
-            </Reveal>
-
-            <div className="mt-16 divide-y divide-[#e0e4ee]">
-              {facts.map((f, i) => (
-                <Reveal key={f.title} delay={i * 90}>
-                  <div className="flex items-start gap-5 md:gap-7 py-7 first:pt-0">
-                    <FactIcon name={f.icon} className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-gold mt-0.5" />
-                    <div>
-                      <h3 className="text-navy text-lg md:text-xl font-bold leading-snug">{f.title}</h3>
-                      <p className="text-[#5b6377] leading-relaxed mt-2">{f.text}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delay={120}>
-              <p className="text-center text-[#5b6377] mt-12">
-                וזה חמישה מתוך הרבה יותר. כל אחד מהם עולה כסף, זמן, או את הרכב עצמו.
+              <p className={`text-[11px] font-semibold tracking-[0.2em] text-gold uppercase ${mono}`}>The mechanism</p>
+              <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight mt-4">
+                זה לא חוסר מזל.
+                <span className="block text-gold mt-1">זה איך זה בנוי.</span>
+              </h2>
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-8">
+                השכרת רכב בנויה על ברירות מחדל שאף אחד לא טורח להסביר. לא כי מסתירים ממך במתכוון, אלא כי זה ה״מובן מאליו״ של התעשייה: מי שעובד בה כל היום שוכח שלא כולם יודעים את זה.
+              </p>
+              <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-5">
+                קחו לדוגמה את הפיקדון: הוא לא באמת יורד מהחשבון, הוא רק ננעל שם עד שמחזירים את הרכב. או את ה-CDW שכלול ב״הזמנה״: הוא לא ביטוח מלא, אלא הגבלת אחריות, עם השתתפות עצמית שיכולה להגיע לאלפי אירו.
+              </p>
+              <p className="text-navy text-lg md:text-xl leading-relaxed font-semibold mt-5">
+                ואותו עיקרון בדיוק חוזר על עצמו בכל פינה: מי שלא רשום כנהג בחוזה מבטל את הכיסוי, גם אם זה בן או בת הזוג שהחליפו לחצי שעה. אלה לא חריגים. זה איך המנגנון עובד, בכל חברת השכרה, בכל מדינה. וברוב המקרים, לומדים את זה רק אחרי שכבר קרה.
               </p>
             </Reveal>
           </div>
@@ -263,8 +217,8 @@ export default function HomePage() {
           <div className="max-w-2xl mx-auto px-6 py-28 md:py-36 text-center">
             <Reveal>
               <h2 className="text-3xl md:text-5xl font-black text-navy tracking-tight leading-tight">
-                והבעיה השנייה:
-                <span className="block text-gold mt-1">אין איפה ללמוד את זה.</span>
+                אין איפה ללמוד
+                <span className="block text-gold mt-1">את זה מראש.</span>
               </h2>
               <p className="text-[#3a4255] text-lg md:text-xl leading-relaxed mt-8">
                 חברות ההשכרה לא מסבירות, הן מוכרות. אתרי ההשוואה משווים מחיר, לא תנאים. בפורומים כל אחד עונה משהו אחר. ואת החוזה קוראים אחרי שכבר חתמו עליו.

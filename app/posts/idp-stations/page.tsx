@@ -42,7 +42,7 @@ const articleJsonLd = buildArticleJsonLd({
     "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לאפריל 2026.",
   image: "/idp-counter.avif",
   datePublished: "2026-04-27",
-  dateModified: "2026-07-04", // update this on every edit
+  dateModified: "2026-09-26", // update this on every edit
 });
 
 const mobileTocItems = [
@@ -56,7 +56,7 @@ const mobileTocItems = [
 const whatToBring = [
   { icon: "🪪", text: "רישיון נהיגה ישראלי פיזי בתוקף" },
   { icon: "📘", text: "תעודת זהות או דרכון" },
-  { icon: "💵", text: "10.10 ₪ לתשלום בתחנה" },
+  { icon: "💵", text: "11.20 ₪ לתשלום בתחנה (באילת 9.50 ₪)" },
   { icon: "🕐", text: "כ-15 דקות מזמנך" },
 ];
 

@@ -52,7 +52,7 @@ const articleJsonLd = buildArticleJsonLd({
     "הרישיון הישראלי בהשכרת רכב בחו״ל: מה מתקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.",
   image: "/israeli-driving-license.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-07-04", // update this on every edit
+  dateModified: "2026-09-26", // update this on every edit
 });
 
 export default function DrivingLicenseAbroadPost() {
@@ -96,7 +96,7 @@ export default function DrivingLicenseAbroadPost() {
               />
               <div>
                 <p className="text-white text-sm font-semibold leading-none">{author.name}</p>
-                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: אפריל 2026</p>
+                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: ספטמבר 2026</p>
               </div>
             </div>
           </div>
@@ -199,6 +199,13 @@ export default function DrivingLicenseAbroadPost() {
           </div>
 
 
+          <div className="callout-tip mb-8">
+            <p className="text-sm font-bold text-amber-800 mb-1">איפה הכרטיס שלך עכשיו?</p>
+            <p className="text-sm text-amber-700 leading-relaxed">
+              בישראל מותר לנהוג בלי לשאת את הרישיון (תקנה 9 לתקנות התעבורה). לכן הרבה אנשים לא ראו את הכרטיס שלהם כבר שנים. בחו״ל אין דבר כזה: בלי הפלסטיק ביד, אין רכב. תמצא אותו לפני שאתה אורז, לא בלילה שלפני הטיסה.
+            </p>
+          </div>
+
           {/* Section 2 — מה דלפק התחנה לא מקבל */}
           <h2 id="invalid" className="text-xl md:text-2xl font-bold text-navy mb-4 scroll-mt-24">
             מה דלפק התחנה לא מקבל: רשימת הטעויות שחוזרות שוב ושוב
@@ -232,12 +239,12 @@ export default function DrivingLicenseAbroadPost() {
                   קיבלת מכתב שהרישיון החדש בדרך? הפקיד במשרד הרישוי לא יגיד לך את זה, אבל הנייר הזה לא שווה כלום מחוץ לישראל. דלפק התחנה מסתכל ורואה נייר, לא רישיון. אם יש לך רישיון זמני, אתה צריך את הפלסטיק לפני שאתה יוצא.
                 </p>
                 <a
-                  href="https://www.gov.il/he/pages/fast_license"
+                  href="https://www.gov.il/he/pages/driving_license_renewal_guide?chapterIndex=3"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-700 underline underline-offset-2 mt-2"
                 >
-                  חידוש מהיר של רישיון נהיגה באתר gov.il
+                  הנפקת רישיון נהיגה מהיום למחר באתר gov.il
                   <ExternalLink size={12} />
                 </a>
               </div>
@@ -328,7 +335,7 @@ export default function DrivingLicenseAbroadPost() {
             הרישיון פג לפני הנסיעה? יש מה לעשות
           </h2>
           <p className="text-base text-gray-700 leading-relaxed mb-4">
-            הבשורה הטובה: אפשר לפתור את זה מהר. משרד התחבורה מפעיל שירות חידוש מהיר שמאפשר לקבל רישיון תוך יממה עסקית אחת. שירות רשמי, לא שמועה.
+            הבשורה הטובה: אפשר לפתור את זה מהר. דפוס בארי, בית הדפוס שמפיק את רישיונות הנהיגה עבור משרד התחבורה, מציע הנפקה דחופה: הרישיון מוכן ביום העסקים שאחרי ההזמנה. זה שירות בתשלום נוסף, מעבר לאגרה, ומשרד התחבורה מציין שהוא לא באחריותו. אבל הוא עובד.
           </p>
 
           <div className="callout-tip mb-5">
@@ -337,8 +344,8 @@ export default function DrivingLicenseAbroadPost() {
               {[
                 { step: "משלמים את אגרת החידוש", detail: "באתר משרד התחבורה, בעמדת רישיומט, או במוקד *5678" },
                 { step: "מצטלמים אם נדרש", detail: "רק אם משרד התחבורה מבקש עדכון תמונה. בתחנות הצילום המורשות." },
-                { step: "נכנסים לאתר הרישיון המהיר (fastdl.co.il)", detail: "ביממת העסקים שלאחר התשלום, בוחרים אופן קבלה" },
-                { step: "בוחרים איך לקבל", detail: "איסוף עצמי בנתב״ג, משלוח מהיר הביתה, איסוף מדפוס בארי, מסירה במעברי גבול נבחרים ועוד" },
+                { step: "נכנסים לאתר הרישיון המהיר (fastdl.co.il)", detail: "מיום העסקים שאחרי התשלום או הצילום, המאוחר מביניהם, ולמשך 48 שעות בלבד. פספסת את החלון? הרישיון יוצא בדרך הרגילה. התשלום בכרטיס אשראי ישראלי." },
+                { step: "בוחרים איך לקבל", detail: "איסוף בנתב״ג (טרמינל 3, אולם מקבלי הפנים) מ-16:00 ביום העסקים שאחרי ההזמנה, איסוף מדפוס בארי מ-11:00, משלוח מהיר הביתה תוך שני ימי עסקים, או מסירה במעברי גבול נבחרים" },
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-amber-700">
                   <span className="font-bold text-amber-800 flex-shrink-0 w-5">{i + 1}.</span>
@@ -353,16 +360,19 @@ export default function DrivingLicenseAbroadPost() {
             רישיון שפג שבוע לפני הנסיעה? בר-פתרון. מגלה ביום הטיסה? זה כבר לחץ אחר לגמרי.
           </p>
           <p className="text-sm text-gray-500 leading-relaxed mb-4">
-            שים לב: אם צריך תמונה חדשה, בוחרים אופן הפצה רק ביממה שאחרי הצילום, לא מיד אחרי התשלום. תכנן את לוח הזמנים בהתאם.
+            שים לב: אם צריך תמונה חדשה, בוחרים אופן הפצה רק ביממה שאחרי הצילום, לא מיד אחרי התשלום. שישי וערבי חג לא נחשבים ימי עסקים: הזמנה ביום חמישי מוכנה רק ביום ראשון. הטיסה בעוד כמה ימים? הרישיון מחכה בנתב״ג עד שבועיים, ואוספים אותו בדרך לטיסה.
+          </p>
+          <p className="text-base text-gray-700 leading-relaxed mb-4">
+            הרישיון אבד או נגנב? אותו מסלול בדיוק. מזמינים העתק (כפל) רישיון באתר משרד התחבורה, מדווחים למשטרה, ואז בוחרים משלוח מהיר באתר של דפוס בארי. כנראה שתצטרך גם להצטלם מחדש, אז תכניס את זה ללוח הזמנים.
           </p>
           <div className="flex flex-wrap gap-3 mb-8">
             <a
-              href="https://www.gov.il/he/pages/fast_license"
+              href="https://www.gov.il/he/pages/driving_license_renewal_guide?chapterIndex=3"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:text-navy-dark"
             >
-              חידוש מהיר של רישיון נהיגה באתר gov.il
+              הנפקת רישיון נהיגה מהיום למחר באתר gov.il
               <ExternalLink size={14} />
             </a>
             <span className="text-gray-300">|</span>
@@ -373,6 +383,16 @@ export default function DrivingLicenseAbroadPost() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:text-navy-dark"
             >
               אתר הרישיון המהיר: fastdl.co.il
+              <ExternalLink size={14} />
+            </a>
+            <span className="text-gray-300">|</span>
+            <a
+              href="https://www.gov.il/he/service/duplicate_drivers_license_in_case_of_loss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-navy underline underline-offset-2 hover:text-navy-dark"
+            >
+              העתק רישיון נהיגה במקרה של אובדן או גניבה
               <ExternalLink size={14} />
             </a>
           </div>
@@ -460,7 +480,7 @@ export default function DrivingLicenseAbroadPost() {
               <p className="font-bold text-navy mb-1">חובה חוקית שלא תמיד נאכפת</p>
               <p className="text-sm text-gray-700 leading-relaxed">
                 70% מדלפקי התחנות לא יבקשו אותו. אבל זה לא אומר שאתה פטור. זה אומר שהפעם הפקיד לא בדק.
-                ה-30% האחרים? שם אין ויכוח. IDP עולה כמה עשרות שקלים ומוציאים תוך כמה דקות. אין שום סיבה להגיע בלעדיו.
+                ה-30% האחרים? שם אין ויכוח. IDP עולה 11.20 ש״ח ומוציאים אותו תוך כמה דקות. אין שום סיבה להגיע בלעדיו.
               </p>
             </div>
           </div>

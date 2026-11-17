@@ -41,6 +41,8 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  // Image Docker du site de staging (VPS, Coolify). Sans effet sur Vercel.
+  output: "standalone",
   poweredByHeader: false,
   images: {
     domains: [],

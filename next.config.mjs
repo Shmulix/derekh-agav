@@ -6,12 +6,16 @@ import { ANONYMOUS_MODE } from "./site-mode.mjs";
 // Le site est 100% statique (pas d'API, pas de middleware, pas de scripts externes) :
 // la CSP peut donc etre stricte. 'unsafe-inline' reste requis pour les scripts
 // d'hydratation inline de Next.js et les styles inline (next/font, JSON-LD exclu).
+// En développement seulement, 'unsafe-eval' est ajouté : le serveur de dev de Next (rechargement
+// à chaud) en a besoin, sinon React ne démarre pas et plus rien n'est cliquable en local.
+// La production (next build) n'en a pas besoin et garde la CSP stricte.
+const isDev = process.env.NODE_ENV === "development";
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",

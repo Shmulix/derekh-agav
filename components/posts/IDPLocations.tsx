@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { idpLocations as locations } from "@/lib/data/idp-locations";
+import { idpLocations as locations, IDP_DATA_DATE } from "@/lib/data/idp-locations";
 
 const PER_PAGE = 5;
 
@@ -121,7 +121,7 @@ export default function IDPLocations() {
         >
           משרד התחבורה
         </a>
-        . עדכני לאפריל 2026. מומלץ לאשר לפני הגעה.
+        . עדכני ל{IDP_DATA_DATE}. מומלץ לאשר לפני הגעה.
       </p>
     </div>
   );

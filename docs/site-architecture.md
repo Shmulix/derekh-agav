@@ -17,7 +17,7 @@ Site live : https://derekh-agav.vercel.app | Repo : https://github.com/Shmulix/d
 | `/posts/ztl-italy` | `app/posts/ztl-italy/page.tsx` | ✅ En ligne | Post ZTL Italie |
 | `/posts/driving-license-abroad` | `app/posts/driving-license-abroad/page.tsx` | ✅ En ligne | Permis israélien à l'étranger |
 | `/posts/international-driving-permit` | `app/posts/international-driving-permit/page.tsx` | ✅ En ligne | Permis international (IDP) |
-| `/posts/idp-stations` | `app/posts/idp-stations/page.tsx` | ✅ En ligne | 66 stations IDP (données dans `lib/data/idp-locations.ts`) |
+| `/posts/idp-stations` | `app/posts/idp-stations/page.tsx` | ✅ En ligne | 74 stations IDP dans 64 villes, liste gov.il du 2026-11-17 (données dans `lib/data/idp-locations.ts`) |
 | `/posts/rental-platforms` | `app/posts/rental-platforms/page.tsx` | ✅ En ligne (placeholder) | Comparatif éditorial simulé. Cible des CTAs en mode normal. Volontairement hors registre `lib/posts.ts` (pas dans l'archive). |
 | 404 | `app/not-found.tsx` | ✅ | Page 404 hébreu RTL, charte navy/gold |
 | erreur | `app/error.tsx` | ✅ | Error boundary générique avec bouton retry |

@@ -52,7 +52,7 @@ const articleJsonLd = buildArticleJsonLd({
     "הרישיון הישראלי בהשכרת רכב בחו״ל: מה מתקבל, מה לא, ומה קורה אם הרישיון פג או אבד לפני הנסיעה.",
   image: "/israeli-driving-license.avif",
   datePublished: "2026-04-09",
-  dateModified: "2026-09-26", // update this on every edit
+  dateModified: "2026-11-17", // update this on every edit
 });
 
 export default function DrivingLicenseAbroadPost() {
@@ -96,7 +96,7 @@ export default function DrivingLicenseAbroadPost() {
               />
               <div>
                 <p className="text-white text-sm font-semibold leading-none">{author.name}</p>
-                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: ספטמבר 2026</p>
+                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: נובמבר 2026</p>
               </div>
             </div>
           </div>
@@ -480,7 +480,7 @@ export default function DrivingLicenseAbroadPost() {
               <p className="font-bold text-navy mb-1">חובה חוקית שלא תמיד נאכפת</p>
               <p className="text-sm text-gray-700 leading-relaxed">
                 70% מדלפקי התחנות לא יבקשו אותו. אבל זה לא אומר שאתה פטור. זה אומר שהפעם הפקיד לא בדק.
-                ה-30% האחרים? שם אין ויכוח. IDP עולה 11.20 ש״ח ומוציאים אותו תוך כמה דקות. אין שום סיבה להגיע בלעדיו.
+                ה-30% האחרים? שם אין ויכוח. IDP עולה 11.30 ש״ח ומוציאים אותו תוך כמה דקות. אין שום סיבה להגיע בלעדיו.
               </p>
             </div>
           </div>

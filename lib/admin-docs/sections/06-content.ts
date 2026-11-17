@@ -54,7 +54,7 @@ export const contentSection: DocSection = {
         ["`ztl-italy`", "אזורי ZTL באיטליה", "פורסם (מאי 2026)"],
         ["`driving-license-abroad`", "רישיון ישראלי בחו״ל", "פורסם (אפריל 2026)"],
         ["`international-driving-permit`", "רישיון בינלאומי (IDP)", "פורסם (אפריל 2026)"],
-        ["`idp-stations`", "66 תחנות הנפקת IDP עם חיפוש", "פורסם (אפריל 2026)"],
+        ["`idp-stations`", "74 תחנות הנפקת IDP עם חיפוש", "פורסם (אפריל 2026), רשימה עודכנה בנובמבר 2026"],
         ["`usa-toll-pass`", "אגרות כביש בארה״ב ברכב שכור", "פורסם (יולי 2026)"],
         ["`cdw-vs-scdw`", "השוואת ביטוחים", "טיוטה (published: false)"],
         ["`usa-car-rental`", "השכרה בארה״ב", "טיוטה (published: false)"],

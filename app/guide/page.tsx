@@ -477,7 +477,7 @@ export default function GuidePage() {
             <Callout type="tip">
               רישיון נהיגה בינלאומי (IDP, International Driving Permit) מוציאים בנקודות מורשות של משרד התחבורה. לא לוקח הרבה זמן, לא עולה הרבה כסף. מי שמוותר עליו מהמר. אני פחות בקטע של הימורים בחופשה.{" "}
               <Link href="/posts/idp-stations" className="font-semibold underline underline-offset-2 hover:opacity-75">
-                איפה מנפיקים רישיון נהיגה בינלאומי בישראל: כל 66 התחנות ←
+                איפה מנפיקים רישיון נהיגה בינלאומי בישראל: כל 74 התחנות ←
               </Link>
             </Callout>
 

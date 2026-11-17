@@ -62,7 +62,7 @@ export const architectureSection: DocSection = {
             { name: "site-config.ts", note: "זהות, מצבים, CTA. הלב של האתר" },
             { name: "posts.ts", note: "רישום הפוסטים. מקור אמת יחיד" },
             { name: "article-jsonld.ts", note: "בניית JSON-LD לכל פוסט" },
-            { name: "data/idp-locations.ts", note: "66 תחנות IDP" },
+            { name: "data/idp-locations.ts", note: "74 תחנות IDP (רשימת gov.il, נובמבר 2026)" },
             { name: "admin/", note: "אימות: session, סיסמה, throttle" },
             { name: "admin-docs/", note: "תוכן התיעוד הזה (14 פרקים)" },
             { name: "analytics/db.ts", note: "חיבור למסד האנליטיקס (Neon)" },
@@ -126,7 +126,7 @@ export const architectureSection: DocSection = {
               rows: [
                 ["`AuthorByline.tsx`", "כרטיס הכותב. מכבד את המצב האנונימי"],
                 ["`ArticleBreadcrumb.tsx`", "פירורי לחם אחידים לכל פוסט"],
-                ["`IDPLocations.tsx`", "חיפוש 66 התחנות לפי עיר"],
+                ["`IDPLocations.tsx`", "חיפוש 74 התחנות לפי עיר"],
                 ["`IDPGallery.tsx`", "גלריה עם lightbox נגיש"],
               ],
             },

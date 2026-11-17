@@ -15,13 +15,13 @@ import { ChevronLeft, Info, AlertTriangle, ExternalLink } from "lucide-react";
 export const metadata: Metadata = {
   title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל | כל התחנות המורשות",
   description:
-    "רשימה מלאה של 66 תחנות הנפקה מורשות לרישיון נהיגה בינלאומי בישראל. חיפוש לפי עיר, כתובת, טלפון ושעות פתיחה. עדכני לאפריל 2026.",
+    "רשימה מלאה של 74 תחנות הנפקה מורשות לרישיון נהיגה בינלאומי בישראל. חיפוש לפי עיר, כתובת, טלפון ושעות פתיחה. עדכני לנובמבר 2026.",
   alternates: {
     canonical: "https://derekh-agav.vercel.app/posts/idp-stations",
   },
   openGraph: {
     title: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל",
-    description: "כל 66 התחנות המורשות ממשרד התחבורה. חפש לפי עיר וקבל כתובת, טלפון ושעות פתיחה.",
+    description: "כל 74 התחנות המורשות ממשרד התחבורה. חפש לפי עיר וקבל כתובת, טלפון ושעות פתיחה.",
     url: "https://derekh-agav.vercel.app/posts/idp-stations",
     type: "article",
     images: [
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
 
 const articleJsonLd = buildArticleJsonLd({
   slug: "idp-stations",
-  headline: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל: כל 66 התחנות המורשות",
+  headline: "איפה מנפיקים רישיון נהיגה בינלאומי בישראל: כל 74 התחנות המורשות",
   description:
-    "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לאפריל 2026.",
+    "רשימה מלאה של תחנות ההנפקה המורשות לרישיון נהיגה בינלאומי בישראל, מבוססת על נתוני משרד התחבורה. עדכני לנובמבר 2026.",
   image: "/idp-counter.avif",
   datePublished: "2026-04-27",
-  dateModified: "2026-09-26", // update this on every edit
+  dateModified: "2026-11-17", // update this on every edit
 });
 
 const mobileTocItems = [
@@ -56,8 +56,8 @@ const mobileTocItems = [
 const whatToBring = [
   { icon: "🪪", text: "רישיון נהיגה ישראלי פיזי בתוקף" },
   { icon: "📘", text: "תעודת זהות או דרכון" },
-  { icon: "💵", text: "11.20 ₪ לתשלום בתחנה (באילת 9.50 ₪)" },
-  { icon: "🕐", text: "כ-15 דקות מזמנך" },
+  { icon: "💵", text: "11.30 ₪ לתשלום בתחנה (באילת 9.50 ₪)" },
+  { icon: "🕐", text: "כמה דקות מזמנך" },
 ];
 
 export default function IDPStationsPost() {
@@ -88,7 +88,7 @@ export default function IDPStationsPost() {
               איפה מנפיקים רישיון נהיגה בינלאומי בישראל?
             </h1>
             <p className="text-slate-300 text-sm md:text-base mt-2">
-              66 תחנות מורשות ברחבי הארץ. חפש לפי עיר, קבל כתובת, טלפון ושעות פתיחה.
+              74 תחנות מורשות ברחבי הארץ. חפש לפי עיר, קבל כתובת, טלפון ושעות פתיחה.
             </p>
             <div className="flex items-center gap-3 mt-4">
               <Image
@@ -100,7 +100,7 @@ export default function IDPStationsPost() {
               />
               <div>
                 <p className="text-white text-sm font-semibold leading-none">{author.name}</p>
-                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: אפריל 2026</p>
+                <p className="text-slate-400 text-xs mt-0.5">מומחה השכרת רכב בינלאומית · עודכן לאחרונה: נובמבר 2026</p>
               </div>
             </div>
           </div>
@@ -153,10 +153,10 @@ export default function IDPStationsPost() {
               {/* Intro */}
               <div id="intro" className="scroll-mt-24 mb-10">
                 <p className="text-gray-700 text-base leading-relaxed mb-4">
-                  משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-66 תחנות מורשות ברחבי הארץ. בלי תיאום תור מראש ובלי לחכות שבועות. מגיעים, משלמים 10.10 ₪, יוצאים עם רישיון. כל התהליך לוקח ברוב התחנות פחות מרבע שעה.
+                  משרד התחבורה מנפיק רישיון נהיגה בינלאומי ב-74 תחנות מורשות ברחבי הארץ. בלי תיאום תור מראש ובלי לחכות שבועות. מגיעים, משלמים 11.30 ₪ (באילת 9.50 ₪, לפי{" "}<a href="https://www.gov.il/he/service/license-international" target="_blank" rel="noopener noreferrer" className="text-navy font-semibold underline underline-offset-2 hover:opacity-80">gov.il</a>), יוצאים עם רישיון. ההנפקה עצמה לוקחת כמה דקות: צילום, הדפסה, וזהו.
                 </p>
                 <p className="text-gray-700 text-base leading-relaxed mb-4">
-                  למטה תמצא את כל 66 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לאפריל 2026.
+                  למטה תמצא את כל 74 התחנות המורשות לפי נתוני משרד התחבורה, עם חיפוש לפי עיר. כתובת, טלפון ושעות פתיחה לכל תחנה. מעודכן לנובמבר 2026.
                 </p>
                 <p className="text-gray-700 text-base leading-relaxed">
                   אם אתה לא יודע עדיין למה בכלל צריך רישיון נהיגה בינלאומי כשיש לך רישיון ישראלי, כדאי לקרוא קודם את{" "}
@@ -212,7 +212,7 @@ export default function IDPStationsPost() {
                   >
                     משרד התחבורה והבטיחות בדרכים
                   </a>{" "}
-                  ועודכנה לאחרונה באפריל 2026. לאחר מועד זה, ייתכנו שינויים בפרטי תחנות בודדות. לרשימה הרשמית והמעודכנת ביותר:
+                  ועודכנה לאחרונה בנובמבר 2026. לאחר מועד זה, ייתכנו שינויים בפרטי תחנות בודדות. לרשימה הרשמית והמעודכנת ביותר:
                 </p>
                 <a
                   href="https://www.gov.il/he/departments/dynamiccollectors/photo_driving_license_stock"

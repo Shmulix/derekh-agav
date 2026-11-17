@@ -1,7 +1,7 @@
 # Post : driving-license-abroad
 
 > Fichier : `app/posts/driving-license-abroad/page.tsx`. Métadonnées : `lib/posts.ts`.
-> Dernière mise à jour : 2026-09-26 (vérif. gov.il + fastdl.co.il : lien fast_license mort remplacé, service express attribué à Defus Be'eri (payant, hors responsabilité du ministère), fenêtre de 48 h, délais et retrait à Ben Gourion, cas du permis perdu/volé, rappel תקנה 9, prix IDP 11.20 ₪).
+> Dernière mise à jour : 2026-11-17 (prix IDP 11.30 ₪). Précédente : 2026-09-26 (vérif. gov.il + fastdl.co.il : lien fast_license mort remplacé, service express attribué à Defus Be'eri (payant, hors responsabilité du ministère), fenêtre de 48 h, délais et retrait à Ben Gourion, cas du permis perdu/volé, rappel תקנה 9, prix IDP 11.20 ₪).
 
 - **Titre** : רישיון נהיגה ישראלי בהשכרת רכב בחו״ל
 - **Slug** : `/posts/driving-license-abroad`
